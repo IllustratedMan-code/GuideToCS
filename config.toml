@@ -1,0 +1,18 @@
+baseURL = "http://example.org/"
+languageCode = "en-us"
+title = "David Lewis's guide to CS"
+theme = "docport"
+
+
+[[menu.shortcuts]]
+name = "Github"
+url = "https://github.com/IllustratedMan-code"
+
+
+[markup]
+    [markup.goldmark.renderer]
+        unsafe = true
+    [markup.tableOfContents]
+        endLevel = 5
+        ordered = false
+        startLevel = 2
