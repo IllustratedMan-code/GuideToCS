@@ -2,14 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://illustratedman-code.github.io/GuideToCS/categories/</loc>
+    <loc>http://example.org/categories/</loc>
   </url><url>
-    <loc>https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/hard-vs-micro/</loc>
+    <loc>http://example.org/intro-to-comp-systems/hard-vs-micro/</loc>
   </url><url>
-    <loc>https://illustratedman-code.github.io/GuideToCS/</loc>
+    <loc>http://example.org/</loc>
   </url><url>
-    <loc>https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/</loc>
+    <loc>http://example.org/intro-to-comp-systems/</loc>
   </url><url>
-    <loc>https://illustratedman-code.github.io/GuideToCS/tags/</loc>
+    <loc>http://example.org/tags/</loc>
   </url>
 </urlset>
