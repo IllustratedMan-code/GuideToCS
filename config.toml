@@ -1,5 +1,5 @@
 #baseURL = "https://illustratedman-code.github.io/GuideToCS/"
-baseURL = "https://illustratedman-code.github.io"
+baseURL = "https://illustratedman-code.github.io/GuideToCS"
 languageCode = "en-us"
 title = "David Lewis's guide to CS"
 theme = "docport"
