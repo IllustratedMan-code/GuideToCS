@@ -28,9 +28,9 @@ This computer is **Big Endian** (reads the leftmost (most significant) bit first
 -   Micro programmed controllers
 
 
-### <a id="orgf8386f5"></a>figure 1 {#figure-1}
+### <a id="orgdf11d62"></a>figure 1 {#figure-1}
 
-![](/ox-hugo/figure1.png)
+{{< figure src="/ox-hugo/figure1.png" >}}
 
 
 #### Description of figure 1 {#description-of-figure-1}
@@ -76,7 +76,7 @@ Data Path Sections
 #### Arithmetic-Logic-Unit (ALU) {#arithmetic-logic-unit--alu}
 
 A circuit capable of adding or subtracting two 12 bit numbers
-When the first bit of the Accumulator(ACC) is 1 ([Negative Flag](#orgc344b07))
+When the first bit of the Accumulator(ACC) is 1 ([Negative Flag](#orgf62bfdb))
 it is considered a negative number (represented using 2s compliment)
 
 -   Two input registers
@@ -95,13 +95,13 @@ it is considered a negative number (represented using 2s compliment)
 
     <!--list-separator-->
 
-    -  <a id="org5670c44"></a>Memory Address Register (MAR)
+    -  <a id="org2ce9ccd"></a>Memory Address Register (MAR)
 
         Register where address from memory is temporarily stored
 
     <!--list-separator-->
 
-    -  <a id="orgbb40a3f"></a>Memory Data Register (MDR)
+    -  <a id="org9bd19ef"></a>Memory Data Register (MDR)
 
         Register where data (**word**) corresponding to the address in **MAR** is temporarily stored
 
@@ -152,7 +152,7 @@ it is considered a negative number (represented using 2s compliment)
         in the ram.
 
 
-#### <a id="org2d8b88a"></a>Program Counter (PC) Register {#program-counter--pc--register}
+#### <a id="orga36a36b"></a>Program Counter (PC) Register {#program-counter--pc--register}
 
 <!--list-separator-->
 
@@ -189,7 +189,7 @@ The data that the opcode operates on.
 Located at a memory location specified by the 8 bit address in the instruction.
 
 
-### <a id="orgf5f7f8b"></a>Table 1 {#table-1}
+### <a id="org7a39225"></a>Table 1 {#table-1}
 
 {{< figure src="/ox-hugo/table1.png" >}}
 
@@ -202,7 +202,7 @@ Located at a memory location specified by the 8 bit address in the instruction.
 
     The base 10 identity of the 4 bit code(in this computer) at the beginning of every instruction.
     Specifies the _action_ that will be performed, such as loading, moving values.
-    Not shown is the [Fetch Instruction](#org98f1aab) (an instruction used to load the next instruction) and
+    Not shown is the [Fetch Instruction](#org6ffd539) (an instruction used to load the next instruction) and
     can be thought of as having the opcode 0000, but it really doesn't require one (in Hard-Wired)
 
 <!--list-separator-->
@@ -225,7 +225,7 @@ Located at a memory location specified by the 8 bit address in the instruction.
     -   LDA 00100010 is an example instruction
         LDA (Loads data from RAM to accumlulator register)
         by following the steps required to access data from RAM
-        1.  MAR <-- IR moves (copies) the contents of the Instruction Register([IR](#org18a7770)) to the Memory Address Register
+        1.  MAR <-- IR moves (copies) the contents of the Instruction Register([IR](#org67a532c)) to the Memory Address Register
         2.  MDR <-- RAM(MAR) moves the data at address specified by MAR to the MDR register
         3.  ACC <-- MDR moves the contents of MDR to ACC
         4.  ACC <-- RAM is then accomplished.
@@ -235,7 +235,7 @@ Located at a memory location specified by the 8 bit address in the instruction.
 -  Active Control Signals
 
     This column shows the signals that are required (power to signal pin)
-    to perform the specified register transfers. Signal Pins are shown in [Figure 1](#orgf8386f5)
+    to perform the specified register transfers. Signal Pins are shown in [Figure 1](#orgdf11d62)
 
     -   MAR <-- IR requires the EI (enable instruction register) and the LM (Load MAR) signals
     -   MDR <-- RAM(MAR) requires the R (read) signal
@@ -244,7 +244,7 @@ Located at a memory location specified by the 8 bit address in the instruction.
 ## Hard-Wired Control Unit {#hard-wired-control-unit}
 
 
-### <a id="org3e8c6b4"></a>Figure 2 {#figure-2}
+### <a id="orgfb570b2"></a>Figure 2 {#figure-2}
 
 {{< figure src="/ox-hugo/figure2.png" >}}
 
@@ -257,7 +257,7 @@ A control unit consists of a Ring counter, an instruction decoder, and a Control
 
 <!--list-separator-->
 
--  <a id="org18a7770"></a>Instruction Register (IR)
+-  <a id="org67a532c"></a>Instruction Register (IR)
 
     Contains the current instruction (opcode + operand)
     The instruction register sends the Op-code (first 4 bits) to the instruction decoder.
@@ -272,18 +272,18 @@ A control unit consists of a Ring counter, an instruction decoder, and a Control
     3.  Sends a signal to the control matrix corresponding to the opcode from the IR
         Each line to the Control matrix represents a different signal (a set of pins)
 
-    [Figure 4](#orge0c7a64)
+    [Figure 4](#orgb767b5c)
 
 <!--list-separator-->
 
--  <a id="orgc344b07"></a>Negative Flag
+-  <a id="orgf62bfdb"></a>Negative Flag
 
     The leading bit ("negative flag") of the ACC register is fed into the control matrix allowing for
     Boolean logic within the control matrix.
 
 <!--list-separator-->
 
--  <a id="org9142955"></a>Ring Counter
+-  <a id="org7b24cab"></a>Ring Counter
 
     Six **Consecutive** active signals that cycle continuously with every beat of the system clock
 
@@ -291,40 +291,40 @@ A control unit consists of a Ring counter, an instruction decoder, and a Control
         When the signal becomes active (ring pulse T0 means when T0 becomes active)
 
     [A useful article about ring counters](https://www.electronics-tutorials.ws/sequential/seq%5F6.html)
-    [Table 2](#org9d507f3)
+    [Table 2](#orgc50c7bb)
 
 <!--list-separator-->
 
 -  Control Matrix
 
     Most important part of the control unit
-    The control matrix sends out signals to every register in the computer as shown in [Figure 1](#orgf8386f5)
-    and facilitates all of the instructions listed in [Table 1](#orgf5f7f8b) using those signals.
+    The control matrix sends out signals to every register in the computer as shown in [Figure 1](#orgdf11d62)
+    and facilitates all of the instructions listed in [Table 1](#org7a39225) using those signals.
 
 
-### <a id="org5b0bdfc"></a>Figure 3 {#figure-3}
+### <a id="org502a962"></a>Figure 3 {#figure-3}
 
  A visualization of the inner workings of the ring counter
 ![](/ox-hugo/figure3.png)
 
 
-### <a id="orge0c7a64"></a>Figure 4 {#figure-4}
+### <a id="orgb767b5c"></a>Figure 4 {#figure-4}
 
 A visualization of the inner working of the Instruction Decoder.
 Shows how each opcode corresponds to an output line.
 ![](/ox-hugo/figure4.png)
 
 
-### <a id="org9d507f3"></a>Table 2 {#table-2}
+### <a id="orgc50c7bb"></a>Table 2 {#table-2}
 
 Times at which each **Control Signal** must be active in order to execute
 the hard-wired Basic Computer's instructions.
 ![](/ox-hugo/table2.png)
 
 
-#### <a id="org98f1aab"></a>Fetch instruction {#fetch-instruction}
+#### <a id="org6ffd539"></a>Fetch instruction {#fetch-instruction}
 
-The fetch instruction is executed every time the [Ring Counter](#org9142955) loops. This facilitates the
+The fetch instruction is executed every time the [Ring Counter](#org7b24cab) loops. This facilitates the
 next instruction being sent to the Control unit. This instruction is actually executed
 during the same ring counter loop as any other instructions. So when an opcode is sent to
 the control matrix, fetch is executed **And** whatever instruction is specified by the opcode.
@@ -333,7 +333,7 @@ This ensures that the next instruction is fetched by the end of the ring counter
 
 #### How does the computer choose which signals to use for an opcode? {#how-does-the-computer-choose-which-signals-to-use-for-an-opcode}
 
--   LM signal for example, the signal to load data into MAR according to [Figure 1](#orgf8386f5)
+-   LM signal for example, the signal to load data into MAR according to [Figure 1](#orgdf11d62)
     LM has a T3 on the LDA and SDA Rows and a T0 on the Fetch row
     1.  An AND operation is performed between each Tx and its instruction signal (in the column).
     2.  An OR operation is performed between each AND operation.
@@ -343,21 +343,21 @@ This ensures that the next instruction is fetched by the end of the ring counter
     4.  According to the expression: LM is active when T0 is active and when T3 and (LDA or STA) is active
 
 -   JN(jump negative) Row
-    All Tx in this row have an AND operation with the value of NF([Negative Flag](#orgc344b07))
+    All Tx in this row have an AND operation with the value of NF([Negative Flag](#orgf62bfdb))
     as well as the instruction signal JN. This provides another level of conditional logic
     based on the value of the ACC negative flag. The arithmetic expression for the LP column is:
     **LP = T3\*JN\*NF + T3\*JMP(Jump)**
 -   A list of all the conditional expressions for the control signals (where \* = AND, + = OR)
-    is located in [Figure 6](#orgd70b743)
+    is located in [Figure 6](#org23c0df6)
 
 
-### <a id="orgb55ff86"></a>Figure 5 {#figure-5}
+### <a id="orgf554659"></a>Figure 5 {#figure-5}
 
 A hard wired example of how the control matrix would work
 ![](/ox-hugo/figure5.png)
 
 
-### <a id="orgd70b743"></a>Figure 6 {#figure-6}
+### <a id="org23c0df6"></a>Figure 6 {#figure-6}
 
 A list of possible conditional expressions for the example computer.
 ![](/ox-hugo/figure6.png)
@@ -366,7 +366,7 @@ A list of possible conditional expressions for the example computer.
 ## Micro-programmed Control Unit {#micro-programmed-control-unit}
 
 In the Hard Wired control unit example, the signals that come from the control matrix do so because of
-an actual circuit that is wired to perform the conditional logic shown in [Figure 5](#orgb55ff86). In a **Micro-Programmed**
+an actual circuit that is wired to perform the conditional logic shown in [Figure 5](#orgf554659). In a **Micro-Programmed**
 **Control Unit** an opcode is sent to the Control unit where it fetches a list of **Micro-Instructions** that
 together perform the instruction from a memory. The control unit can be thought of as a Computer within a computer.
 
@@ -399,21 +399,21 @@ A block diagram of an example micro-programmed control unit.
         Each bit corresponds to a control signal
     2.  8-bit next-address field
         address(in ROM) of next micro-instruction to be executed. which permits additional Boolean logic
-        shown in [Figure 8](#orga3dce0d).
+        shown in [Figure 8](#org9765cb4).
 -   Micro-instructions(**Words**) from the Control ROM are fed into the micro-instruction register.
 
 
 #### 24-bit Micro-instruction Register {#24-bit-micro-instruction-register}
 
--   analogous to the external computer's [Instruction Register](#org18a7770).
--   16 signal lines are the same as the lines coming from the control matrix in [Figure 2](#org3e8c6b4)
-    and are connected to the signal pins shown in [Figure 1](#orgf8386f5).
+-   analogous to the external computer's [Instruction Register](#org67a532c).
+-   16 signal lines are the same as the lines coming from the control matrix in [Figure 2](#orgfb570b2)
+    and are connected to the signal pins shown in [Figure 1](#orgdf11d62).
 -   triggered by a falling clock edge [See this article about signal edges](https://en.wikipedia.org/wiki/Signal%5Fedge)
 
 
 #### micro-counter register {#micro-counter-register}
 
--   Analogous to the external computer's [Program counter Register](#org2d8b88a)
+-   Analogous to the external computer's [Program counter Register](#orga36a36b)
 -   recieves input from the **Multiplexer**
 -   triggered by a rising clock edge. [signal edges](https://en.wikipedia.org/wiki/Signal%5Fedge)
 
@@ -425,24 +425,24 @@ Chooses between 3 values to send to the micro-counter register
 1.  Output of Address ROM
 2.  Output from Current Address Incrementer
 3.  Address stored in next-address field of the current micro-instruction (CRJA)
-4.  The conditional logic is shown in the description of [Figure 8](#orga3dce0d)
+4.  The conditional logic is shown in the description of [Figure 8](#org9765cb4)
 
 
 #### 16 X 5 Address ROM {#16-x-5-address-rom}
 
-Fed by outer computer's [Instruction Register](#org18a7770).
-The contents of the Instruction Register can be found in [Table 3](#org3c7ee96)
+Fed by outer computer's [Instruction Register](#org67a532c).
+The contents of the Instruction Register can be found in [Table 3](#orgcad8ee2)
 
 -   maps opcode of external computer's instruction to starting address of corresponding micro-routine.
     The first Micro-Instruction of the routine
 -   Address zero of Address ROM contains address of fetch routine in the Control ROM
--   Other addresses in ROM correspond to the opcodes(external computer) in [Table 1](#orgf5f7f8b)
+-   Other addresses in ROM correspond to the opcodes(external computer) in [Table 1](#org7a39225)
     addresses are of micro-routines in Control ROM
 
 
 #### Note about signal edges {#note-about-signal-edges}
 
-The micro-counter is triggered by a rising clock edge (along with all operations in data path in [Figure 1](#orgf8386f5)).
+The micro-counter is triggered by a rising clock edge (along with all operations in data path in [Figure 1](#orgdf11d62)).
 The Micro-instruction register is triggered by a falling clock edge. In a series of steps:
 
 1.  micro-counter is triggered (positive edge), presenting the new Micro-instruction address to the control ROM
@@ -451,7 +451,7 @@ The Micro-instruction register is triggered by a falling clock edge. In a series
 4.  Micro-instruction register is triggered (negative edge) causing it to receive the micro-instruction **Word**
 
 
-### <a id="org3c7ee96"></a>Table 3 {#table-3}
+### <a id="orgcad8ee2"></a>Table 3 {#table-3}
 
 Mapping of Op-codes to the contents of the Address ROM in the Control Unit
 ![](/ox-hugo/table3.png)
@@ -463,14 +463,14 @@ ADD instruction has the 3 opcode which maps to the 09 micro-routine start addres
 The address is then goes to the multiplexer -> micro-counter -> Control ROM -> Micro-instruction register
 
 
-### <a id="orga3dce0d"></a>Figure 8 {#figure-8}
+### <a id="org9765cb4"></a>Figure 8 {#figure-8}
 
 Next address field of the micro-instruction register.
 ![](/ox-hugo/Figure8.jpg)
 
 -   CD is condition bit
     when CD is 1 (MAP is zero) the multiplexer's select lines produce a 00 or a 10 (binary)
-    based on the [Negative Flag](#orgc344b07) of the ACC register (of external computer). 00
+    based on the [Negative Flag](#orgf62bfdb) of the ACC register (of external computer). 00
     00 selects incrementer address, 10 selects CRJA address
 -   MAP causes next microinstruction to be obtained from address ROM
     When the MAP bit is 1 (Multiplexer's select line produce a 01(binary) (selects the address ROM))
@@ -484,7 +484,7 @@ Next address field of the micro-instruction register.
         branching back to the fetch micro-routine.
 
 
-### <a id="org067cc19"></a>Table 4 {#table-4}
+### <a id="orgf6cdf1f"></a>Table 4 {#table-4}
 
 A micro-program (set of all micro-routines) that implements described instruction set from
 When loaded into Control ROM
@@ -524,14 +524,14 @@ When taken together, forms the raw contents (changing hexadecimal to binary) of 
 
 -  Control Signal Field
 
-    Same order of signals (bits) as the in [Table 2](#org9d507f3)
+    Same order of signals (bits) as the in [Table 2](#orgc50c7bb)
     bits are equivalent to signals which are equivalent to pins.
 
 <!--list-separator-->
 
 -  CD
 
-    Conditional bit, when 1 causes multiplexer to depend on value of [NF](#orgc344b07) if MAP bit is 0
+    Conditional bit, when 1 causes multiplexer to depend on value of [NF](#orgf62bfdb) if MAP bit is 0
 
 <!--list-separator-->
 
@@ -550,7 +550,7 @@ When taken together, forms the raw contents (changing hexadecimal to binary) of 
 -  Address of Next micro-instruction
 
     Only matters if HLT and MAP are not 1 (arbitrary values). The Micro-Instruction Address of the next
-    Micro-Instruction in a non-branching program. Refer to description of [Figure 8](#orga3dce0d) for more explanation.
+    Micro-Instruction in a non-branching program. Refer to description of [Figure 8](#org9765cb4) for more explanation.
 
 
 #### Comment {#comment}
@@ -564,22 +564,22 @@ after each Micro-Instruction.
 -   Control ROM addresses 0, 1, 2 (3 Micro-Instructions)
     1.  Micro-Instruction 0
         -   Activates control Signal bits EP, LM
-        -   Moves data from the [Program Counter Register](#org2d8b88a) to the [Memory Access Register](#org5670c44)
+        -   Moves data from the [Program Counter Register](#orga36a36b) to the [Memory Access Register](#org2ce9ccd)
         -   MAR now contains address in RAM of the next instruction
         -   CD and MAP bits are zero, next Micro-Instruction corresponds to the address
             in the CRJA field (Micro-Instruction 1)
     2.  Micro-Instruction 1
         -   Activates control Signal bit R
-        -   Reads the data at adress MAR into [Memory Data Register](#orgbb40a3f) from RAM
+        -   Reads the data at adress MAR into [Memory Data Register](#org9bd19ef) from RAM
         -   CD and MAP bits are zero, use CRJA field again (Micro-Instruction 2)
     3.  Micro-Instruction 2
         -   Activates control Signal bits ED, LI, IP
-        -   ED, LI moves the **Word** from MDR to the [Instruction Register](#org18a7770)
+        -   ED, LI moves the **Word** from MDR to the [Instruction Register](#org67a532c)
         -   IP increments the PC Register
         -   New instruction is in IR
         -   PC now points to the next instruction
         -   MAP is now 1, so the next micro-instruction is from Address ROM (specified by op-code)
-    4.  Signal pin description is in [Figure 1](#orgf8386f5)
+    4.  Signal pin description is in [Figure 1](#orgdf11d62)
 
 
 ### JN micro-routine {#jn-micro-routine}
@@ -587,16 +587,16 @@ after each Micro-Instruction.
 -   Control ROM addresses 0F, 10, 11
     1.  Micro-Instruction 0F
         -   Does nothing except set the CD bit to 1
-        -   Execution of the next micro-instruction now depends on value of [Negative Flag](#orgc344b07)
+        -   Execution of the next micro-instruction now depends on value of [Negative Flag](#orgf62bfdb)
         -   If NF is 0, increments Micro Program counter 0F + 1 = 10, Micro-Instruction 10
         -   If NF is 1, uses CRJA field (Micro-Instruction 11)
     2.  Micro-Instruction 10
         -   Does nothing (no set signal bits)
         -   MAP, CD = 0, uses CRJA field (Micro-Instruction 00 (Fetch routine))
-        -   [PC](#org2d8b88a) is not altered, so next instruction is executed normally
+        -   [PC](#orga36a36b) is not altered, so next instruction is executed normally
     3.  Micro-Instruction 11
         -   Activates Control Signal Bits EI, LP
-        -   Moves contents of [IR](#org18a7770)(least significan eight bits) to [PC](#org2d8b88a)
+        -   Moves contents of [IR](#org67a532c)(least significan eight bits) to [PC](#orga36a36b)
         -   Next Instruction at location corresponding to value of the least significant 8 bits of IR
         -   Control of the computer is transferred to the "Jump address"
 

@@ -17,7 +17,10 @@
    - Hard wired controllers
    - Micro programmed controllers
 ** <<figure1>>figure 1
-    [[file:The_Basic_Computer/Figure1.JPG]]
+:PROPERTIES:
+:CUSTOM_ID: pathways
+:END:
+
     [[file:images/figure1.png]]
     
 *** Description of figure 1
@@ -301,6 +304,10 @@
     This column provides a simple explanation for what happens in the micro-programmable control unit
     after each Micro-Instruction.
 ** Fetch micro-routine
+:PROPERTIES:
+:CUSTOM_ID: FETCH
+:END:
+
    - Control ROM addresses 0, 1, 2 (3 Micro-Instructions)
      1. Micro-Instruction 0
         - Activates control Signal bits EP, LM
@@ -321,6 +328,10 @@
         - MAP is now 1, so the next micro-instruction is from Address ROM (specified by op-code)
      4. Signal pin description is in [[figure1][Figure 1]]
 ** JN micro-routine
+:PROPERTIES:
+:CUSTOM_ID: JN
+:END:
+
    - Control ROM addresses 0F, 10, 11
      1. Micro-Instruction 0F
         - Does nothing except set the CD bit to 1

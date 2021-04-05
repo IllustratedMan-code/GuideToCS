@@ -5,10 +5,10 @@
 :PROPERTIES:
 :EXPORT_FILE_NAME: _index
 :END:
-This is The home page
+I am going to be using this website as a way to consolidate my notes and material for all of my CS classes.
 * Intro To Comp Systems
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: Intro-to-Comp-Systems
 :EXPORT_FILE_NAME: _index
 :END:
-This is the landing page for comp systems
+Intro to comp systems as taught by Nitin.
