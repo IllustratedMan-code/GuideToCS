@@ -1,11 +1,11 @@
 .autocomplete-suggestions {
-  background-color: #edf8f8 !important;
+  background-color: #f5e7fd !important;
   height: 100vh; }
 
 article > aside {
   /*background-color: $c_light3;*/
-  background-color: rgba(63, 166, 163, 0.1);
-  background-color: #edf8f8;
+  background-color: rgba(141, 17, 212, 0.1);
+  background-color: #f5e7fd;
   padding: 2rem 0rem 1rem 0rem; }
   article > aside div.search {
     position: absolute;
@@ -17,8 +17,8 @@ article > aside {
       width: 100%;
       height: 2rem;
       border: 0px;
-      background-color: rgba(63, 166, 163, 0.1);
-      border-bottom: 1px solid rgba(63, 166, 163, 0.2); }
+      background-color: rgba(141, 17, 212, 0.1);
+      border-bottom: 1px solid rgba(141, 17, 212, 0.2); }
   article > aside .menu {
     list-style-type: none;
     line-height: 2rem;
@@ -33,7 +33,7 @@ article > aside {
         font-weight: 700;
         font-size: 16px; }
       article > aside .menu > .dd-item > i {
-        color: #37908d;
+        color: #7a0fb8;
         position: absolute;
         left: 21px;
         font-size: 1em;
@@ -49,9 +49,9 @@ article > aside {
         font-size: 14px;
         /*color: rgb(110, 119, 122);*/
         /*color:$color_main;*/
-        color: #37908d; }
+        color: #7a0fb8; }
       article > aside .menu .dd-item > i {
-        color: #37908d; }
+        color: #7a0fb8; }
       article > aside .menu .dd-item ul {
         padding-inline-start: 0px; }
       article > aside .menu .dd-item li {
@@ -61,17 +61,17 @@ article > aside {
       article > aside .menu .dd-item.parent > ul {
         display: block; }
       article > aside .menu .dd-item.active {
-        background-color: rgba(63, 166, 163, 0.1); }
+        background-color: rgba(141, 17, 212, 0.1); }
         article > aside .menu .dd-item.active.haschildren {
           /*background-color: transparent;*/ }
           article > aside .menu .dd-item.active.haschildren > a {
             font-weight: 700; }
         article > aside .menu .dd-item.active > a {
-          color: #2a6f6d; }
+          color: #5e0b8e; }
         article > aside .menu .dd-item.active > ul {
           display: block; }
         article > aside .menu .dd-item.active > div {
-          background-color: #2a6f6d; }
+          background-color: #5e0b8e; }
           article > aside .menu .dd-item.active > div * {
             font-weight: bold;
             border-bottom: dotted 1px red; }
