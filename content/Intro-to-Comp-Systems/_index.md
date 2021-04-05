@@ -4,4 +4,4 @@ author = ["David Lewis"]
 draft = false
 +++
 
-This is the landing page for comp systems
+Intro to comp systems as taught by Nitin.
