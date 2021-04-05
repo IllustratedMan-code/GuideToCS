@@ -4,7 +4,7 @@
 <html>
   <head>
     <title>
-	Intro To Comp Systems :: David Lewis&#39;s guide to CS
+	How to write a micro-instruction :: David Lewis&#39;s guide to CS
 </title>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -13,7 +13,7 @@
 
 
 
-<title>Intro To Comp Systems :: David Lewis&#39;s guide to CS</title>
+<title>How to write a micro-instruction :: David Lewis&#39;s guide to CS</title>
 
 <link rel="shortcut icon" href='https://illustratedman-code.github.io/GuideToCS/images/favicon.png' type="image/x-icon" />
 
@@ -50,7 +50,7 @@
     
   </head>
 
-  <body data-url="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/"
+  <body data-url="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/how-to-write-a-micro-instruction/"
 
   class="">
 
@@ -143,7 +143,7 @@
 
 <ul class="menu">
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/" class="dd-item parent active haschildren
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/" class="dd-item parent haschildren
         item_level_$level
         ">
 
@@ -174,7 +174,7 @@
     </li>
               
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/how-to-write-a-micro-instruction/" class="dd-item
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/how-to-write-a-micro-instruction/" class="dd-item parent active
         item_level_$level
         ">
 
@@ -216,6 +216,9 @@
         
   
   	
+		
+  
+  	
 	<li >
       <a class="text-link" href="https://illustratedman-code.github.io/GuideToCS">
         Home
@@ -223,9 +226,17 @@
     </li>
 	
   
+    <li class="">
+      <a class="text-link" href="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/">
+        Intro To Comp Systems
+      </a>
+    </li>
+	
+  	
+  
     <li class="active">
       
-        Intro To Comp Systems
+        How to write a micro-instruction
       
     </li>
 
@@ -246,7 +257,7 @@
 		
 
 		
-			<h1>Intro To Comp Systems</h1>
+			<h1>How to write a micro-instruction</h1>
         
 
 		
@@ -264,7 +275,29 @@
   			Jump to Section
   			<i style=";" class="fas fa-chevron-right"></i>
 		</span>
-		<nav id="TableOfContents"></nav>
+		<nav id="TableOfContents">
+  <ul>
+    <li><a href="#control-signals">Control signals</a>
+      <ul>
+        <li><a href="#load--l">Load (L)</a></li>
+        <li><a href="#enable--e">Enable (E)</a></li>
+      </ul>
+    </li>
+    <li><a href="#micro-instructions">Micro-instructions</a>
+      <ul>
+        <li><a href="#control-field">Control field</a></li>
+        <li><a href="#next-address-field">Next Address field</a>
+          <ul>
+            <li><a href="#cd">CD</a></li>
+            <li><a href="#map">MAP</a></li>
+            <li><a href="#crja-field">CRJA field</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#lda-micro-routine">LDA micro-routine</a></li>
+  </ul>
+</nav>
 	</div>
 	
 	
@@ -275,7 +308,70 @@
 
 
 	<div class="content">
-	    <p>This is the landing page for comp systems</p>
+	    <p>A micro-instruction is just a binary (often converted to hex) number that represents a list of control signals, and points to the next micro-instruction.  Micro-instructions can be changed by changing the  A set of micro-instructions forms a micro-routine (otherwise known as an instruction).</p>
+<h2 ref="control-signals" >Control signals</h2><a class="anchor" id="control-signals"></a>
+<p>To understand the micro-instruction, you must understand what the control signals do. I will be referencing the Hard vs Micro paper. It has LA (load accumulator), and EA (enable accumulator) signals. They are essentially just wires connected to the control unit (referenced by the 16 coming out of CONTROL) Each register also generally has a clock signal (CLK), but that is connected directly to the clock circuit and is not required for the micro-instructions. The naming system for the signals is somewhat arbitrary but usually follows the pattern (L, E) (register). This is subverted somewhat by the ALU, but that will most likely be directly defined. The other main difference is the inclusion of I, which just means increment.</p>
+<h3 ref="load--l" >Load (L)</h3><a class="anchor" id="load--l"></a>
+<p>A load signal allows the contents of a register to be changed by the state of the bus (a collection of wires). This signal must be paired with an E signal to do anything.</p>
+<h3 ref="enable--e" >Enable (E)</h3><a class="anchor" id="enable--e"></a>
+<p>An enable signal changes the state of the bus to match the contents of the register. Say a register contains the value 1111, when the enable signal is used for that register, the contents of the bus will now be 1111. This signal must be paired with a L signal to do anything.</p>
+<h2 ref="micro-instructions" >Micro-instructions</h2><a class="anchor" id="micro-instructions"></a>
+<p>A micro-instruction is a binary number composed of several <code>fields</code> stored at a specific address in the ROM (read only memory) of the control unit.</p>
+<h3 ref="control-field" >Control field</h3><a class="anchor" id="control-field"></a>
+<p>This is just a binary representation of the signals. In the hard vs micro document, the letters are signals are abbreviated into the following order:</p>
+<ul>
+<li>ILELAWLELELEASEL
+Expanded: IP LP EP LM R W LD ED LI EI LA EA A S E</li>
+</ul>
+<p>A micro instruction will generally contain a pair of signals (L E) that transfers the contents of one register into another. The contents of the enabled register moves into the loaded register through the bus. A 1 means that the signal is on while a 0 means the signal is off.</p>
+<h3 ref="next-address-field" >Next Address field</h3><a class="anchor" id="next-address-field"></a>
+<p>This field has 4 different sub fields. it is used to determine the next micro instruction.</p>
+<h4 ref="cd" >CD</h4><a class="anchor" id="cd"></a>
+<p>CD (short for condition) is used for conditional logic. This bit makes the next micro-instruction depend on the value of the negative flag. This is generally off, unless you want conditional logic, see JN micro-routine</p>
+<h4 ref="map" >MAP</h4><a class="anchor" id="map"></a>
+<p>the map bit uses the next micro-instruction in the control ROM, see Fetch-routine . This is generally off.</p>
+<h4 ref="crja-field" >CRJA field</h4><a class="anchor" id="crja-field"></a>
+<p>This field consists of an address in the control ROM</p>
+<h2 ref="lda-micro-routine" >LDA micro-routine</h2><a class="anchor" id="lda-micro-routine"></a>
+<p>Here is a step by step on how to write this instruction with micro-instructions.</p>
+<ol>
+<li>Find out where the data is coming from.</li>
+<li>Map out the sub-steps:
+<ol>
+<li>IR -&gt; MAR</li>
+<li>RAM -&gt; MDR</li>
+<li>MDR -&gt; ACC</li>
+</ol>
+</li>
+<li>determine the signals for each substep:
+<ol>
+<li>EI, LM</li>
+<li>R</li>
+<li>ED, LA</li>
+</ol>
+</li>
+<li>Link the micro-instructions with the next address field.
+<ol>
+<li>address of next micro-instruction (04) in this case</li>
+<li>address of next micro-instruction (05) in this case</li>
+<li>link back to fetch (00) in this case</li>
+</ol>
+</li>
+<li>Write the codes!
+<ol>
+<li>(0001000001000000)(0)(0)(0)(0100)</li>
+<li>(0000010000000000)(0)(0)(0)(0101)</li>
+<li>(0000000010010000)(0)(0)(0)(0000)</li>
+</ol>
+</li>
+<li>Optional convert to hex
+<ol>
+<li>82004</li>
+<li>20005</li>
+<li>4800</li>
+</ol>
+</li>
+</ol>
 
 		</div>
 
@@ -314,10 +410,32 @@
     <label><i class="fas fa-align-right"></i>&nbsp;&nbsp;What&#39;s on this page</label>
     <nav>
         <ul >
-            <li><a href="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/">Intro To Comp Systems</a></li>
+            <li><a href="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/how-to-write-a-micro-instruction/">How to write a micro-instruction</a></li>
         </ul>
     </nav>
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#control-signals">Control signals</a>
+      <ul>
+        <li><a href="#load--l">Load (L)</a></li>
+        <li><a href="#enable--e">Enable (E)</a></li>
+      </ul>
+    </li>
+    <li><a href="#micro-instructions">Micro-instructions</a>
+      <ul>
+        <li><a href="#control-field">Control field</a></li>
+        <li><a href="#next-address-field">Next Address field</a>
+          <ul>
+            <li><a href="#cd">CD</a></li>
+            <li><a href="#map">MAP</a></li>
+            <li><a href="#crja-field">CRJA field</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#lda-micro-routine">LDA micro-routine</a></li>
+  </ul>
+</nav>
 </div>
 
 		
