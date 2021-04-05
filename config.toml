@@ -9,6 +9,9 @@ canonifyURLs = true
 name = "Github"
 url = "https://github.com/IllustratedMan-code"
 
+[params]
+    color_main = "#B0B0B0"
+	color_second = "red"
 
 [markup]
     [markup.goldmark.renderer]
