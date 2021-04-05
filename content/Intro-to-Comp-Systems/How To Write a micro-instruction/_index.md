@@ -9,8 +9,7 @@ A micro-instruction is just a binary (often converted to hex) number that repres
 
 ## Control signals {#control-signals}
 
-To understand the micro-instruction, you must understand what the control signals do. I will be referencing the Hard vs Micro [pathways]({{< relref "hardvmicro#pathways" >}})
-It has LA (load accumulator), and EA (enable accumulator) signals. They are essentially just wires connected to the control unit (referenced by the 16 coming out of CONTROL) Each register also generally has a clock signal (CLK), but that is connected directly to the clock circuit and is not required for the micro-instructions. The naming system for the signals is somewhat arbitrary but usually follows the pattern (L, E) (register). This is subverted somewhat by the ALU, but that will most likely be directly defined. The other main difference is the inclusion of I, which just means increment.
+To understand the micro-instruction, you must understand what the control signals do. I will be referencing the Hard vs Micro paper. It has LA (load accumulator), and EA (enable accumulator) signals. They are essentially just wires connected to the control unit (referenced by the 16 coming out of CONTROL) Each register also generally has a clock signal (CLK), but that is connected directly to the clock circuit and is not required for the micro-instructions. The naming system for the signals is somewhat arbitrary but usually follows the pattern (L, E) (register). This is subverted somewhat by the ALU, but that will most likely be directly defined. The other main difference is the inclusion of I, which just means increment.
 
 
 ### Load (L) {#load--l}
@@ -45,12 +44,12 @@ This field has 4 different sub fields. it is used to determine the next micro in
 
 #### CD {#cd}
 
-CD (short for condition) is used for conditional logic. This bit makes the next micro-instruction depend on the value of the negative flag. This is generally off, unless you want conditional logic, see [JN micro-routine]({{< relref "hardvmicro#JN" >}})
+CD (short for condition) is used for conditional logic. This bit makes the next micro-instruction depend on the value of the negative flag. This is generally off, unless you want conditional logic, see JN micro-routine
 
 
 #### MAP {#map}
 
-the map bit uses the next micro-instruction in the control ROM, see [Fetch micro-routine]({{< relref "hardvmicro#FETCH" >}}) . This is generally off.
+the map bit uses the next micro-instruction in the control ROM, see Fetch-routine . This is generally off.
 
 
 #### CRJA field {#crja-field}
