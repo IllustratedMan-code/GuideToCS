@@ -73,3 +73,21 @@ Physical address is given by EA + DS(shifted 4 bits).
 + DS = 490B0 (hex)
 + EA = 2359 (hex)
 + PA = 490B0 + 2359 = 4B409
+#+BEGIN_SRC mips
+    .globl  main
+    .text
+
+main:
+    sra $6, $6, 2   #
+    sll $7, $7, 2
+    add $8, $0, $0
+L2: add $12, $4, $8
+    lw  $12, 0($12)
+    add $9, $0, $0
+L1: add $11, $5, $9
+    lw  $11, 0($11)
+    addi $9, $9, 4
+    bne $9, $7, L1
+    addi $8, $8, 4
+    beq $8, $6, L2
+#+END_SRC
