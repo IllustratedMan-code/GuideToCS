@@ -2,8 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://illustratedman-code.github.io/GuideToCS/categories/</loc>
-  </url><url>
     <loc>https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/hard-vs-micro/</loc>
   </url><url>
     <loc>https://illustratedman-code.github.io/GuideToCS/</loc>
@@ -13,7 +11,5 @@
     <loc>https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/</loc>
   </url><url>
     <loc>https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/mock-exam-questions/</loc>
-  </url><url>
-    <loc>https://illustratedman-code.github.io/GuideToCS/tags/</loc>
   </url>
 </urlset>

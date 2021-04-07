@@ -4,16 +4,16 @@
 <html>
   <head>
     <title>
-	HardWiredVsMicroProgrammed; :: David Lewis&#39;s guide to CS
+	HardWiredVsMicroProgrammed; :: DocPort Documentation
 </title>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2021-04-07T22:07:32 UTC">
+<meta name="revised" content="2021-04-07T23:05:14 UTC">
 <meta name="description" content="">
 
 
 
-<title>HardWiredVsMicroProgrammed; :: David Lewis&#39;s guide to CS</title>
+<title>HardWiredVsMicroProgrammed; :: DocPort Documentation</title>
 
 <link rel="shortcut icon" href='https://illustratedman-code.github.io/GuideToCS/images/favicon.png' type="image/x-icon" />
 
@@ -91,13 +91,28 @@
 	
 			
 		
-	    	<a class='baselink' href='https://illustratedman-code.github.io/GuideToCS'>David Lewis's guide to CS</a>
+	    	<a class='baselink' href='https://illustratedman-code.github.io/GuideToCS'>DocPort Documentation</a>
 	  	
 	</div>
     <nav class="shortcuts">
             <li class="" role="">
-                <a href="https://github.com/IllustratedMan-code"  rel="noopener">
+                <a href="https://github.com/vjeantet/hugo-theme-docport"  rel="noopener">
                   Github
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="https://github.com/vjeantet/hugo-theme-docport/archive/master.zip"  rel="noopener">
+                  Download
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="https://gohugo.io/"  rel="noopener">
+                  Hugo Documentation
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="https://illustratedman-code.github.io/GuideToCS/docport-theme/credits/"  rel="noopener">
+                  Credits
                 </a>
             </li>
     </nav>
@@ -186,80 +201,32 @@
       <ul>
         <li><a href="#two-principal-functional-parts">Two Principal functional parts</a></li>
         <li><a href="#two-types-of-control-units">Two types of control units</a></li>
-        <li><a href="#figure-1"><a id="orgdf11d62"></a>figure 1</a>
-          <ul>
-            <li><a href="#description-of-figure-1">Description of figure 1</a></li>
-            <li><a href="#arithmetic-logic-unit--alu">Arithmetic-Logic-Unit (ALU)</a></li>
-            <li><a href="#ram-memory">RAM memory</a></li>
-            <li><a href="#program-counter--pc--register"><a id="orga36a36b"></a>Program Counter (PC) Register</a></li>
-          </ul>
-        </li>
+        <li><a href="#figure-1"><a id="orgdf11d62"></a>figure 1</a></li>
       </ul>
     </li>
     <li><a href="#computer-s-instruction-set">Computer&rsquo;s Instruction Set</a>
       <ul>
-        <li><a href="#instruction">Instruction</a>
-          <ul>
-            <li><a href="#operation-code--opcode">operation code (opcode)</a></li>
-            <li><a href="#operand">operand</a></li>
-          </ul>
-        </li>
-        <li><a href="#table-1"><a id="org7a39225"></a>Table 1</a>
-          <ul>
-            <li><a href="#table-1-description">Table 1 description</a></li>
-          </ul>
-        </li>
+        <li><a href="#instruction">Instruction</a></li>
+        <li><a href="#table-1"><a id="org7a39225"></a>Table 1</a></li>
       </ul>
     </li>
     <li><a href="#hard-wired-control-unit">Hard-Wired Control Unit</a>
       <ul>
-        <li><a href="#figure-2"><a id="orgfb570b2"></a>Figure 2</a>
-          <ul>
-            <li><a href="#description-of-figure-2">Description of Figure 2</a></li>
-          </ul>
-        </li>
+        <li><a href="#figure-2"><a id="orgfb570b2"></a>Figure 2</a></li>
         <li><a href="#figure-3"><a id="org502a962"></a>Figure 3</a></li>
         <li><a href="#figure-4"><a id="orgb767b5c"></a>Figure 4</a></li>
-        <li><a href="#table-2"><a id="orgc50c7bb"></a>Table 2</a>
-          <ul>
-            <li><a href="#fetch-instruction"><a id="org6ffd539"></a>Fetch instruction</a></li>
-            <li><a href="#how-does-the-computer-choose-which-signals-to-use-for-an-opcode">How does the computer choose which signals to use for an opcode?</a></li>
-          </ul>
-        </li>
+        <li><a href="#table-2"><a id="orgc50c7bb"></a>Table 2</a></li>
         <li><a href="#figure-5"><a id="orgf554659"></a>Figure 5</a></li>
         <li><a href="#figure-6"><a id="org23c0df6"></a>Figure 6</a></li>
       </ul>
     </li>
     <li><a href="#micro-programmed-control-unit">Micro-programmed Control Unit</a>
       <ul>
-        <li><a href="#micro-routine">Micro-routine</a>
-          <ul>
-            <li><a href="#micro-instruction">Micro-Instruction</a></li>
-          </ul>
-        </li>
-        <li><a href="#figure-7">Figure 7</a>
-          <ul>
-            <li><a href="#32-x-24-control-rom--read-only-memory">32 X 24 Control ROM(Read-only memory)</a></li>
-            <li><a href="#24-bit-micro-instruction-register">24-bit Micro-instruction Register</a></li>
-            <li><a href="#micro-counter-register">micro-counter register</a></li>
-            <li><a href="#multiplexer--data-selector">Multiplexer (data selector)</a></li>
-            <li><a href="#16-x-5-address-rom">16 X 5 Address ROM</a></li>
-            <li><a href="#note-about-signal-edges">Note about signal edges</a></li>
-          </ul>
-        </li>
-        <li><a href="#table-3"><a id="orgcad8ee2"></a>Table 3</a>
-          <ul>
-            <li><a href="#example-using-the-add-instruction">Example using the ADD instruction</a></li>
-          </ul>
-        </li>
+        <li><a href="#micro-routine">Micro-routine</a></li>
+        <li><a href="#figure-7">Figure 7</a></li>
+        <li><a href="#table-3"><a id="orgcad8ee2"></a>Table 3</a></li>
         <li><a href="#figure-8"><a id="org9765cb4"></a>Figure 8</a></li>
-        <li><a href="#table-4"><a id="orgf6cdf1f"></a>Table 4</a>
-          <ul>
-            <li><a href="#microroutine-name--mnemonic">Microroutine Name (Mnemonic)</a></li>
-            <li><a href="#columns-micro-instruction-address-to-address-of-next-micro-instruction">Columns Micro-Instruction Address to Address of Next Micro-Instruction</a></li>
-            <li><a href="#comment">Comment</a></li>
-          </ul>
-        </li>
+        <li><a href="#table-4"><a id="orgf6cdf1f"></a>Table 4</a></li>
         <li><a href="#fetch-micro-routine">Fetch micro-routine</a></li>
         <li><a href="#jn-micro-routine">JN micro-routine</a></li>
       </ul>
@@ -945,80 +912,32 @@ and can be easier to manufacture (cheaper).</li>
       <ul>
         <li><a href="#two-principal-functional-parts">Two Principal functional parts</a></li>
         <li><a href="#two-types-of-control-units">Two types of control units</a></li>
-        <li><a href="#figure-1"><a id="orgdf11d62"></a>figure 1</a>
-          <ul>
-            <li><a href="#description-of-figure-1">Description of figure 1</a></li>
-            <li><a href="#arithmetic-logic-unit--alu">Arithmetic-Logic-Unit (ALU)</a></li>
-            <li><a href="#ram-memory">RAM memory</a></li>
-            <li><a href="#program-counter--pc--register"><a id="orga36a36b"></a>Program Counter (PC) Register</a></li>
-          </ul>
-        </li>
+        <li><a href="#figure-1"><a id="orgdf11d62"></a>figure 1</a></li>
       </ul>
     </li>
     <li><a href="#computer-s-instruction-set">Computer&rsquo;s Instruction Set</a>
       <ul>
-        <li><a href="#instruction">Instruction</a>
-          <ul>
-            <li><a href="#operation-code--opcode">operation code (opcode)</a></li>
-            <li><a href="#operand">operand</a></li>
-          </ul>
-        </li>
-        <li><a href="#table-1"><a id="org7a39225"></a>Table 1</a>
-          <ul>
-            <li><a href="#table-1-description">Table 1 description</a></li>
-          </ul>
-        </li>
+        <li><a href="#instruction">Instruction</a></li>
+        <li><a href="#table-1"><a id="org7a39225"></a>Table 1</a></li>
       </ul>
     </li>
     <li><a href="#hard-wired-control-unit">Hard-Wired Control Unit</a>
       <ul>
-        <li><a href="#figure-2"><a id="orgfb570b2"></a>Figure 2</a>
-          <ul>
-            <li><a href="#description-of-figure-2">Description of Figure 2</a></li>
-          </ul>
-        </li>
+        <li><a href="#figure-2"><a id="orgfb570b2"></a>Figure 2</a></li>
         <li><a href="#figure-3"><a id="org502a962"></a>Figure 3</a></li>
         <li><a href="#figure-4"><a id="orgb767b5c"></a>Figure 4</a></li>
-        <li><a href="#table-2"><a id="orgc50c7bb"></a>Table 2</a>
-          <ul>
-            <li><a href="#fetch-instruction"><a id="org6ffd539"></a>Fetch instruction</a></li>
-            <li><a href="#how-does-the-computer-choose-which-signals-to-use-for-an-opcode">How does the computer choose which signals to use for an opcode?</a></li>
-          </ul>
-        </li>
+        <li><a href="#table-2"><a id="orgc50c7bb"></a>Table 2</a></li>
         <li><a href="#figure-5"><a id="orgf554659"></a>Figure 5</a></li>
         <li><a href="#figure-6"><a id="org23c0df6"></a>Figure 6</a></li>
       </ul>
     </li>
     <li><a href="#micro-programmed-control-unit">Micro-programmed Control Unit</a>
       <ul>
-        <li><a href="#micro-routine">Micro-routine</a>
-          <ul>
-            <li><a href="#micro-instruction">Micro-Instruction</a></li>
-          </ul>
-        </li>
-        <li><a href="#figure-7">Figure 7</a>
-          <ul>
-            <li><a href="#32-x-24-control-rom--read-only-memory">32 X 24 Control ROM(Read-only memory)</a></li>
-            <li><a href="#24-bit-micro-instruction-register">24-bit Micro-instruction Register</a></li>
-            <li><a href="#micro-counter-register">micro-counter register</a></li>
-            <li><a href="#multiplexer--data-selector">Multiplexer (data selector)</a></li>
-            <li><a href="#16-x-5-address-rom">16 X 5 Address ROM</a></li>
-            <li><a href="#note-about-signal-edges">Note about signal edges</a></li>
-          </ul>
-        </li>
-        <li><a href="#table-3"><a id="orgcad8ee2"></a>Table 3</a>
-          <ul>
-            <li><a href="#example-using-the-add-instruction">Example using the ADD instruction</a></li>
-          </ul>
-        </li>
+        <li><a href="#micro-routine">Micro-routine</a></li>
+        <li><a href="#figure-7">Figure 7</a></li>
+        <li><a href="#table-3"><a id="orgcad8ee2"></a>Table 3</a></li>
         <li><a href="#figure-8"><a id="org9765cb4"></a>Figure 8</a></li>
-        <li><a href="#table-4"><a id="orgf6cdf1f"></a>Table 4</a>
-          <ul>
-            <li><a href="#microroutine-name--mnemonic">Microroutine Name (Mnemonic)</a></li>
-            <li><a href="#columns-micro-instruction-address-to-address-of-next-micro-instruction">Columns Micro-Instruction Address to Address of Next Micro-Instruction</a></li>
-            <li><a href="#comment">Comment</a></li>
-          </ul>
-        </li>
+        <li><a href="#table-4"><a id="orgf6cdf1f"></a>Table 4</a></li>
         <li><a href="#fetch-micro-routine">Fetch micro-routine</a></li>
         <li><a href="#jn-micro-routine">JN micro-routine</a></li>
       </ul>
