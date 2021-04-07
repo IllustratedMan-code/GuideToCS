@@ -8,10 +8,11 @@ Question 1 and 2 seem to reference this article:
 [8086-8088](/ox-hugo/8086.pdf)
 
 
-## Q1: If a physical branch target address is 5A230 when CS = 5200, what will it be if the CS = 7800 ? {#q1-if-a-physical-branch-target-address-is-5a230-when-cs-5200-what-will-it-be-if-the-cs-7800}
+## Q1 {#q1}
 
-We need to find the offset, where offset + CS(shifted 4 bits) = physical branch target address. CS(C segment register)
+If a physical branch target address is 5A230 when CS = 5200, what will it be if the CS = 7800 ?
 
+-   We need to find the offset, where offset + CS(shifted 4 bits) = physical branch target address. CS(C segment register)
 -   Offset = Physical branch target address - CS
 -   Offset = 5A230 - 52000 = 8230 (hex)
 
@@ -20,16 +21,27 @@ The offset is then used to find the physical branch target adress.
 -   78000 + 8230 = 80230 = physical branch target address
 
 
-## Q2: Given that the EA of a data is 2359 and DS = 490B, what is the PA of data? {#q2-given-that-the-ea-of-a-data-is-2359-and-ds-490b-what-is-the-pa-of-data}
+## Q2 {#q2}
 
-`EA (effective Address), DS (D segment register), PA(Physical Address)`.
+Given that the EA of a data is 2359 and DS = 490B, what is the PA of data?
+
+-   `EA (effective Address), DS (D segment register), PA(Physical Address)`.
+
 Physical address is given by EA + DS(shifted 4 bits).
 
 -   DS = 490B0 (hex)
 -   EA = 2359 (hex)
 -   PA = 490B0 + 2359 = 4B409
 
-<!--listend-->
+
+## <span class="org-todo todo TODO">TODO</span> Q3 {#q3}
+
+Assuming, W, X, Y and Z as memory addresses. Write a program using any machine sequence that will carry out the following: Z ← W + (Z-X).
+
+
+## <span class="org-todo todo TODO">TODO</span> Q4 {#q4}
+
+Assume that the code below is run on a machine with a 2 GHz clock that requires the following number of cycles for each instruction: add, addi, sll, sra take 4cc each,  lw takes 5cc,   bne, beq  take 3cc each. How many seconds will it take to execute this code. The values of registers are $4=0x20, $5= 0x20, $6= 0x30, $7= 0x10.
 
 ```mips
     .globl  main
