@@ -8,7 +8,7 @@
 </title>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2021-04-07T23:05:14 UTC">
+<meta name="revised" content="2021-04-07T23:23:20 UTC">
 <meta name="description" content="">
 
 
@@ -201,34 +201,34 @@
       <ul>
         <li><a href="#two-principal-functional-parts">Two Principal functional parts</a></li>
         <li><a href="#two-types-of-control-units">Two types of control units</a></li>
-        <li><a href="#figure-1"><a id="orgdf11d62"></a>figure 1</a></li>
+        <li><a href="#pathways">figure 1 <a id="orgc45d4c0"></a></a></li>
       </ul>
     </li>
     <li><a href="#computer-s-instruction-set">Computer&rsquo;s Instruction Set</a>
       <ul>
         <li><a href="#instruction">Instruction</a></li>
-        <li><a href="#table-1"><a id="org7a39225"></a>Table 1</a></li>
+        <li><a href="#table-1"><a id="org2e47631"></a>Table 1</a></li>
       </ul>
     </li>
     <li><a href="#hard-wired-control-unit">Hard-Wired Control Unit</a>
       <ul>
-        <li><a href="#figure-2"><a id="orgfb570b2"></a>Figure 2</a></li>
-        <li><a href="#figure-3"><a id="org502a962"></a>Figure 3</a></li>
-        <li><a href="#figure-4"><a id="orgb767b5c"></a>Figure 4</a></li>
-        <li><a href="#table-2"><a id="orgc50c7bb"></a>Table 2</a></li>
-        <li><a href="#figure-5"><a id="orgf554659"></a>Figure 5</a></li>
-        <li><a href="#figure-6"><a id="org23c0df6"></a>Figure 6</a></li>
+        <li><a href="#figure-2"><a id="orgada43cd"></a>Figure 2</a></li>
+        <li><a href="#figure-3"><a id="orgf7335a2"></a>Figure 3</a></li>
+        <li><a href="#figure-4"><a id="org18fbae1"></a>Figure 4</a></li>
+        <li><a href="#table-2"><a id="org4bb4a0c"></a>Table 2</a></li>
+        <li><a href="#figure-5"><a id="org7bea64e"></a>Figure 5</a></li>
+        <li><a href="#figure-6"><a id="org28d2e1f"></a>Figure 6</a></li>
       </ul>
     </li>
     <li><a href="#micro-programmed-control-unit">Micro-programmed Control Unit</a>
       <ul>
         <li><a href="#micro-routine">Micro-routine</a></li>
         <li><a href="#figure-7">Figure 7</a></li>
-        <li><a href="#table-3"><a id="orgcad8ee2"></a>Table 3</a></li>
-        <li><a href="#figure-8"><a id="org9765cb4"></a>Figure 8</a></li>
-        <li><a href="#table-4"><a id="orgf6cdf1f"></a>Table 4</a></li>
-        <li><a href="#fetch-micro-routine">Fetch micro-routine</a></li>
-        <li><a href="#jn-micro-routine">JN micro-routine</a></li>
+        <li><a href="#table-3"><a id="org0949d90"></a>Table 3</a></li>
+        <li><a href="#figure-8"><a id="org025ebcc"></a>Figure 8</a></li>
+        <li><a href="#table-4"><a id="org06f8247"></a>Table 4</a></li>
+        <li><a href="#FETCH">Fetch micro-routine</a></li>
+        <li><a href="#JN">JN micro-routine</a></li>
       </ul>
     </li>
     <li><a href="#hard-wired-vs-dot-micro-programmed-computers">Hard-Wired vs. Micro-programmed Computers</a></li>
@@ -260,7 +260,7 @@ leaves control sequence for Data path section</li>
 <li>Hard wired controllers</li>
 <li>Micro programmed controllers</li>
 </ul>
-<h3 ref="figure-1" ><a id="orgdf11d62"></a>figure 1</h3><a class="anchor" id="figure-1"></a>
+<h3 ref="pathways" >figure 1 <a id="orgc45d4c0"></a></h3><a class="anchor" id="pathways"></a>
 <figure>
     <img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/figure1.png"/> 
 </figure>
@@ -310,7 +310,7 @@ or makes contents of register available to bus</p>
 </ul>
 <h4 ref="arithmetic-logic-unit--alu" >Arithmetic-Logic-Unit (ALU)</h4><a class="anchor" id="arithmetic-logic-unit--alu"></a>
 <p>A circuit capable of adding or subtracting two 12 bit numbers
-When the first bit of the Accumulator(ACC) is 1 (<a href="#orgf62bfdb">Negative Flag</a>)
+When the first bit of the Accumulator(ACC) is 1 (<a href="#orge710694">Negative Flag</a>)
 it is considered a negative number (represented using 2s compliment)</p>
 <ul>
 <li>Two input registers
@@ -334,14 +334,14 @@ it is considered a negative number (represented using 2s compliment)</p>
  <!--list-separator-->
 <ul>
 <li>
-<p><a id="org2ce9ccd"></a>Memory Address Register (MAR)</p>
+<p><a id="org460392f"></a>Memory Address Register (MAR)</p>
 <p>Register where address from memory is temporarily stored</p>
 </li>
 </ul>
  <!--list-separator-->
 <ul>
 <li>
-<p><a id="org9bd19ef"></a>Memory Data Register (MDR)</p>
+<p><a id="orgfaf9c05"></a>Memory Data Register (MDR)</p>
 <p>Register where data (<strong>word</strong>) corresponding to the address in <strong>MAR</strong> is temporarily stored</p>
 </li>
 </ul>
@@ -406,7 +406,7 @@ in the ram.</p>
 </ul>
 </li>
 </ul>
-<h4 ref="program-counter--pc--register" ><a id="orga36a36b"></a>Program Counter (PC) Register</h4><a class="anchor" id="program-counter--pc--register"></a>
+<h4 ref="program-counter--pc--register" ><a id="org4f47b06"></a>Program Counter (PC) Register</h4><a class="anchor" id="program-counter--pc--register"></a>
 <!--list-separator-->
 <ul>
 <li>
@@ -431,7 +431,7 @@ opcode to the controller/sequencer</p>
 <h4 ref="operand" >operand</h4><a class="anchor" id="operand"></a>
 <p>The data that the opcode operates on.
 Located at a memory location specified by the 8 bit address in the instruction.</p>
-<h3 ref="table-1" ><a id="org7a39225"></a>Table 1</h3><a class="anchor" id="table-1"></a>
+<h3 ref="table-1" ><a id="org2e47631"></a>Table 1</h3><a class="anchor" id="table-1"></a>
 <figure>
     <img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/table1.png"/> 
 </figure>
@@ -443,7 +443,7 @@ Located at a memory location specified by the 8 bit address in the instruction.<
 <p>Op-Code</p>
 <p>The base 10 identity of the 4 bit code(in this computer) at the beginning of every instruction.
 Specifies the <em>action</em> that will be performed, such as loading, moving values.
-Not shown is the <a href="#org6ffd539">Fetch Instruction</a> (an instruction used to load the next instruction) and
+Not shown is the <a href="#org4657d42">Fetch Instruction</a> (an instruction used to load the next instruction) and
 can be thought of as having the opcode 0000, but it really doesn&rsquo;t require one (in Hard-Wired)</p>
 </li>
 </ul>
@@ -470,7 +470,7 @@ action specified by the opcode has been accomplished.</p>
 LDA (Loads data from RAM to accumlulator register)
 by following the steps required to access data from RAM
 <ol>
-<li>MAR &lt;&ndash; IR moves (copies) the contents of the Instruction Register(<a href="#org67a532c">IR</a>) to the Memory Address Register</li>
+<li>MAR &lt;&ndash; IR moves (copies) the contents of the Instruction Register(<a href="#orgeac6ee6">IR</a>) to the Memory Address Register</li>
 <li>MDR &lt;&ndash; RAM(MAR) moves the data at address specified by MAR to the MDR register</li>
 <li>ACC &lt;&ndash; MDR moves the contents of MDR to ACC</li>
 <li>ACC &lt;&ndash; RAM is then accomplished.</li>
@@ -484,7 +484,7 @@ by following the steps required to access data from RAM
 <li>
 <p>Active Control Signals</p>
 <p>This column shows the signals that are required (power to signal pin)
-to perform the specified register transfers. Signal Pins are shown in <a href="#orgdf11d62">Figure 1</a></p>
+to perform the specified register transfers. Signal Pins are shown in <a href="#orgc45d4c0">Figure 1</a></p>
 <ul>
 <li>MAR &lt;&ndash; IR requires the EI (enable instruction register) and the LM (Load MAR) signals</li>
 <li>MDR &lt;&ndash; RAM(MAR) requires the R (read) signal</li>
@@ -492,7 +492,7 @@ to perform the specified register transfers. Signal Pins are shown in <a href="#
 </li>
 </ul>
 <h2 ref="hard-wired-control-unit" >Hard-Wired Control Unit</h2><a class="anchor" id="hard-wired-control-unit"></a>
-<h3 ref="figure-2" ><a id="orgfb570b2"></a>Figure 2</h3><a class="anchor" id="figure-2"></a>
+<h3 ref="figure-2" ><a id="orgada43cd"></a>Figure 2</h3><a class="anchor" id="figure-2"></a>
 <figure>
     <img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/figure2.png"/> 
 </figure>
@@ -504,7 +504,7 @@ A control unit consists of a Ring counter, an instruction decoder, and a Control
 <!--list-separator-->
 <ul>
 <li>
-<p><a id="org67a532c"></a>Instruction Register (IR)</p>
+<p><a id="orgeac6ee6"></a>Instruction Register (IR)</p>
 <p>Contains the current instruction (opcode + operand)
 The instruction register sends the Op-code (first 4 bits) to the instruction decoder.
 Each line to the Instruction Decoder represents a bit of the opcode.</p>
@@ -520,13 +520,13 @@ Each line to the Instruction Decoder represents a bit of the opcode.</p>
 <li>Sends a signal to the control matrix corresponding to the opcode from the IR
 Each line to the Control matrix represents a different signal (a set of pins)</li>
 </ol>
-<p><a href="#orgb767b5c">Figure 4</a></p>
+<p><a href="#org18fbae1">Figure 4</a></p>
 </li>
 </ul>
 <!--list-separator-->
 <ul>
 <li>
-<p><a id="orgf62bfdb"></a>Negative Flag</p>
+<p><a id="orge710694"></a>Negative Flag</p>
 <p>The leading bit (&ldquo;negative flag&rdquo;) of the ACC register is fed into the control matrix allowing for
 Boolean logic within the control matrix.</p>
 </li>
@@ -534,14 +534,14 @@ Boolean logic within the control matrix.</p>
 <!--list-separator-->
 <ul>
 <li>
-<p><a id="org7b24cab"></a>Ring Counter</p>
+<p><a id="org879ac67"></a>Ring Counter</p>
 <p>Six <strong>Consecutive</strong> active signals that cycle continuously with every beat of the system clock</p>
 <ul>
 <li><strong>Ring Pulse</strong> or <strong>Ring Counter Pulse</strong>
 When the signal becomes active (ring pulse T0 means when T0 becomes active)</li>
 </ul>
 <p><a href="https://www.electronics-tutorials.ws/sequential/seq%5F6.html">A useful article about ring counters</a>
-<a href="#orgc50c7bb">Table 2</a></p>
+<a href="#org4bb4a0c">Table 2</a></p>
 </li>
 </ul>
 <!--list-separator-->
@@ -549,23 +549,23 @@ When the signal becomes active (ring pulse T0 means when T0 becomes active)</li>
 <li>
 <p>Control Matrix</p>
 <p>Most important part of the control unit
-The control matrix sends out signals to every register in the computer as shown in <a href="#orgdf11d62">Figure 1</a>
-and facilitates all of the instructions listed in <a href="#org7a39225">Table 1</a> using those signals.</p>
+The control matrix sends out signals to every register in the computer as shown in <a href="#orgc45d4c0">Figure 1</a>
+and facilitates all of the instructions listed in <a href="#org2e47631">Table 1</a> using those signals.</p>
 </li>
 </ul>
-<h3 ref="figure-3" ><a id="org502a962"></a>Figure 3</h3><a class="anchor" id="figure-3"></a>
+<h3 ref="figure-3" ><a id="orgf7335a2"></a>Figure 3</h3><a class="anchor" id="figure-3"></a>
 <p>A visualization of the inner workings of the ring counter
 <img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/figure3.png" alt=""></p>
-<h3 ref="figure-4" ><a id="orgb767b5c"></a>Figure 4</h3><a class="anchor" id="figure-4"></a>
+<h3 ref="figure-4" ><a id="org18fbae1"></a>Figure 4</h3><a class="anchor" id="figure-4"></a>
 <p>A visualization of the inner working of the Instruction Decoder.
 Shows how each opcode corresponds to an output line.
 <img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/figure4.png" alt=""></p>
-<h3 ref="table-2" ><a id="orgc50c7bb"></a>Table 2</h3><a class="anchor" id="table-2"></a>
+<h3 ref="table-2" ><a id="org4bb4a0c"></a>Table 2</h3><a class="anchor" id="table-2"></a>
 <p>Times at which each <strong>Control Signal</strong> must be active in order to execute
 the hard-wired Basic Computer&rsquo;s instructions.
 <img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/table2.png" alt=""></p>
-<h4 ref="fetch-instruction" ><a id="org6ffd539"></a>Fetch instruction</h4><a class="anchor" id="fetch-instruction"></a>
-<p>The fetch instruction is executed every time the <a href="#org7b24cab">Ring Counter</a> loops. This facilitates the
+<h4 ref="fetch-instruction" ><a id="org4657d42"></a>Fetch instruction</h4><a class="anchor" id="fetch-instruction"></a>
+<p>The fetch instruction is executed every time the <a href="#org879ac67">Ring Counter</a> loops. This facilitates the
 next instruction being sent to the Control unit. This instruction is actually executed
 during the same ring counter loop as any other instructions. So when an opcode is sent to
 the control matrix, fetch is executed <strong>And</strong> whatever instruction is specified by the opcode.
@@ -573,7 +573,7 @@ This ensures that the next instruction is fetched by the end of the ring counter
 <h4 ref="how-does-the-computer-choose-which-signals-to-use-for-an-opcode" >How does the computer choose which signals to use for an opcode?</h4><a class="anchor" id="how-does-the-computer-choose-which-signals-to-use-for-an-opcode"></a>
 <ul>
 <li>
-<p>LM signal for example, the signal to load data into MAR according to <a href="#orgdf11d62">Figure 1</a>
+<p>LM signal for example, the signal to load data into MAR according to <a href="#orgc45d4c0">Figure 1</a>
 LM has a T3 on the LDA and SDA Rows and a T0 on the Fetch row</p>
 <ol>
 <li>An AND operation is performed between each Tx and its instruction signal (in the column).</li>
@@ -586,25 +586,25 @@ fetch instruction is executed every ring counter cycle.</li>
 </li>
 <li>
 <p>JN(jump negative) Row
-All Tx in this row have an AND operation with the value of NF(<a href="#orgf62bfdb">Negative Flag</a>)
+All Tx in this row have an AND operation with the value of NF(<a href="#orge710694">Negative Flag</a>)
 as well as the instruction signal JN. This provides another level of conditional logic
 based on the value of the ACC negative flag. The arithmetic expression for the LP column is:
 <strong>LP = T3*JN*NF + T3*JMP(Jump)</strong></p>
 </li>
 <li>
 <p>A list of all the conditional expressions for the control signals (where * = AND, + = OR)
-is located in <a href="#org23c0df6">Figure 6</a></p>
+is located in <a href="#org28d2e1f">Figure 6</a></p>
 </li>
 </ul>
-<h3 ref="figure-5" ><a id="orgf554659"></a>Figure 5</h3><a class="anchor" id="figure-5"></a>
+<h3 ref="figure-5" ><a id="org7bea64e"></a>Figure 5</h3><a class="anchor" id="figure-5"></a>
 <p>A hard wired example of how the control matrix would work
 <img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/figure5.png" alt=""></p>
-<h3 ref="figure-6" ><a id="org23c0df6"></a>Figure 6</h3><a class="anchor" id="figure-6"></a>
+<h3 ref="figure-6" ><a id="org28d2e1f"></a>Figure 6</h3><a class="anchor" id="figure-6"></a>
 <p>A list of possible conditional expressions for the example computer.
 <img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/figure6.png" alt=""></p>
 <h2 ref="micro-programmed-control-unit" >Micro-programmed Control Unit</h2><a class="anchor" id="micro-programmed-control-unit"></a>
 <p>In the Hard Wired control unit example, the signals that come from the control matrix do so because of
-an actual circuit that is wired to perform the conditional logic shown in <a href="#orgf554659">Figure 5</a>. In a <strong>Micro-Programmed</strong>
+an actual circuit that is wired to perform the conditional logic shown in <a href="#org7bea64e">Figure 5</a>. In a <strong>Micro-Programmed</strong>
 <strong>Control Unit</strong> an opcode is sent to the Control unit where it fetches a list of <strong>Micro-Instructions</strong> that
 together perform the instruction from a memory. The control unit can be thought of as a Computer within a computer.</p>
 <h3 ref="micro-routine" >Micro-routine</h3><a class="anchor" id="micro-routine"></a>
@@ -627,21 +627,21 @@ A <strong>Word</strong> is 24 bits in the context of the micro-programmable Cont
 Each bit corresponds to a control signal</li>
 <li>8-bit next-address field
 address(in ROM) of next micro-instruction to be executed. which permits additional Boolean logic
-shown in <a href="#org9765cb4">Figure 8</a>.</li>
+shown in <a href="#org025ebcc">Figure 8</a>.</li>
 </ol>
 </li>
 <li>Micro-instructions(<strong>Words</strong>) from the Control ROM are fed into the micro-instruction register.</li>
 </ul>
 <h4 ref="24-bit-micro-instruction-register" >24-bit Micro-instruction Register</h4><a class="anchor" id="24-bit-micro-instruction-register"></a>
 <ul>
-<li>analogous to the external computer&rsquo;s <a href="#org67a532c">Instruction Register</a>.</li>
-<li>16 signal lines are the same as the lines coming from the control matrix in <a href="#orgfb570b2">Figure 2</a>
-and are connected to the signal pins shown in <a href="#orgdf11d62">Figure 1</a>.</li>
+<li>analogous to the external computer&rsquo;s <a href="#orgeac6ee6">Instruction Register</a>.</li>
+<li>16 signal lines are the same as the lines coming from the control matrix in <a href="#orgada43cd">Figure 2</a>
+and are connected to the signal pins shown in <a href="#orgc45d4c0">Figure 1</a>.</li>
 <li>triggered by a falling clock edge <a href="https://en.wikipedia.org/wiki/Signal%5Fedge">See this article about signal edges</a></li>
 </ul>
 <h4 ref="micro-counter-register" >micro-counter register</h4><a class="anchor" id="micro-counter-register"></a>
 <ul>
-<li>Analogous to the external computer&rsquo;s <a href="#orga36a36b">Program counter Register</a></li>
+<li>Analogous to the external computer&rsquo;s <a href="#org4f47b06">Program counter Register</a></li>
 <li>recieves input from the <strong>Multiplexer</strong></li>
 <li>triggered by a rising clock edge. <a href="https://en.wikipedia.org/wiki/Signal%5Fedge">signal edges</a></li>
 </ul>
@@ -651,20 +651,20 @@ and are connected to the signal pins shown in <a href="#orgdf11d62">Figure 1</a>
 <li>Output of Address ROM</li>
 <li>Output from Current Address Incrementer</li>
 <li>Address stored in next-address field of the current micro-instruction (CRJA)</li>
-<li>The conditional logic is shown in the description of <a href="#org9765cb4">Figure 8</a></li>
+<li>The conditional logic is shown in the description of <a href="#org025ebcc">Figure 8</a></li>
 </ol>
 <h4 ref="16-x-5-address-rom" >16 X 5 Address ROM</h4><a class="anchor" id="16-x-5-address-rom"></a>
-<p>Fed by outer computer&rsquo;s <a href="#org67a532c">Instruction Register</a>.
-The contents of the Instruction Register can be found in <a href="#orgcad8ee2">Table 3</a></p>
+<p>Fed by outer computer&rsquo;s <a href="#orgeac6ee6">Instruction Register</a>.
+The contents of the Instruction Register can be found in <a href="#org0949d90">Table 3</a></p>
 <ul>
 <li>maps opcode of external computer&rsquo;s instruction to starting address of corresponding micro-routine.
 The first Micro-Instruction of the routine</li>
 <li>Address zero of Address ROM contains address of fetch routine in the Control ROM</li>
-<li>Other addresses in ROM correspond to the opcodes(external computer) in <a href="#org7a39225">Table 1</a>
+<li>Other addresses in ROM correspond to the opcodes(external computer) in <a href="#org2e47631">Table 1</a>
 addresses are of micro-routines in Control ROM</li>
 </ul>
 <h4 ref="note-about-signal-edges" >Note about signal edges</h4><a class="anchor" id="note-about-signal-edges"></a>
-<p>The micro-counter is triggered by a rising clock edge (along with all operations in data path in <a href="#orgdf11d62">Figure 1</a>).
+<p>The micro-counter is triggered by a rising clock edge (along with all operations in data path in <a href="#orgc45d4c0">Figure 1</a>).
 The Micro-instruction register is triggered by a falling clock edge. In a series of steps:</p>
 <ol>
 <li>micro-counter is triggered (positive edge), presenting the new Micro-instruction address to the control ROM</li>
@@ -672,19 +672,19 @@ The Micro-instruction register is triggered by a falling clock edge. In a series
 <li>control ROM presents micro-instruction <strong>Word</strong> to micro-instruction register</li>
 <li>Micro-instruction register is triggered (negative edge) causing it to receive the micro-instruction <strong>Word</strong></li>
 </ol>
-<h3 ref="table-3" ><a id="orgcad8ee2"></a>Table 3</h3><a class="anchor" id="table-3"></a>
+<h3 ref="table-3" ><a id="org0949d90"></a>Table 3</h3><a class="anchor" id="table-3"></a>
 <p>Mapping of Op-codes to the contents of the Address ROM in the Control Unit
 <img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/table3.png" alt=""></p>
 <h4 ref="example-using-the-add-instruction" >Example using the ADD instruction</h4><a class="anchor" id="example-using-the-add-instruction"></a>
 <p>ADD instruction has the 3 opcode which maps to the 09 micro-routine start address.
 The address is then goes to the multiplexer -&gt; micro-counter -&gt; Control ROM -&gt; Micro-instruction register</p>
-<h3 ref="figure-8" ><a id="org9765cb4"></a>Figure 8</h3><a class="anchor" id="figure-8"></a>
+<h3 ref="figure-8" ><a id="org025ebcc"></a>Figure 8</h3><a class="anchor" id="figure-8"></a>
 <p>Next address field of the micro-instruction register.
 <img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/Figure8.jpg" alt=""></p>
 <ul>
 <li>CD is condition bit
 when CD is 1 (MAP is zero) the multiplexer&rsquo;s select lines produce a 00 or a 10 (binary)
-based on the <a href="#orgf62bfdb">Negative Flag</a> of the ACC register (of external computer). 00
+based on the <a href="#orge710694">Negative Flag</a> of the ACC register (of external computer). 00
 00 selects incrementer address, 10 selects CRJA address</li>
 <li>MAP causes next microinstruction to be obtained from address ROM
 When the MAP bit is 1 (Multiplexer&rsquo;s select line produce a 01(binary) (selects the address ROM))</li>
@@ -700,7 +700,7 @@ branching back to the fetch micro-routine.</li>
 </ul>
 </li>
 </ul>
-<h3 ref="table-4" ><a id="orgf6cdf1f"></a>Table 4</h3><a class="anchor" id="table-4"></a>
+<h3 ref="table-4" ><a id="org06f8247"></a>Table 4</h3><a class="anchor" id="table-4"></a>
 <p>A micro-program (set of all micro-routines) that implements described instruction set from
 When loaded into Control ROM</p>
 <figure>
@@ -740,7 +740,7 @@ first address of Micro-instruction in micro-routine.</p>
 <ul>
 <li>
 <p>Control Signal Field</p>
-<p>Same order of signals (bits) as the in <a href="#orgc50c7bb">Table 2</a>
+<p>Same order of signals (bits) as the in <a href="#org4bb4a0c">Table 2</a>
 bits are equivalent to signals which are equivalent to pins.</p>
 </li>
 </ul>
@@ -748,7 +748,7 @@ bits are equivalent to signals which are equivalent to pins.</p>
 <ul>
 <li>
 <p>CD</p>
-<p>Conditional bit, when 1 causes multiplexer to depend on value of <a href="#orgf62bfdb">NF</a> if MAP bit is 0</p>
+<p>Conditional bit, when 1 causes multiplexer to depend on value of <a href="#orge710694">NF</a> if MAP bit is 0</p>
 </li>
 </ul>
 <!--list-separator-->
@@ -770,20 +770,20 @@ bits are equivalent to signals which are equivalent to pins.</p>
 <li>
 <p>Address of Next micro-instruction</p>
 <p>Only matters if HLT and MAP are not 1 (arbitrary values). The Micro-Instruction Address of the next
-Micro-Instruction in a non-branching program. Refer to description of <a href="#org9765cb4">Figure 8</a> for more explanation.</p>
+Micro-Instruction in a non-branching program. Refer to description of <a href="#org025ebcc">Figure 8</a> for more explanation.</p>
 </li>
 </ul>
 <h4 ref="comment" >Comment</h4><a class="anchor" id="comment"></a>
 <p>This column provides a simple explanation for what happens in the micro-programmable control unit
 after each Micro-Instruction.</p>
-<h3 ref="fetch-micro-routine" >Fetch micro-routine</h3><a class="anchor" id="fetch-micro-routine"></a>
+<h3 ref="FETCH" >Fetch micro-routine</h3><a class="anchor" id="FETCH"></a>
 <ul>
 <li>Control ROM addresses 0, 1, 2 (3 Micro-Instructions)
 <ol>
 <li>Micro-Instruction 0
 <ul>
 <li>Activates control Signal bits EP, LM</li>
-<li>Moves data from the <a href="#orga36a36b">Program Counter Register</a> to the <a href="#org2ce9ccd">Memory Access Register</a></li>
+<li>Moves data from the <a href="#org4f47b06">Program Counter Register</a> to the <a href="#org460392f">Memory Access Register</a></li>
 <li>MAR now contains address in RAM of the next instruction</li>
 <li>CD and MAP bits are zero, next Micro-Instruction corresponds to the address
 in the CRJA field (Micro-Instruction 1)</li>
@@ -792,32 +792,32 @@ in the CRJA field (Micro-Instruction 1)</li>
 <li>Micro-Instruction 1
 <ul>
 <li>Activates control Signal bit R</li>
-<li>Reads the data at adress MAR into <a href="#org9bd19ef">Memory Data Register</a> from RAM</li>
+<li>Reads the data at adress MAR into <a href="#orgfaf9c05">Memory Data Register</a> from RAM</li>
 <li>CD and MAP bits are zero, use CRJA field again (Micro-Instruction 2)</li>
 </ul>
 </li>
 <li>Micro-Instruction 2
 <ul>
 <li>Activates control Signal bits ED, LI, IP</li>
-<li>ED, LI moves the <strong>Word</strong> from MDR to the <a href="#org67a532c">Instruction Register</a></li>
+<li>ED, LI moves the <strong>Word</strong> from MDR to the <a href="#orgeac6ee6">Instruction Register</a></li>
 <li>IP increments the PC Register</li>
 <li>New instruction is in IR</li>
 <li>PC now points to the next instruction</li>
 <li>MAP is now 1, so the next micro-instruction is from Address ROM (specified by op-code)</li>
 </ul>
 </li>
-<li>Signal pin description is in <a href="#orgdf11d62">Figure 1</a></li>
+<li>Signal pin description is in <a href="#orgc45d4c0">Figure 1</a></li>
 </ol>
 </li>
 </ul>
-<h3 ref="jn-micro-routine" >JN micro-routine</h3><a class="anchor" id="jn-micro-routine"></a>
+<h3 ref="JN" >JN micro-routine</h3><a class="anchor" id="JN"></a>
 <ul>
 <li>Control ROM addresses 0F, 10, 11
 <ol>
 <li>Micro-Instruction 0F
 <ul>
 <li>Does nothing except set the CD bit to 1</li>
-<li>Execution of the next micro-instruction now depends on value of <a href="#orgf62bfdb">Negative Flag</a></li>
+<li>Execution of the next micro-instruction now depends on value of <a href="#orge710694">Negative Flag</a></li>
 <li>If NF is 0, increments Micro Program counter 0F + 1 = 10, Micro-Instruction 10</li>
 <li>If NF is 1, uses CRJA field (Micro-Instruction 11)</li>
 </ul>
@@ -826,13 +826,13 @@ in the CRJA field (Micro-Instruction 1)</li>
 <ul>
 <li>Does nothing (no set signal bits)</li>
 <li>MAP, CD = 0, uses CRJA field (Micro-Instruction 00 (Fetch routine))</li>
-<li><a href="#orga36a36b">PC</a> is not altered, so next instruction is executed normally</li>
+<li><a href="#org4f47b06">PC</a> is not altered, so next instruction is executed normally</li>
 </ul>
 </li>
 <li>Micro-Instruction 11
 <ul>
 <li>Activates Control Signal Bits EI, LP</li>
-<li>Moves contents of <a href="#org67a532c">IR</a>(least significan eight bits) to <a href="#orga36a36b">PC</a></li>
+<li>Moves contents of <a href="#orgeac6ee6">IR</a>(least significan eight bits) to <a href="#org4f47b06">PC</a></li>
 <li>Next Instruction at location corresponding to value of the least significant 8 bits of IR</li>
 <li>Control of the computer is transferred to the &ldquo;Jump address&rdquo;</li>
 </ul>
@@ -912,34 +912,34 @@ and can be easier to manufacture (cheaper).</li>
       <ul>
         <li><a href="#two-principal-functional-parts">Two Principal functional parts</a></li>
         <li><a href="#two-types-of-control-units">Two types of control units</a></li>
-        <li><a href="#figure-1"><a id="orgdf11d62"></a>figure 1</a></li>
+        <li><a href="#pathways">figure 1 <a id="orgc45d4c0"></a></a></li>
       </ul>
     </li>
     <li><a href="#computer-s-instruction-set">Computer&rsquo;s Instruction Set</a>
       <ul>
         <li><a href="#instruction">Instruction</a></li>
-        <li><a href="#table-1"><a id="org7a39225"></a>Table 1</a></li>
+        <li><a href="#table-1"><a id="org2e47631"></a>Table 1</a></li>
       </ul>
     </li>
     <li><a href="#hard-wired-control-unit">Hard-Wired Control Unit</a>
       <ul>
-        <li><a href="#figure-2"><a id="orgfb570b2"></a>Figure 2</a></li>
-        <li><a href="#figure-3"><a id="org502a962"></a>Figure 3</a></li>
-        <li><a href="#figure-4"><a id="orgb767b5c"></a>Figure 4</a></li>
-        <li><a href="#table-2"><a id="orgc50c7bb"></a>Table 2</a></li>
-        <li><a href="#figure-5"><a id="orgf554659"></a>Figure 5</a></li>
-        <li><a href="#figure-6"><a id="org23c0df6"></a>Figure 6</a></li>
+        <li><a href="#figure-2"><a id="orgada43cd"></a>Figure 2</a></li>
+        <li><a href="#figure-3"><a id="orgf7335a2"></a>Figure 3</a></li>
+        <li><a href="#figure-4"><a id="org18fbae1"></a>Figure 4</a></li>
+        <li><a href="#table-2"><a id="org4bb4a0c"></a>Table 2</a></li>
+        <li><a href="#figure-5"><a id="org7bea64e"></a>Figure 5</a></li>
+        <li><a href="#figure-6"><a id="org28d2e1f"></a>Figure 6</a></li>
       </ul>
     </li>
     <li><a href="#micro-programmed-control-unit">Micro-programmed Control Unit</a>
       <ul>
         <li><a href="#micro-routine">Micro-routine</a></li>
         <li><a href="#figure-7">Figure 7</a></li>
-        <li><a href="#table-3"><a id="orgcad8ee2"></a>Table 3</a></li>
-        <li><a href="#figure-8"><a id="org9765cb4"></a>Figure 8</a></li>
-        <li><a href="#table-4"><a id="orgf6cdf1f"></a>Table 4</a></li>
-        <li><a href="#fetch-micro-routine">Fetch micro-routine</a></li>
-        <li><a href="#jn-micro-routine">JN micro-routine</a></li>
+        <li><a href="#table-3"><a id="org0949d90"></a>Table 3</a></li>
+        <li><a href="#figure-8"><a id="org025ebcc"></a>Figure 8</a></li>
+        <li><a href="#table-4"><a id="org06f8247"></a>Table 4</a></li>
+        <li><a href="#FETCH">Fetch micro-routine</a></li>
+        <li><a href="#JN">JN micro-routine</a></li>
       </ul>
     </li>
     <li><a href="#hard-wired-vs-dot-micro-programmed-computers">Hard-Wired vs. Micro-programmed Computers</a></li>
