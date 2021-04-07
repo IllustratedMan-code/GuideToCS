@@ -119,7 +119,7 @@
      - MAR <-- IR requires the EI (enable instruction register) and the LM (Load MAR) signals
      - MDR <-- RAM(MAR) requires the R (read) signal
 * Hard-Wired Control Unit
-** <<figure2>>Figure 2
+** Figure 2 <<figure2>>
    [[file:images/figure2.png]]
 *** Description of Figure 2
     Internal organization of a hard-wired control unit
