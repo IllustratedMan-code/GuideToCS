@@ -16,7 +16,7 @@
 ** Two types of control units
    - Hard wired controllers
    - Micro programmed controllers
-** <<figure1>>figure 1
+** figure 1 <<figure1>>
 :PROPERTIES:
 :CUSTOM_ID: pathways
 :END:
