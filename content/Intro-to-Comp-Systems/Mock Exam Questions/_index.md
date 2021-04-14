@@ -213,7 +213,7 @@ The memory units that follow are specified by the number of words times the numb
 -   82 I/O lines
 
 
-## <span class="org-todo todo TODO">TODO</span> Q7 {#q7}
+## Q7 {#q7}
 
 Find the number of bytes that can be stored in the memories: (a) 8K X 16 (b) 2G X 8 (c) 16M X 32 (d) 256K X 64
 
@@ -245,10 +245,12 @@ Find the number of bytes that can be stored in the memories: (a) 8K X 16 (b) 2G 
 
 ## <span class="org-todo todo TODO">TODO</span> Q8 {#q8}
 
-**\***
+How many 128 x 8 memory chips are needed to provide a memory capacity of 4096 x 16?
+
+-   4096\*16 / 128\*8 = 64
 
 
-## <span class="org-todo todo TODO">TODO</span> Q9 {#q9}
+## Q9 {#q9}
 
 Given a 32 x 8 ROM chip with an enable input, show the external connections necessary to construct a 128 x 8 ROM with four chips and a decoder. [Useful Video](https://www.youtube.com/watch?v=y3vIqPplSdQ)
 
