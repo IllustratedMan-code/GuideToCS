@@ -243,3 +243,33 @@ Given a 32 x 8 ROM chip with an enable input, show the external connections nece
 
 
 ** TODO Q10
+Assume we have 8GB of word addressable memory with a word size of 64 bits and each refill line of memory stores 16 words. We have a direct-mapped cache with 1024 refill lines. Answer the following questions. [[file:pdfs/Q10.pdf][More examples]]
+1. What is the address format for the cache
+2. If we changed the cache to a 2-way set associative cache, how does the format change?
+3. If we changed the cache to a fully associative cache, how does the format change?
+*** Solution
+**** Part 1
++ 8GB = 8*2^30 bytes
++ 64 bit word = 8 byte word
++ 8GB / 8 byte word = 1GW (gigaword)
++ 1G = 2^30
++ 30 bits for line addresses
++ 16 words per line = 2^4
++ 4 bits for word number on line
++ address format (for MM) = [30-4 bit line address][4 bit word address]
++ 1024 refill lines = 2^10
++ 10 bits for line number
++ 26-10 bits for tag
++ [tag][line number][word number]
++ 16-10-4 = cache memory format
+**** Part 2
++ 2 way set associate cache
++ divide refill lines by 2
++ 1024/2 = 512 = 2^9
++ 26-9 = tag
++ 17-9-4 = 2 way set cache memory format
+**** Part 3
++ fully associative cache
++ 1 refill line = 2^0
++ 26-0 = tag
++ 26-0-4 = fully associate cache
