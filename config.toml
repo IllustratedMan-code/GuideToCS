@@ -68,21 +68,6 @@ tabWidth = 2
 [[menu.shortcuts]]
 name = "Github"
 identifier = "ds"
-url = "https://github.com/vjeantet/hugo-theme-docport"
+url = "https://github.com/IllustratedMan-code"
 weight = 10
 
-[[menu.shortcuts]]
-name = "Download"
-url = "https://github.com/vjeantet/hugo-theme-docport/archive/master.zip"
-weight = 11
-
-[[menu.shortcuts]]
-name = "Hugo Documentation"
-identifier = "hugodoc"
-url = "https://gohugo.io/"
-weight = 20
-
-[[menu.shortcuts]]
-name = "Credits"
-url = "/docport-theme/credits/"
-weight = 30
