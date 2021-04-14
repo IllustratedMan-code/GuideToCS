@@ -8,7 +8,7 @@
 </title>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2021-04-14T20:57:08 UTC">
+<meta name="revised" content="2021-04-14T21:31:45 UTC">
 <meta name="description" content="">
 
 
@@ -336,7 +336,11 @@
     </li>
     <li><a href="#q8"><span class="org-todo todo TODO">TODO</span> Q8</a></li>
     <li><a href="#q9">Q9</a></li>
-    <li><a href="#q10"><span class="org-todo todo TODO">TODO</span> Q10</a></li>
+    <li><a href="#q10"><span class="org-todo todo TODO">TODO</span> Q10</a>
+      <ul>
+        <li><a href="#solution">Solution</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 	</div>
@@ -558,6 +562,44 @@ main:
 </figure>
 
 <h2 ref="q10" ><span class="org-todo todo TODO">TODO</span> Q10</h2><a class="anchor" id="q10"></a>
+<p>Assume we have 8GB of word addressable memory with a word size of 64 bits and each refill line of memory stores 16 words. We have a direct-mapped cache with 1024 refill lines. Answer the following questions. <a href="https://illustratedman-code.github.io/GuideToCS/ox-hugo/Q10.pdf">More examples</a></p>
+<ol>
+<li>What is the address format for the cache</li>
+<li>If we changed the cache to a 2-way set associative cache, how does the format change?</li>
+<li>If we changed the cache to a fully associative cache, how does the format change?</li>
+</ol>
+<h3 ref="solution" >Solution</h3><a class="anchor" id="solution"></a>
+<h4 ref="part-1" >Part 1</h4><a class="anchor" id="part-1"></a>
+<ul>
+<li>8GB = 8*2^30 bytes</li>
+<li>64 bit word = 8 byte word</li>
+<li>8GB / 8 byte word = 1GW (gigaword)</li>
+<li>1G = 2^30</li>
+<li>30 bits for line addresses</li>
+<li>16 words per line = 2^4</li>
+<li>4 bits for word number on line</li>
+<li>address format (for MM) = [30-4 bit line address][4 bit word address]</li>
+<li>1024 refill lines = 2^10</li>
+<li>10 bits for line number</li>
+<li>26-10 bits for tag</li>
+<li>[tag][line number][word number]</li>
+<li>16-10-4 = cache memory format</li>
+</ul>
+<h4 ref="part-2" >Part 2</h4><a class="anchor" id="part-2"></a>
+<ul>
+<li>2 way set associate cache</li>
+<li>divide refill lines by 2</li>
+<li>1024/2 = 512 = 2^9</li>
+<li>26-9 = tag</li>
+<li>17-9-4 = 2 way set cache memory format</li>
+</ul>
+<h4 ref="part-3" >Part 3</h4><a class="anchor" id="part-3"></a>
+<ul>
+<li>fully associative cache</li>
+<li>1 refill line = 2^0</li>
+<li>26-0 = tag</li>
+<li>26-0-4 = fully associate cache</li>
+</ul>
 
 		</div>
 
@@ -630,7 +672,11 @@ main:
     </li>
     <li><a href="#q8"><span class="org-todo todo TODO">TODO</span> Q8</a></li>
     <li><a href="#q9">Q9</a></li>
-    <li><a href="#q10"><span class="org-todo todo TODO">TODO</span> Q10</a></li>
+    <li><a href="#q10"><span class="org-todo todo TODO">TODO</span> Q10</a>
+      <ul>
+        <li><a href="#solution">Solution</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 </div>
