@@ -273,3 +273,16 @@ Assume we have 8GB of word addressable memory with a word size of 64 bits and ea
 + 1 refill line = 2^0
 + 26-0 = tag
 + 26-0-4 = fully associate cache
+* Useful formulas and references
+:PROPERTIES:
+:EXPORT_HUGO_SECTION*: Formulas and References
+:EXPORT_FILE_NAME: _index
+:END:
+
+** Hard Drives
+[[https://www.gatevidyalay.com/magnetic-disk-secondary-memory-coa/][Hard Drive Document]]
+** Circuit reference
++ Logic Gates
+  [[file:images/logicGates.png]]
++ Full Adder
+[[file:images/fullAdder.png]]
