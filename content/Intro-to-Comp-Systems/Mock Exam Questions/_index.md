@@ -265,7 +265,7 @@ Given a 32 x 8 ROM chip with an enable input, show the external connections nece
 {{< figure src="/ox-hugo/Q9.png" >}}
 
 
-## <span class="org-todo todo TODO">TODO</span> Q10 {#q10}
+## Q10 {#q10}
 
 Assume we have 8GB of word addressable memory with a word size of 64 bits and each refill line of memory stores 16 words. We have a direct-mapped cache with 1024 refill lines. Answer the following questions. [More examples](/ox-hugo/Q10.pdf)
 
