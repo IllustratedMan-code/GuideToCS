@@ -1,0 +1,23 @@
+#baseURL = "https://illustratedman-code.github.io/GuideToCS/"
+baseURL = "https://illustratedman-code.github.io/GuideToCS"
+languageCode = "en-us"
+title = "David Lewis's guide to CS"
+theme = "docport"
+canonifyURLs = true
+pygmentsCodeFences = true
+
+[[menu.shortcuts]]
+name = "Github"
+url = "https://github.com/IllustratedMan-code"
+
+[params]
+    color_main = "blue"
+	color_second = "red"
+
+[markup]
+    [markup.goldmark.renderer]
+        unsafe = true
+    [markup.tableOfContents]
+        endLevel = 5
+        ordered = false
+        startLevel = 2

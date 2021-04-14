@@ -3,7 +3,6 @@
 #+hugo_section: Intro-to-Comp-Systems/Hard-Vs-Micro/
 #+hugo_custom_front_matter: subpage false :hide "nav"
 #+EXPORT_FILE_NAME: _index.md
-#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 * Intro
 
   Describes a "big Picture" of computer systems through an example of a "simple" computer.
