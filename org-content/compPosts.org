@@ -227,7 +227,8 @@ Find the number of bytes that can be stored in the memories: (a) 8K X 16 (b) 2G 
 + Number of bytes = 256K*64/2^3 = 2^18 * 64 /2^3 = 2^24 /2^3 = 2^21 = 2M bytes
 ** TODO Q8
 ***
-** TODO Q9
+
+** Q9
 Given a 32 x 8 ROM chip with an enable input, show the external connections necessary to construct a 128 x 8 ROM with four chips and a decoder. [[https://www.youtube.com/watch?v=y3vIqPplSdQ][Useful Video]]
 + 2^5 = 32
 + 5 address lines for each ROM
