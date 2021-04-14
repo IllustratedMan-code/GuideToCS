@@ -260,7 +260,7 @@ Given a 32 x 8 ROM chip with an enable input, show the external connections nece
 -   2 address lines for the decoder
 -   5 + 2 = 7 total lines for complete address
 
-[Question 9](/ox-hugo/Q9.png)
+{{< figure src="/ox-hugo/Q9.png" >}}
 
 
 ## <span class="org-todo todo TODO">TODO</span> Q10 {#q10}
