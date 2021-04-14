@@ -65,7 +65,7 @@ W: .word 5 #arbitrary value
 [Downloadable solution](code-examples/Q3.asm) prints 7
 
 
-## <span class="org-todo todo TODO">TODO</span> Q4 {#q4}
+## Q4 {#q4}
 
 Assume that the code below is run on a machine with a 2 GHz clock that requires the following number of cycles for each instruction: add, addi, sll, sra take 4cc each,  lw takes 5cc,   bne, beq  take 3cc each. How many seconds will it take to execute this code. The values of registers are $4=0x20, $5= 0x20, $6= 0x30, $7= 0x10.
 
@@ -138,7 +138,7 @@ L1: add $11, $5, $9 #marks L1, $11 = 0x20 + $9, $9 is iterator
 288cc/(2\*10^9cc/s) = 1.44 \* 10^-7 seconds
 
 
-## <span class="org-todo todo TODO">TODO</span> Q5 {#q5}
+## Q5 {#q5}
 
 `X[i] = A[B[i]] + C[i+4]`
 
@@ -148,7 +148,7 @@ L1: add $11, $5, $9 #marks L1, $11 = 0x20 + $9, $9 is iterator
 -   starting address of X in $4
 -   i value in register $5
 
-<!--listend-->
+[Q5 Solution download](code-examples/Q5.asm)
 
 ```mips
 .globl main
@@ -174,16 +174,93 @@ main:
 ```
 
 
-## <span class="org-todo todo TODO">TODO</span> Q6 {#q6}
+## Q6 {#q6}
+
+The memory units that follow are specified by the number of words times the number of bits per word. How many address lines and input/output data lines are needed in each case? (a) 8K X 16 (b) 2G X 8 (c) 16M X 32 (d) 256K X 64
+
+
+### Part A {#part-a}
+
+-   Number of words = 8K
+-   Number of bits per word = 16
+-   log base 2 of words = address lines
+-   2^3 \* 2^10 = 2^11 = 13 address lines
+-   I/O lines = address lines + bits per word
+-   13 + 16 = 29 I/O lines
+
+
+### Part B {#part-b}
+
+-   2^1 \* 2^30 = 2G
+-   Address lines = 31
+-   I/O lines = 31 + 8 = 39
+-   39 I/O lines
+
+
+### Part C {#part-c}
+
+-   2^4 \* 2^20 = 16M
+-   Address lines = 24
+-   I/O lines = 24 + 32 = 56
+-   56 I/O lines
+
+
+### Part D {#part-d}
+
+-   2^8 \* 2^10 = 256K
+-   Address lines = 18
+-   I/O lines = 18 + 64
+-   82 I/O lines
 
 
 ## <span class="org-todo todo TODO">TODO</span> Q7 {#q7}
 
+Find the number of bytes that can be stored in the memories: (a) 8K X 16 (b) 2G X 8 (c) 16M X 32 (d) 256K X 64
+
+
+### Part A {#part-a}
+
+-   8 bits per byte
+-   8K words
+-   16 bits per word
+-   number of bits = 8K\*16 = 2^13 \* 2^4 = 2^17
+-   number of bytes = 2^17/2^3 = 2^14 = 16K bytes
+
+
+### Part B {#part-b}
+
+-   Number of bits = 2G\*8 = 2^31\*2^3
+-   Number of bytes = 2^31\*2^3/2^3 = 2^31 = 2G bytes
+
+
+### Part C {#part-c}
+
+-   Number of bytes = 16M \* 32 / 2^3 = 2^24 \* 32 /2^3 = 2^25 = 32M bytes
+
+
+### Part D {#part-d}
+
+-   Number of bytes = 256K\*64/2^3 = 2^18 \* 64 /2^3 = 2^24 /2^3 = 2^21 = 2M bytes
+
 
 ## <span class="org-todo todo TODO">TODO</span> Q8 {#q8}
 
+**\***
+
 
 ## <span class="org-todo todo TODO">TODO</span> Q9 {#q9}
+
+Given a 32 x 8 ROM chip with an enable input, show the external connections necessary to construct a 128 x 8 ROM with four chips and a decoder. [Useful Video](https://www.youtube.com/watch?v=y3vIqPplSdQ)
+
+-   2^5 = 32
+-   5 address lines for each ROM
+-   128/32 = 4 chips
+-   4 outputs on decoder (connected to enable inputs)
+-   2^2 = 4
+-   2 address lines for the decoder
+-   5 + 2 = 7 total lines for complete address
+
+[Question 9](/ox-hugo/Q9.png)
 
 
 ## <span class="org-todo todo TODO">TODO</span> Q10 {#q10}

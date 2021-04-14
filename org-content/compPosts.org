@@ -102,7 +102,7 @@ X: .word 10 #arbitrary value
 W: .word 5 #arbitrary value
 #+END_SRC
 [[file:code-examples/Q3.asm][Downloadable solution]] prints 7
-** TODO Q4
+** Q4
 Assume that the code below is run on a machine with a 2 GHz clock that requires the following number of cycles for each instruction: add, addi, sll, sra take 4cc each,  lw takes 5cc,   bne, beq  take 3cc each. How many seconds will it take to execute this code. The values of registers are $4=0x20, $5= 0x20, $6= 0x30, $7= 0x10.
 #+BEGIN_SRC mips :tangle code-examples/Q4.asm
     .globl  main
@@ -152,7 +152,7 @@ L1: add $11, $5, $9 #marks L1, $11 = 0x20 + $9, $9 is iterator
 *** Calculate time
 288cc/(2*10^9cc/s) = 1.44 * 10^-7 seconds
 
-** TODO Q5
+** Q5
 =X[i] = A[B[i]] + C[i+4]=
 - starting address of A in $1
 - starting address of B in $2
@@ -183,10 +183,60 @@ main:
     sw      $t1, ($s3)          # stores $t1 to address of ($s3)
 #+end_src
 
+** Q6
+The memory units that follow are specified by the number of words times the number of bits per word. How many address lines and input/output data lines are needed in each case? (a) 8K X 16 (b) 2G X 8 (c) 16M X 32 (d) 256K X 64
+*** Part A
++ Number of words = 8K
++ Number of bits per word = 16
++ log base 2 of words = address lines
++ 2^3 * 2^10 = 2^11 = 13 address lines
++ I/O lines = address lines + bits per word
++ 13 + 16 = 29 I/O lines
+*** Part B
++ 2^1 * 2^30 = 2G
++ Address lines = 31
++ I/O lines = 31 + 8 = 39
++ 39 I/O lines
+*** Part C
++ 2^4 * 2^20 = 16M
++ Address lines = 24
++ I/O lines = 24 + 32 = 56
++ 56 I/O lines
+*** Part D
++ 2^8 * 2^10 = 256K
++ Address lines = 18
++ I/O lines = 18 + 64
++ 82 I/O lines
 
 
-** TODO Q6
 ** TODO Q7
+Find the number of bytes that can be stored in the memories: (a) 8K X 16 (b) 2G X 8 (c) 16M X 32 (d) 256K X 64
+
+*** Part A
++ 8 bits per byte
++ 8K words
++ 16 bits per word
++ number of bits = 8K*16 = 2^13 * 2^4 = 2^17
++ number of bytes = 2^17/2^3 = 2^14 = 16K bytes
+*** Part B
++ Number of bits = 2G*8 = 2^31*2^3
++ Number of bytes = 2^31*2^3/2^3 = 2^31 = 2G bytes
+*** Part C
++ Number of bytes = 16M * 32 / 2^3 = 2^24 * 32 /2^3 = 2^25 = 32M bytes
+*** Part D
++ Number of bytes = 256K*64/2^3 = 2^18 * 64 /2^3 = 2^24 /2^3 = 2^21 = 2M bytes
 ** TODO Q8
+***
 ** TODO Q9
+Given a 32 x 8 ROM chip with an enable input, show the external connections necessary to construct a 128 x 8 ROM with four chips and a decoder. [[https://www.youtube.com/watch?v=y3vIqPplSdQ][Useful Video]]
++ 2^5 = 32
++ 5 address lines for each ROM
++ 128/32 = 4 chips
++ 4 outputs on decoder (connected to enable inputs)
++ 2^2 = 4
++ 2 address lines for the decoder
++ 5 + 2 = 7 total lines for complete address
+[[file:images/Q9.png][Question 9]]
+
+
 ** TODO Q10
