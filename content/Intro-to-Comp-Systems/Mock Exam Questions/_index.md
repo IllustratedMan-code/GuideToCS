@@ -184,7 +184,7 @@ The memory units that follow are specified by the number of words times the numb
 -   Number of words = 8K
 -   Number of bits per word = 16
 -   log base 2 of words = address lines
--   2^3 \* 2^10 = 2^11 = 13 address lines
+-   2^3 \* 2^10 = 2^13 = 13 address lines
 -   I/O lines = address lines + bits per word
 -   13 + 16 = 29 I/O lines
 
@@ -235,7 +235,7 @@ Find the number of bytes that can be stored in the memories: (a) 8K X 16 (b) 2G 
 
 ### Part C {#part-c}
 
--   Number of bytes = 16M \* 32 / 2^3 = 2^24 \* 32 /2^3 = 2^25 = 32M bytes
+-   Number of bytes = 16M \* 32 / 2^3 = 2^24 \* 32 /2^3 = 2^26 = 64M bytes
 
 
 ### Part D {#part-d}
