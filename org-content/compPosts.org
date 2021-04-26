@@ -29,7 +29,8 @@ the map bit uses the next micro-instruction in the control ROM, see Fetch-routin
 **** CRJA field
 This field consists of an address in the control ROM
 ** LDA micro-routine
-Here is a step by step on how to write this instruction with micro-instructions.
+
+here is a step by step on how to write this instruction with micro-instructions.
 1. Find out where the data is coming from.
 2. Map out the sub-steps:
    1. IR -> MAR
@@ -291,7 +292,13 @@ Consider a disk pack with the following specifications 16 surfaces, 128 tracks p
 + 19 bits required for address
 *** Formatted Disk Space (32 bytes per sector format overhead)
 + Use the formula =Formatting Overhead=
-+ 2^19 sectors * 32 bytes/sector =
++ 2^19 sectors * 32 bytes/sector = 2^19 * 2^5 bytes = 2^24 bytes
++ 16 MB
++ Use the formula =Formatted disk space=
++ Total Disk space - Formatting overhead
++ 256 MB - 16 MB
++ 240 MB
+
 
 * Useful formulas and references
 :PROPERTIES:
@@ -348,6 +355,25 @@ Consider a disk pack with the following specifications 16 surfaces, 128 tracks p
 
 ** Pipelining
 [[file:pdfs/Pipelining in Computer Architecture.pdf][pipelining document from nitin]]
+*** Formulas
++ \(\text{Speed Up (S)} = \frac{\text{Non-pipelined execution time}}{\text{Pipelined execution time}}\)
++ \(\text{Efficiency} = \frac{\text{Speed Up}}{\text{Number of stages in Pipelined Architecture}}\)
++ \(\text{Efficiency} = \frac{\text{Number of boxes utilized in phase time diagram}}{\text{Number of boxes in phase time diagram}}\)
++ \(\text{Throughput} = \frac{\text{Number of instructions executed}}{\text{Total time taken}}\)
++ Non-pipelined execution time = Total number of instructions * Time taken to execute one instruction = n * k clock cycles
++ Pipelined execution time
+
+  = Time taken to execute first instruction + Time take to execute remaining instructions
+
+  = 1 * k clock cycles + (n-1) * 1 clock cycle
+
+  = (k + n-1) clock cycles
++ =Cycle time= = Maximum delay due to any stage + Delay due to its register
++ =delay due to its register= = =latch delay=
++ pipeline time for x tasks = Time taken for 1st task + Time taken for remaining tasks
+
+  = number of phases * cycle time + (total tasks -1) * cycle time
+
 
 ** MIPS
 + [[file:pdfs/MIPS-Theory.pdf][Mips Theory]]

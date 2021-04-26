@@ -59,7 +59,7 @@ This field consists of an address in the control ROM
 
 ## LDA micro-routine {#lda-micro-routine}
 
-Here is a step by step on how to write this instruction with micro-instructions.
+here is a step by step on how to write this instruction with micro-instructions.
 
 1.  Find out where the data is coming from.
 2.  Map out the sub-steps:
