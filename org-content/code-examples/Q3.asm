@@ -16,6 +16,8 @@ main:
     li $v0, 10 #exits
     syscall
 
+    
+.data
 Z: .word  12 #arbitrary value
 X: .word 10 #arbitrary value
 W: .word 5 #arbitrary value

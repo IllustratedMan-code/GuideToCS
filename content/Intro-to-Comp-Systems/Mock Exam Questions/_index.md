@@ -57,6 +57,8 @@ main:
     li $v0, 10 #exits
     syscall
 
+
+.data
 Z: .word  12 #arbitrary value
 X: .word 10 #arbitrary value
 W: .word 5 #arbitrary value
@@ -309,3 +311,6 @@ Assume we have 8GB of word addressable memory with a word size of 64 bits and ea
 -   1 refill line = 2^0
 -   26-0 = tag
 -   26-0-4 = fully associate cache
+
+
+## Hard Drive Sample question {#hard-drive-sample-question}

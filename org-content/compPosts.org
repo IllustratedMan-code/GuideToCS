@@ -97,6 +97,8 @@ main:
     li $v0, 10 #exits
     syscall
 
+    
+.data
 Z: .word  12 #arbitrary value
 X: .word 10 #arbitrary value
 W: .word 5 #arbitrary value
@@ -320,7 +322,10 @@ Assume we have 8GB of word addressable memory with a word size of 64 bits and ea
 **** Direct mapped cache
 + \(\text{MM(size in bytes)} = 2^{\text{number Of Bits In Physical Address}} * 2^3\)
 + \(\text{BlockOffset(size in bytes)} = 2^{\text{Bits In Block Offset}} * 2^3 \)
-+
++ \(\text{number of bits in line number} = 2^{\frac{\text{Cache size}}{\text{Line Size}}} \)
++ \(\text{tag directory size} = \text{number of lines in cache * Number of bits in tag} = \text{Number of Tags} * \text{Tag size} \)
++ 
+  
 
 
 ** MIPS
