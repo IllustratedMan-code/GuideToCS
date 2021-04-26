@@ -8,7 +8,7 @@
 </title>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2021-04-26T16:51:15 UTC">
+<meta name="revised" content="2021-04-26T17:38:39 UTC">
 <meta name="description" content="">
 
 
@@ -314,7 +314,11 @@
     </li>
     <li><a href="#circuit-reference">Circuit reference</a></li>
     <li><a href="#computer-arithmetic">Computer Arithmetic</a></li>
-    <li><a href="#memory-plus-cache">Memory + Cache</a></li>
+    <li><a href="#memory-plus-cache">Memory + Cache</a>
+      <ul>
+        <li><a href="#formulas">Formulas</a></li>
+      </ul>
+    </li>
     <li><a href="#mips">MIPS</a></li>
   </ul>
 </nav>
@@ -343,6 +347,13 @@
 </ul>
 </li>
 <li><code>Average Rotational Latency</code> = 1/2 * Time taken for one full rotation</li>
+<li><code>Capacity of disk pack</code> = Total number of surfaces * Number of tracks per surface * Number of sectors per track * storage capacity of one sector</li>
+<li><code>Formatting Overhead</code> = Number of sectors * Overhead per sector</li>
+<li><code>Formatted Disk Space</code> = Total disk space or capacity - formatting overhead</li>
+<li><code>Recording density or storage density</code> = Capacity of track / circumference of the track</li>
+<li><code>Track Capacity</code> = Recording density of the track * Circumference of the track</li>
+<li><code>Data Transfer Rate</code> = Number of heads * Bytes that can be read in one full rotation * Number of rotations in one second = Number of heads * Capacity of one track * Number of rotations in one second</li>
+<li>Tracks per surface = (Outer radius - Inner radius) / Inter Track gap</li>
 </ul>
 <h2 ref="circuit-reference" >Circuit reference</h2><a class="anchor" id="circuit-reference"></a>
 <ul>
@@ -359,6 +370,17 @@
 <ul>
 <li><a href="https://upscfever.com/upsc-fever/en/gatecse/en-gatecse-chp166.html#:~:text=Memory%20Connection%20to%20CPU,through%20its%20chip%20select%20inputs.&amp;text=When%2001%2C%20the%20second%20RAM,is%20selected%2C%20and%20so%20on">Main Memory and Organization</a> : credit to Robbie Schad</li>
 <li><a href="https://illustratedman-code.github.io/GuideToCS/ox-hugo/notes_cache.pdf">Cache Notes</a></li>
+<li><a href="https://illustratedman-code.github.io/GuideToCS/ox-hugo/Direct%20Mapping%20Examples.pdf">Direct Mapping Examples</a></li>
+<li><a href="https://illustratedman-code.github.io/GuideToCS/ox-hugo/Fully%20Associative%20Mapping%20Examples.pdf">Fully Associative Mapping Examples</a></li>
+<li><a href="https://illustratedman-code.github.io/GuideToCS/ox-hugo/Set%20Associative%20Mapping%20Examples.pdf">Set Associate Mapping Examples</a></li>
+</ul>
+<h3 ref="formulas" >Formulas</h3><a class="anchor" id="formulas"></a>
+<ul>
+<li>physical address size (bits)</li>
+</ul>
+<h4 ref="direct-mapped-cache" >Direct mapped cache</h4><a class="anchor" id="direct-mapped-cache"></a>
+<ul>
+<li>\(MM(size in bytes) = 2^{number Of Bits In Physical Address} * 2^3\)</li>
 </ul>
 <h2 ref="mips" >MIPS</h2><a class="anchor" id="mips"></a>
 <ul>
@@ -418,7 +440,11 @@
     </li>
     <li><a href="#circuit-reference">Circuit reference</a></li>
     <li><a href="#computer-arithmetic">Computer Arithmetic</a></li>
-    <li><a href="#memory-plus-cache">Memory + Cache</a></li>
+    <li><a href="#memory-plus-cache">Memory + Cache</a>
+      <ul>
+        <li><a href="#formulas">Formulas</a></li>
+      </ul>
+    </li>
     <li><a href="#mips">MIPS</a></li>
   </ul>
 </nav>
