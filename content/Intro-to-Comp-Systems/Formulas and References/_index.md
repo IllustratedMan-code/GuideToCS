@@ -79,6 +79,27 @@ draft = false
 [pipelining document from nitin](</ox-hugo/Pipelining in Computer Architecture.pdf>)
 
 
+### Formulas {#formulas}
+
+-   \\(\text{Speed Up (S)} = \frac{\text{Non-pipelined execution time}}{\text{Pipelined execution time}}\\)
+-   \\(\text{Efficiency} = \frac{\text{Speed Up}}{\text{Number of stages in Pipelined Architecture}}\\)
+-   \\(\text{Efficiency} = \frac{\text{Number of boxes utilized in phase time diagram}}{\text{Number of boxes in phase time diagram}}\\)
+-   \\(\text{Throughput} = \frac{\text{Number of instructions executed}}{\text{Total time taken}}\\)
+-   Non-pipelined execution time = Total number of instructions \* Time taken to execute one instruction = n \* k clock cycles
+-   Pipelined execution time
+
+    = Time taken to execute first instruction + Time take to execute remaining instructions
+
+    = 1 \* k clock cycles + (n-1) \* 1 clock cycle
+
+    = (k + n-1) clock cycles
+-   `Cycle time` = Maximum delay due to any stage + Delay due to its register
+-   `delay due to its register` = `latch delay`
+-   pipeline time for x tasks = Time taken for 1st task + Time taken for remaining tasks
+
+    = number of phases \* cycle time + (total tasks -1) \* cycle time
+
+
 ## MIPS {#mips}
 
 -   [Mips Theory](/ox-hugo/MIPS-Theory.pdf)
