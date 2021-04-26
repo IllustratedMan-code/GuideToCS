@@ -273,6 +273,10 @@ Assume we have 8GB of word addressable memory with a word size of 64 bits and ea
 + 1 refill line = 2^0
 + 26-0 = tag
 + 26-0-4 = fully associate cache
+** Hard Drive Sample question
+
+
+
 * Useful formulas and references
 :PROPERTIES:
 :EXPORT_HUGO_SECTION*: Formulas and References
@@ -280,12 +284,31 @@ Assume we have 8GB of word addressable memory with a word size of 64 bits and ea
 :END:
 
 ** Hard Drives
-[[https://www.gatevidyalay.com/magnetic-disk-secondary-memory-coa/][Hard Drive Document]]
+[[https://www.gatevidyalay.com/magnetic-disk-secondary-memory-coa/][Hard Drive Website]]
+[[file:pdfs/MagneticDisk.pdf][Hard Drive Document from nitin]]
+
+*** Formulas
++ =Disk access time= = Seek Time + Rotational delay + Transfer time + Controller overhead + Queuing delay
++ =Average Disk Access= Time = Average seek time + Average rotational delay + Transfer time + Controller overhead + Queuing delay
++ =Average Seek Time= = 1/3 * Time taken for one full stroke
+  + (Time taken to move from track 1 to track 1 + Time taken to move from track 1 to last track)/2
+  + {0 + (k-1)t}/2
+  + (k-1)t/2
++ =Average Rotational Latency= = 1/2 * Time taken for one full rotation
+
+
 ** Circuit reference
 + Logic Gates
   [[file:images/logicGates.png]]
 + Full Adder
 [[file:images/fullAdder.png]]
 ** Computer Arithmetic
-** Memory
-[[Main Memory and orgzation][]
+** Memory + Cache
++ [[https://upscfever.com/upsc-fever/en/gatecse/en-gatecse-chp166.html#:~:text=Memory%20Connection%20to%20CPU,through%20its%20chip%20select%20inputs.&text=When%2001%2C%20the%20second%20RAM,is%20selected%2C%20and%20so%20on][Main Memory and Organization]] : credit to Robbie Schad
++ [[file:pdfs/notes_cache.pdf][Cache Notes]]
+** MIPS
++ [[file:pdfs/MIPS-Theory.pdf][Mips Theory]]
++ [[https://inst.eecs.berkeley.edu/~cs61c/resources/MIPS_help.html][Mips Reference from Berkeley]]
++ [[http://www.cburch.com/cs/330/reading/mips-ref.pdf][Mips Reference from Cburch]]
++ [[file:images/mips-datapath.png][MIPS DATAPATH]]
++ [[file:images/mips-datapath-pipelined.png][MIPS PIPELINED DATAPATH]]
