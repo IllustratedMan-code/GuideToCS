@@ -8,7 +8,7 @@
 </title>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2021-04-26T18:04:38 UTC">
+<meta name="revised" content="2021-04-26T18:20:47 UTC">
 <meta name="description" content="">
 
 
@@ -380,11 +380,13 @@
 </ul>
 <h3 ref="formulas" >Formulas</h3><a class="anchor" id="formulas"></a>
 <ul>
-<li>physical address size (bits)</li>
+<li>physical address size (bits) = TAG + Line Number + Block/Line Offset</li>
 </ul>
 <h4 ref="direct-mapped-cache" >Direct mapped cache</h4><a class="anchor" id="direct-mapped-cache"></a>
 <ul>
-<li>\(MM(size in bytes) = 2^{number Of Bits In Physical Address} * 2^3\)</li>
+<li>\(\text{MM(size in bytes)} = 2^{\text{number Of Bits In Physical Address}} * 2^3\)</li>
+<li>\(\text{BlockOffset(size in bytes)} = 2^{\text{Bits In Block Offset}} * 2^3 \)</li>
+<li></li>
 </ul>
 <h2 ref="mips" >MIPS</h2><a class="anchor" id="mips"></a>
 <ul>
