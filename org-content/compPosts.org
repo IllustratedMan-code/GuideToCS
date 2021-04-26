@@ -276,8 +276,22 @@ Assume we have 8GB of word addressable memory with a word size of 64 bits and ea
 + 26-0 = tag
 + 26-0-4 = fully associate cache
 ** Hard Drive Sample question
+This is a writeup of question 1 from [[file:pdfs/MagneticDisk.pdf][here]].
 
+Consider a disk pack with the following specifications 16 surfaces, 128 tracks per surface, 256 sectors per track, 512 bytes per sector
 
+*** Capacity of Disk Space
++ Use the formula =Capacity of Disk Space=.
++ 16 surfaces * 128 tracks/surface * 256 sectors/track * 512 bytes per sector = $2^{28}$ bytes
++ 256 MB
+***  Bit Required to address sector
++ Use a modified version of =Capacity of Disk Space= to find total number of sectors
++ 16 surfaces * 128 tracks/surface * 256 sectors/track = 2^19 sectors
++ Use the same method as the cache problems to find the number of bits
++ 19 bits required for address
+*** Formatted Disk Space (32 bytes per sector format overhead)
++ Use the formula =Formatting Overhead=
++ 2^19 sectors * 32 bytes/sector =
 
 * Useful formulas and references
 :PROPERTIES:
@@ -332,6 +346,8 @@ Assume we have 8GB of word addressable memory with a word size of 64 bits and ea
 **** Fully associative cache
 + physical address size (bits) = TAG + Block offset
 
+** Pipelining
+[[file:pdfs/Pipelining in Computer Architecture.pdf][pipelining document from nitin]]
 
 ** MIPS
 + [[file:pdfs/MIPS-Theory.pdf][Mips Theory]]

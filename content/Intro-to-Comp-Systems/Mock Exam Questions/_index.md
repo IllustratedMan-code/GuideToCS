@@ -314,3 +314,12 @@ Assume we have 8GB of word addressable memory with a word size of 64 bits and ea
 
 
 ## Hard Drive Sample question {#hard-drive-sample-question}
+
+This is a writeup of question 1 from [here](/ox-hugo/MagneticDisk.pdf).
+
+Consider a disk pack with the following specifications 16 surfaces, 128 tracks per surface, 256 sectors per track, 512 bytes per sector
+
+
+### Capacity of Disk Space {#capacity-of-disk-space}
+
+-   Use the formula `Capacity of Disk Space`. 16 surfaces \* 128 tracks/surface \* 256 sectors/track \* 512 bytes per sector = \\(2^{28}\\) bytes = 256 MB

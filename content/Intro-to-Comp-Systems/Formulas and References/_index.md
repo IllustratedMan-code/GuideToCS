@@ -74,6 +74,11 @@ draft = false
 -   physical address size (bits) = TAG + Block offset
 
 
+## Pipelining {#pipelining}
+
+[pipelining document from nitin](</ox-hugo/Pipelining in Computer Architecture.pdf>)
+
+
 ## MIPS {#mips}
 
 -   [Mips Theory](/ox-hugo/MIPS-Theory.pdf)
