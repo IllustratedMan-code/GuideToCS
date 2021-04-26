@@ -19,6 +19,13 @@ draft = false
     -   {0 + (k-1)t}/2
     -   (k-1)t/2
 -   `Average Rotational Latency` = 1/2 \* Time taken for one full rotation
+-   `Capacity of disk pack` = Total number of surfaces \* Number of tracks per surface \* Number of sectors per track \* storage capacity of one sector
+-   `Formatting Overhead` = Number of sectors \* Overhead per sector
+-   `Formatted Disk Space` = Total disk space or capacity - formatting overhead
+-   `Recording density or storage density` = Capacity of track / circumference of the track
+-   `Track Capacity` = Recording density of the track \* Circumference of the track
+-   `Data Transfer Rate` = Number of heads \* Bytes that can be read in one full rotation \* Number of rotations in one second = Number of heads \* Capacity of one track \* Number of rotations in one second
+-   Tracks per surface = (Outer radius - Inner radius) / Inter Track gap
 
 
 ## Circuit reference {#circuit-reference}
@@ -37,6 +44,19 @@ draft = false
 
 -   [Main Memory and Organization](https://upscfever.com/upsc-fever/en/gatecse/en-gatecse-chp166.html#:~:text=Memory%20Connection%20to%20CPU,through%20its%20chip%20select%20inputs.&text=When%2001%2C%20the%20second%20RAM,is%20selected%2C%20and%20so%20on) : credit to Robbie Schad
 -   [Cache Notes](/ox-hugo/notes_cache.pdf)
+-   [Direct Mapping Examples](</ox-hugo/Direct Mapping Examples.pdf>)
+-   [Fully Associative Mapping Examples](</ox-hugo/Fully Associative Mapping Examples.pdf>)
+-   [Set Associate Mapping Examples](</ox-hugo/Set Associative Mapping Examples.pdf>)
+
+
+### Formulas {#formulas}
+
+-   physical address size (bits)
+
+
+#### Direct mapped cache {#direct-mapped-cache}
+
+-   \\(MM(size in bytes) = 2^{number Of Bits In Physical Address} \* 2^3\\)
 
 
 ## MIPS {#mips}
