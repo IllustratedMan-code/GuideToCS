@@ -51,12 +51,14 @@ draft = false
 
 ### Formulas {#formulas}
 
--   physical address size (bits)
+-   physical address size (bits) = TAG + Line Number + Block/Line Offset
 
 
 #### Direct mapped cache {#direct-mapped-cache}
 
--   \\(MM(size in bytes) = 2^{number Of Bits In Physical Address} \* 2^3\\)
+-   \\(\text{MM(size in bytes)} = 2^{\text{number Of Bits In Physical Address}} \* 2^3\\)
+-   \\(\text{BlockOffset(size in bytes)} = 2^{\text{Bits In Block Offset}} \* 2^3 \\)
+-
 
 
 ## MIPS {#mips}

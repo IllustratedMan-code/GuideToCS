@@ -316,9 +316,12 @@ Assume we have 8GB of word addressable memory with a word size of 64 bits and ea
 + [[file:pdfs/Fully Associative Mapping Examples.pdf][Fully Associative Mapping Examples]]
 + [[file:pdfs/Set Associative Mapping Examples.pdf][Set Associate Mapping Examples]]
 *** Formulas
-+ physical address size (bits)
++ physical address size (bits) = TAG + Line Number + Block/Line Offset
 **** Direct mapped cache
-+ \(MM(size in bytes) = 2^{number Of Bits In Physical Address} * 2^3\)
++ \(\text{MM(size in bytes)} = 2^{\text{number Of Bits In Physical Address}} * 2^3\)
++ \(\text{BlockOffset(size in bytes)} = 2^{\text{Bits In Block Offset}} * 2^3 \)
++
+
 
 ** MIPS
 + [[file:pdfs/MIPS-Theory.pdf][Mips Theory]]
