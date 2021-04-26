@@ -286,3 +286,6 @@ Assume we have 8GB of word addressable memory with a word size of 64 bits and ea
   [[file:images/logicGates.png]]
 + Full Adder
 [[file:images/fullAdder.png]]
+** Computer Arithmetic
+** Memory
+[[Main Memory and orgzation][]

@@ -16,3 +16,11 @@ draft = false
 -   Full Adder
 
 {{< figure src="/ox-hugo/fullAdder.png" >}}
+
+
+## Computer Arithmetic {#computer-arithmetic}
+
+
+## Memory {#memory}
+
+[Main Memory and Organization](https://upscfever.com/upsc-fever/en/gatecse/en-gatecse-chp166.html#:~:text=Memory%20Connection%20to%20CPU,through%20its%20chip%20select%20inputs.&text=When%2001%2C%20the%20second%20RAM,is%20selected%2C%20and%20so%20on) : credit to Robbie Schad
