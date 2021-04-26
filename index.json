@@ -39,5 +39,5 @@
 	"title": "Useful formulas and references",
 	"tags": [],
 	"description": "",
-	"content": "Hard Drives Hard Drive Document\nCircuit reference  Logic Gates  Full Adder    Computer Arithmetic Memory Main Memory and Organization : credit to Robbie Schad\n"
+	"content": "Hard Drives Hard Drive Website Hard Drive Document from nitin\nFormulas  Disk access time = Seek Time + Rotational delay + Transfer time + Controller overhead + Queuing delay Average Disk Access Time = Average seek time + Average rotational delay + Transfer time + Controller overhead + Queuing delay Average Seek Time = 1/3 * Time taken for one full stroke  (Time taken to move from track 1 to track 1 + Time taken to move from track 1 to last track)/2 {0 + (k-1)t}/2 (k-1)t/2   Average Rotational Latency = 1/2 * Time taken for one full rotation  Circuit reference  Logic Gates  Full Adder    Computer Arithmetic Memory + Cache  Main Memory and Organization : credit to Robbie Schad Cache Notes  MIPS  Mips Theory Mips Reference from Berkeley Mips Reference from Cburch MIPS DATAPATH MIPS PIPELINED DATAPATH  "
 }]

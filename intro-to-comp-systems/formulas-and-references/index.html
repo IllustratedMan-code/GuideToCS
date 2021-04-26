@@ -8,7 +8,7 @@
 </title>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2021-04-26T14:16:40 UTC">
+<meta name="revised" content="2021-04-26T16:51:15 UTC">
 <meta name="description" content="">
 
 
@@ -307,10 +307,15 @@
 		</span>
 		<nav id="TableOfContents">
   <ul>
-    <li><a href="#hard-drives">Hard Drives</a></li>
+    <li><a href="#hard-drives">Hard Drives</a>
+      <ul>
+        <li><a href="#formulas">Formulas</a></li>
+      </ul>
+    </li>
     <li><a href="#circuit-reference">Circuit reference</a></li>
     <li><a href="#computer-arithmetic">Computer Arithmetic</a></li>
-    <li><a href="#memory">Memory</a></li>
+    <li><a href="#memory-plus-cache">Memory + Cache</a></li>
+    <li><a href="#mips">MIPS</a></li>
   </ul>
 </nav>
 	</div>
@@ -324,7 +329,21 @@
 
 	<div class="content">
 	    <h2 ref="hard-drives" >Hard Drives</h2><a class="anchor" id="hard-drives"></a>
-<p><a href="https://www.gatevidyalay.com/magnetic-disk-secondary-memory-coa/">Hard Drive Document</a></p>
+<p><a href="https://www.gatevidyalay.com/magnetic-disk-secondary-memory-coa/">Hard Drive Website</a>
+<a href="https://illustratedman-code.github.io/GuideToCS/ox-hugo/MagneticDisk.pdf">Hard Drive Document from nitin</a></p>
+<h3 ref="formulas" >Formulas</h3><a class="anchor" id="formulas"></a>
+<ul>
+<li><code>Disk access time</code> = Seek Time + Rotational delay + Transfer time + Controller overhead + Queuing delay</li>
+<li><code>Average Disk Access</code> Time = Average seek time + Average rotational delay + Transfer time + Controller overhead + Queuing delay</li>
+<li><code>Average Seek Time</code> = 1/3 * Time taken for one full stroke
+<ul>
+<li>(Time taken to move from track 1 to track 1 + Time taken to move from track 1 to last track)/2</li>
+<li>{0 + (k-1)t}/2</li>
+<li>(k-1)t/2</li>
+</ul>
+</li>
+<li><code>Average Rotational Latency</code> = 1/2 * Time taken for one full rotation</li>
+</ul>
 <h2 ref="circuit-reference" >Circuit reference</h2><a class="anchor" id="circuit-reference"></a>
 <ul>
 <li>Logic Gates
@@ -336,8 +355,19 @@
 </figure>
 
 <h2 ref="computer-arithmetic" >Computer Arithmetic</h2><a class="anchor" id="computer-arithmetic"></a>
-<h2 ref="memory" >Memory</h2><a class="anchor" id="memory"></a>
-<p><a href="https://upscfever.com/upsc-fever/en/gatecse/en-gatecse-chp166.html#:~:text=Memory%20Connection%20to%20CPU,through%20its%20chip%20select%20inputs.&amp;text=When%2001%2C%20the%20second%20RAM,is%20selected%2C%20and%20so%20on">Main Memory and Organization</a> : credit to Robbie Schad</p>
+<h2 ref="memory-plus-cache" >Memory + Cache</h2><a class="anchor" id="memory-plus-cache"></a>
+<ul>
+<li><a href="https://upscfever.com/upsc-fever/en/gatecse/en-gatecse-chp166.html#:~:text=Memory%20Connection%20to%20CPU,through%20its%20chip%20select%20inputs.&amp;text=When%2001%2C%20the%20second%20RAM,is%20selected%2C%20and%20so%20on">Main Memory and Organization</a> : credit to Robbie Schad</li>
+<li><a href="https://illustratedman-code.github.io/GuideToCS/ox-hugo/notes_cache.pdf">Cache Notes</a></li>
+</ul>
+<h2 ref="mips" >MIPS</h2><a class="anchor" id="mips"></a>
+<ul>
+<li><a href="https://illustratedman-code.github.io/GuideToCS/ox-hugo/MIPS-Theory.pdf">Mips Theory</a></li>
+<li><a href="https://inst.eecs.berkeley.edu/~cs61c/resources/MIPS%5Fhelp.html">Mips Reference from Berkeley</a></li>
+<li><a href="http://www.cburch.com/cs/330/reading/mips-ref.pdf">Mips Reference from Cburch</a></li>
+<li><a href="https://illustratedman-code.github.io/GuideToCS/ox-hugo/mips-datapath.png">MIPS DATAPATH</a></li>
+<li><a href="https://illustratedman-code.github.io/GuideToCS/ox-hugo/mips-datapath-pipelined.png">MIPS PIPELINED DATAPATH</a></li>
+</ul>
 
 		</div>
 
@@ -381,10 +411,15 @@
     </nav>
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#hard-drives">Hard Drives</a></li>
+    <li><a href="#hard-drives">Hard Drives</a>
+      <ul>
+        <li><a href="#formulas">Formulas</a></li>
+      </ul>
+    </li>
     <li><a href="#circuit-reference">Circuit reference</a></li>
     <li><a href="#computer-arithmetic">Computer Arithmetic</a></li>
-    <li><a href="#memory">Memory</a></li>
+    <li><a href="#memory-plus-cache">Memory + Cache</a></li>
+    <li><a href="#mips">MIPS</a></li>
   </ul>
 </nav>
 </div>
