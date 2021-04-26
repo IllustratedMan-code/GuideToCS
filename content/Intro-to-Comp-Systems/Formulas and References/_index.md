@@ -39,6 +39,8 @@ draft = false
 
 ## Computer Arithmetic {#computer-arithmetic}
 
+[Computer arithemetic document from nitin](</ox-hugo/Computer Arithemtic.pdf>)
+
 
 ## Memory + Cache {#memory-plus-cache}
 
@@ -51,14 +53,25 @@ draft = false
 
 ### Formulas {#formulas}
 
--   physical address size (bits) = TAG + Line Number + Block/Line Offset
-
 
 #### Direct mapped cache {#direct-mapped-cache}
 
+-   physical address size (bits) = TAG + Line Number + Block/Line Offset
 -   \\(\text{MM(size in bytes)} = 2^{\text{number Of Bits In Physical Address}} \* 2^3\\)
 -   \\(\text{BlockOffset(size in bytes)} = 2^{\text{Bits In Block Offset}} \* 2^3 \\)
--
+-   \\(\text{number of lines} = 2^{\text{bits in line number}} = \frac{\text{Cache size}}{\text{Line Size}} \\)
+-   \\(\text{tag directory size} = \text{number of lines in cache \* Number of bits in tag} = \text{Number of Tags} \* \text{Tag size} \\)
+
+
+#### Set Associative Mapped cache {#set-associative-mapped-cache}
+
+-   physical address size (bits) = TAG + Set Number + Block/line Offset
+-   \\(2^\text{Set Number (bits)} = \frac{\text{Lines in cache}}{\text{Number of sets}}\\)
+
+
+#### Fully associative cache {#fully-associative-cache}
+
+-   physical address size (bits) = TAG + Block offset
 
 
 ## MIPS {#mips}

@@ -311,6 +311,7 @@ Assume we have 8GB of word addressable memory with a word size of 64 bits and ea
 + Full Adder
 [[file:images/fullAdder.png]]
 ** Computer Arithmetic
+[[file:pdfs/Computer Arithemtic.pdf][Computer arithemetic document from nitin]]
 ** Memory + Cache
 + [[https://upscfever.com/upsc-fever/en/gatecse/en-gatecse-chp166.html#:~:text=Memory%20Connection%20to%20CPU,through%20its%20chip%20select%20inputs.&text=When%2001%2C%20the%20second%20RAM,is%20selected%2C%20and%20so%20on][Main Memory and Organization]] : credit to Robbie Schad
 + [[file:pdfs/notes_cache.pdf][Cache Notes]]
@@ -318,14 +319,18 @@ Assume we have 8GB of word addressable memory with a word size of 64 bits and ea
 + [[file:pdfs/Fully Associative Mapping Examples.pdf][Fully Associative Mapping Examples]]
 + [[file:pdfs/Set Associative Mapping Examples.pdf][Set Associate Mapping Examples]]
 *** Formulas
-+ physical address size (bits) = TAG + Line Number + Block/Line Offset
 **** Direct mapped cache
++ physical address size (bits) = TAG + Line Number + Block/Line Offset
 + \(\text{MM(size in bytes)} = 2^{\text{number Of Bits In Physical Address}} * 2^3\)
 + \(\text{BlockOffset(size in bytes)} = 2^{\text{Bits In Block Offset}} * 2^3 \)
-+ \(\text{number of bits in line number} = 2^{\frac{\text{Cache size}}{\text{Line Size}}} \)
++ \(\text{number of lines} = 2^{\text{bits in line number}} = \frac{\text{Cache size}}{\text{Line Size}} \)
 + \(\text{tag directory size} = \text{number of lines in cache * Number of bits in tag} = \text{Number of Tags} * \text{Tag size} \)
-+ 
-  
+
+**** Set Associative Mapped cache
++ physical address size (bits) = TAG + Set Number + Block/line Offset
++ \(2^\text{Set Number (bits)} = \frac{\text{Lines in cache}}{\text{Number of sets}}\)
+**** Fully associative cache
++ physical address size (bits) = TAG + Block offset
 
 
 ** MIPS
