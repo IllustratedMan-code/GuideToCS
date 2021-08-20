@@ -1,5 +1,5 @@
 #+hugo_base_dir: ../
-#+hugo_section: Intro-to-Comp-Systems
+#+hugo_section: PHYS2001
 
 
 * Test
