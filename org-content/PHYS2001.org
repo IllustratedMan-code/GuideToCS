@@ -1,0 +1,9 @@
+#+hugo_base_dir: ../
+#+hugo_section: Intro-to-Comp-Systems
+
+
+* Test
+:PROPERTIES:
+:EXPORT_HUGO_SECTION*: Test
+:EXPORT_FILE_NAME: _index
+:END:

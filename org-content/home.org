@@ -12,3 +12,9 @@ I am going to be using this website as a way to consolidate my notes and materia
 :EXPORT_FILE_NAME: _index
 :END:
 Intro to comp systems as taught by Nitin.
+* PHYS2001
+:PROPERTIES:
+:EXPORT_HUGO_SECTION: PHYS2001
+:EXPORT_FILE_NAME: _index
+:END:
+PHYS2001 as taught by Kathleen Koenig
