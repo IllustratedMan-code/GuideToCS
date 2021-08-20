@@ -8,7 +8,7 @@
 </title>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2021-04-26T21:15:16 UTC">
+<meta name="revised" content="2021-08-20T16:50:09 UTC">
 <meta name="description" content="">
 
 
@@ -388,7 +388,7 @@
 </ul>
 <h2 ref="q3" >Q3</h2><a class="anchor" id="q3"></a>
 <p>Assuming, W, X, Y and Z as memory addresses. Write a program using any machine sequence that will carry out the following: Z ← W + (Z-X).</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-fallback" data-lang="fallback">    .globl main
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-fallback" data-lang="fallback">    .globl main
     .text
 
 main:
@@ -414,7 +414,7 @@ W: .word 5 #arbitrary value
 </code></pre></div><p><a href="code-examples/Q3.asm">Downloadable solution</a> prints 7</p>
 <h2 ref="q4" >Q4</h2><a class="anchor" id="q4"></a>
 <p>Assume that the code below is run on a machine with a 2 GHz clock that requires the following number of cycles for each instruction: add, addi, sll, sra take 4cc each,  lw takes 5cc,   bne, beq  take 3cc each. How many seconds will it take to execute this code. The values of registers are $4=0x20, $5= 0x20, $6= 0x30, $7= 0x10.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-fallback" data-lang="fallback">    .globl  main
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-fallback" data-lang="fallback">    .globl  main
     .text
 
 main:
@@ -477,7 +477,7 @@ L1: add $11, $5, $9 #marks L1, $11 = 0x20 + $9, $9 is iterator
 <li>i value in register $5</li>
 </ul>
 <p><a href="code-examples/Q5.asm">Q5 Solution download</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-fallback" data-lang="fallback">.globl main
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-fallback" data-lang="fallback">.globl main
 .text
 
 main:
@@ -568,8 +568,7 @@ main:
 <li>2 address lines for the decoder</li>
 <li>5 + 2 = 7 total lines for complete address</li>
 </ul>
-<figure>
-    <img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/Q9.png"/> 
+<figure><img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/Q9.png"/>
 </figure>
 
 <h2 ref="q10" >Q10</h2><a class="anchor" id="q10"></a>
