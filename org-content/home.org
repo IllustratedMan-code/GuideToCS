@@ -18,3 +18,9 @@ Intro to comp systems as taught by Nitin.
 :EXPORT_FILE_NAME: _index
 :END:
 PHYS2001 as taught by Kathleen Koenig
+* Discrete Structures
+:PROPERTIES:
+:EXPORT_HUGO_SECTION: Discrete-Structures
+:EXPORT_FILE_NAME: _index
+:END:
+Discrete Structures as taught by Ken Berman
