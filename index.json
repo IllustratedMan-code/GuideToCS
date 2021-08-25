@@ -49,6 +49,13 @@
 	"content": "PHYS2001 as taught by Kathleen Koenig\n"
 },
 {
+	"uri": "https://illustratedman-code.github.io/GuideToCS/discrete-structures/set-theory/",
+	"title": "Set Theory",
+	"tags": [],
+	"description": "",
+	"content": "Sets unordered collection (group) of zero or more distinct objects\n set theory (operations about sets) S,T,U,A,B \u0026hellip; for sets List elements in curly braces {a, b, c} Sets are equal if and only if they contain the same elements.  Set Builder  \\(\\{x:P(x)\\}\\), \\(\\{x|P(x)\\}\\). The set of all x such that P(x) {x: x is an integer where x\u0026gt;0 and x\u0026lt;5}  Set relations  \\(\\forall\\) for all \\(\\rightarrow\\) implies \\(\\leftrightarrow\\) if and only if \\(\\exists\\) exists \\(\\nexists\\) does not exist \\(\\wedge\\) and \\(\\vee\\) or \\(x\\in S\\) x in S \\(x \\notin S\\) x not in S  Empty set  \\(\\varnothing = \\{\\}\\)  Subset and superset  \\(S\\subseteq T\\) subset \\(S \\supseteq T\\) superset \\(S\\subset T\\) proper set \\(S \\supset T\\) proper superset  Cardinality  \\(|S|\\) Cardinality of S or the number of elements in S  Universal Set  \\(U\\) is the set containing all other sets (in the problem) universe of discorse  Union  \\(\\{a,b,c\\} \\cup \\{c,e\\} = \\{a,b,c,e\\}\\)  Intersection  \\(\\{a,b,c\\} \\cap \\{c,e\\} = \\{c\\}\\)  Disjointedness \\(A \\cap B = \\varnothing\\)\nSet difference  \\(A - B\\) \\(\\{a,b,c\\} - \\{c,e\\} = \\{a, b\\}\\) Set of all elements in A but not B Compliment with universal set  Compliment  \\(\\bar A = U - A\\)  Symmetric difference  \\(A \\bigoplus B = A \\cup B - A \\cap B\\)  Cartesian product  \\(A \\times B = \\{(a,b) | a \\in A \\text{: and :} b \\in B\\}\\) \\(|A| \\times |B| = |A \\times B|\\)  Generalized Union and Intersection Union or intersection of many sets.\n"
+},
+{
 	"uri": "https://illustratedman-code.github.io/GuideToCS/phys2001/test/",
 	"title": "Test",
 	"tags": [],

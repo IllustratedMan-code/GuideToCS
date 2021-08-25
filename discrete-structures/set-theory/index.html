@@ -4,7 +4,7 @@
 <html>
   <head>
     <title>
-	Intro To Comp Systems :: David&#39;s Guide to CS
+	Set Theory :: David&#39;s Guide to CS
 </title>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -13,7 +13,7 @@
 
 
 
-<title>Intro To Comp Systems :: David&#39;s Guide to CS</title>
+<title>Set Theory :: David&#39;s Guide to CS</title>
 
 <link rel="shortcut icon" href='https://illustratedman-code.github.io/GuideToCS/images/favicon.png' type="image/x-icon" />
 
@@ -54,7 +54,7 @@
     
   </head>
 
-  <body data-url="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/"
+  <body data-url="https://illustratedman-code.github.io/GuideToCS/discrete-structures/set-theory/"
 
   class="">
 
@@ -147,14 +147,15 @@
 
 <ul class="menu">
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/" class="dd-item haschildren
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/" class="dd-item parent haschildren
         item_level_$level
         ">
 
       
       
       
-      <i class="fas fa-chevron-right ddexp"></i>
+      
+          <i class="fas fa-chevron-down ddexp"></i>
         
       
           <a href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/">Discrete Structures</a>
@@ -162,7 +163,7 @@
         <ul>
               
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/set-theory/" class="dd-item
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/set-theory/" class="dd-item parent active
         item_level_$level
         ">
 
@@ -179,15 +180,14 @@
     </li>
     
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/" class="dd-item parent active haschildren
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/" class="dd-item haschildren
         item_level_$level
         ">
 
       
       
       
-      
-          <i class="fas fa-chevron-down ddexp"></i>
+      <i class="fas fa-chevron-right ddexp"></i>
         
       
           <a href="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/">Intro To Comp Systems</a>
@@ -314,6 +314,9 @@
         
   
   	
+		
+  
+  	
 	<li >
       <a class="text-link" href="https://illustratedman-code.github.io/GuideToCS">
         Home
@@ -321,9 +324,17 @@
     </li>
 	
   
+    <li class="">
+      <a class="text-link" href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/">
+        Discrete Structures
+      </a>
+    </li>
+	
+  	
+  
     <li class="active">
       
-        Intro To Comp Systems
+        Set Theory
       
     </li>
 
@@ -344,7 +355,7 @@
 		
 
 		
-			<h1>Intro To Comp Systems</h1>
+			<h1>Set Theory</h1>
         
 
 		
@@ -362,7 +373,28 @@
   			Jump to Section
   			<i style=";" class="fas fa-chevron-right"></i>
 		</span>
-		<nav id="TableOfContents"></nav>
+		<nav id="TableOfContents">
+  <ul>
+    <li><a href="#sets">Sets</a>
+      <ul>
+        <li><a href="#set-builder">Set Builder</a></li>
+        <li><a href="#set-relations">Set relations</a></li>
+        <li><a href="#empty-set">Empty set</a></li>
+        <li><a href="#subset-and-superset">Subset and superset</a></li>
+        <li><a href="#cardinality">Cardinality</a></li>
+        <li><a href="#universal-set">Universal Set</a></li>
+        <li><a href="#union">Union</a></li>
+        <li><a href="#intersection">Intersection</a></li>
+        <li><a href="#disjointedness">Disjointedness</a></li>
+        <li><a href="#set-difference">Set difference</a></li>
+        <li><a href="#compliment">Compliment</a></li>
+        <li><a href="#symmetric-difference">Symmetric difference</a></li>
+        <li><a href="#cartesian-product">Cartesian product</a></li>
+        <li><a href="#generalized-union-and-intersection">Generalized Union and Intersection</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 	</div>
 	
 	
@@ -373,7 +405,84 @@
 
 
 	<div class="content">
-	    <p>Intro to comp systems as taught by Nitin.</p>
+	    <h2 ref="sets" >Sets</h2><a class="anchor" id="sets"></a>
+<p>unordered collection (group) of zero or more distinct objects</p>
+<ul>
+<li>set theory (operations about sets)</li>
+<li>S,T,U,A,B &hellip; for sets</li>
+<li>List elements in curly braces <code>{a, b, c}</code></li>
+<li>Sets are equal if and only if they contain the same elements.</li>
+</ul>
+<h3 ref="set-builder" >Set Builder</h3><a class="anchor" id="set-builder"></a>
+<ul>
+<li>\(\{x:P(x)\}\), \(\{x|P(x)\}\).</li>
+<li>The set of all x such that P(x)</li>
+<li>{x: x is an integer where x&gt;0 and x&lt;5}</li>
+</ul>
+<h3 ref="set-relations" >Set relations</h3><a class="anchor" id="set-relations"></a>
+<ul>
+<li>\(\forall\) for all</li>
+<li>\(\rightarrow\) implies</li>
+<li>\(\leftrightarrow\) if and only if</li>
+<li>\(\exists\) exists</li>
+<li>\(\nexists\) does not exist</li>
+<li>\(\wedge\) and</li>
+<li>\(\vee\) or</li>
+<li>\(x\in S\) x in S</li>
+<li>\(x \notin S\) x not in S</li>
+</ul>
+<h3 ref="empty-set" >Empty set</h3><a class="anchor" id="empty-set"></a>
+<ul>
+<li>\(\varnothing = \{\}\)</li>
+</ul>
+<h3 ref="subset-and-superset" >Subset and superset</h3><a class="anchor" id="subset-and-superset"></a>
+<ul>
+<li>\(S\subseteq T\) subset</li>
+<li>\(S \supseteq T\) superset</li>
+<li>\(S\subset T\) proper set</li>
+<li>\(S \supset T\) proper superset</li>
+</ul>
+<h3 ref="cardinality" >Cardinality</h3><a class="anchor" id="cardinality"></a>
+<ul>
+<li>\(|S|\) Cardinality of S or the number of elements in S</li>
+</ul>
+<h3 ref="universal-set" >Universal Set</h3><a class="anchor" id="universal-set"></a>
+<ul>
+<li>\(U\) is the set containing all other sets (in the problem)</li>
+<li>universe of discorse</li>
+</ul>
+<h3 ref="union" >Union</h3><a class="anchor" id="union"></a>
+<ul>
+<li>\(\{a,b,c\} \cup \{c,e\} = \{a,b,c,e\}\)</li>
+</ul>
+<h3 ref="intersection" >Intersection</h3><a class="anchor" id="intersection"></a>
+<ul>
+<li>\(\{a,b,c\} \cap \{c,e\} = \{c\}\)</li>
+</ul>
+<h3 ref="disjointedness" >Disjointedness</h3><a class="anchor" id="disjointedness"></a>
+<p>\(A \cap B = \varnothing\)</p>
+<h3 ref="set-difference" >Set difference</h3><a class="anchor" id="set-difference"></a>
+<ul>
+<li>\(A - B\)</li>
+<li>\(\{a,b,c\} - \{c,e\} = \{a, b\}\)</li>
+<li>Set of all elements in A but not B</li>
+<li>Compliment with universal set</li>
+</ul>
+<h3 ref="compliment" >Compliment</h3><a class="anchor" id="compliment"></a>
+<ul>
+<li>\(\bar A = U - A\)</li>
+</ul>
+<h3 ref="symmetric-difference" >Symmetric difference</h3><a class="anchor" id="symmetric-difference"></a>
+<ul>
+<li>\(A \bigoplus B = A \cup B - A \cap B\)</li>
+</ul>
+<h3 ref="cartesian-product" >Cartesian product</h3><a class="anchor" id="cartesian-product"></a>
+<ul>
+<li>\(A \times B = \{(a,b) | a \in A \text{: and :} b \in B\}\)</li>
+<li>\(|A| \times |B| = |A \times B|\)</li>
+</ul>
+<h3 ref="generalized-union-and-intersection" >Generalized Union and Intersection</h3><a class="anchor" id="generalized-union-and-intersection"></a>
+<p>Union or intersection of many sets.</p>
 
 		</div>
 
@@ -384,10 +493,10 @@
 
 	 
 	<div class="chevrons">
-		<a class="next" href="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/hard-vs-micro/" title="HardWiredVsMicroProgrammed;" style="margin-right: 0px;">
+		<a class="next" href="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/" title="Intro To Comp Systems" style="margin-right: 0px;">
             <div>
                 <p>Next page</p>
-                <label>HardWiredVsMicroProgrammed;</label>
+                <label>Intro To Comp Systems</label>
             </div>
             <i class="fas fa-arrow-right" style="font-size: 1.7em"></i></a>
 	</div>
@@ -412,10 +521,31 @@
     <label><i class="fas fa-align-right"></i>&nbsp;&nbsp;What&#39;s on this page</label>
     <nav>
         <ul >
-            <li><a href="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/">Intro To Comp Systems</a></li>
+            <li><a href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/set-theory/">Set Theory</a></li>
         </ul>
     </nav>
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#sets">Sets</a>
+      <ul>
+        <li><a href="#set-builder">Set Builder</a></li>
+        <li><a href="#set-relations">Set relations</a></li>
+        <li><a href="#empty-set">Empty set</a></li>
+        <li><a href="#subset-and-superset">Subset and superset</a></li>
+        <li><a href="#cardinality">Cardinality</a></li>
+        <li><a href="#universal-set">Universal Set</a></li>
+        <li><a href="#union">Union</a></li>
+        <li><a href="#intersection">Intersection</a></li>
+        <li><a href="#disjointedness">Disjointedness</a></li>
+        <li><a href="#set-difference">Set difference</a></li>
+        <li><a href="#compliment">Compliment</a></li>
+        <li><a href="#symmetric-difference">Symmetric difference</a></li>
+        <li><a href="#cartesian-product">Cartesian product</a></li>
+        <li><a href="#generalized-union-and-intersection">Generalized Union and Intersection</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 </div>
 
 		
