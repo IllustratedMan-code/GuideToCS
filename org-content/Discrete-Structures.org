@@ -1,6 +1,6 @@
 #+hugo_base_dir: ../
 #+hugo_section: Discrete-Structures
-* Test
+* Set Theory
 :PROPERTIES:
 :EXPORT_HUGO_SECTION*: Set Theory
 :EXPORT_FILE_NAME: _index
