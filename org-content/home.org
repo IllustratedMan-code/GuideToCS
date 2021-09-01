@@ -24,3 +24,10 @@ PHYS2001 as taught by Kathleen Koenig
 :EXPORT_FILE_NAME: _index
 :END:
 Discrete Structures as taught by Ken Berman
+
+* Ecology and Evolution
+:PROPERTIES:
+:EXPORT_HUGO_SECTION: ecology
+:EXPORT_FILE_NAME: _index
+:END:
+Ecology and Evolution
