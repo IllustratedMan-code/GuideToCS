@@ -4,7 +4,7 @@
 <html>
   <head>
     <title>
-	Intro To Comp Systems :: David&#39;s Guide to CS
+	Chapter 2 :: David&#39;s Guide to CS
 </title>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -13,7 +13,7 @@
 
 
 
-<title>Intro To Comp Systems :: David&#39;s Guide to CS</title>
+<title>Chapter 2 :: David&#39;s Guide to CS</title>
 
 <link rel="shortcut icon" href='https://illustratedman-code.github.io/GuideToCS/images/favicon.png' type="image/x-icon" />
 
@@ -54,7 +54,7 @@
     
   </head>
 
-  <body data-url="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/"
+  <body data-url="https://illustratedman-code.github.io/GuideToCS/ecology/ch-2/"
 
   class="">
 
@@ -179,14 +179,15 @@
     </li>
     
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/ecology/" class="dd-item haschildren
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/ecology/" class="dd-item parent haschildren
         item_level_$level
         ">
 
       
       
       
-      <i class="fas fa-chevron-right ddexp"></i>
+      
+          <i class="fas fa-chevron-down ddexp"></i>
         
       
           <a href="https://illustratedman-code.github.io/GuideToCS/ecology/">Ecology and Evolution</a>
@@ -209,7 +210,7 @@
     </li>
               
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/ecology/ch-2/" class="dd-item
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/ecology/ch-2/" class="dd-item parent active
         item_level_$level
         ">
 
@@ -241,15 +242,14 @@
     </li>
     
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/" class="dd-item parent active haschildren
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/" class="dd-item haschildren
         item_level_$level
         ">
 
       
       
       
-      
-          <i class="fas fa-chevron-down ddexp"></i>
+      <i class="fas fa-chevron-right ddexp"></i>
         
       
           <a href="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/">Intro To Comp Systems</a>
@@ -376,6 +376,9 @@
         
   
   	
+		
+  
+  	
 	<li >
       <a class="text-link" href="https://illustratedman-code.github.io/GuideToCS">
         Home
@@ -383,9 +386,17 @@
     </li>
 	
   
+    <li class="">
+      <a class="text-link" href="https://illustratedman-code.github.io/GuideToCS/ecology/">
+        Ecology and Evolution
+      </a>
+    </li>
+	
+  	
+  
     <li class="active">
       
-        Intro To Comp Systems
+        Chapter 2
       
     </li>
 
@@ -406,7 +417,7 @@
 		
 
 		
-			<h1>Intro To Comp Systems</h1>
+			<h1>Chapter 2</h1>
         
 
 		
@@ -424,7 +435,24 @@
   			Jump to Section
   			<i style=";" class="fas fa-chevron-right"></i>
 		</span>
-		<nav id="TableOfContents"></nav>
+		<nav id="TableOfContents">
+  <ul>
+    <li><a href="#review">review</a></li>
+    <li><a href="#important-terms-for-the-course">Important terms for the course</a></li>
+    <li><a href="#mechanisms-for-evolutionary-change">Mechanisms for evolutionary change</a></li>
+    <li><a href="#natural-section-genetic-drift-gene-flow">Natural section, genetic drift, gene flow</a>
+      <ul>
+        <li><a href="#genetic-drift">genetic drift</a></li>
+        <li><a href="#gene-flow">Gene flow</a></li>
+        <li><a href="#hardy-weinberg">Hardy Weinberg</a></li>
+      </ul>
+    </li>
+    <li><a href="#adaptation-is-an-undirected-process">Adaptation is an undirected process</a></li>
+    <li><a href="#phenotypic-plasticity">Phenotypic Plasticity</a></li>
+    <li><a href="#adaptive-landscape">Adaptive landscape</a></li>
+    <li><a href="#red-queen-hypothesis">Red Queen Hypothesis</a></li>
+  </ul>
+</nav>
 	</div>
 	
 	
@@ -435,7 +463,53 @@
 
 
 	<div class="content">
-	    <p>Intro to comp systems as taught by Nitin.</p>
+	    <h2 ref="review" >review</h2><a class="anchor" id="review"></a>
+<ol>
+<li>mutation</li>
+<li>allele</li>
+<li>gene frequencies</li>
+<li>genotype</li>
+<li>phenotype</li>
+</ol>
+<h2 ref="important-terms-for-the-course" >Important terms for the course</h2><a class="anchor" id="important-terms-for-the-course"></a>
+<ul>
+<li><code>Evolution</code> is the change of populations (species) over time due to heritable changes.</li>
+<li><code>Natural Selection</code> is the &ldquo;selection&rdquo; of heritable traits due to their fitness</li>
+<li><code>Adaptation</code> is the tendency for natural selection to select changes most well suited to the environment.</li>
+<li><code>Fitness</code> is the likelihood that an organism will survive (pass its genes down) in its current environment.</li>
+</ul>
+<h2 ref="mechanisms-for-evolutionary-change" >Mechanisms for evolutionary change</h2><a class="anchor" id="mechanisms-for-evolutionary-change"></a>
+<ul>
+<li>Natural Selection</li>
+<li>Genetic drift</li>
+<li>Gene Flow</li>
+<li>Mutation pressure</li>
+</ul>
+<h2 ref="natural-section-genetic-drift-gene-flow" >Natural section, genetic drift, gene flow</h2><a class="anchor" id="natural-section-genetic-drift-gene-flow"></a>
+<h3 ref="genetic-drift" >genetic drift</h3><a class="anchor" id="genetic-drift"></a>
+<p>The random change of allele frequency based on non-random mating. Only affects populations with limited populations (non-random mating)</p>
+<h3 ref="gene-flow" >Gene flow</h3><a class="anchor" id="gene-flow"></a>
+<p>Individuals can move from population to population, or form a new population.
+These fluctuations can change the allele frequencies in a population.</p>
+<h4 ref="isolation" >Isolation</h4><a class="anchor" id="isolation"></a>
+<p>Differentiation is affected by Isolation. Isolation prevents gene flow.</p>
+<h3 ref="hardy-weinberg" >Hardy Weinberg</h3><a class="anchor" id="hardy-weinberg"></a>
+<ul>
+<li>\(P^2 + 2PQ + Q^2\)</li>
+</ul>
+<h2 ref="adaptation-is-an-undirected-process" >Adaptation is an undirected process</h2><a class="anchor" id="adaptation-is-an-undirected-process"></a>
+<p>Traits are not created to adapt to the environment. Traits instead are randomly generated (through mutation) and the traits that are well suited to the environment are selected for.</p>
+<h2 ref="phenotypic-plasticity" >Phenotypic Plasticity</h2><a class="anchor" id="phenotypic-plasticity"></a>
+<p>Development of physiological variation among phenotypes induced directly by the environment.</p>
+<ul>
+<li>Occurs during the development of an individual.</li>
+<li>Himalayan Rabbits are a good example, they have areas of black fur if born in a cold environment.</li>
+</ul>
+<h2 ref="adaptive-landscape" >Adaptive landscape</h2><a class="anchor" id="adaptive-landscape"></a>
+<p>An adaptive landscape is a three dimensional plot, where the x and y axis refer to allele frequency and the z axis refers to fitness. &ldquo;Peaks&rdquo; and &ldquo;Valleys&rdquo; show how different allele frequencies affect fitness and why genetic drift can be helpful for adaptation.</p>
+<h2 ref="red-queen-hypothesis" >Red Queen Hypothesis</h2><a class="anchor" id="red-queen-hypothesis"></a>
+<p>Increased fitness in the short term does not always end well for the species.
+This discrepancy of fitness between two related organisms (parasites/hosts, predators/prey) is related to generational rate. One of the species in the relationship cannot keep up evolutionarily with its pair species. This may result in extinction of prey or predator or both.</p>
 
 		</div>
 
@@ -446,10 +520,10 @@
 
 	 
 	<div class="chevrons">
-		<a class="next" href="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/hard-vs-micro/" title="HardWiredVsMicroProgrammed;" style="margin-right: 0px;">
+		<a class="next" href="https://illustratedman-code.github.io/GuideToCS/ecology/ch-3/" title="Chapter 3" style="margin-right: 0px;">
             <div>
                 <p>Next page</p>
-                <label>HardWiredVsMicroProgrammed;</label>
+                <label>Chapter 3</label>
             </div>
             <i class="fas fa-arrow-right" style="font-size: 1.7em"></i></a>
 	</div>
@@ -474,10 +548,27 @@
     <label><i class="fas fa-align-right"></i>&nbsp;&nbsp;What&#39;s on this page</label>
     <nav>
         <ul >
-            <li><a href="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/">Intro To Comp Systems</a></li>
+            <li><a href="https://illustratedman-code.github.io/GuideToCS/ecology/ch-2/">Chapter 2</a></li>
         </ul>
     </nav>
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#review">review</a></li>
+    <li><a href="#important-terms-for-the-course">Important terms for the course</a></li>
+    <li><a href="#mechanisms-for-evolutionary-change">Mechanisms for evolutionary change</a></li>
+    <li><a href="#natural-section-genetic-drift-gene-flow">Natural section, genetic drift, gene flow</a>
+      <ul>
+        <li><a href="#genetic-drift">genetic drift</a></li>
+        <li><a href="#gene-flow">Gene flow</a></li>
+        <li><a href="#hardy-weinberg">Hardy Weinberg</a></li>
+      </ul>
+    </li>
+    <li><a href="#adaptation-is-an-undirected-process">Adaptation is an undirected process</a></li>
+    <li><a href="#phenotypic-plasticity">Phenotypic Plasticity</a></li>
+    <li><a href="#adaptive-landscape">Adaptive landscape</a></li>
+    <li><a href="#red-queen-hypothesis">Red Queen Hypothesis</a></li>
+  </ul>
+</nav>
 </div>
 
 		

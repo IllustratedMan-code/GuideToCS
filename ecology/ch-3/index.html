@@ -4,7 +4,7 @@
 <html>
   <head>
     <title>
-	Intro To Comp Systems :: David&#39;s Guide to CS
+	Chapter 3 :: David&#39;s Guide to CS
 </title>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -13,7 +13,7 @@
 
 
 
-<title>Intro To Comp Systems :: David&#39;s Guide to CS</title>
+<title>Chapter 3 :: David&#39;s Guide to CS</title>
 
 <link rel="shortcut icon" href='https://illustratedman-code.github.io/GuideToCS/images/favicon.png' type="image/x-icon" />
 
@@ -54,7 +54,7 @@
     
   </head>
 
-  <body data-url="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/"
+  <body data-url="https://illustratedman-code.github.io/GuideToCS/ecology/ch-3/"
 
   class="">
 
@@ -179,14 +179,15 @@
     </li>
     
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/ecology/" class="dd-item haschildren
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/ecology/" class="dd-item parent haschildren
         item_level_$level
         ">
 
       
       
       
-      <i class="fas fa-chevron-right ddexp"></i>
+      
+          <i class="fas fa-chevron-down ddexp"></i>
         
       
           <a href="https://illustratedman-code.github.io/GuideToCS/ecology/">Ecology and Evolution</a>
@@ -224,7 +225,7 @@
     </li>
               
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/ecology/ch-3/" class="dd-item
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/ecology/ch-3/" class="dd-item parent active
         item_level_$level
         ">
 
@@ -241,15 +242,14 @@
     </li>
     
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/" class="dd-item parent active haschildren
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/" class="dd-item haschildren
         item_level_$level
         ">
 
       
       
       
-      
-          <i class="fas fa-chevron-down ddexp"></i>
+      <i class="fas fa-chevron-right ddexp"></i>
         
       
           <a href="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/">Intro To Comp Systems</a>
@@ -376,6 +376,9 @@
         
   
   	
+		
+  
+  	
 	<li >
       <a class="text-link" href="https://illustratedman-code.github.io/GuideToCS">
         Home
@@ -383,9 +386,17 @@
     </li>
 	
   
+    <li class="">
+      <a class="text-link" href="https://illustratedman-code.github.io/GuideToCS/ecology/">
+        Ecology and Evolution
+      </a>
+    </li>
+	
+  	
+  
     <li class="active">
       
-        Intro To Comp Systems
+        Chapter 3
       
     </li>
 
@@ -406,7 +417,7 @@
 		
 
 		
-			<h1>Intro To Comp Systems</h1>
+			<h1>Chapter 3</h1>
         
 
 		
@@ -424,7 +435,14 @@
   			Jump to Section
   			<i style=";" class="fas fa-chevron-right"></i>
 		</span>
-		<nav id="TableOfContents"></nav>
+		<nav id="TableOfContents">
+  <ul>
+    <li><a href="#adaptation-to-environmental-factors">Adaptation to environmental factors</a></li>
+    <li><a href="#limiting-environmental-factors">Limiting environmental factors</a></li>
+    <li><a href="#optimality-and-allocation">optimality and allocation</a></li>
+    <li><a href="#normal-distribution-and-measures-of-variation">Normal Distribution and measures of variation</a></li>
+  </ul>
+</nav>
 	</div>
 	
 	
@@ -435,7 +453,29 @@
 
 
 	<div class="content">
-	    <p>Intro to comp systems as taught by Nitin.</p>
+	    <h2 ref="adaptation-to-environmental-factors" >Adaptation to environmental factors</h2><a class="anchor" id="adaptation-to-environmental-factors"></a>
+<ul>
+<li>Change factors that limit growth (amount of food, composition of air)</li>
+<li>Change Tolerance Range (Temperature tolerance, ph tolerance )</li>
+<li>Change Behavior to adapt beyond Range ( avoid cold areas )</li>
+</ul>
+<h2 ref="limiting-environmental-factors" >Limiting environmental factors</h2><a class="anchor" id="limiting-environmental-factors"></a>
+<ul>
+<li>physical factors (strength, ability to fly)</li>
+<li>Physical resources</li>
+<li>Tolerance bounds</li>
+</ul>
+<h2 ref="optimality-and-allocation" >optimality and allocation</h2><a class="anchor" id="optimality-and-allocation"></a>
+<p>Adaptation to one challenge may decrease for another. The more an organism adapts to a stable environment (optimality), the less able it is to adapt to new environments that pose new challenges (moving from hot to cold, fresh water to salt water or vice versa)</p>
+<h2 ref="normal-distribution-and-measures-of-variation" >Normal Distribution and measures of variation</h2><a class="anchor" id="normal-distribution-and-measures-of-variation"></a>
+<p>Many biological factors rely on modifications to the normal distribution.</p>
+<ul>
+<li>quantified as a probability or confidence interval (95% of samples fall within this range of values)</li>
+<li>\(\text{Sample Variance} = \frac{\sum_1^n (\bar x - x_i)^2}{n-1} = s^2\)</li>
+<li>\(\text{Sample Mean} = \frac{\sum_1^n}{n} = \bar x\)</li>
+<li>\(\text{confidence statistic (percentage)} = 1-\alpha\)</li>
+<li>\(\text{confidence interval} = \bar x \pm t_{1-\alpha} * s/\sqrt n\)</li>
+</ul>
 
 		</div>
 
@@ -446,10 +486,10 @@
 
 	 
 	<div class="chevrons">
-		<a class="next" href="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/hard-vs-micro/" title="HardWiredVsMicroProgrammed;" style="margin-right: 0px;">
+		<a class="next" href="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/" title="Intro To Comp Systems" style="margin-right: 0px;">
             <div>
                 <p>Next page</p>
-                <label>HardWiredVsMicroProgrammed;</label>
+                <label>Intro To Comp Systems</label>
             </div>
             <i class="fas fa-arrow-right" style="font-size: 1.7em"></i></a>
 	</div>
@@ -474,10 +514,17 @@
     <label><i class="fas fa-align-right"></i>&nbsp;&nbsp;What&#39;s on this page</label>
     <nav>
         <ul >
-            <li><a href="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/">Intro To Comp Systems</a></li>
+            <li><a href="https://illustratedman-code.github.io/GuideToCS/ecology/ch-3/">Chapter 3</a></li>
         </ul>
     </nav>
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#adaptation-to-environmental-factors">Adaptation to environmental factors</a></li>
+    <li><a href="#limiting-environmental-factors">Limiting environmental factors</a></li>
+    <li><a href="#optimality-and-allocation">optimality and allocation</a></li>
+    <li><a href="#normal-distribution-and-measures-of-variation">Normal Distribution and measures of variation</a></li>
+  </ul>
+</nav>
 </div>
 
 		
