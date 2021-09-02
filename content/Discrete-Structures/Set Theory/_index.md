@@ -1,102 +1,35 @@
 +++
-title = "Set Theory"
+title = "Standard Proof techniques"
 author = ["David Lewis"]
 draft = false
 +++
 
-## Sets {#sets}
+## Disproof by Counterexample {#disproof-by-counterexample}
 
-unordered collection (group) of zero or more distinct objects
+Shows that a conjecture is not true by pointing out an example where the conjecture does not hold.
 
--   set theory (operations about sets)
--   S,T,U,A,B ... for sets
--   List elements in curly braces `{a, b, c}`
--   Sets are equal if and only if they contain the same elements.
-
-
-### Set Builder {#set-builder}
-
--   \\(\\{x:P(x)\\}\\), \\(\\{x|P(x)\\}\\).
--   The set of all x such that P(x)
--   {x: x is an integer where x>0 and x<5}
+-   No nickels
+-   1 quarter + 5 pennies
+-   3 dimes
+-   Greedy method is not appropriate with limited change
 
 
-### Set relations {#set-relations}
+## Proof by Contradiction {#proof-by-contradiction}
 
--   \\(\forall\\) for all
--   \\(\rightarrow\\) implies
--   \\(\leftrightarrow\\) if and only if
--   \\(\exists\\) exists
--   \\(\nexists\\) does not exist
--   \\(\wedge\\) and
--   \\(\vee\\) or
--   \\(x\in S\\) x in S
--   \\(x \notin S\\) x not in S
+Proof that the opposite cannot be true.
 
 
-### Empty set {#empty-set}
+### Square root of 2 is irrational {#square-root-of-2-is-irrational}
 
--   \\(\varnothing = \\{\\}\\)
-
-
-### Subset and superset {#subset-and-superset}
-
--   \\(S\subseteq T\\) subset
--   \\(S \supseteq T\\) superset
--   \\(S\subset T\\) proper set
--   \\(S \supset T\\) proper superset
-
-
-### Cardinality {#cardinality}
-
--   \\(|S|\\) Cardinality of S or the number of elements in S
-
-
-### Universal Set {#universal-set}
-
--   \\(U\\) is the set containing all other sets (in the problem)
--   universe of discorse
-
-
-### Union {#union}
-
--   \\(\\{a,b,c\\} \cup \\{c,e\\} = \\{a,b,c,e\\}\\)
-
-
-### Intersection {#intersection}
-
--   \\(\\{a,b,c\\} \cap \\{c,e\\} = \\{c\\}\\)
-
-
-### Disjointedness {#disjointedness}
-
-\\(A \cap B = \varnothing\\)
-
-
-### Set difference {#set-difference}
-
--   \\(A - B\\)
--   \\(\\{a,b,c\\} - \\{c,e\\} = \\{a, b\\}\\)
--   Set of all elements in A but not B
--   Compliment with universal set
-
-
-### Compliment {#compliment}
-
--   \\(\bar A = U - A\\)
-
-
-### Symmetric difference {#symmetric-difference}
-
--   \\(A \bigoplus B = A \cup B - A \cap B\\)
-
-
-### Cartesian product {#cartesian-product}
-
--   \\(A \times B = \\{(a,b) | a \in A \text{\: and \:} b \in B\\}\\)
--   \\(|A| \times |B| = |A \times B|\\)
-
-
-### Generalized Union and Intersection {#generalized-union-and-intersection}
-
-Union or intersection of many sets.
+-   \\(\sqrt 2 = a/b\\)
+-   \\(a/b\\) is simplified
+-   a or b or both must be odd (otherwise could be simplified)
+-   \\(2 = a^2/b^2\\)
+-   \\(a^2 = 2 \* b^2\\)
+-   \\(a^2\\) must be even (2 times any number is even)
+-   \\(a\\) is even as well (odd times odd is odd)
+-   \\(a = 2 \* k\\) where k is a / 2
+-   \\(2 = (2 \* k)^2/b^2 \rightarrow b^2 = 2k^2\\)
+-   \\(b\\) is also odd by this method
+-   \\(a\\) and \\(b\\) cannot be odd
+-   \\(\sqrt 2\\) cannot be rational
