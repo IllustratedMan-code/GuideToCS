@@ -56,3 +56,39 @@ The P value is the probability that the Null hypothesis is true. This value is c
 -   \\(H\_a = \text{Cancer is caused by radiation damage}\\)
 -   \\(P < 0.05\\)
 -   There is less than a 5 percent chance that cancer is randomly occurring.
+
+
+## behavioral Thermoregulation. {#behavioral-thermoregulation-dot}
+
+Animals will move to areas that are conducive to their optimal temperature range.
+
+-   Snakes bask in the sun to warm up (ectotherms)
+-   Humans will go inside (or put on clothes) to warm up (endotherms)
+-   Monkeys will bathe in hot springs in cold climates. (endotherms)
+
+
+## Adaptive radiation {#adaptive-radiation}
+
+The tendency for species to diversify to fill open ecological niches.
+
+-   Early Plants
+-   Finches
+
+
+## Osmoregulation (water stress) and photosynthesis {#osmoregulation--water-stress--and-photosynthesis}
+
+Organisms alter their internal concentration of solute (or consume water) to regulate their internal water content.
+
+-   Skin and scales prevent unintended evaporation of water
+-   C3 pathway is shared by all plants (the calvin cycle)
+-   C4 pathway allows plants to save water by closing the stomata when necessary.
+
+
+## Adaptation vs Plasticity {#adaptation-vs-plasticity}
+
+Some animals have larger optimal ranges of physical resources than others (plasticity)
+
+-   Evolution thorugh natural selection adapts organisms to their environments
+-   Plasticity refers to the ability of an organism to survive in different environments
+-   Humans could be said to have high plasticity due to our tool making
+-   Octopi make estensive use of RNA editing sites to alter their expression [Octopus RNA editing sites](https://www.nature.com/articles/d41586-017-00612-y) (plasticity?)
