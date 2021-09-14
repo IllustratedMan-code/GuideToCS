@@ -156,7 +156,45 @@ Organisms alter their internal concentration of solute (or consume water) to reg
 + C4 pathway allows plants to save water by closing the stomata when necessary.
 ** Adaptation vs Plasticity
 Some animals have larger optimal ranges of physical resources than others (plasticity)
-+ Evolution thorugh natural selection adapts organisms to their environments
++ Evolution through natural selection adapts organisms to their environments
 + Plasticity refers to the ability of an organism to survive in different environments
 + Humans could be said to have high plasticity due to our tool making
-+ Octopi make estensive use of RNA editing sites to alter their expression [[https://www.nature.com/articles/d41586-017-00612-y][Octopus RNA editing sites]] (plasticity?)
++ Octopi make extensive use of RNA editing sites to alter their expression [[https://www.nature.com/articles/d41586-017-00612-y][Octopus RNA editing sites]] (plasticity?)
+* Chapter 4
+** 8 Major Biomes
+*** Tundra
+*** Conifer and Evergreen Forest
+*** Temperate Deciduous Forest
+*** Temperate Grassland
+*** Mediterranean Shrubland
+*** Desert
+*** Tropical Savanna
+*** Tropical Rainforest
+
+** Adaptations of plants to different biomes
+* Chapter 5
+** Basic Aquatic Environments
+Salt vs freshwater systems
++ Ice
++ Oceans
++ Lakes
++ Rivers
++ Ponds
++ groundwater
++ soil
++ atmosphere
+*** Lentic System (freshwater)
+** Water Movement (air, land, water)
++ Hydrologic cycle
++ Transpiration (plants return water to air in photosynthesis)
++ Infiltration, water moves into soil (between particles)
++ Sheet flow, water directly moves to bodies of water
++ Aquifer (underground water reservoir)
+** Oxygen, Carbon, salt, nutrients move through aquatic environments
+** River Continuum hypothesis
+Ecological changes that occur from first order to high-order streams
++ Species type concentration can be determined from this
++ CPOM -> Shredders
++ FPOM -> Collectors
++ Algae -> Grazers
+** Regression and correlation plots

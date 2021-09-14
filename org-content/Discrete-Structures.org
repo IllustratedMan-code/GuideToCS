@@ -1,5 +1,6 @@
 #+hugo_base_dir: ../
 #+hugo_section: Discrete-Structures
+#+STARTUP: folded
 * Set Theory
 :PROPERTIES:
 :EXPORT_HUGO_SECTION*: Set Theory
@@ -83,3 +84,62 @@ Proof that the opposite cannot be true.
 + \(b\) is also odd by this method
 + \(a\) and \(b\) cannot be odd
 + \(\sqrt 2\) cannot be rational
+* Trees
+:PROPERTIES:
+:EXPORT_HUGO_SECTION*: Trees
+:EXPORT_FILE_NAME: _index
+:END:
++ set of nodes
++ first node is root
++ every other node has a "parent" node
+** Two Trees
++ Every node that is not a leaf has 2 child nodes
+** Binary Trees
++ Every node has a maximum of 2 children
+* Logic
+:PROPERTIES:
+:EXPORT_HUGO_SECTION*: Logic
+:EXPORT_FILE_NAME: _index
+:END:
+** Boolean operators
+| Negation      | NOT     | Unary  | \(\neg\)         |
+| Conjunction   | AND     | Binary | \(\wedge\)         |
+| Disjunction   | OR      | Binary | \(\vee\)         |
+| Exclusive OR  | XOR     | Binary | \(\bigoplus\) |
+| Implication   | IMPLIES | Binary | \(\rightarrow\)         |
+| Bi-conditional | IFF     | Binary | \(\leftrightarrow\)         |
+** Negation
+| p | \(\neg p\) |
+| T | F       |
+| F | T       |
+** Conjunction
+| p | q | \(p \wedge q\) |
+| F | F | F         |
+| F | T | F         |
+| T | F | F         |
+| T | T | T         |
+** Disjunction
+| p | q | \(p \vee q\) |
+| F | F | F         |
+| F | T | T         |
+| T | F | T         |
+| T | T | T         |
+** Exclusive Or
+| p | q | \(p \bigoplus q\) |
+| F | F | F                 |
+| F | T | T                 |
+| T | F | T                 |
+| T | T | F                 |
+
+** Implication
+| p | q | \(p \rightarrow q\) |
+| F | F | T         |
+| F | T | T         |
+| T | F | F         |
+| T | T | T         |
+** Bi-conditional
+| p | q | \(p \leftrightarrow q\) |
+| F | F | T         |
+| F | T | F         |
+| T | F | F         |
+| T | T | T         |
