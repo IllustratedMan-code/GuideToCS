@@ -18,7 +18,7 @@
 	"title": "Chapter 3",
 	"tags": [],
 	"description": "",
-	"content": "Adaptation to environmental factors  Change factors that limit growth (amount of food, composition of air) Change Tolerance Range (Temperature tolerance, ph tolerance ) Change Behavior to adapt beyond Range ( avoid cold areas )  Limiting environmental factors  physical factors (strength, ability to fly) Physical resources Tolerance bounds  optimality and allocation Adaptation to one challenge may decrease for another. The more an organism adapts to a stable environment (optimality), the less able it is to adapt to new environments that pose new challenges (moving from hot to cold, fresh water to salt water or vice versa)\nNormal Distribution and measures of variation Many biological factors rely on modifications to the normal distribution.\n quantified as a probability or confidence interval (95% of samples fall within this range of values) \\(\\text{Sample Variance} = \\frac{\\sum_1^n (\\bar x - x_i)^2}{n-1} = s^2\\) \\(\\text{Sample Mean} = \\frac{\\sum_1^n}{n} = \\bar x\\) \\(\\text{confidence statistic (percentage)} = 1-\\alpha\\) \\(\\text{confidence interval} = \\bar x \\pm t_{1-\\alpha} * s/\\sqrt n\\)  "
+	"content": "Adaptation to environmental factors  Change factors that limit growth (amount of food, composition of air) Change Tolerance Range (Temperature tolerance, ph tolerance ) Change Behavior to adapt beyond Range ( avoid cold areas )  Limiting environmental factors  physical factors (strength, ability to fly) Physical resources Tolerance bounds  optimality and Principle of allocation Adaptation to one challenge may decrease for another. The more an organism adapts to a stable environment (optimality), the less able it is to adapt to new environments that pose new challenges (moving from hot to cold, fresh water to salt water or vice versa)\n Large beaks make it easier to break large nuts, but harder to eat insects out of trees. Homeostasis allows humans to survive in a variety of environmental conditions, but requires more (is limited by) food.  Normal Distribution and measures of variation Many biological factors rely on modifications to the normal distribution.\n quantified as a probability or confidence interval (95% of samples fall within this range of values) \\(\\text{Sample Variance} = \\frac{\\sum_1^n (\\bar x - x_i)^2}{n-1} = s^2\\) \\(\\text{Sample Mean} = \\frac{\\sum_1^n}{n} = \\bar x\\) \\(\\text{confidence statistic (percentage)} = 1-\\alpha\\) \\(\\text{confidence interval} = \\bar x \\pm t_{1-\\alpha} * s/\\sqrt n\\) \\(\\text{Standard Error (Estimate of the mean)} = \\frac{s^2}{n}\\)  Description of the plots used in ecology  y axis refers to the frequency of individuals (higher is more) x axis refers to some limiting factor (food, temperature) Peak refers to the mean of the sample  P Value The P value is the probability that the Null hypothesis is true. This value is calculated with a statistical test (t test when using a sample).\nExample  \\(H_0 = \\text{Cancer is randomly occuring}\\) \\(H_a = \\text{Cancer is caused by radiation damage}\\) \\(P \u0026lt; 0.05\\) There is less than a 5 percent chance that cancer is randomly occurring.  behavioral Thermoregulation. Animals will move to areas that are conducive to their optimal temperature range.\n Snakes bask in the sun to warm up (ectotherms) Humans will go inside (or put on clothes) to warm up (endotherms) Monkeys will bathe in hot springs in cold climates. (endotherms)  Adaptive radiation The tendency for species to diversify to fill open ecological niches.\n Early Plants Finches  Osmoregulation (water stress) and photosynthesis Organisms alter their internal concentration of solute (or consume water) to regulate their internal water content.\n Skin and scales prevent unintended evaporation of water C3 pathway is shared by all plants (the calvin cycle) C4 pathway allows plants to save water by closing the stomata when necessary.  Adaptation vs Plasticity Some animals have larger optimal ranges of physical resources than others (plasticity)\n Evolution thorugh natural selection adapts organisms to their environments Plasticity refers to the ability of an organism to survive in different environments Humans could be said to have high plasticity due to our tool making Octopi make estensive use of RNA editing sites to alter their expression Octopus RNA editing sites (plasticity?)  "
 },
 {
 	"uri": "https://illustratedman-code.github.io/GuideToCS/discrete-structures/",
@@ -63,6 +63,13 @@
 	"content": "Intro to comp systems as taught by Nitin.\n"
 },
 {
+	"uri": "https://illustratedman-code.github.io/GuideToCS/discrete-structures/logic/",
+	"title": "Logic",
+	"tags": [],
+	"description": "",
+	"content": "Boolean operators    Negation NOT Unary \\(\\neg\\)     Conjunction AND Binary \\(\\wedge\\)   Disjunction OR Binary \\(\\vee\\)   Exclusive OR XOR Binary \\(\\bigoplus\\)   Implication IMPLIES Binary \\(\\rightarrow\\)   Bi-conditional IFF Binary \\(\\leftrightarrow\\)    Negation    p \\(\\neg p\\)     T F   F T    Conjunction    p q \\(p \\wedge q\\)     F F F   F T F   T F F   T T T    Disjunction    p q \\(p \\vee q\\)     F F F   F T T   T F T   T T T    Exclusive Or    p q \\(p \\bigoplus q\\)     F F F   F T T   T F T   T T F    Implication    p q \\(p \\rightarrow q\\)     F F T   F T T   T F F   T T T    Bi-conditional    p q \\(p \\leftrightarrow q\\)     F F T   F T F   T F F   T T T    "
+},
+{
 	"uri": "https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/mock-exam-questions/",
 	"title": "Mock Exam Questions",
 	"tags": [],
@@ -78,10 +85,10 @@
 },
 {
 	"uri": "https://illustratedman-code.github.io/GuideToCS/discrete-structures/set-theory/",
-	"title": "Set Theory",
+	"title": "Standard Proof techniques",
 	"tags": [],
 	"description": "",
-	"content": "Sets unordered collection (group) of zero or more distinct objects\n set theory (operations about sets) S,T,U,A,B \u0026hellip; for sets List elements in curly braces {a, b, c} Sets are equal if and only if they contain the same elements.  Set Builder  \\(\\{x:P(x)\\}\\), \\(\\{x|P(x)\\}\\). The set of all x such that P(x) {x: x is an integer where x\u0026gt;0 and x\u0026lt;5}  Set relations  \\(\\forall\\) for all \\(\\rightarrow\\) implies \\(\\leftrightarrow\\) if and only if \\(\\exists\\) exists \\(\\nexists\\) does not exist \\(\\wedge\\) and \\(\\vee\\) or \\(x\\in S\\) x in S \\(x \\notin S\\) x not in S  Empty set  \\(\\varnothing = \\{\\}\\)  Subset and superset  \\(S\\subseteq T\\) subset \\(S \\supseteq T\\) superset \\(S\\subset T\\) proper set \\(S \\supset T\\) proper superset  Cardinality  \\(|S|\\) Cardinality of S or the number of elements in S  Universal Set  \\(U\\) is the set containing all other sets (in the problem) universe of discorse  Union  \\(\\{a,b,c\\} \\cup \\{c,e\\} = \\{a,b,c,e\\}\\)  Intersection  \\(\\{a,b,c\\} \\cap \\{c,e\\} = \\{c\\}\\)  Disjointedness \\(A \\cap B = \\varnothing\\)\nSet difference  \\(A - B\\) \\(\\{a,b,c\\} - \\{c,e\\} = \\{a, b\\}\\) Set of all elements in A but not B Compliment with universal set  Compliment  \\(\\bar A = U - A\\)  Symmetric difference  \\(A \\bigoplus B = A \\cup B - A \\cap B\\)  Cartesian product  \\(A \\times B = \\{(a,b) | a \\in A \\text{: and :} b \\in B\\}\\) \\(|A| \\times |B| = |A \\times B|\\)  Generalized Union and Intersection Union or intersection of many sets.\n"
+	"content": "Disproof by Counterexample Shows that a conjecture is not true by pointing out an example where the conjecture does not hold.\n No nickels 1 quarter + 5 pennies 3 dimes Greedy method is not appropriate with limited change  Proof by Contradiction Proof that the opposite cannot be true.\nSquare root of 2 is irrational  \\(\\sqrt 2 = a/b\\) \\(a/b\\) is simplified a or b or both must be odd (otherwise could be simplified) \\(2 = a^2/b^2\\) \\(a^2 = 2 * b^2\\) \\(a^2\\) must be even (2 times any number is even) \\(a\\) is even as well (odd times odd is odd) \\(a = 2 * k\\) where k is a / 2 \\(2 = (2 * k)^2/b^2 \\rightarrow b^2 = 2k^2\\) \\(b\\) is also odd by this method \\(a\\) and \\(b\\) cannot be odd \\(\\sqrt 2\\) cannot be rational  "
 },
 {
 	"uri": "https://illustratedman-code.github.io/GuideToCS/phys2001/test/",
@@ -89,6 +96,13 @@
 	"tags": [],
 	"description": "",
 	"content": "ah\n"
+},
+{
+	"uri": "https://illustratedman-code.github.io/GuideToCS/discrete-structures/trees/",
+	"title": "Trees",
+	"tags": [],
+	"description": "",
+	"content": " set of nodes first node is root every other node has a \u0026ldquo;parent\u0026rdquo; node  Two Trees  Every node that is not a leaf has 2 child nodes  Binary Trees  Every node has a maximum of 2 children  "
 },
 {
 	"uri": "https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/formulas-and-references/",

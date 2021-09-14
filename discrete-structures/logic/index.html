@@ -4,7 +4,7 @@
 <html>
   <head>
     <title>
-	Standard Proof techniques :: David&#39;s Guide to CS
+	Logic :: David&#39;s Guide to CS
 </title>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -13,7 +13,7 @@
 
 
 
-<title>Standard Proof techniques :: David&#39;s Guide to CS</title>
+<title>Logic :: David&#39;s Guide to CS</title>
 
 <link rel="shortcut icon" href='https://illustratedman-code.github.io/GuideToCS/images/favicon.png' type="image/x-icon" />
 
@@ -54,7 +54,7 @@
     
   </head>
 
-  <body data-url="https://illustratedman-code.github.io/GuideToCS/discrete-structures/set-theory/"
+  <body data-url="https://illustratedman-code.github.io/GuideToCS/discrete-structures/logic/"
 
   class="">
 
@@ -163,7 +163,7 @@
         <ul>
               
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/logic/" class="dd-item
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/logic/" class="dd-item parent active
         item_level_$level
         ">
 
@@ -178,7 +178,7 @@
     </li>
               
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/set-theory/" class="dd-item parent active
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/set-theory/" class="dd-item
         item_level_$level
         ">
 
@@ -426,7 +426,7 @@
   
     <li class="active">
       
-        Standard Proof techniques
+        Logic
       
     </li>
 
@@ -447,7 +447,7 @@
 		
 
 		
-			<h1>Standard Proof techniques</h1>
+			<h1>Logic</h1>
         
 
 		
@@ -467,12 +467,13 @@
 		</span>
 		<nav id="TableOfContents">
   <ul>
-    <li><a href="#disproof-by-counterexample">Disproof by Counterexample</a></li>
-    <li><a href="#proof-by-contradiction">Proof by Contradiction</a>
-      <ul>
-        <li><a href="#square-root-of-2-is-irrational">Square root of 2 is irrational</a></li>
-      </ul>
-    </li>
+    <li><a href="#boolean-operators">Boolean operators</a></li>
+    <li><a href="#negation">Negation</a></li>
+    <li><a href="#conjunction">Conjunction</a></li>
+    <li><a href="#disjunction">Disjunction</a></li>
+    <li><a href="#exclusive-or">Exclusive Or</a></li>
+    <li><a href="#implication">Implication</a></li>
+    <li><a href="#bi-conditional">Bi-conditional</a></li>
   </ul>
 </nav>
 	</div>
@@ -485,31 +486,228 @@
 
 
 	<div class="content">
-	    <h2 ref="disproof-by-counterexample" >Disproof by Counterexample</h2><a class="anchor" id="disproof-by-counterexample"></a>
-<p>Shows that a conjecture is not true by pointing out an example where the conjecture does not hold.</p>
-<ul>
-<li>No nickels</li>
-<li>1 quarter + 5 pennies</li>
-<li>3 dimes</li>
-<li>Greedy method is not appropriate with limited change</li>
-</ul>
-<h2 ref="proof-by-contradiction" >Proof by Contradiction</h2><a class="anchor" id="proof-by-contradiction"></a>
-<p>Proof that the opposite cannot be true.</p>
-<h3 ref="square-root-of-2-is-irrational" >Square root of 2 is irrational</h3><a class="anchor" id="square-root-of-2-is-irrational"></a>
-<ul>
-<li>\(\sqrt 2 = a/b\)</li>
-<li>\(a/b\) is simplified</li>
-<li>a or b or both must be odd (otherwise could be simplified)</li>
-<li>\(2 = a^2/b^2\)</li>
-<li>\(a^2 = 2 * b^2\)</li>
-<li>\(a^2\) must be even (2 times any number is even)</li>
-<li>\(a\) is even as well (odd times odd is odd)</li>
-<li>\(a = 2 * k\) where k is a / 2</li>
-<li>\(2 = (2 * k)^2/b^2 \rightarrow b^2 = 2k^2\)</li>
-<li>\(b\) is also odd by this method</li>
-<li>\(a\) and \(b\) cannot be odd</li>
-<li>\(\sqrt 2\) cannot be rational</li>
-</ul>
+	    <h2 ref="boolean-operators" >Boolean operators</h2><a class="anchor" id="boolean-operators"></a>
+<table>
+<thead>
+<tr>
+<th>Negation</th>
+<th>NOT</th>
+<th>Unary</th>
+<th>\(\neg\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Conjunction</td>
+<td>AND</td>
+<td>Binary</td>
+<td>\(\wedge\)</td>
+</tr>
+<tr>
+<td>Disjunction</td>
+<td>OR</td>
+<td>Binary</td>
+<td>\(\vee\)</td>
+</tr>
+<tr>
+<td>Exclusive OR</td>
+<td>XOR</td>
+<td>Binary</td>
+<td>\(\bigoplus\)</td>
+</tr>
+<tr>
+<td>Implication</td>
+<td>IMPLIES</td>
+<td>Binary</td>
+<td>\(\rightarrow\)</td>
+</tr>
+<tr>
+<td>Bi-conditional</td>
+<td>IFF</td>
+<td>Binary</td>
+<td>\(\leftrightarrow\)</td>
+</tr>
+</tbody>
+</table>
+<h2 ref="negation" >Negation</h2><a class="anchor" id="negation"></a>
+<table>
+<thead>
+<tr>
+<th>p</th>
+<th>\(\neg p\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T</td>
+<td>F</td>
+</tr>
+<tr>
+<td>F</td>
+<td>T</td>
+</tr>
+</tbody>
+</table>
+<h2 ref="conjunction" >Conjunction</h2><a class="anchor" id="conjunction"></a>
+<table>
+<thead>
+<tr>
+<th>p</th>
+<th>q</th>
+<th>\(p \wedge q\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F</td>
+<td>F</td>
+<td>F</td>
+</tr>
+<tr>
+<td>F</td>
+<td>T</td>
+<td>F</td>
+</tr>
+<tr>
+<td>T</td>
+<td>F</td>
+<td>F</td>
+</tr>
+<tr>
+<td>T</td>
+<td>T</td>
+<td>T</td>
+</tr>
+</tbody>
+</table>
+<h2 ref="disjunction" >Disjunction</h2><a class="anchor" id="disjunction"></a>
+<table>
+<thead>
+<tr>
+<th>p</th>
+<th>q</th>
+<th>\(p \vee q\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F</td>
+<td>F</td>
+<td>F</td>
+</tr>
+<tr>
+<td>F</td>
+<td>T</td>
+<td>T</td>
+</tr>
+<tr>
+<td>T</td>
+<td>F</td>
+<td>T</td>
+</tr>
+<tr>
+<td>T</td>
+<td>T</td>
+<td>T</td>
+</tr>
+</tbody>
+</table>
+<h2 ref="exclusive-or" >Exclusive Or</h2><a class="anchor" id="exclusive-or"></a>
+<table>
+<thead>
+<tr>
+<th>p</th>
+<th>q</th>
+<th>\(p \bigoplus q\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F</td>
+<td>F</td>
+<td>F</td>
+</tr>
+<tr>
+<td>F</td>
+<td>T</td>
+<td>T</td>
+</tr>
+<tr>
+<td>T</td>
+<td>F</td>
+<td>T</td>
+</tr>
+<tr>
+<td>T</td>
+<td>T</td>
+<td>F</td>
+</tr>
+</tbody>
+</table>
+<h2 ref="implication" >Implication</h2><a class="anchor" id="implication"></a>
+<table>
+<thead>
+<tr>
+<th>p</th>
+<th>q</th>
+<th>\(p \rightarrow q\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F</td>
+<td>F</td>
+<td>T</td>
+</tr>
+<tr>
+<td>F</td>
+<td>T</td>
+<td>T</td>
+</tr>
+<tr>
+<td>T</td>
+<td>F</td>
+<td>F</td>
+</tr>
+<tr>
+<td>T</td>
+<td>T</td>
+<td>T</td>
+</tr>
+</tbody>
+</table>
+<h2 ref="bi-conditional" >Bi-conditional</h2><a class="anchor" id="bi-conditional"></a>
+<table>
+<thead>
+<tr>
+<th>p</th>
+<th>q</th>
+<th>\(p \leftrightarrow q\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F</td>
+<td>F</td>
+<td>T</td>
+</tr>
+<tr>
+<td>F</td>
+<td>T</td>
+<td>F</td>
+</tr>
+<tr>
+<td>T</td>
+<td>F</td>
+<td>F</td>
+</tr>
+<tr>
+<td>T</td>
+<td>T</td>
+<td>T</td>
+</tr>
+</tbody>
+</table>
 
 		</div>
 
@@ -520,10 +718,10 @@
 
 	 
 	<div class="chevrons">
-		<a class="next" href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/trees/" title="Trees" style="margin-right: 0px;">
+		<a class="next" href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/set-theory/" title="Standard Proof techniques" style="margin-right: 0px;">
             <div>
                 <p>Next page</p>
-                <label>Trees</label>
+                <label>Standard Proof techniques</label>
             </div>
             <i class="fas fa-arrow-right" style="font-size: 1.7em"></i></a>
 	</div>
@@ -548,17 +746,18 @@
     <label><i class="fas fa-align-right"></i>&nbsp;&nbsp;What&#39;s on this page</label>
     <nav>
         <ul >
-            <li><a href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/set-theory/">Standard Proof techniques</a></li>
+            <li><a href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/logic/">Logic</a></li>
         </ul>
     </nav>
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#disproof-by-counterexample">Disproof by Counterexample</a></li>
-    <li><a href="#proof-by-contradiction">Proof by Contradiction</a>
-      <ul>
-        <li><a href="#square-root-of-2-is-irrational">Square root of 2 is irrational</a></li>
-      </ul>
-    </li>
+    <li><a href="#boolean-operators">Boolean operators</a></li>
+    <li><a href="#negation">Negation</a></li>
+    <li><a href="#conjunction">Conjunction</a></li>
+    <li><a href="#disjunction">Disjunction</a></li>
+    <li><a href="#exclusive-or">Exclusive Or</a></li>
+    <li><a href="#implication">Implication</a></li>
+    <li><a href="#bi-conditional">Bi-conditional</a></li>
   </ul>
 </nav>
 </div>
