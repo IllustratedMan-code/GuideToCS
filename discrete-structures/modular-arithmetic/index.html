@@ -4,7 +4,7 @@
 <html>
   <head>
     <title>
-	Standard Proof techniques :: David&#39;s Guide to CS
+	Modular arithmetic :: David&#39;s Guide to CS
 </title>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -13,7 +13,7 @@
 
 
 
-<title>Standard Proof techniques :: David&#39;s Guide to CS</title>
+<title>Modular arithmetic :: David&#39;s Guide to CS</title>
 
 <link rel="shortcut icon" href='https://illustratedman-code.github.io/GuideToCS/images/favicon.png' type="image/x-icon" />
 
@@ -54,7 +54,7 @@
     
   </head>
 
-  <body data-url="https://illustratedman-code.github.io/GuideToCS/discrete-structures/set-theory/"
+  <body data-url="https://illustratedman-code.github.io/GuideToCS/discrete-structures/modular-arithmetic/"
 
   class="">
 
@@ -178,7 +178,7 @@
     </li>
               
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/modular-arithmetic/" class="dd-item
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/modular-arithmetic/" class="dd-item parent active
         item_level_$level
         ">
 
@@ -208,7 +208,7 @@
     </li>
               
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/set-theory/" class="dd-item parent active
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/set-theory/" class="dd-item
         item_level_$level
         ">
 
@@ -456,7 +456,7 @@
   
     <li class="active">
       
-        Standard Proof techniques
+        Modular arithmetic
       
     </li>
 
@@ -477,7 +477,7 @@
 		
 
 		
-			<h1>Standard Proof techniques</h1>
+			<h1>Modular arithmetic</h1>
         
 
 		
@@ -497,12 +497,8 @@
 		</span>
 		<nav id="TableOfContents">
   <ul>
-    <li><a href="#disproof-by-counterexample">Disproof by Counterexample</a></li>
-    <li><a href="#proof-by-contradiction">Proof by Contradiction</a>
-      <ul>
-        <li><a href="#square-root-of-2-is-irrational">Square root of 2 is irrational</a></li>
-      </ul>
-    </li>
+    <li><a href="#addition-tables">Addition Tables</a></li>
+    <li><a href="#multiplication-tables">Multiplication tables</a></li>
   </ul>
 </nav>
 	</div>
@@ -515,30 +511,100 @@
 
 
 	<div class="content">
-	    <h2 ref="disproof-by-counterexample" >Disproof by Counterexample</h2><a class="anchor" id="disproof-by-counterexample"></a>
-<p>Shows that a conjecture is not true by pointing out an example where the conjecture does not hold.</p>
-<ul>
-<li>No nickels</li>
-<li>1 quarter + 5 pennies</li>
-<li>3 dimes</li>
-<li>Greedy method is not appropriate with limited change</li>
+	    <ul>
+<li>\(x \equiv y (\text{mod} : n) \leftrightarrow (x-y) : \text {mod} : n = 0\)</li>
 </ul>
-<h2 ref="proof-by-contradiction" >Proof by Contradiction</h2><a class="anchor" id="proof-by-contradiction"></a>
-<p>Proof that the opposite cannot be true.</p>
-<h3 ref="square-root-of-2-is-irrational" >Square root of 2 is irrational</h3><a class="anchor" id="square-root-of-2-is-irrational"></a>
+<h2 ref="addition-tables" >Addition Tables</h2><a class="anchor" id="addition-tables"></a>
 <ul>
-<li>\(\sqrt 2 = a/b\)</li>
-<li>\(a/b\) is simplified</li>
-<li>a or b or both must be odd (otherwise could be simplified)</li>
-<li>\(2 = a^2/b^2\)</li>
-<li>\(a^2 = 2 * b^2\)</li>
-<li>\(a^2\) must be even (2 times any number is even)</li>
-<li>\(a\) is even as well (odd times odd is odd)</li>
-<li>\(a = 2 * k\) where k is a / 2</li>
-<li>\(2 = (2 * k)^2/b^2 \rightarrow b^2 = 2k^2\)</li>
-<li>\(b\) is also odd by this method</li>
-<li>\(a\) and \(b\) cannot be odd</li>
-<li>\(\sqrt 2\) cannot be rational</li>
+<li>Z mod 4
+<table>
+<thead>
+<tr>
+<th>+</th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>\((0 + 0) \mod 4 = 0\)</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr>
+<td>1</td>
+<td>\((1 + 0) \mod 4 = 1\)</td>
+<td>2</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>\((2 + 0) \mod 4 = 1\)</td>
+<td>3</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>\((3 + 0) \mod 4 = 3\)</td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h2 ref="multiplication-tables" >Multiplication tables</h2><a class="anchor" id="multiplication-tables"></a>
+<ul>
+<li>Z mod 4
+<table>
+<thead>
+<tr>
+<th>x</th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>\((0 \cdot 0) \mod 4 = 0\)</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>\((1 \cdot 0) \mod 4 = 0\)</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr>
+<td>2</td>
+<td>\((2 \cdot 0) \mod 4 = 0\)</td>
+<td>2</td>
+<td>0</td>
+<td>2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>\((3 \cdot 0) \mod 4 = 0\)</td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+</li>
 </ul>
 
 		</div>
@@ -550,10 +616,10 @@
 
 	 
 	<div class="chevrons">
-		<a class="next" href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/trees/" title="Trees" style="margin-right: 0px;">
+		<a class="next" href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/set-relations/" title="Set relations" style="margin-right: 0px;">
             <div>
                 <p>Next page</p>
-                <label>Trees</label>
+                <label>Set relations</label>
             </div>
             <i class="fas fa-arrow-right" style="font-size: 1.7em"></i></a>
 	</div>
@@ -578,17 +644,13 @@
     <label><i class="fas fa-align-right"></i>&nbsp;&nbsp;What&#39;s on this page</label>
     <nav>
         <ul >
-            <li><a href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/set-theory/">Standard Proof techniques</a></li>
+            <li><a href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/modular-arithmetic/">Modular arithmetic</a></li>
         </ul>
     </nav>
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#disproof-by-counterexample">Disproof by Counterexample</a></li>
-    <li><a href="#proof-by-contradiction">Proof by Contradiction</a>
-      <ul>
-        <li><a href="#square-root-of-2-is-irrational">Square root of 2 is irrational</a></li>
-      </ul>
-    </li>
+    <li><a href="#addition-tables">Addition Tables</a></li>
+    <li><a href="#multiplication-tables">Multiplication tables</a></li>
   </ul>
 </nav>
 </div>
