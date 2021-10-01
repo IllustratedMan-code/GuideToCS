@@ -161,6 +161,10 @@ Some animals have larger optimal ranges of physical resources than others (plast
 + Humans could be said to have high plasticity due to our tool making
 + Octopi make extensive use of RNA editing sites to alter their expression [[https://www.nature.com/articles/d41586-017-00612-y][Octopus RNA editing sites]] (plasticity?)
 * Chapter 4
+:PROPERTIES:
+:EXPORT_HUGO_SECTION*: ch-4
+:EXPORT_FILE_NAME: _index
+:END:
 ** 8 Major Biomes
 *** Tundra
 *** Conifer and Evergreen Forest
@@ -173,6 +177,10 @@ Some animals have larger optimal ranges of physical resources than others (plast
 
 ** Adaptations of plants to different biomes
 * Chapter 5
+:PROPERTIES:
+:EXPORT_HUGO_SECTION*: ch-5
+:EXPORT_FILE_NAME: _index
+:END:
 ** Basic Aquatic Environments
 Salt vs freshwater systems
 + Ice
@@ -198,3 +206,89 @@ Ecological changes that occur from first order to high-order streams
 + FPOM -> Collectors
 + Algae -> Grazers
 ** Regression and correlation plots
+** Island Biogeography
++ Habitat islands
++ equilibrium = rate of arrival of new species vs Extinction rate
+  + Large islands have lower extinction rates
+  + Large islands have higher immigration rates.
++ change over time
+** Meta-population
+Interconnected populations. Lots of movement between population fragments.
+** Theoretical models
+Doesn't account for all real-world issues. Prevalence of natural disasters can be an example.
+** Island biogeography vs evolutionary divergence
++ Less Species = larger opportunity for divergence
+* Chapter 6
+:PROPERTIES:
+:EXPORT_HUGO_SECTION*: ch-6
+:EXPORT_FILE_NAME: _index
+:END:
+** Sexual Reproduction
++ Increases genetic variation
++ Environmental stress can cause massive sexual reproduction (to increase variation)
+** Darwin-fisher
+*** Balance vs Truth in advertising (Darwin Fisher)
+**** Balance
++ male traits are exaggerated by female choice (increases cost)
++ Natural selection culls high cost male traits
++ Male traits get "optimized" to a balance of excessive male traits, and functional
+  survival traits
+
+**** Truth in advertising
++ Male traits indicate natural fitness
++ Males can have excessive traits and still survive better
+
+** Mating Systems
+*** Plants
++ outcrossing (mating among different individuals)
++ autogamy (self fertilization)
++ apomixix (asexual reproduction)
+** Territoriality
++ When resources are divided in a way that males can defend them
++ Females choose males that provide access to resources
++ =Polygny= is a mating system in which each female mates with more than one male
+*** Leks
+Males demonstrate at predetermined (traditional) sites.
+** Vocab
++ Relatedness: A measure of how many genes are shared between individuals
++ Inbreeding: When an individual mates with a close relative, eventually causing side effects.
++ kin selection: Individuals may increase fitness by helping a close relative (honeybees)
++ Inclusive Fitness: cooperation increases fitness (humans)
++ Social Systems: group size and composition, cooperation, mating system
+* CH 7
+** Evolutionary stable strategy, frequency-dependent selection and hypothesis of the evolution of sexual reproduction
+*** Evolutionary stable strategy
+Adaptation increases in frequency when rare (beneficial for the survival of a species)
+*** Frequency dependent selection
+Fitness is determined by frequency in population (sickle cell)
+*** Evolution of sexual reproduction
+Related to the red-queen hypothesis. Host had to find a way to evolve at same rate as parasite.
+** Genetic distance among populations
+Number of differences or mutations between two sets of DNA.
+** Genetic bottlenecks, conservation genetics of small popululations
+SMall populations have increased effects due to change. Allele frequency from generation to generation is much more random.
+*** Genetic bottlenecks
+Reduction in diversity of alleles because of some event (excessive predation, natural disaster, etc)
+** Design a common garden experiment to disentangle phenotypici plasticity verses evolutionary divergencce
++ Grow plants in the same garden (with different phenotypes)
++ If phenotypes persist, it is a genetically controlled phenotype
++ If phenotypes change, it is phenotypic plasticity
+* CH 8
+** Compare and contrast different life tables to infer different life history strategies.
+** Interpret differences in survivorship curves
+** Understand /r/, the intrinsic growth rate of a population
+** age structure pyramids in terms of population growth and reproduction
+* CH 9
++ Logistic Growth
+  + \(dN/dt = rN (1 - N/K)\)
++ Population regulation
++ Top-down
+  + Predators
++ Bottom-up
+  + food resources
++ K (carrying capacity)
+** Density independent
+Population effects are a function of the population size (or makeup)
+** Density Dependent
+** ESS and group selection
+** Many factors
