@@ -222,3 +222,41 @@ Iff R relates \(a\) to \(b\) and \(b\) to \( c\) then \(a \) relates to \(c\)
   | 1 | \((1 \cdot 0) \mod 4 = 0\) | 1 | 2 | 3 |
   | 2 | \((2 \cdot 0) \mod 4 = 0\) | 2 | 0 | 2 |
   | 3 | \((3 \cdot 0) \mod 4 = 0\) | 3 | 2 | 1 |
+* Exam 1 review
+:PROPERTIES:
+:EXPORT_HUGO_SECTION*: Exam 1 Review
+:EXPORT_FILE_NAME: _index
+:END:
+[[file:pdfs/combine.pdf]]
+** Demorgans law
+\(\neg (A \cup B) = \neg A \cap \neg B\)
+
+** power sets
++ \(A= \{a, b, c\}\)
++ \(P(A) = \varnothing , \{a\}, \{b\}, \{c\}, \{a, b\}, \{a, c\}, \{b, c\}, \{a, b, c\}\)
++ \(|P(A)| = 2^{|A|} = 2^3 = 8\)
+** Trees
++ n nodes
++ n-1 edges
++ leaf nodes = intermediate nodes + 1
++ Total nodes = intermediate nodes + leaf nodes
+** Propositional logic
++ All F = contradiction
++ All T = Tautology
++ CNF conjunction of all disjunction clasues
++ DNF disjunction of all conjunction clauses
+** Functions and relations
++ One to one -> (injective)
++ Onto () -> surjection
++ Density
++ Equivalence relations
+  + Reflexive
+  + Symmetric
+  + Transitive
++ Poset (partially ordered set)
+  + reflexive
+  + Antisymmetric
+  + Transitive
+** Mod Arithmetic
++ \((x + y) \mod k = (x \mod k \quad + \quad y \mod k) \mod k \)
++ \(b^{n-1} = 1 \mod n \)
