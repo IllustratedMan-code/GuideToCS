@@ -4,7 +4,7 @@ author = ["David Lewis"]
 draft = false
 +++
 
-</ox-hugo/combine.pdf>
+[All-Slides](/ox-hugo/combine.pdf)
 
 
 ## Demorgans law {#demorgans-law}

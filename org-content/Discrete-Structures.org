@@ -227,7 +227,7 @@ Iff R relates \(a\) to \(b\) and \(b\) to \( c\) then \(a \) relates to \(c\)
 :EXPORT_HUGO_SECTION*: Exam 1 Review
 :EXPORT_FILE_NAME: _index
 :END:
-[[file:pdfs/combine.pdf]]
+[[file:pdfs/combine.pdf][All-Slides]]
 ** Demorgans law
 \(\neg (A \cup B) = \neg A \cap \neg B\)
 
