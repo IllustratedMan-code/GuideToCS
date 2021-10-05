@@ -35,6 +35,13 @@
 	"content": "Ecology and Evolution\n"
 },
 {
+	"uri": "https://illustratedman-code.github.io/GuideToCS/discrete-structures/exam-1-review/",
+	"title": "Exam 1 review",
+	"tags": [],
+	"description": "",
+	"content": "\u0026lt;/ox-hugo/combine.pdf\u0026gt;\nDemorgans law \\(\\neg (A \\cup B) = \\neg A \\cap \\neg B\\)\npower sets  \\(A= \\{a, b, c\\}\\) \\(P(A) = \\varnothing , \\{a\\}, \\{b\\}, \\{c\\}, \\{a, b\\}, \\{a, c\\}, \\{b, c\\}, \\{a, b, c\\}\\) \\(|P(A)| = 2^{|A|} = 2^3 = 8\\)  Trees  n nodes n-1 edges leaf nodes = intermediate nodes + 1 Total nodes = intermediate nodes + leaf nodes  Propositional logic  All F = contradiction All T = Tautology CNF conjunction of all disjunction clasues DNF disjunction of all conjunction clauses  Functions and relations  One to one -\u0026gt; (injective) Onto () -\u0026gt; surjection Density Equivalence relations  Reflexive Symmetric Transitive   Poset (partially ordered set)  reflexive Antisymmetric Transitive    Mod Arithmetic  \\((x + y) \\mod k = (x \\mod k \\quad + \\quad y \\mod k) \\mod k \\) \\(b^{n-1} = 1 \\mod n \\)  "
+},
+{
 	"uri": "https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/hard-vs-micro/",
 	"title": "HardWiredVsMicroProgrammed;",
 	"tags": [],

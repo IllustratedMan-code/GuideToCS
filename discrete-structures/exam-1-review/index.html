@@ -1,0 +1,675 @@
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+	Exam 1 review :: David&#39;s Guide to CS
+</title>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="revised" content="2021-10-05T22:55:28 UTC">
+<meta name="description" content="">
+
+
+
+<title>Exam 1 review :: David&#39;s Guide to CS</title>
+
+<link rel="shortcut icon" href='https://illustratedman-code.github.io/GuideToCS/images/favicon.png' type="image/x-icon" />
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.css">
+
+<script src='https://code.jquery.com/jquery-3.5.1.min.js'></script>
+
+<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel="stylesheet">
+
+
+
+<link rel="stylesheet" type="text/css" href='https://illustratedman-code.github.io/GuideToCS/sass/layout.css'>
+<link rel="stylesheet" type="text/css" href='https://illustratedman-code.github.io/GuideToCS/css/style.main.css'>
+<link rel="stylesheet" type="text/css" href='https://illustratedman-code.github.io/GuideToCS/css/style.menu.css'>
+<link rel="stylesheet" type="text/css" href='https://illustratedman-code.github.io/GuideToCS/sass/shortcodes/notice.css'>
+<link rel="stylesheet" type="text/css" href='https://illustratedman-code.github.io/GuideToCS/sass/shortcodes/tabs.css'>
+<link rel="stylesheet" type="text/css" href='https://illustratedman-code.github.io/GuideToCS/sass/shortcodes/panel.css'>
+<link rel="stylesheet" type="text/css" href='https://illustratedman-code.github.io/GuideToCS/sass/shortcodes/columns.css'>
+<link rel="stylesheet" type="text/css" href='https://illustratedman-code.github.io/GuideToCS/sass/shortcodes/children.css'>
+<link rel="stylesheet" type="text/css" href='https://illustratedman-code.github.io/GuideToCS/sass/shortcodes/attachments.css'>
+<link rel="stylesheet" type="text/css" href='https://illustratedman-code.github.io/GuideToCS/sass/shortcodes/alert.css'>
+<link rel="stylesheet" type="text/css" href='https://illustratedman-code.github.io/GuideToCS/css/docport.css'>
+
+<script src='https://illustratedman-code.github.io/GuideToCS/js/docport.js'></script>
+<script type="text/javascript">
+      var baseurl = "https:\/\/illustratedman-code.github.io\/GuideToCS";
+</script>
+
+
+<script src="https://illustratedman-code.github.io/GuideToCS/js/mathjax-config.js"></script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+
+
+    
+  </head>
+
+  <body data-url="https://illustratedman-code.github.io/GuideToCS/discrete-structures/exam-1-review/"
+
+  class="">
+
+<style type="text/css">
+  #debug{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    line-height: 3.5rem;
+    margin-bottom: .35rem;
+    padding: 0 2rem;
+    position: fixed;
+    left: 0;      right: 0;     top: 0;
+   
+    top:0px;
+    
+    min-height: 150px;
+
+    background-color: white;
+    border: 3px solid red;
+    z-index: 10000 ;
+    word-wrap: all;
+    overflow: auto;
+  }
+</style>
+ 
+
+
+    
+    
+    <header style="">
+        <div>
+    
+    <div class="burger ">
+        <a href="javascript:void(0);" style="font-size:15px;" onclick="$('article > aside').toggleClass('responsive')">&#9776;</a>
+    </div>
+    
+
+    <div>
+
+		
+	
+			
+		
+	    	<a class='baselink' href='https://illustratedman-code.github.io/GuideToCS'>David's Guide to CS</a>
+	  	
+	</div>
+    <nav class="shortcuts">
+            <li class="" role="">
+                <a href="https://github.com/IllustratedMan-code"  rel="noopener">
+                  Github
+                </a>
+            </li>
+    </nav>
+
+</div>
+    </header>
+    
+
+    <article>
+      
+      <aside class="">
+        
+<div class="search">
+	<div class="searchbox">
+	  <input data-search-input id="search-by" type="text" placeholder="Type to search...">
+	</div>
+	<script type="text/javascript" src="https://illustratedman-code.github.io/GuideToCS/vendor/lunr/lunr.min.js"></script>
+	<script type="text/javascript" src="https://illustratedman-code.github.io/GuideToCS/vendor/auto-complete/auto-complete.js"></script>
+	<link href="https://illustratedman-code.github.io/GuideToCS/vendor/auto-complete/auto-complete.css" rel="stylesheet">
+	<script type="text/javascript">
+	  
+	      var baseurl = "https:\/\/illustratedman-code.github.io\/GuideToCS";
+	  
+	</script>
+	<script type="text/javascript" src="https://illustratedman-code.github.io/GuideToCS/js/search.js"></script>
+</div>
+
+		
+	
+			
+		
+	    	
+	  	
+	<div id="close_menu">
+  <a href="javascript:void(0);" style="font-size:15px;" onclick="$('article > aside').toggleClass('responsive')">
+      <i class="fa fa-lg fa-times"></i>
+  </a>
+</div>
+
+<ul class="menu">
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/" class="dd-item parent haschildren
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <i class="fas fa-chevron-down ddexp"></i>
+        
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/">Discrete Structures</a>
+      
+        <ul>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/exam-1-review/" class="dd-item parent active
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/exam-1-review/">Exam 1 review</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/logic/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/logic/">Logic</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/modular-arithmetic/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/modular-arithmetic/">Modular arithmetic</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/set-relations/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/set-relations/">Set relations</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/set-theory/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/set-theory/">Standard Proof techniques</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/trees/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/trees/">Trees</a>
+      
+        
+      
+    </li>
+        </ul>
+    </li>
+    
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/ecology/" class="dd-item haschildren
+        item_level_$level
+        ">
+
+      
+      
+      
+      <i class="fas fa-chevron-right ddexp"></i>
+        
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/ecology/">Ecology and Evolution</a>
+      
+        <ul>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/ecology/ch1/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/ecology/ch1/">Chapter 1</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/ecology/ch-2/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/ecology/ch-2/">Chapter 2</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/ecology/ch-3/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/ecology/ch-3/">Chapter 3</a>
+      
+        
+      
+    </li>
+        </ul>
+    </li>
+    
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/" class="dd-item haschildren
+        item_level_$level
+        ">
+
+      
+      
+      
+      <i class="fas fa-chevron-right ddexp"></i>
+        
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/">Intro To Comp Systems</a>
+      
+        <ul>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/hard-vs-micro/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/hard-vs-micro/">HardWiredVsMicroProgrammed;</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/how-to-write-a-micro-instruction/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/how-to-write-a-micro-instruction/">How to write a micro-instruction</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/mock-exam-questions/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/mock-exam-questions/">Mock Exam Questions</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/formulas-and-references/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/formulas-and-references/">Useful formulas and references</a>
+      
+        
+      
+    </li>
+        </ul>
+    </li>
+    
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/phys2001/" class="dd-item haschildren
+        item_level_$level
+        ">
+
+      
+      
+      
+      <i class="fas fa-chevron-right ddexp"></i>
+        
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/phys2001/">PHYS2001</a>
+      
+        <ul>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/phys2001/test/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/phys2001/test/">Test</a>
+      
+        
+      
+    </li>
+        </ul>
+    </li>
+    
+
+
+
+</ul>
+
+		
+	
+			
+		
+	    	
+	  	
+	
+      </aside>
+      
+
+      <section class="page ">
+      
+	
+		
+    
+    
+    <nav id="ariane" aria-label="breadcrumb">
+      <ol class="ariane">
+        
+  
+  	
+		
+  
+  	
+	<li >
+      <a class="text-link" href="https://illustratedman-code.github.io/GuideToCS">
+        Home
+      </a>
+    </li>
+	
+  
+    <li class="">
+      <a class="text-link" href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/">
+        Discrete Structures
+      </a>
+    </li>
+	
+  	
+  
+    <li class="active">
+      
+        Exam 1 review
+      
+    </li>
+
+      </ol>
+    </nav>
+    
+    
+
+    
+		
+        
+		
+		
+		
+		
+		
+		
+		
+
+		
+			<h1>Exam 1 review</h1>
+        
+
+		
+										
+		
+
+		
+	
+
+	
+	
+	<div class="jump-to-section">
+		<span onclick="$h = $(this);$h.next('nav').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('nav').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+  			<span class="fas fa-align-right"></span>
+  			Jump to Section
+  			<i style=";" class="fas fa-chevron-right"></i>
+		</span>
+		<nav id="TableOfContents">
+  <ul>
+    <li><a href="#demorgans-law">Demorgans law</a></li>
+    <li><a href="#power-sets">power sets</a></li>
+    <li><a href="#trees">Trees</a></li>
+    <li><a href="#propositional-logic">Propositional logic</a></li>
+    <li><a href="#functions-and-relations">Functions and relations</a></li>
+    <li><a href="#mod-arithmetic">Mod Arithmetic</a></li>
+  </ul>
+</nav>
+	</div>
+	
+	
+
+
+
+
+
+
+	<div class="content">
+	    <p>&lt;/ox-hugo/combine.pdf&gt;</p>
+<h2 ref="demorgans-law" >Demorgans law</h2><a class="anchor" id="demorgans-law"></a>
+<p>\(\neg (A \cup B) = \neg A \cap \neg B\)</p>
+<h2 ref="power-sets" >power sets</h2><a class="anchor" id="power-sets"></a>
+<ul>
+<li>\(A= \{a, b, c\}\)</li>
+<li>\(P(A) = \varnothing , \{a\}, \{b\}, \{c\}, \{a, b\}, \{a, c\}, \{b, c\}, \{a, b, c\}\)</li>
+<li>\(|P(A)| = 2^{|A|} = 2^3 = 8\)</li>
+</ul>
+<h2 ref="trees" >Trees</h2><a class="anchor" id="trees"></a>
+<ul>
+<li>n nodes</li>
+<li>n-1 edges</li>
+<li>leaf nodes = intermediate nodes + 1</li>
+<li>Total nodes = intermediate nodes + leaf nodes</li>
+</ul>
+<h2 ref="propositional-logic" >Propositional logic</h2><a class="anchor" id="propositional-logic"></a>
+<ul>
+<li>All F = contradiction</li>
+<li>All T = Tautology</li>
+<li>CNF conjunction of all disjunction clasues</li>
+<li>DNF disjunction of all conjunction clauses</li>
+</ul>
+<h2 ref="functions-and-relations" >Functions and relations</h2><a class="anchor" id="functions-and-relations"></a>
+<ul>
+<li>One to one -&gt; (injective)</li>
+<li>Onto () -&gt; surjection</li>
+<li>Density</li>
+<li>Equivalence relations
+<ul>
+<li>Reflexive</li>
+<li>Symmetric</li>
+<li>Transitive</li>
+</ul>
+</li>
+<li>Poset (partially ordered set)
+<ul>
+<li>reflexive</li>
+<li>Antisymmetric</li>
+<li>Transitive</li>
+</ul>
+</li>
+</ul>
+<h2 ref="mod-arithmetic" >Mod Arithmetic</h2><a class="anchor" id="mod-arithmetic"></a>
+<ul>
+<li>\((x + y) \mod k = (x \mod k \quad + \quad y \mod k) \mod k \)</li>
+<li>\(b^{n-1} = 1 \mod n \)</li>
+</ul>
+
+		</div>
+
+
+
+
+
+
+	 
+	<div class="chevrons">
+		<a class="next" href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/logic/" title="Logic" style="margin-right: 0px;">
+            <div>
+                <p>Next page</p>
+                <label>Logic</label>
+            </div>
+            <i class="fas fa-arrow-right" style="font-size: 1.7em"></i></a>
+	</div>
+	
+	
+
+      </section>
+
+      
+      
+      <section class="right-menu ">
+      
+	
+
+		
+	
+			
+		
+	    	
+	  	
+	<div class="TableOfContents">
+    <label><i class="fas fa-align-right"></i>&nbsp;&nbsp;What&#39;s on this page</label>
+    <nav>
+        <ul >
+            <li><a href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/exam-1-review/">Exam 1 review</a></li>
+        </ul>
+    </nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#demorgans-law">Demorgans law</a></li>
+    <li><a href="#power-sets">power sets</a></li>
+    <li><a href="#trees">Trees</a></li>
+    <li><a href="#propositional-logic">Propositional logic</a></li>
+    <li><a href="#functions-and-relations">Functions and relations</a></li>
+    <li><a href="#mod-arithmetic">Mod Arithmetic</a></li>
+  </ul>
+</nav>
+</div>
+
+		
+	
+			
+		
+	    	
+	  	
+	<div class="Actions">
+	<nav>
+		<ul>
+				
+		    
+		    
+			
+		    
+
+    	</ul>
+	</nav>
+    
+</div>
+
+      </section>
+      
+    </article>
+    
+    
+    <footer>
+      
+
+		
+	
+			
+		
+	    	Create a content/_layout/footer/_index.md file to customize the footer content !
+	  	
+	
+    </footer>
+    
+
+
+
+  </body>
+</html>
