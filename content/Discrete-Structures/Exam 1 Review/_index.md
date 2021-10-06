@@ -101,6 +101,13 @@ draft = false
 -   [Logic](https://illustratedman-code.github.io/GuideToCS/discrete-structures/logic/)
 
 
+### NP and NP-completeness {#np-and-np-completeness}
+
+-   P = problem that can be solved in polynomial time
+-   NP = non-deterministic polynomial (unknown if it can be solved in polynomial time)
+-   NP-complete = any NP problem A can be reduced to problem B
+
+
 ## Functions and relations {#functions-and-relations}
 
 -   One to one -> (injective)

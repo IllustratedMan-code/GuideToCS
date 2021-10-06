@@ -286,6 +286,10 @@ Iff R relates \(a\) to \(b\) and \(b\) to \( c\) then \(a \) relates to \(c\)
 + CNF conjunction of all disjunction clauses, unsatisfiable when all combinations of clauses are present
 + DNF disjunction of all conjunction clauses
 + [[https://illustratedman-code.github.io/GuideToCS/discrete-structures/logic/][Logic]]
+*** NP and NP-completeness
++ P = problem that can be solved in polynomial time
++ NP = non-deterministic polynomial (unknown if it can be solved in polynomial time)
++ NP-complete = any NP problem A can be reduced to problem B
 ** Functions and relations
 + One to one -> (injective)
 + Onto () -> surjective
