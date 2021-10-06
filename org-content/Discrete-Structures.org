@@ -98,12 +98,12 @@ Proof that the opposite cannot be true.
 + Every node has a maximum of 2 children
 * Logic
 :PROPERTIES:
-:EXPORT_HUGO_SECTION*: Logic
+:EXPORT_HUGO_SECTION: Discrete-Structures/Logic
 :EXPORT_FILE_NAME: _index
-:CUSTOM_ID: Logic
 :END:
 ** Boolean operators
 :PROPERTIES:
+:Custom_ID: Logic
 :END:
 | Negation      | NOT     | Unary  | \(\neg\)         |
 | Conjunction   | AND     | Binary | \(\wedge\)         |
@@ -227,7 +227,7 @@ Iff R relates \(a\) to \(b\) and \(b\) to \( c\) then \(a \) relates to \(c\)
   | 3 | \((3 \cdot 0) \mod 4 = 0\) | 3 | 2 | 1 |
 * Exam 1 review
 :PROPERTIES:
-:EXPORT_HUGO_SECTION*: Exam 1 Review
+:EXPORT_HUGO_SECTION: Discrete-Structures/Exam 1 Review
 :EXPORT_FILE_NAME: _index
 :END:
 [[file:pdfs/combine.pdf][All-Slides]]
@@ -285,7 +285,7 @@ Iff R relates \(a\) to \(b\) and \(b\) to \( c\) then \(a \) relates to \(c\)
 + All T = Tautology
 + CNF conjunction of all disjunction clauses, unsatisfiable when all combinations of clauses are present
 + DNF disjunction of all conjunction clauses
-+ [[file:Discrete-Structures.org::#Logic][Logic]]
++ [[https://illustratedman-code.github.io/GuideToCS/discrete-structures/logic/][Logic]]
 ** Functions and relations
 + One to one -> (injective)
 + Onto () -> surjective

@@ -4,10 +4,7 @@ author = ["David Lewis"]
 draft = false
 +++
 
-## Boolean operators {#boolean-operators}
-
-:PROPERTIES:
-nil:END:
+## Boolean operators {#Logic}
 
 | Negation       | NOT     | Unary  | \\(\neg\\)            |
 |----------------|---------|--------|-----------------------|
