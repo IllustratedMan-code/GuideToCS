@@ -98,7 +98,7 @@ draft = false
 -   All T = Tautology
 -   CNF conjunction of all disjunction clauses, unsatisfiable when all combinations of clauses are present
 -   DNF disjunction of all conjunction clauses
--   [Logic]({{< relref "Discrete-Structures#Logic" >}})
+-   [Logic]({{< relref "Discrete-Structures" >}})
 
 
 ## Functions and relations {#functions-and-relations}
@@ -106,9 +106,6 @@ draft = false
 -   One to one -> (injective)
 -   Onto () -> surjective
 -   One to one and Onto -> Bijective
--
-
-
 -   Density
 -   Equivalence relations
     -   Reflexive, \\(a, a \in R \: \text{for every a in A}\\)
