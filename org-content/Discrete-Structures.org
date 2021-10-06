@@ -283,7 +283,7 @@ Iff R relates \(a\) to \(b\) and \(b\) to \( c\) then \(a \) relates to \(c\)
 + All T = Tautology
 + CNF conjunction of all disjunction clauses, unsatisfiable when all combinations of clauses are present
 + DNF disjunction of all conjunction clauses
-+ [[Logic]]
++ [[#Logic]]
 ** Functions and relations
 + One to one -> (injective)
 + Onto () -> surjective
@@ -295,7 +295,7 @@ Iff R relates \(a\) to \(b\) and \(b\) to \( c\) then \(a \) relates to \(c\)
   + Symmetric, \((b, a \in R\: \text{ whenver} \:  a, b \in R\)
   + Transitive, \((a, b) \in R \text{ and } (b, c) \in R \text{ then } (a, c) \in R \text{ where } a, b, c \in A \)
   + Asymmetric, \((a, b) \in R \text{ implies } (b, a) \not\in R\)
-  + AntiSymmetric, assymetric except for the case \((a, b) \in R\) where \(b\) is equal to \(a\)
+  + AntiSymmetric, assymetric except for the case \((a, b) \in R \rightarrow (b, a) \in R\) where \(b\) is equal to \(a\)
 + Poset (partially ordered set)
   + reflexive
   + Antisymmetric
