@@ -8,7 +8,7 @@
 </title>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2021-10-05T23:00:25 UTC">
+<meta name="revised" content="2021-10-06T17:59:35 UTC">
 <meta name="description" content="">
 
 
@@ -512,9 +512,22 @@
 		</span>
 		<nav id="TableOfContents">
   <ul>
-    <li><a href="#demorgans-law">Demorgans law</a></li>
+    <li><a href="#set-theory">Set Theory</a>
+      <ul>
+        <li><a href="#union">Union</a></li>
+        <li><a href="#intersection">Intersection</a></li>
+        <li><a href="#difference">Difference</a></li>
+        <li><a href="#symmetric-difference">Symmetric difference</a></li>
+        <li><a href="#demorgans-law">Demorgans law</a></li>
+        <li><a href="#principle-of-inclusion-exclusion">Principle of Inclusion-Exclusion</a></li>
+      </ul>
+    </li>
+    <li><a href="#proof-techniques">Proof Techniques</a>
+      <ul>
+        <li><a href="#trees">Trees</a></li>
+      </ul>
+    </li>
     <li><a href="#power-sets">power sets</a></li>
-    <li><a href="#trees">Trees</a></li>
     <li><a href="#propositional-logic">Propositional logic</a></li>
     <li><a href="#functions-and-relations">Functions and relations</a></li>
     <li><a href="#mod-arithmetic">Mod Arithmetic</a></li>
@@ -531,41 +544,207 @@
 
 	<div class="content">
 	    <p><a href="https://illustratedman-code.github.io/GuideToCS/ox-hugo/combine.pdf">All-Slides</a></p>
-<h2 ref="demorgans-law" >Demorgans law</h2><a class="anchor" id="demorgans-law"></a>
-<p>\(\neg (A \cup B) = \neg A \cap \neg B\)</p>
-<h2 ref="power-sets" >power sets</h2><a class="anchor" id="power-sets"></a>
+<h2 ref="set-theory" >Set Theory</h2><a class="anchor" id="set-theory"></a>
+<h3 ref="union" >Union</h3><a class="anchor" id="union"></a>
 <ul>
-<li>\(A= \{a, b, c\}\)</li>
-<li>\(P(A) = \varnothing , \{a\}, \{b\}, \{c\}, \{a, b\}, \{a, c\}, \{b, c\}, \{a, b, c\}\)</li>
-<li>\(|P(A)| = 2^{|A|} = 2^3 = 8\)</li>
+<li>\(S = A \cup B\)</li>
 </ul>
-<h2 ref="trees" >Trees</h2><a class="anchor" id="trees"></a>
+<table>
+<thead>
+<tr>
+<th>\(A\)</th>
+<th>\(B\)</th>
+<th>\(A \cup B\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T</td>
+<td>T</td>
+<td>T</td>
+</tr>
+<tr>
+<td>T</td>
+<td>F</td>
+<td>T</td>
+</tr>
+<tr>
+<td>F</td>
+<td>T</td>
+<td>T</td>
+</tr>
+<tr>
+<td>F</td>
+<td>F</td>
+<td>F</td>
+</tr>
+</tbody>
+</table>
+<h3 ref="intersection" >Intersection</h3><a class="anchor" id="intersection"></a>
+<ul>
+<li>\(S = A \cap B\)</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>\(A\)</th>
+<th>\(B\)</th>
+<th>\(A \cup B\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T</td>
+<td>T</td>
+<td>T</td>
+</tr>
+<tr>
+<td>T</td>
+<td>F</td>
+<td>F</td>
+</tr>
+<tr>
+<td>F</td>
+<td>T</td>
+<td>F</td>
+</tr>
+<tr>
+<td>F</td>
+<td>F</td>
+<td>F</td>
+</tr>
+</tbody>
+</table>
+<h3 ref="difference" >Difference</h3><a class="anchor" id="difference"></a>
+<ul>
+<li>\(S = A - B\)</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>\(A\)</th>
+<th>\(B\)</th>
+<th>\(A \cup B\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T</td>
+<td>T</td>
+<td>T</td>
+</tr>
+<tr>
+<td>T</td>
+<td>F</td>
+<td>T</td>
+</tr>
+<tr>
+<td>F</td>
+<td>T</td>
+<td>T</td>
+</tr>
+<tr>
+<td>F</td>
+<td>F</td>
+<td>F</td>
+</tr>
+</tbody>
+</table>
+<h3 ref="symmetric-difference" >Symmetric difference</h3><a class="anchor" id="symmetric-difference"></a>
+<ul>
+<li>\(S = A \bigoplus B\)</li>
+<li>\((a \in S \iff (a \in A \quad \text{and} \quad a \ni B)\)</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>\(A\)</th>
+<th>\(B\)</th>
+<th>\(A \cup B\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T</td>
+<td>T</td>
+<td>F</td>
+</tr>
+<tr>
+<td>T</td>
+<td>F</td>
+<td>T</td>
+</tr>
+<tr>
+<td>F</td>
+<td>T</td>
+<td>T</td>
+</tr>
+<tr>
+<td>F</td>
+<td>F</td>
+<td>F</td>
+</tr>
+</tbody>
+</table>
+<h3 ref="demorgans-law" >Demorgans law</h3><a class="anchor" id="demorgans-law"></a>
+<p>\(\neg (A \cup B) = \neg A \cap \neg B\)</p>
+<h3 ref="principle-of-inclusion-exclusion" >Principle of Inclusion-Exclusion</h3><a class="anchor" id="principle-of-inclusion-exclusion"></a>
+<p>\(|A \cup B \cup C| = |A| + |B| + |C| - |A \cap B| - |A \cap C| - |B \cap C| + |A \cap B \cap C|\)</p>
+<h2 ref="proof-techniques" >Proof Techniques</h2><a class="anchor" id="proof-techniques"></a>
+<ul>
+<li>Counterexample</li>
+<li>Contradiction</li>
+<li>Induction</li>
+<li>Trees</li>
+</ul>
+<h3 ref="trees" >Trees</h3><a class="anchor" id="trees"></a>
 <ul>
 <li>n nodes</li>
 <li>n-1 edges</li>
 <li>leaf nodes = intermediate nodes + 1</li>
 <li>Total nodes = intermediate nodes + leaf nodes</li>
 </ul>
+<h2 ref="power-sets" >power sets</h2><a class="anchor" id="power-sets"></a>
+<ul>
+<li>\(A= \{a, b, c\}\)</li>
+<li>\(P(A) = \varnothing , \{a\}, \{b\}, \{c\}, \{a, b\}, \{a, c\}, \{b, c\}, \{a, b, c\}\)</li>
+<li>\(|P(A)| = 2^{|A|} = 2^3 = 8\)</li>
+</ul>
 <h2 ref="propositional-logic" >Propositional logic</h2><a class="anchor" id="propositional-logic"></a>
 <ul>
 <li>All F = contradiction</li>
 <li>All T = Tautology</li>
-<li>CNF conjunction of all disjunction clasues</li>
+<li>CNF conjunction of all disjunction clauses, unsatisfiable when all combinations of clauses are present</li>
 <li>DNF disjunction of all conjunction clauses</li>
+<li><a href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/#Logic">Logic</a></li>
 </ul>
 <h2 ref="functions-and-relations" >Functions and relations</h2><a class="anchor" id="functions-and-relations"></a>
 <ul>
-<li>One to one -&gt; (injective)</li>
-<li>Onto () -&gt; surjection</li>
-<li>Density</li>
-<li>Equivalence relations
+<li>
+<p>One to one -&gt; (injective)</p>
+</li>
+<li>
+<p>Onto () -&gt; surjective</p>
+</li>
+<li>
+<p>One to one and Onto -&gt; Bijective</p>
+</li>
+<li></li>
+<li>
+<p>Density</p>
+</li>
+<li>
+<p>Equivalence relations</p>
 <ul>
-<li>Reflexive</li>
-<li>Symmetric</li>
-<li>Transitive</li>
+<li>Reflexive, \(a, a \in R : \text{for every a in A}\)</li>
+<li>Symmetric, \((b, a \in R: \text{ whenver} :  a, b \in R\)</li>
+<li>Transitive, \((a, b) \in R \text{ and } (b, c) \in R \text{ then } (a, c) \in R \text{ where } a, b, c \in A \)</li>
+<li>Asymmetric, \((a, b) \in R \text{ implies } (b, a) \not\in R\)</li>
+<li>AntiSymmetric, assymetric except for the case \((a, b) \in R \rightarrow (b, a) \in R\) where \(b\) is equal to \(a\)</li>
 </ul>
 </li>
-<li>Poset (partially ordered set)
+<li>
+<p>Poset (partially ordered set)</p>
 <ul>
 <li>reflexive</li>
 <li>Antisymmetric</li>
@@ -621,9 +800,22 @@
     </nav>
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#demorgans-law">Demorgans law</a></li>
+    <li><a href="#set-theory">Set Theory</a>
+      <ul>
+        <li><a href="#union">Union</a></li>
+        <li><a href="#intersection">Intersection</a></li>
+        <li><a href="#difference">Difference</a></li>
+        <li><a href="#symmetric-difference">Symmetric difference</a></li>
+        <li><a href="#demorgans-law">Demorgans law</a></li>
+        <li><a href="#principle-of-inclusion-exclusion">Principle of Inclusion-Exclusion</a></li>
+      </ul>
+    </li>
+    <li><a href="#proof-techniques">Proof Techniques</a>
+      <ul>
+        <li><a href="#trees">Trees</a></li>
+      </ul>
+    </li>
     <li><a href="#power-sets">power sets</a></li>
-    <li><a href="#trees">Trees</a></li>
     <li><a href="#propositional-logic">Propositional logic</a></li>
     <li><a href="#functions-and-relations">Functions and relations</a></li>
     <li><a href="#mod-arithmetic">Mod Arithmetic</a></li>
