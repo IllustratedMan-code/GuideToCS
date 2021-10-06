@@ -103,6 +103,8 @@ Proof that the opposite cannot be true.
 :CUSTOM_ID: Logic
 :END:
 ** Boolean operators
+:PROPERTIES:
+:END:
 | Negation      | NOT     | Unary  | \(\neg\)         |
 | Conjunction   | AND     | Binary | \(\wedge\)         |
 | Disjunction   | OR      | Binary | \(\vee\)         |
@@ -283,7 +285,7 @@ Iff R relates \(a\) to \(b\) and \(b\) to \( c\) then \(a \) relates to \(c\)
 + All T = Tautology
 + CNF conjunction of all disjunction clauses, unsatisfiable when all combinations of clauses are present
 + DNF disjunction of all conjunction clauses
-+ [[file:Discrete-Structures.org::*Logic][Logic]]
++ [[file:Discrete-Structures.org::#Logic][Logic]]
 ** Functions and relations
 + One to one -> (injective)
 + Onto () -> surjective

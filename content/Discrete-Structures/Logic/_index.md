@@ -6,6 +6,9 @@ draft = false
 
 ## Boolean operators {#boolean-operators}
 
+:PROPERTIES:
+nil:END:
+
 | Negation       | NOT     | Unary  | \\(\neg\\)            |
 |----------------|---------|--------|-----------------------|
 | Conjunction    | AND     | Binary | \\(\wedge\\)          |
