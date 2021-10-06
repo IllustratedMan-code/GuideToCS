@@ -74,7 +74,7 @@
 	"title": "Logic",
 	"tags": [],
 	"description": "",
-	"content": "Boolean operators :PROPERTIES: nil:END:\n   Negation NOT Unary \\(\\neg\\)     Conjunction AND Binary \\(\\wedge\\)   Disjunction OR Binary \\(\\vee\\)   Exclusive OR XOR Binary \\(\\bigoplus\\)   Implication IMPLIES Binary \\(\\rightarrow\\)   Bi-conditional IFF Binary \\(\\leftrightarrow\\)    Negation    p \\(\\neg p\\)     T F   F T    Conjunction    p q \\(p \\wedge q\\)     F F F   F T F   T F F   T T T    Disjunction    p q \\(p \\vee q\\)     F F F   F T T   T F T   T T T    Exclusive Or    p q \\(p \\bigoplus q\\)     F F F   F T T   T F T   T T F    Implication    p q \\(p \\rightarrow q\\)     F F T   F T T   T F F   T T T    Bi-conditional    p q \\(p \\leftrightarrow q\\)     F F T   F T F   T F F   T T T    "
+	"content": "Boolean operators    Negation NOT Unary \\(\\neg\\)     Conjunction AND Binary \\(\\wedge\\)   Disjunction OR Binary \\(\\vee\\)   Exclusive OR XOR Binary \\(\\bigoplus\\)   Implication IMPLIES Binary \\(\\rightarrow\\)   Bi-conditional IFF Binary \\(\\leftrightarrow\\)    Negation    p \\(\\neg p\\)     T F   F T    Conjunction    p q \\(p \\wedge q\\)     F F F   F T F   T F F   T T T    Disjunction    p q \\(p \\vee q\\)     F F F   F T T   T F T   T T T    Exclusive Or    p q \\(p \\bigoplus q\\)     F F F   F T T   T F T   T T F    Implication    p q \\(p \\rightarrow q\\)     F F T   F T T   T F F   T T T    Bi-conditional    p q \\(p \\leftrightarrow q\\)     F F T   F T F   T F F   T T T    "
 },
 {
 	"uri": "https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/mock-exam-questions/",
