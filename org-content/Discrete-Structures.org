@@ -283,7 +283,7 @@ Iff R relates \(a\) to \(b\) and \(b\) to \( c\) then \(a \) relates to \(c\)
 + All T = Tautology
 + CNF conjunction of all disjunction clauses, unsatisfiable when all combinations of clauses are present
 + DNF disjunction of all conjunction clauses
-+ [[#Logic]]
++ [[file:Discrete-Structures.org::#Logic][Logic]]
 ** Functions and relations
 + One to one -> (injective)
 + Onto () -> surjective

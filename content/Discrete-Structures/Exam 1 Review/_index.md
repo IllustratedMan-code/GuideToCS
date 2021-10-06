@@ -98,7 +98,7 @@ draft = false
 -   All T = Tautology
 -   CNF conjunction of all disjunction clauses, unsatisfiable when all combinations of clauses are present
 -   DNF disjunction of all conjunction clauses
--   [Logic]({{< relref "_index" >}})
+-   [Logic]({{< relref "Discrete-Structures#Logic" >}})
 
 
 ## Functions and relations {#functions-and-relations}
