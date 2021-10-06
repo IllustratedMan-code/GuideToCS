@@ -100,6 +100,7 @@ Proof that the opposite cannot be true.
 :PROPERTIES:
 :EXPORT_HUGO_SECTION*: Logic
 :EXPORT_FILE_NAME: _index
+:CUSTOM_ID: Logic
 :END:
 ** Boolean operators
 | Negation      | NOT     | Unary  | \(\neg\)         |
@@ -228,31 +229,73 @@ Iff R relates \(a\) to \(b\) and \(b\) to \( c\) then \(a \) relates to \(c\)
 :EXPORT_FILE_NAME: _index
 :END:
 [[file:pdfs/combine.pdf][All-Slides]]
-** Demorgans law
-\(\neg (A \cup B) = \neg A \cap \neg B\)
+** Set Theory
+*** Union
++ \(S = A \cup B\)
+| \(A\) | \(B\) | \(A \cup B\) |
+| T     | T     | T         |
+| T     | F     | T         |
+| F     | T     | T         |
+| F     | F     | F         |
+*** Intersection
++ \(S = A \cap B\)
+| \(A\) | \(B\) | \(A \cup B\) |
+| T     | T     | T         |
+| T     | F     | F         |
+| F     | T     | F         |
+| F     | F     | F         |
 
-** power sets
-+ \(A= \{a, b, c\}\)
-+ \(P(A) = \varnothing , \{a\}, \{b\}, \{c\}, \{a, b\}, \{a, c\}, \{b, c\}, \{a, b, c\}\)
-+ \(|P(A)| = 2^{|A|} = 2^3 = 8\)
-** Trees
+*** Difference
++ \(S = A - B\)
+| \(A\) | \(B\) | \(A \cup B\) |
+| T     | T     | T         |
+| T     | F     | T         |
+| F     | T     | T         |
+| F     | F     | F         |
+*** Symmetric difference
++ \(S = A \bigoplus B\)
++ \((a \in S \iff (a \in A \quad \text{and} \quad a \ni B)\)
+| \(A\) | \(B\) | \(A \cup B\) |
+| T     | T     | F         |
+| T     | F     | T         |
+| F     | T     | T         |
+| F     | F     | F         |
+*** Demorgans law
+\(\neg (A \cup B) = \neg A \cap \neg B\)
+*** Principle of Inclusion-Exclusion
+\(|A \cup B \cup C| = |A| + |B| + |C| - |A \cap B| - |A \cap C| - |B \cap C| + |A \cap B \cap C|\)
+** Proof Techniques
++ Counterexample
++ Contradiction
++ Induction
++ Trees
+*** Trees
 + n nodes
 + n-1 edges
 + leaf nodes = intermediate nodes + 1
 + Total nodes = intermediate nodes + leaf nodes
+** power sets
++ \(A= \{a, b, c\}\)
++ \(P(A) = \varnothing , \{a\}, \{b\}, \{c\}, \{a, b\}, \{a, c\}, \{b, c\}, \{a, b, c\}\)
++ \(|P(A)| = 2^{|A|} = 2^3 = 8\)
 ** Propositional logic
 + All F = contradiction
 + All T = Tautology
-+ CNF conjunction of all disjunction clasues
++ CNF conjunction of all disjunction clauses, unsatisfiable when all combinations of clauses are present
 + DNF disjunction of all conjunction clauses
++ [[Logic]]
 ** Functions and relations
 + One to one -> (injective)
-+ Onto () -> surjection
++ Onto () -> surjective
++ One to one and Onto -> Bijective
++
 + Density
 + Equivalence relations
-  + Reflexive
-  + Symmetric
-  + Transitive
+  + Reflexive, \(a, a \in R \: \text{for every a in A}\)
+  + Symmetric, \((b, a \in R\: \text{ whenver} \:  a, b \in R\)
+  + Transitive, \((a, b) \in R \text{ and } (b, c) \in R \text{ then } (a, c) \in R \text{ where } a, b, c \in A \)
+  + Asymmetric, \((a, b) \in R \text{ implies } (b, a) \not\in R\)
+  + AntiSymmetric, assymetric except for the case \((a, b) \in R\) where \(b\) is equal to \(a\)
 + Poset (partially ordered set)
   + reflexive
   + Antisymmetric
