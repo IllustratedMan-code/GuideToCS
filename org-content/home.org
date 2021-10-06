@@ -5,7 +5,7 @@
 :PROPERTIES:
 :EXPORT_FILE_NAME: _index
 :END:
-I am going to be using this website as a way to consolidate my notes and material for all of my CS classes.
+I am going to be using this website as a way to consolidate my notes and material for all of my CS classes. =DISCLAIMER: I am not responsible for trouble caused by incorrect information here, use at your own risk=
 * Intro To Comp Systems
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: Intro-to-Comp-Systems
