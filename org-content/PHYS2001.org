@@ -2,8 +2,3 @@
 #+hugo_section: PHYS2001
 
 
-* Test
-:PROPERTIES:
-:EXPORT_HUGO_SECTION*: Test
-:EXPORT_FILE_NAME: _index
-:END:
