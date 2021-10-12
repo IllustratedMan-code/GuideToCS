@@ -318,7 +318,6 @@ def resolve(name, current_scope) -> variable
 For practice doing name/variable binding in a statically scoped language, play around with an example in Python: [[https://github.com/hawkinsw/cs3003/blob/main/scope_lifetime/static_scope.py][static_scope.py]]
 
 **** Consider this ...
-
 Python and C++ have different ways of creating scopes. In Python and C++ a new scope is created at the beginning of a function definition (and that scope contains the function's parameters automatically). However, Python and C++ differ in the way that scopes are declared (or not!) for variables used in loops. Consider the following Python and C++ code (also available at [[https://github.com/hawkinsw/cs3003/blob/main/scope_lifetime/loop_scope.cpp][loop_scope.cpp]] and [[https://github.com/hawkinsw/cs3003/blob/main/scope_lifetime/loop_scope.py][loop_scope.py]] :
 #+begin_src jupyter-python :session py
 def f():
@@ -349,7 +348,6 @@ def f():
 #+end_src
 
 **** Dynamic Scoping
-
 /Dynamic scoping/ is the type of scope that can be determined only during program execution. In a dynamically scoped programming language, determining the name/value binding is done iteratively by searching through a block's nesting dynamic parents. The /dynamic parent/ of a block is the block from which the current block was executed. Very few programming languages use dynamic scoping (BASH, Perl [optionally] are two examples) because it makes checking the types of variables difficult for the programmer (and impossible for the compiler/interpreter) and because it increases the "distance" between name/variable binding and use during program execution. However, dynamic binding makes it possible for functions to require fewer parameters because dynamically scoped non local variables can be used in their place.
 
 #+begin_src jupyter-python :session py
@@ -364,7 +362,6 @@ def resolve(name, current_scope) -> variable
 
 For practice doing name/variable binding in a dynamically scoped language, play around with an example in Python: [[https://github.com/hawkinsw/cs3003/blob/main/scope_lifetime/dynamic_scope.py][dynamic_scope.py]] . Note that because Python is intrinsically a statically scoped language, the example includes some hacking of the Python interpreter to emulate dynamic scoping. Compare the =dynamic= in the aforementioned Python code with the =resolve= function in the pseudocode and see if there are differences!
 **** Referencing Environment (New Material Alert)
-
 The referencing environment of a statement contains all the name/variable bindings visible at that statement. NOTE: The example in the book on page 224 is absolutely horrendous -- disregard it entirely. Consider the example online here: [[https://github.com/hawkinsw/cs3003/blob/main/scope_lifetime/referencing_environment.py][referencing_environment.py]] . Play around with that code and make sure that you understand why certain variables are in the referencing environment and others are not.
 
 In case you think that this is theoretical and not useful to you as a real, practicing programmer, take a look at the official documentation of the Python execution model and see how the language relies on the concept of referencing environments: [[https://docs.python.org/3/reference/executionmodel.html#naming-and-binding][naming-and-binding]] .
@@ -393,7 +390,6 @@ In this program, the scope of variable is limited to the function f. However, th
 :END:
 Welcome to The Daily PL for September 8, 2021. I'm not lying when I say that this is the best. edition. ever. There is new material included in this edition which will be covered in a forthcoming episode of PL After Dark. When that video is available, this post will be updated!
 
-
 *** Recap
 The Type Characteristics of a Language
 
@@ -418,6 +414,7 @@ Finally, before digging in to actual types, we defined type system: A type syste
 Aggregate data types are data types composed of one or more basic, or primitive, data types. Do not ask me to write a specific definition for primitive data type -- it will only get us into a circular mess :-)
 
 *** Array
+
 An array is a homogeneous (i.e., all its elements must be of the same type) aggregate data type in which an individual element is accessed by its position (i.e., index) in the aggregate. There are myriad design decisions associated with a language's implementation of arrays (the type of the index, whether their size must be fixed or whether it can be dynamic, etc.) One of those design decisions is the way that a language lays out a two dimensional array in memory. There are two options: row-major order and column-major order. For a second, forget the concept of rows and columns altogether and consider that you access two dimensional arrays by letters and numbers. See the following diagram:
 
 [[file:images/pl/2.png]]
@@ -439,7 +436,6 @@ Note: In this video, I said that Python's Lists function as arrays and that Pyth
 :END:
 In today's edition of the Daily PL we will recap our discussion from today that covered expressions, order of evaluation, short-circuit evaluation and referential transparency.
 *** Expressions
-
 An /expression/ is the means of specifying computations in a programming language. Informally, it is anything that yields a value. For example,
 
     + =5= is an expression (value 5)
@@ -565,7 +561,6 @@ Coroutines could be used to write a card game. Each player is a coroutine that k
 :END:
 This is an issue of the Daily PL that you are going to want to make sure that you keep safe -- definitely worth framing and passing on to your children! You will want to make sure you remember where you were when you first learned about ...
 *** Formal Program Semantics
-
 Although we have not yet learned about it (we will, don't worry!), there is a robust set of theory around the way that PL designers describe the syntax of their language. You can use regular expressions, context-free grammars, parsers (recursive-descent, etc) and other techniques for defining what is a valid program.
 
 On the other hand, there is less of a consensus about how a program language designer formally describes the semantics of programs written in their language. The codification of the semantics of a program written in a particular is known as /formal program semantics/. In other words, formal program semantics are a  precise mathematical description of the semantics of an executing program.​ Sebesta uses the term /dynamic semantics/ which is defines as the "meaning[] of the expressions, statements and program units of a programming language."
@@ -605,7 +600,7 @@ At all times, a program has a state. A state is just a function whose domain is 
 
 It is important to note that PL researchers have math envy. They are not mathematicians but they like to use Greek symbols. So, here we go:
 \begin{equation*}
-\(\sigma(x) = (v, \tau)​\)
+\sigma(x) = (v, \tau)
 \end{equation*}
 
 The state function is denoted with the σ
@@ -615,7 +610,7 @@ The state function is denoted with the σ
 Between execution steps (a term that we will define shortly), a program is always in a particular configuration:
 
 \begin{equation*}
-\(<e, \sigma>\)
+<e, \sigma>
 \end{equation*}
 
 This means that the program in state σ
@@ -626,7 +621,7 @@ is about to evaluate expression e.
 A program step is an atomic (indivisible) change from one program configuration to another. Operational semantics defines steps using rules. The general form of a rule is
 
 \begin{equation*}
-\(\frac{premises}{conclusion}\)
+\frac{premises}{conclusion}
 \end{equation*}
 
 The conclusion is generally written like <e, σ> ⟶ (v, τ, σ). This statement means that, when the premises hold, the rule evaluates to a value (v), type (τ) and (possibly modified) state (σ') after a single step of execution of a program in configuration <e, σ>. Note that rules do not yield configurations. All this will make sense when we see an example.
@@ -664,7 +659,7 @@ and the type of the variable i in state σ is Integer, the value of the expressi
 except where (5, Integer) replaced i's earlier contents." That's such a mouthful! But, I think we got it. Let's replace some of those literals with symbols for abstraction purposes and then write it down!
 
 \begin{equation*}
-\(\frac{<e, \sigma> \longrightarrow (v, \tau, \sigma'), \sigma(x) \longrightarrow (*,, \tau)} {<\text{Assign(Variable)}(x, e), \sigma > \longrightarrow (v, \tau, \sigma' [(v, \tau)/x])}\)
+\frac{<e, \sigma> \longrightarrow (v, \tau, \sigma'), \sigma(x) \longrightarrow (*,, \tau)} {<\text{Assign(Variable)}(x, e), \sigma > \longrightarrow (v, \tau, \sigma' [(v, \tau)/x])}
 \end{equation*}
 
 Let's look at it step-by-step:
@@ -792,11 +787,286 @@ yields the final result!
 :EXPORT_HUGO_SECTION*: 9-22-2021
 :EXPORT_FILE_NAME: _index
 :END:
+Like other popular newspapers that do in-depth analysis of popular topics (Links to an external site.), this edition of the Daily PL is part 2/2 of an investigative report on ...
+*** Formal Program Semantics
+In our previous class, we discussed the operational semantics of variable access and variable assignment. In this class we explored the operational semantics of the addition operator and the if/then statement.
+**** A Quick Review of Concepts
+
+At all times, a program has a state. A state is just a function whose domain is the set of defined program variables and whose range is V * T where V is the set of all valid variable values (e.g., 5, 6.0, True, "Hello", etc) and T is the set of all valid variable types (e.g., Integer, Floating Point, Boolean, String, etc). ​In other words, you can ask a state about a particular variable and, if it is defined, the function will return the variable's current value and its type.
+
+Here is the formal definition of the state function:
+\begin{equation*}
+\(\sigma(x) = (v, \tau)​\)
+\end{equation*}
+
+The state function is denoted with the σ
+. τ always represents some arbitrary variable type. Generally, v represents a value. So, you can read the definition above as "Variable x has value v and type τ in state σ."
+
+Between execution steps, a program is always in a particular configuration:
+
+\begin{equation*}
+<e, \sigma>
+\end{equation*}
+
+This notation means that the program in state σ is about to evaluate expression e.
+
+A program step is an atomic (indivisible) change from one program configuration to another. Operational semantics defines steps using rules. The general form of a rule is
+
+\begin{equation*}
+\frac{premises}{conclusion}
+\end{equation*}
+
+The conclusion is generally written like <e, σ> ⟶ (v, τ, σ) which means that when the premises hold, the expression e evaluated in state σ evaluates to a value (v), type (τ) and (possibly modified) state (σ') after a single step of execution.
+**** Defining the Semantics of the Addition Expression
+
+In STIMPL, the expression to "add" two values n1 and n2 is written like Add(n1, n2). By the rules of the STIMPL language, for an addition to be possible, n1 and n2 must
+
+    1. have the same type and
+    2. have Integer, Floating Point or String type.
+
+Because every unit in STIMPL has a value, we will define the operational semantics using two arbitrary expressions, e1 and e2. The program configuration to which we are giving semantics is
+
+\begin{equation*}
+<Add(e_1),e_2),\sigma>
+\end{equation*}
+
+Because our addition operator applies when its operands are three different types, we technically need three different rules for its evaluation. Let's start with the operational semantics for add when its operands are of type Integer:
+
+\begin{equation*}
+\frac{<e_1,\sigma>⟶(v_1,Integer,\sigma),<e_2,\sigma>⟶(v_2,Integer,\sigma \prime)}{<Add(e1,e2),σ>⟶(v1+v2,Integer,\sigma\prime)}
+\end{equation*}
+
+Let's look at the premises. First, there is
+
+\begin{equation*}
+<e_1,\sigma>⟶(v1,Integer,\sigma \prime)
+\end{equation*}
+
+which means that, when evaluated in state σ, expression e1 has the value v1 and type Integer and may modify the state (to σ'). Notice that we are not using τ for the resulting type of the evaluation? Why? Because using τ indicates that this rule applies when the evaluation of e1 in state σ evaluates to any type (which we "assign" to τ in case we want to use it again in a later premise). Instead, we are explicitly writing Integer which indicates that this rule only defines the operational semantics for Add(e1, e2) in state σ when the expression e1 evaluates to a value of type Integer in state σ
+
+.
+
+As for the second premise
+\begin{equation*}
+<e_2,\sigma \prime>⟶(v_2,Integer,\sigma\prime \prime)
+\end{equation*}
+
+we see something very similar. Again, our premise prescribes that, when evaluated in state σ' (note the ' there), e2's type is an Integer. It is for this reason that we can be satisfied that this rule only applies when the types of the Add's operands match and are integers! We "thread through" the (possibly) modified σ' when evaluating e2 to enforce the STIMPL language's definition that operands are evaluated strictly left-to-right.
+
+As for the conclusion,
+
+\begin{equation*}
+(v_1+v_2,Integer,\sigma \prime \prime)
+\end{equation*}
+
+shows the value of this expression. We will assume here that + works as expected for two integers. Because the operands are integers, we can definitively write that the type of the addition will be an integer, too. We use σ'' as the resulting state because it's possible that evaluation of the expressions of both e1 and e2 caused side effects.
+
+The rule that we defined covers only the operational semantics for addition of two integers. The other cases (for floating-point and string types) are almost copy/paste.
+
+Now, how does that translate to an actual implementation?
+#+begin_src jupyter-python :session py
+
+def evaluate(expression, state):
+  match expression:
+  ...
+
+  case Add(left=left, right=right):
+      result = 0
+      left_result, left_type, new_state = evaluate(left, state)
+      right_result, right_type, new_state = evaluate(right, new_state)
+
+      if left_type != right_type:
+        raise InterpTypeError(f"""Mismatched types for Add:
+            Cannot add {left_type} to {right_type}""")
+
+      match left_type:
+        case Integer() | String() | FloatingPoint():
+          result = left_result + right_result
+        case _:
+          raise InterpTypeError(f"""Cannot add {left_type}s""")
+
+      return (result, left_type, new_state)
+#+end_src
+
+In this snippet, the local variables left and right are the equivalent of e1 and e2, respectively, in the operational semantics. After initializing a variable to store the result, the evaluation of the premises is accomplished. new_state matches σ'' after being assigned and reassigned in those two evaluations. Next, the code checks to make sure that the types of the operands matches. Finally, if the types of the operands is an integer, then the result is just a traditional addition (+ in Python).
+
+You can see the implementation for the other types mixed in this code as well. Convince yourself that the code above handles all the different cases where an Add is valid in STIMPL.
+**** Defining the Semantics of the If/Then/Else Expression
+
+In STIMPL, we write an If/Then/Else expression like If(c, t, f) where c is any boolean-typed expression, t is the expression to evaluate if the value of c is true and f is the expression to evaluate if the value of c is false. The value/type/updated state of the entire expression is the value/type/updated state that results from evaluating t when c is true and the value/type/updated state that results from evaluating f when c is false. This means that we are required to write two different rules to completely define the operational semantics of the If/Then/Else expression: one for the case where c is true and the other for the case when c is false. Sounds like the template that we used for the Add expression, doesn't it? Because the two cases are almost the same, we will only go through writing the rule for when the condition is true:
+
+\begin{equation*}
+\frac{<c,\sigma>\longrightarrow(True,Boolean,\sigma \prime),<t,\sigma \prime>\longrightarrow(v,\tau,\sigma\prime \prime)}{<If(c,t,f),σ>⟶(v,\tau, \sigma \prime \prime)}
+\end{equation*}
+
+As in the premises for the operational semantics of the Add operator, the first premise in the operational semantics above uses literals to guarantee that the rule only applies in certain cases:
+
+\begin{equation*}
+<c,\sigma \prime>\longrightarrow(True,Boolean,\sigma\prime \prime)
+\end{equation*}
+
+means that the rule only applies when c, evaluated in state σ, has a value of True and a boolean type. We use the second premise
+
+\begin{equation*}
+<t,\sigma\prime>⟶(v,\tau,\sigma \prime \prime)
+\end{equation*}
+
+to "get" some values that we will use in the conclusion. v and τ
+are the value and the type, respectively, of t when it is evaluated in state σ'. Note that we evaluate t in state σ' because the evaluation of the condition statement may have modified state σ and we want to thread that through. Evaluation of t in state σ' may modify σ', generating σ''. The combination of these premises are combined to define that the entire expression evaluates to
+
+\begin{equation*}
+(v,\tau,\sigma\prime \prime)
+\end{equation*}
+
+Again, the pattern is the same for writing the operational semantics when the condition is false.
+
+Let's look at how this translates into actual working code:
+
+
+#+begin_src jupyter-python :session py
+def evaluate(expression, state):
+  match expression:
+  ...
+
+    case If(condition=condition, true=true, false=false):
+      condition_value, condition_type, new_state = evaluate(condition, state)
+
+      if not isinstance(condition_type, Boolean):
+        raise InterpTypeError("Cannot branch on non-boolean value!")
+
+      result_value = None
+      result_type = None
+
+      if condition_value:
+        result_value, result_type, new_state = evaluate(true, new_state)
+      else:
+        result_value, result_type, new_state = evaluate(false, new_state)
+
+      return (result_value, result_type, new_state)
+#+end_src
+
+The local variables =condition=, =true= and =false= match c, t and f, respectively from the rule in the operational semantics. The first step in the implementation is to determine the value/type/updated state when c is evaluated in state σ. Immediately after doing that, the code checks to make sure that the condition statement has boolean type. Remember how our rule only applies when this is the case? Next, depending on whether the condition evaluated to true or false, the appropriate next expression is evaluated in the σ' state (=new_state=). It is the result of that evaluation that is the ultimate value of the expression and what is returned.
 ** 9/24/2021
 :PROPERTIES:
 :EXPORT_HUGO_SECTION*: 9-24-2021
 :EXPORT_FILE_NAME: _index
 :END:
+
+As we conclude the penultimate week of September, we are turning the page from imperative programming and beginning our work on object-oriented programming!
+*** The Definitions of Object-Oriented Programming
+
+We started off by attempting to describe object-oriented programming using two different definitions:
+
+    1. A language with support for abstraction of abstract data types (ADTs).​ (from Sebesta)
+    2. A language with support for objects, containers of data (attributes, properties, fields, etc.) and code (methods).​ (from Wikipedia (Links to an external site.))
+
+As graduates of CS1021C and CS1080C, the second definition is probably not surprising. The first definition, however, leaves something to be desired. Using Definition (1) means that we have to a) know the definition of abstraction and abstract data types and b) know what it means to apply abstraction to ADTs.
+*** Abstraction (Reprise)
+
+There are two fundamental types of abstractions in programming: process and data. We have talked about the former but the latter is new. When we talked previously about process abstractions, we did attempt to define the term abstraction but it was not satisfying.
+
+Sebesta formally defines abstraction as the view or representation of an entity that includes only the most significant attributes. This definition seems to align with our notion of abstraction especially the way we use the term in phrases like "abstract away the details." It didn't feel like a good definition to me until I thought of it this way:
+
+Consider that you and I are both humans. As humans, we are both carbon based and have to breath to survive. But, we may not have the same color hair. I can say that I have red hair and you have blue hair to point out the significant attributes that distinguish us. I need not say that we are both carbon based and have to breath to survive because we are both human and we have abstracted those facts into our common humanity.
+
+We returned to this point at the end of class when we described how inheritance is the mechanism of object-oriented programming that provides abstraction over ADTs.
+Abstract Data Types (ADTs)
+
+Next, we talked about the second form of abstraction available to programmers: data abstraction. As functions, procedures and methods are the syntactic and semantic means of abstracting processes in programming languages, ADTs are the syntactic and semantic means of abstracting data in programming languages. ADTs combine (encapsulate) data (usually called the ADT's attributes, properties, etc) and operations that operate on that data (usually called the ADT's methods) into a single entity.
+
+We discussed that hiding is a significant advantage of ADTs. ADTs hide the data being represented and allow that data's manipulation only through pre-defined methods, the ADT's interface. The interface typically gives the ADT's user the ability to manipulate/access the data internal to the type and perform other semantically meaningful operations (e.g., sorting a list).
+
+We brainstormed some common ADTs:
+
+    1. Stack
+    2. Queue
+    3. List
+    4. Array
+    5. Dictionary
+    6. Graph
+    7. Tree
+
+These are are so-called user-defined ADTs because they are defined by the user of a programming language and composed of primitive data types.
+
+Next, we tackled the question of whether primitives are a type of ADT. A primitive type like floating point numbers would seem to meet the definition of an abstract data type:
+
+    1. It's underlying representation is hidden from the user (the programmer does not care whether FPs are represented according to IEEE754 or some other specification)
+    2. There are operations that manipulate the data (addition, subtraction, multiplation, division).
+
+*** The Requirements of an Object-Oriented Programming Language
+
+ADTs are just one of the three requirements that your textbook's author believes are required for a language to be considered object oriented. Sebesta believes that, in addition to ADTs, an object-oriented programming language requires support for inheritance and dynamic method binding.
+**** Inheritance
+
+It is inheritance where OOPs provide abstraction for ADTs. Inheritance allows programmers to abstract ADTs into common classes that share common characteristics. Consider three ADTs that we identified: trees, linked lists and graphs. These three ADTs all have nodes (of some kind or another) which means that we could abstract them into a common class: node-based things. A graph would inherit from the node-based things ADT so that its implementer could concentrate on what makes it distinct -- its edges, etc.
+
+Don't worry if that is too theoretical. It does not negate the fact that, through inheritance, we are able to implement hierarchies that can be "read" using "is a" the way that inheritance is usually defined. With inheritance, cats inherit from mammals and "a cat is a mammal".
+
+Subclasses inherit from ancestor classes. In Java, ancestor classes are called superclasses and subclasses are called, well, subclasses. In C++, ancestor classes are called base classes and subclasses are called derived classes. Subclasses inherit both data and methods.
+**** Dynamic Method Binding
+
+In an OOP, a variable that is typed as Class A can be assigned anything that is actually a Class A or subclass thereof. We have not officially covered this yet, but in OOP a subclass can redefine a method defined in its ancestor.
+
+Assume that every mammal can make a noise. That means that every dog can make a noise just like every cat can make a noise. Those noises do not need to be the same, though. So, a cat "overrides" the mammal's default noise and implements their own (meow). A dog does likewise (bark). A programmer can define a variable that holds a mammal and that variable can contain either a dog or a cat. When the programmer invokes the method that causes the mammal to make noise, then the appropriate method must be called depending on the actual type in the variable at the time. If the mammal held a dog, it would bark. If the mammal held a cat, it would meow.
+
+This resolution of methods at runtime is known as dynamic method binding.
+**** OOP Example with Inheritance and Dynamic Method Binding
+
+#+begin_src java
+
+abstract class Mammal {
+  protected int legs = 0;
+  Mammal() {
+    legs = 0;
+  }
+  abstract void makeNoise();
+}
+
+class Dog extends Mammal {
+  Dog() {
+    super();
+    legs = 4;
+  }
+  void makeNoise() {
+    System.out.println("bark");
+  }
+}
+
+class Cat extends Mammal {
+  Cat() {
+    super();
+    legs = 4;
+  }
+
+  void makeNoise() {
+    System.out.println("meow");
+  }
+}
+
+public class MammalDemo {
+  static void makeARuckus(Mammal m) {
+    m.makeNoise();
+  }
+  public static void main(String args[]) {
+    Dog fido = new Dog();
+    Cat checkers = new Cat();
+
+    makeARuckus(fido);
+    makeARuckus(checkers);
+  }
+}
+#+end_src
+
+This code creates a hierarchy with Mammal at the top as the superclass of both the Dog and the Cat. In other words, Dog and Cat inherit from Mammal. The abstract keyword before class Mammal indicates that Mammal is a class that cannot be directly instantiated. We will come back to that later. The Mammal class declares that there is a method that each of its subclasses must implement -- the makeNoise function. If a subclass of Mammal fails to implement that function, it will not compile. The good news is that Cat and Dog do both implement that function and define behavior in accordance with their personality!
+
+The function makeARuckus has a parameter whose type is a Mammal. As we said above, in OOP that means that I can assign to that variable a Mammal or anything that inherits from Mammal. When we call makeARuckus with an argument whose type is Dog, the function relies of dynamic method binding to make sure that the proper makeNoise function is called -- the one that barks -- even though makeARuckus does not know whether m is a generic Mammal, a Dog or a Cat. It is because of dynamic method binding that the code above generates
+
+#+begin_example
+bark
+meow
+#+end_example
+
+as output.
 ** 9/27/2021
 :PROPERTIES:
 :EXPORT_HUGO_SECTION*: 9-27-2021
