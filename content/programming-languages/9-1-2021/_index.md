@@ -11,7 +11,7 @@ Welcome to the Daily PL for September 1st, 2021! As we turn the page from August
 
 Consider a Python statement like this:
 
-```jupyter-python
+```python
 vrb = arb + 5
 ```
 
@@ -66,7 +66,7 @@ It is easy to get fooled into thinking that a variable's name is intrinsic to th
 
 <!--listend-->
 
-```jupyter-python
+```python
 def add(a, b):
     total = a + b
     return total

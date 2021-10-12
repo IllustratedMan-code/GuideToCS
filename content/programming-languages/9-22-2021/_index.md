@@ -91,7 +91,7 @@ The rule that we defined covers only the operational semantics for addition of t
 
 Now, how does that translate to an actual implementation?
 
-```jupyter-python
+```python
 
 def evaluate(expression, state):
   match expression:
@@ -151,7 +151,7 @@ Again, the pattern is the same for writing the operational semantics when the co
 
 Let's look at how this translates into actual working code:
 
-```jupyter-python
+```python
 def evaluate(expression, state):
   match expression:
   ...

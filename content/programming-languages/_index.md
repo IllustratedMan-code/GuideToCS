@@ -4,7 +4,7 @@ author = ["David Lewis"]
 draft = false
 +++
 
-Programming Languages
+Programming Languages as taught by William Hawkins III
 
 
 ## 8/23/2021 {#8-23-2021}
@@ -232,7 +232,7 @@ Welcome to the Daily PL for September 1st, 2021! As we turn the page from August
 
 Consider a Python statement like this:
 
-```jupyter-python
+```python
 vrb = arb + 5
 ```
 
@@ -287,7 +287,7 @@ It is easy to get fooled into thinking that a variable's name is intrinsic to th
 
 <!--listend-->
 
-```jupyter-python
+```python
 def add(a, b):
     total = a + b
     return total
@@ -330,7 +330,7 @@ This is sometimes also known as _lexical scoping_. _Static scoping_ is the type 
 
 Here is pseudocode for the algorithm of determining the name/variable binding in a statically scoped programming language:
 
-```jupyter-python
+```python
 def resolve(name, current_scope) -> variable
   s = current_scope
   while (s != InvalidScope)
@@ -347,7 +347,7 @@ For practice doing name/variable binding in a statically scoped language, play a
 
 Python and C++ have different ways of creating scopes. In Python and C++ a new scope is created at the beginning of a function definition (and that scope contains the function's parameters automatically). However, Python and C++ differ in the way that scopes are declared (or not!) for variables used in loops. Consider the following Python and C++ code (also available at [loop\_scope.cpp](https://github.com/hawkinsw/cs3003/blob/main/scope%5Flifetime/loop%5Fscope.cpp) and [loop\_scope.py](https://github.com/hawkinsw/cs3003/blob/main/scope%5Flifetime/loop%5Fscope.py) :
 
-```jupyter-python
+```python
 def f():
   for i in range(1, 10):
     print(f"i (in loop body): {i}")
@@ -369,7 +369,7 @@ void f() {
 
 In the C++ code, the `for` loop introduces a new scope and `i` is in that scope. In the Python code, the `for` loop does not introduce a new scope and `i` is in the scope of `f`. Try to run the following Python code also available here at [loop\_scope\_error.py](https://github.com/hawkinsw/cs3003/blob/main/scope%5Flifetime/loop%5Fscope%5Ferror.py) to see why this distinction is important:
 
-```jupyter-python
+```python
 def f():
   print(f"i (outside loop body): {i}")
   for i in range(1, 10):
@@ -381,7 +381,7 @@ def f():
 
 _Dynamic scoping_ is the type of scope that can be determined only during program execution. In a dynamically scoped programming language, determining the name/value binding is done iteratively by searching through a block's nesting dynamic parents. The _dynamic parent_ of a block is the block from which the current block was executed. Very few programming languages use dynamic scoping (BASH, Perl [optionally] are two examples) because it makes checking the types of variables difficult for the programmer (and impossible for the compiler/interpreter) and because it increases the "distance" between name/variable binding and use during program execution. However, dynamic binding makes it possible for functions to require fewer parameters because dynamically scoped non local variables can be used in their place.
 
-```jupyter-python
+```python
 def resolve(name, current_scope) -> variable
   s = current_scope
   while (s != InvalidScope)
@@ -780,7 +780,7 @@ Well, Will, that's fine and good and all that stuff. But, how do I use this when
 
 Compare that with the code for it's implementation in the STIMPL skeleton that you are provided for Assignment 1:
 
-```jupyter-python
+```python
 def evaluate(expression, state):
 ...
 
@@ -793,13 +793,13 @@ def evaluate(expression, state):
 
 At this point in the code we are in a function named evaluate whose first parameter is the next expression to evaluate and whose second parameter is a state. Does that sound familiar? That's because it's the same as a _configuration_! We use _pattern matching_ to select the code to execute. The pattern is based on the structure of `expression` and we match in the code above when `expression` is a variable access. Refer to Pattern Matching in Python for the exact form of the syntax. The _state_ variable is an instance of the `State` object that provides a method called `get_value` (see Assignment 1: Implementing STIMPL for more information about that function) that returns a tuple of (v, τ) In other words, get\_value works the same as σ. So,
 
-```jupyter-python
+```python
 value = state.get_value(variable_name)
 ```
 
 is a means of implementing the premise of the operational semantics.
 
-```jupyter-python
+```python
       return (*value, state)
 ```
 
@@ -811,7 +811,7 @@ Let's do the same analysis for assignment:
 
 And here's the implementation:
 
-```jupyter-python
+```python
 def evaluate(expression, state):
 ...
 
@@ -832,20 +832,20 @@ def evaluate(expression, state):
 
 First, look at
 
-```jupyter-python
+```python
       value_result, value_type, new_state = evaluate(value, state)
 ```
 
 which is how we are able to find the values needed to satisfy the left-hand premise. value\_result is v, value\_type is τ
 and new\_state is σ'.
 
-```jupyter-python
+```python
       variable_from_state = new_state.get_value(variable.variable_name)
 ```
 
 is how we are able to find the values needed to satisfy the right-hand premise. Notice that we are using new\_state (σ') to get variable.variable\_name (x). There is some trickiness in\_, variable\_type = variable\_from\_state if variable\_from\_state else (None, None) to set things up in case we are doing the first assignment to the variable (which sets its type), so ignore that for now! Remember that in our premises we guaranteed that the type of the variable in state σ' matches the type of the expression:
 
-```jupyter-python
+```python
       if value_type != variable_type and variable_type != None:
         raise InterpTypeError(f"""Mismatched types for Assignment:
             Cannot assign {value_type} to {variable_type}""")
@@ -853,13 +853,13 @@ is how we are able to find the values needed to satisfy the right-hand premise. 
 
 performs that check!
 
-```jupyter-python
+```python
       new_state = new_state.set_value(variable.variable_name, value_result, value_type)
 ```
 
 generates a new, new state (σ′[(v,τ)/x]) and
 
-```jupyter-python
+```python
 
       return (value_result, value_type, new_state)
 ```
@@ -956,7 +956,7 @@ The rule that we defined covers only the operational semantics for addition of t
 
 Now, how does that translate to an actual implementation?
 
-```jupyter-python
+```python
 
 def evaluate(expression, state):
   match expression:
@@ -1016,7 +1016,7 @@ Again, the pattern is the same for writing the operational semantics when the co
 
 Let's look at how this translates into actual working code:
 
-```jupyter-python
+```python
 def evaluate(expression, state):
   match expression:
   ...
@@ -1043,14 +1043,810 @@ The local variables `condition`, `true` and `false` match c, t and f, respective
 
 ## 9/24/2021 {#9-24-2021}
 
+As we conclude the penultimate week of September, we are turning the page from imperative programming and beginning our work on object-oriented programming!
+
+
+### The Definitions of Object-Oriented Programming {#the-definitions-of-object-oriented-programming}
+
+We started off by attempting to describe object-oriented programming using two different definitions:
+
+1.  A language with support for abstraction of abstract data types (ADTs).​ (from Sebesta)
+2.  A language with support for objects, containers of data (attributes, properties, fields, etc.) and code (methods).​ (from Wikipedia (Links to an external site.))
+
+As graduates of CS1021C and CS1080C, the second definition is probably not surprising. The first definition, however, leaves something to be desired. Using Definition (1) means that we have to a) know the definition of abstraction and abstract data types and b) know what it means to apply abstraction to ADTs.
+
+
+### Abstraction (Reprise) {#abstraction--reprise}
+
+There are two fundamental types of abstractions in programming: process and data. We have talked about the former but the latter is new. When we talked previously about process abstractions, we did attempt to define the term abstraction but it was not satisfying.
+
+Sebesta formally defines abstraction as the view or representation of an entity that includes only the most significant attributes. This definition seems to align with our notion of abstraction especially the way we use the term in phrases like "abstract away the details." It didn't feel like a good definition to me until I thought of it this way:
+
+Consider that you and I are both humans. As humans, we are both carbon based and have to breath to survive. But, we may not have the same color hair. I can say that I have red hair and you have blue hair to point out the significant attributes that distinguish us. I need not say that we are both carbon based and have to breath to survive because we are both human and we have abstracted those facts into our common humanity.
+
+We returned to this point at the end of class when we described how inheritance is the mechanism of object-oriented programming that provides abstraction over ADTs.
+Abstract Data Types (ADTs)
+
+Next, we talked about the second form of abstraction available to programmers: data abstraction. As functions, procedures and methods are the syntactic and semantic means of abstracting processes in programming languages, ADTs are the syntactic and semantic means of abstracting data in programming languages. ADTs combine (encapsulate) data (usually called the ADT's attributes, properties, etc) and operations that operate on that data (usually called the ADT's methods) into a single entity.
+
+We discussed that hiding is a significant advantage of ADTs. ADTs hide the data being represented and allow that data's manipulation only through pre-defined methods, the ADT's interface. The interface typically gives the ADT's user the ability to manipulate/access the data internal to the type and perform other semantically meaningful operations (e.g., sorting a list).
+
+We brainstormed some common ADTs:
+
+1.  Stack
+2.  Queue
+3.  List
+4.  Array
+5.  Dictionary
+6.  Graph
+7.  Tree
+
+These are are so-called user-defined ADTs because they are defined by the user of a programming language and composed of primitive data types.
+
+Next, we tackled the question of whether primitives are a type of ADT. A primitive type like floating point numbers would seem to meet the definition of an abstract data type:
+
+1.  It's underlying representation is hidden from the user (the programmer does not care whether FPs are represented according to IEEE754 or some other specification)
+2.  There are operations that manipulate the data (addition, subtraction, multiplation, division).
+
+
+### The Requirements of an Object-Oriented Programming Language {#the-requirements-of-an-object-oriented-programming-language}
+
+ADTs are just one of the three requirements that your textbook's author believes are required for a language to be considered object oriented. Sebesta believes that, in addition to ADTs, an object-oriented programming language requires support for inheritance and dynamic method binding.
+
+
+#### Inheritance {#inheritance}
+
+It is inheritance where OOPs provide abstraction for ADTs. Inheritance allows programmers to abstract ADTs into common classes that share common characteristics. Consider three ADTs that we identified: trees, linked lists and graphs. These three ADTs all have nodes (of some kind or another) which means that we could abstract them into a common class: node-based things. A graph would inherit from the node-based things ADT so that its implementer could concentrate on what makes it distinct -- its edges, etc.
+
+Don't worry if that is too theoretical. It does not negate the fact that, through inheritance, we are able to implement hierarchies that can be "read" using "is a" the way that inheritance is usually defined. With inheritance, cats inherit from mammals and "a cat is a mammal".
+
+Subclasses inherit from ancestor classes. In Java, ancestor classes are called superclasses and subclasses are called, well, subclasses. In C++, ancestor classes are called base classes and subclasses are called derived classes. Subclasses inherit both data and methods.
+
+
+#### Dynamic Method Binding {#dynamic-method-binding}
+
+In an OOP, a variable that is typed as Class A can be assigned anything that is actually a Class A or subclass thereof. We have not officially covered this yet, but in OOP a subclass can redefine a method defined in its ancestor.
+
+Assume that every mammal can make a noise. That means that every dog can make a noise just like every cat can make a noise. Those noises do not need to be the same, though. So, a cat "overrides" the mammal's default noise and implements their own (meow). A dog does likewise (bark). A programmer can define a variable that holds a mammal and that variable can contain either a dog or a cat. When the programmer invokes the method that causes the mammal to make noise, then the appropriate method must be called depending on the actual type in the variable at the time. If the mammal held a dog, it would bark. If the mammal held a cat, it would meow.
+
+This resolution of methods at runtime is known as dynamic method binding.
+
+
+#### OOP Example with Inheritance and Dynamic Method Binding {#oop-example-with-inheritance-and-dynamic-method-binding}
+
+```java
+
+abstract class Mammal {
+  protected int legs = 0;
+  Mammal() {
+    legs = 0;
+  }
+  abstract void makeNoise();
+}
+
+class Dog extends Mammal {
+  Dog() {
+    super();
+    legs = 4;
+  }
+  void makeNoise() {
+    System.out.println("bark");
+  }
+}
+
+class Cat extends Mammal {
+  Cat() {
+    super();
+    legs = 4;
+  }
+
+  void makeNoise() {
+    System.out.println("meow");
+  }
+}
+
+public class MammalDemo {
+  static void makeARuckus(Mammal m) {
+    m.makeNoise();
+  }
+  public static void main(String args[]) {
+    Dog fido = new Dog();
+    Cat checkers = new Cat();
+
+    makeARuckus(fido);
+    makeARuckus(checkers);
+  }
+}
+```
+
+This code creates a hierarchy with Mammal at the top as the superclass of both the Dog and the Cat. In other words, Dog and Cat inherit from Mammal. The abstract keyword before class Mammal indicates that Mammal is a class that cannot be directly instantiated. We will come back to that later. The Mammal class declares that there is a method that each of its subclasses must implement -- the makeNoise function. If a subclass of Mammal fails to implement that function, it will not compile. The good news is that Cat and Dog do both implement that function and define behavior in accordance with their personality!
+
+The function makeARuckus has a parameter whose type is a Mammal. As we said above, in OOP that means that I can assign to that variable a Mammal or anything that inherits from Mammal. When we call makeARuckus with an argument whose type is Dog, the function relies of dynamic method binding to make sure that the proper makeNoise function is called -- the one that barks -- even though makeARuckus does not know whether m is a generic Mammal, a Dog or a Cat. It is because of dynamic method binding that the code above generates
+
+```text
+bark
+meow
+```
+
+as output.
+
 
 ## 9/27/2021 {#9-27-2021}
+
+It's the last week of September but the first full week of OOP. Let's do this!
+
+
+### Overriding in OOP {#overriding-in-oop}
+
+Recall the concept of inheritance that we discussed in the last class. Besides its utility as a formalism that describes the way a language supports abstraction of ADTs (and, therefore, makes it a plausibly OO language), inheritance provides a practical benefit in software engineering. Namely, it allows developers to build hierarchies of types.
+
+Hierarchies are composed of pairs of classes -- one is the superclass and the other is the subclass. A superclass could conceivably be itself a subclass. A subclass could itself be a superclass. In terms of a family tree, we could say that the subclass is a descendant of the superclass (Note: remember that the terms superclass and subclass are not always the ones used by the languages themselves; C++ refers to them as base and derived classes, respectively).
+
+A subclass inherits both the data and methods from its superclass(es). However, as Sebesta says, "... the features and capabilities of the [superclass] are not quite right for the new use." Overriding methods allows the programmer to keep most of the functionality of the baseclass and customize the parts that are "not quite right."
+
+An overridden method is defined in a subclass and replaces the method with the same name (and usually protocol) in the parent.
+
+The official documentation and tutorials for Java describe overriding in the language this way:["An instance method in a subclass with the same signature (name, plus the number and the type of its parameters) and return type as an instance method in the superclass overrides the superclass's method."](https://docs.oracle.com/javase/tutorial/java/IandI/override.html)  The exact rules for overriding methods in Java are [online at the language specification](https://docs.oracle.com/javase/specs/jls/se7/html/jls-8.html#jls-8.4.8.1) .
+
+Let's make it concrete with an example:
+
+```java
+
+class Car {
+  protected boolean electric = false;
+  protected int wheels = 4;
+
+  Car() {
+  }
+
+  boolean ignite() {
+      System.out.println("Igniting a generic car's engine!");
+      return true;
+  }
+}
+
+class Tesla extends Car {
+  Tesla() {
+    super();
+    electric = true;
+  }
+
+  @Override
+  boolean ignite() {
+    System.out.println("Igniting a Tesla's engine!");
+    return true;
+  }
+}
+
+class Chevrolet extends Car {
+  Chevrolet() {
+    super();
+  }
+
+  @Override
+  boolean ignite() {
+    System.out.println("Igniting a Chevrolet's engine!");
+    return false;
+  }
+}
+```
+
+In this example, Car is the superclass of Tesla and Chevrolet. The Car class defines a method named ignite. That method will ignite the engine of the car -- an action whose mechanics differ based on the car's type. In other words, this is a perfect candidate for overriding. Both Tesla and Chevrolet implement a method with the same name, return value and parameters, thereby meeting Java's requirements for overriding. In Java, the `@Override` is known as an annotation. Annotations are ["a form of metadata [that] provide data about a program that is not part of the program itself."](https://docs.oracle.com/javase/tutorial/java/annotations/)  Annotations in Java are attached to particular syntactic units. In this case, the @Override annotation is attached to a method and it tells the compiler that the method is overriding a method from its superclass. If the compiler does not find a method in the superclass(es) that is capable of being overridden by the method, an error is generated. This is a good check for the programmer. (Note: C++ offers similar functionality through the override specifier (Links to an external site.).)
+
+Let's say that the programmer actually implemented the Tesla class like this:
+
+```java
+
+class Tesla extends Car {
+  Tesla() {
+    super();
+    electric = true;
+  }
+
+  @Override
+  boolean ignite(int testing) {
+    super.ignite();
+    System.out.println("Igniting a Tesla's engine!");
+    return true;
+  }
+}
+```
+
+The ignite method implemented in Tesla does not override the ignite method from Car because it has a different set of parameters. The `@Override` annotation tells the compiler that the programmer thought they were overriding something. An error is generated and the programmer can make the appropriate fix. Without the `@Override` annotation, the code will compile but produce incorrect output when executed.
+
+Assume that the following program exists:
+
+```java
+
+public class CarDemo {
+  public static void main(String args[]) {
+    Car c = new Car();
+    Car t = new Tesla();
+    Car v = new Chevrolet();
+
+    c.ignite();
+    t.ignite();
+    v.ignite();
+  }
+}
+```
+
+This code instantiates three different cars -- the first is a generic Car, the second is a Tesla and the third is a Chevrolet. Look carefully and note that the type of each of the three is actually stored in a variable whose type is Car and not a more-specific type (ie, Tesla or Chevy). This is not a problem because of dynamic dispatch. At runtime, the JVM will find the proper ignite function and invoke it according to the variable's actual type and not its static type. Because ignite is overridden by Chevy and Tesla, the output of the program above is:
+
+```text
+Igniting a generic car's engine!
+Igniting a Tesla's engine!
+Igniting a Chevrolet's engine!
+```
+
+Most OOP languages provide the programmer the option to invoke the method they are overriding from the superclass. Java is no different. If an overriding method implementation wants to invoke the functionality of the method that it is overriding, it can do so using the super keyword.
+
+```java
+
+class Tesla extends Car {
+  Tesla() {
+    super();
+    electric = true;
+  }
+
+  @Override
+  boolean ignite() {
+    super.ignite();
+    System.out.println("Igniting a Tesla's engine!");
+    return true;
+  }
+}
+
+class Chevrolet extends Car {
+  Chevrolet() {
+    super();
+  }
+
+  @Override
+  boolean ignite() {
+    super.ignite();
+    System.out.println("Igniting a Chevrolet's engine!");
+    return false;
+  }
+}
+```
+
+With these changes, the program now outputs:
+
+```text
+Igniting a generic car's engine!
+Igniting a generic car's engine!
+Igniting a Tesla's engine!
+Igniting a generic car's engine!
+Igniting a Chevrolet's engine!
+```
+
+**New material alert:** What if the programmer does not want a subclass to be able to customize the behavior of a certain method? For example, no matter how you subclass Dog, it's noise method is always going to bark -- no inheriting class should change that. Java provides the `final` keyword to guarantee that the implementation of a method cannot be overridden by a subclass. Let's change the code for the classes from above to look like this:
+
+```java
+
+class Car {
+  protected boolean electric = false;
+  protected int wheels = 4;
+
+  Car() {
+  }
+
+  void start() {
+    System.out.println("Starting a car ...");
+    if (this.ignite()) {
+      System.out.println("Ignited the engine!");
+    } else {
+      System.out.println("Did NOT ignite the engine!");
+    }
+  }
+
+  final boolean ignite() {
+      System.out.println("Igniting a generic car's engine!");
+      return true;
+  }
+}
+
+class Tesla extends Car {
+  Tesla() {
+    super();
+    electric = true;
+  }
+
+  @Override
+  boolean ignite() {
+    super.ignite();
+    System.out.println("Igniting a Tesla's engine!");
+    return true;
+  }
+}
+
+class Chevrolet extends Car {
+  Chevrolet() {
+    super();
+  }
+
+  @Override
+  boolean ignite() {
+    super.ignite();
+    System.out.println("Igniting a Chevrolet's engine!");
+    return false;
+  }
+}
+```
+
+Notice that `ignite` in the Car class has a `final` before the return type. This makes `ignite` a [final method](https://docs.oracle.com/javase/specs/jls/se7/html/jls-8.html#jls-8.4.3.3) : "A method can be declared final to prevent subclasses from overriding or hiding it". (C++ has something similar -- [the final specifier](https://en.cppreference.com/w/cpp/language/final) .) Attempting to compile the code above produces this output:
+
+```text
+
+CarDemo.java:30: error: ignite() in Tesla cannot override ignite() in Car
+  boolean ignite() {
+          ^
+  overridden method is final
+CarDemo.java:43: error: ignite() in Chevrolet cannot override ignite() in Car
+  boolean ignite() {
+          ^
+  overridden method is final
+2 errors
+```
+
+
+### Subclass vs Subtype {#subclass-vs-subtype}
+
+In OOP there is fascinating distinction between subclasses and subtypes. All those classes that inherit from other classes are considered subclasses. However, they are not all subtypes. For a type/class S to be a subtype of type/class T, the following must hold
+
+Assume that ϕ(t)
+is some provable property that is true of t, an object of type T. Then ϕ(s)
+
+must be true as well for s, an object of type S.
+
+This formal definition can be phrased simply in terms of behaviors: If it is possible to pass objects of type T as arguments to a function that expects objects of type S without any change in the behavior, then S is a subtype of T. In other words, a subtype behaves exactly like the "supertype".
+
+Barbara Liskov who pioneered the definition and study of subtypes put it this way (Links to an external site.): "If for each object o1 of type S there is an object o2 of type T such that for all programs P defined in terms of T, the behavior of P is unchanged when o1 is substituted for o2, then S is a subtype of T."
+
+
+### Open Recursion {#open-recursion}
+
+Open recursion in an OO PL is a fancy term for the combination of a) functionality that gives the programmer the ability to refer to the current object from within a method (usually through a variable named this or self) and b) dynamic dispatch. . Thanks to open recursion, some method A of class C can call some method B of the same class. But wait, there's more! (Links to an external site.) Continuing our example, in open recursion, if method B is overriden in class D (a subclass of C), then the overriden version of the method is invoked when called from method A on an object of type D even though method A is only implemented by class C. Wild! It is far easier to see this work in real life than talk about it abstractly. So, consider our cars again:
+
+```java
+class Car {
+  protected boolean electric = false;
+  protected int wheels = 4;
+
+  Car() {
+  }
+
+  void start() {
+    System.out.println("Starting a car ...");
+    if (this.ignite()) {
+      System.out.println("Ignited the engine!");
+    } else {
+      System.out.println("Did NOT ignite the engine!");
+    }
+  }
+
+  boolean ignite() {
+      System.out.println("Igniting a generic car's engine!");
+      return true;
+  }
+}
+
+class Tesla extends Car {
+  Tesla() {
+    super();
+    electric = true;
+  }
+
+  @Override
+  boolean ignite() {
+    System.out.println("Igniting a Tesla's engine!");
+    return true;
+  }
+}
+
+class Chevrolet extends Car {
+  Chevrolet() {
+    super();
+  }
+
+  @Override
+  boolean ignite() {
+    System.out.println("Igniting a Chevrolet's engine!");
+    return false;
+  }
+}
+```
+
+The start method is only implemented in the Car class. At the time that it is compiled, the Car class has no awareness of any subclasses (ie, Tesla and Chevrolet). Let's run this code and see what happens:
+
+```java
+
+public class CarDemo {
+  public static void main(String args[]) {
+    Car c = new Car();
+    Car t = new Tesla();
+    Car v = new Chevrolet();
+
+    c.start();
+    t.start();
+    v.start();
+  }
+}
+```
+
+Here's the output:
+
+```text
+Starting a car ...
+Igniting a generic car's engine!
+Ignited the engine!
+Starting a car ...
+Igniting a Tesla's engine!
+Ignited the engine!
+Starting a car ...
+Igniting a Chevrolet's engine!
+Did NOT ignite the engine!
+```
+
+Wow! Even though the implementation of start is entirely within the Car class and the Car class knows nothing about the Tesla or Chevrolet subclasses, when the start method is invoked on object's of those types, the call to this's ignite method triggers the execution of code specific to the type of car!
+
+How cool is that?
 
 
 ## 10/1/2021 {#10-1-2021}
 
+Original is [here](https://uc.instructure.com/courses/1476336/pages/the-daily-pl-10-slash-1-slash-2021?module%5Fitem%5Fid=65427045).
+
+We made it into October!! Spooky, spooky!
+
+
+### Corrections {#corrections}
+
+Like in real newspapers (Links to an external site.), we are going to start including Corrections in each edition! We want to make sure that our reporters adhere to the highest standards:
+
+**The JVM will** insert an implicit call to the to-be-instantiated class' default constructor (i.e., the one with no parameters) if the the to-be-constructed (sub)class does not do so explicitly. We'll make this clear with an example:
+
+```java
+
+class Parent {
+  Parent() {
+    System.out.println("I am in the Parent constructor.");
+  }
+
+  Parent(int parameter) {
+    System.out.println("This version of the constructor is not called.");
+  }
+}
+
+class Child extends Parent {
+  Child() {
+    /*
+     * No explicit call to super -- one is automatically
+     * injected to the parent constructor with no parameters.
+     */
+    System.out.println("I am in the Child constructor.");
+  }
+}
+
+public class DefaultConstructor {
+  public static void main(String args[]) {
+    Child c = new Child();
+  }
+}
+```
+
+When this program is executed, it will print
+
+```text
+I am in the Parent constructor.
+I am in the Child constructor.
+```
+
+The main function is instantiating an object of the type Child. We can visually inspect that there is no explicit call the super() from within the Child class' constructor. Therefore, the JVM will insert an implicit call to super() which actually invokes Parent().
+
+However, if we make the following change:
+
+```java
+class Parent {
+  Parent() {
+    System.out.println("I am in the Parent constructor.");
+  }
+
+  Parent(int parameter) {
+    System.out.println("This version of the constructor is not called.");
+  }
+}
+
+class Child extends Parent {
+  Child() {
+    /*
+     * No explicit call to super -- one is automatically
+     * injected to the parent constructor with no parameters.
+     */
+    super(1);
+    System.out.println("I am in the Child constructor.");
+  }
+}
+
+public class DefaultConstructor {
+  public static void main(String args[]) {
+    Child c = new Child();
+  }
+}
+```
+
+Something different happens. We see that there is a call to Child's superclass' constructor (the one that takes a single int-typed parameter). That means that the JVM will not insert an implicit call to super() and we will get the following output:
+
+This version of the constructor is not called.
+I am in the Child constructor.
+
+The C++ standard sanctions a main function without a return statement. The standard says: "if control reaches the end of main without encountering a return statement, the effect is that of executing return 0;."
+
+
+### A Different Way to OOP {#a-different-way-to-oop}
+
+So far we have talked about OOP in the context of Java. Java, and languages like it, are called Class-based OOP languages. In a Class-based OOP, classes and objects exist in different worlds. Classes are used to define/declare
+
+1.  the attributes and methods of an encapsulation, and
+2.  the relationships between them.
+
+From these classes, objects are instantiated that contain those attributes and methods and respect the defined/declared hierarchy. We can see this in the example given above: The classes Parent and Child define (no) attributes and (no) methods and define the relationship between them. In main(), a Child is instantiated and stored in the variable c. c is an object of type Child that contains all the data associated with a Child and a Parent and can perform all the actions of a Child and a Parent.
+
+Nothing about Class-based OOP should be different than what you've learned in the past as you've worked with C++. There are several problems with Class-based OOP.
+
+1.  The supported attributes and method of each class must be determined before the application is developed (once the code is compiled and the system is running, an object cannot add, remove or modify its own methods or attributes);
+2.  The inheritance hierarchy between classes must be determined before the application is developed (once the code is compiled, changing the relationship between classes will require that the application be recompiled!).
+
+In other words, Class-based OOP does not allow the structure of the Classes (nor their relationships) to easily evolve with the implementation of a system.
+
+There is another way, though. It's called Prototypal OOP. The most commonly known languages that use Prototypal OOP are JavaScript and Ruby! In Prototypal (which is a very hard word to spell!) OOP there is no distinction between Class and object -- everything is an object! In a Prototypal OOP there is a base object that has no methods or data attributes and every object is able to modify itself (its attributes and methods). To build a new object, the programmer simply copies from an existing object, the new object's so-called prototype, and customizes the copied object appropriately.
+
+For example, assume that there is an object called Car that has one attribute (the number of wheels) and one method (start). That object can serve as the prototype car. To "instantiate" a new Car, the programmer simply copies the existing prototypical car object Car and gives it a name, say, c. The programmer can change the value of c's number of wheels and invoke its method, start. Let's say that the same programmer wants to create something akin to a subclass of Car. The programmer would create a new, completely fresh object (one that has no methods or attributes), name it, say, Tesla, and link the new prototype Tesla object to the existing prototype car Car object through the prototype Tesla object's prototype link (the sequence of links that connects prototype objects to one another is called a prototype chain). If a Tesla has attributes (range, etc) or methods (self\_drive) that the prototype car does not, then the programmer would install those methods on the prototype Tesla Tesla. Finally, the programmer would "declare" that the Tesla object is a prototype Tesla.
+
+{{< figure src="/ox-hugo/4.png" >}}
+
+The blue arrows in the diagram above are prototype links. The orange lines indicate where a copy is made.
+
+How does inheritance work in such a model? Well, it's actually pretty straightforward: When a method is invoked or an attribute is read/assigned, the runtime will search the prototype chain for the first prototypical object that has such a method or attribute. Mic drop. In the diagram above, let's follow how this would play out when the programmer calls start() on the Model 3 Instance. The Model 3 Instance does not contain a method named start. So, up we go! The Tesla Prototype Object does not contain that me either. All the way up! The Car Prototype Object, does, however, so that method is executed!
+
+What would it look like to override a function? Again, relatively straightforward. If a Tesla performs different behavior than a normal Car when it starts, the programmer creating the Tesla Prototype Object would just add a method to that object with the name start. Then, when the prototype chain is traversed by the runtime looking for the method, it will stop at the start method defined in the Tesla Prototype Object instead of continuing on to the start method in the Car Prototype Object. (The same is true of attributes!)
+
+There is (at least) one really powerful feature of this model. Keep in mind that the prototype objects are real things that can be manipulated at runtime (unlike classes which do not really exist after compilation) and prototype objects are linked together to achieve a type of inheritance. With reference to the diagram above, say the programmer changes the definition of the start method on the Car Prototype Object. With only that change, any object whose prototype chain includes the Car Prototype Object will immediately have that new functionality (where it is not otherwise overridden, obviously) -- all without stopping the system!! How cool is that?
+
+How scary is that? Can you imagine working on a system where certain methods you "inherit" change at runtime?
+
+{{< figure src="/ox-hugo/1.jpg" >}}
+
+
+### OOP or Interfaces? {#oop-or-interfaces}
+
+Newer languages (e.g., Go, Rust, (new versions of) Java) are experimenting with new features that support one of the "killer apps" of OOP: The ability to define a function that takes a parameter of type A but that works just the same as long as it is called with an argument whose type is a subtype of A. The function doesn't have care whether it is called with an argument whose type is A or some subtype of A because the language's OOP semantics guarantee that anything the programmer can do with an object of type A, the programmer can do with and object of subtype of A.
+
+Unfortunately, using OOP to accomplish such a feat may be like killing a fly with a bazooka (or a laptop, like Alex killed that wasp today).
+
+Instead, modern languages are using a slimmer mechanism known as an interface or a trait. An interface just defines a list of methods that an implementer of that interface must support. Let's see some real Go code that does this -- it'll clear things up:
+
+```java
+
+type Readable interface {
+  Read()
+}
+```
+
+This snippet defines an interface with one function (Read) that takes no parameters and returns no value. That interface is named Readable. Simple.
+
+```java
+
+type Book struct {
+  title string
+}
+```
+
+This snippet defines a data structure called a Book -- such structs are the closest that Go has to classes.
+
+```java
+
+func (book Book) Read() {
+  fmt.Printf("Reading the book %v\n", book.title)
+}
+```
+
+This snippet simply says that if variable b is of type Book then the programmer can call b.Read(). Now, for the payoff:
+
+```java
+
+func WhatAreYouReading(r Readable) {
+  r.Read()
+}
+```
+
+This function only accepts arguments that implement (i.e., meet the criteria specified in the definition of) the Readable interface. In other words, with this definition, the code in the body of the function can safely assume that it can can call Read on r. And, for the encore:
+
+```java
+
+  book := Book{title: "Infinite Jest"}
+  WhatAreYouReading(book)
+```
+
+This code works exactly like you'd expect. book is a valid argument to WhatAreYouReading because it implements the Read method which, implicitly, means that it implements the Readable interface. But, what's really cool is that the programmer never had to say explicitly that Book implements the Readable interface! The compiler checks automatically. This gives the programmer the ability to generate a list of only the methods absolutely necessary for its parameters to implement to achieve the necessary ends -- and nothing unnecessary. Further, it decouples the person implementing a function from the person using the function -- those two parties do not have to coordinate requirements beforehand. Finally, this functionality means that a structure can implement as few or as many interfaces as its designer wants.
+
+
+### Dip Our Toe Into the Pool of Pointers {#dip-our-toe-into-the-pool-of-pointers}
+
+We only had a few minutes to start pointers, but we did make some headway. There will be more on this in the next lecture!
+
+It is important to remember that pointers are like any other type -- they have a range of valid values and a set of valid operations that you can perform on those values. What are the range of valid values for a pointer? All valid memory addresses. And what are the valid operations? Addition, subtraction, dereference and assignment.
+
+{{< figure src="/ox-hugo/5.png" >}}
+
+In the diagram, the gray area is the memory of the computer. The blue box is a pointer. It points to the gold area of memory. It is important to remember that pointers and their targets both exist in memory! In fact, in true Inception  (Links to an external site.)style, a pointer can pointer to a pointer!
+
+At the same time that pointers are types, they also have types. The type of a pointer includes the type of the target object. In other words, if the memory in the gold box held an object of type T, the the green box's type would be "pointer to type T." If the programmer dereferences the blue pointer, they will get access to the object in memory in the gold.
+
+In an ideal scenario, it would always be the case that the type of the pointer and the type of the object at the target of the pointer are the same.  However, that's not always the case. Come to the next lecture to see what can go wrong when that simple fact fails to hold!
+
 
 ## 10/4/2021 {#10-4-2021}
 
+Original is [here](https://uc.instructure.com/courses/1476336/pages/the-daily-pl-10-slash-4-slash-2021?module%5Fitem%5Fid=65438167)
+One day closer to Candy Corn!
+
+
+### Corrections {#corrections}
+
+When we were discussing the nature of the type of pointers, we specified that the range of valid values for a pointer are all memory addresses. In some languages this may be true. However, some other languages specify that the range of valid values for a pointer are all memory addresses and a special null value that explicitly specifies a pointer does not point to a target.
+
+We also discussed the operations that you can perform on a pointer-type variable. What we omitted was a discussion of an operation that will fetch the address of a variable in memory. For languages that use pointers to support indirect addressing (see below), such an operation is required. In C/C++, this operation is performed using the address of (&) operator.
+
+
+### Pointers {#pointers}
+
+We continued the discussion of pointers that we started on Friday! On Friday we discussed that pointers are just like any other type -- they have valid values and defined operations that the programmer can perform on those values.
+
+
+#### The Pros of Pointers {#the-pros-of-pointers}
+
+Though a very famous and influential computer scientist (Links to an external site.) once called his invention of null references a "billion dollar mistake" (he low balled it, I think!), the presence and power of pointers in a language is important for at least two reasons:
+
+1.  Without pointers, the programmer could not utilize the power of indirection.
+2.  Pointers give the programmer the power to address and manage heap-dynamic memory.
+
+Indirection gives the programmer the power to link between different objects in memory -- something that makes writing certain data structures (like trees, graphs, linked lists, etc) easier. Management of heap-dynamic memory gives the programmer the ability to allocate, manipulate and deallocate memory at runtime. Without this power, the programmer would have to know before execution the amount of memory their program will require.
+
+
+#### The Cons of Pointers {#the-cons-of-pointers}
+
+Their use as a means of indirection and managing heap-dynamic memory are powerful, but misusing either can cause serious problems.
+
+<!--list-separator-->
+
+-  Possible Problems when Using Pointers for Indirection
+
+    As we said in the last lecture, as long as a pointer targets memory that contains the expected type of object, everything is a-okay. Problems arise, however, when the target of the pointer is an area in memory that does not contain an object of the expected type (including garbage) and/or the pointer targets an area of memory that is inaccessible to the program.
+
+    The former problem can arise when code in a program writes to areas of memory beyond their control (this behavior is usually an error, but is very common). It can also arise because of a use after free. As the name implies, a use-after-free error occurs when a program uses memory after it has been freed. There are two common scenarios that give rise to a use after free:
+
+    1.  Scenario 1:
+        1.  One part of a program (part A) frees an area of memory that held a variable of type T that it no longer needs
+        2.  Another part of the program (part B) has a pointer to that very memory
+        3.  A third part of the program (part C) overwrites that "freed" area of memory with a variable of type S
+        4.  Part B accesses the memory assuming that it still holds a variable of Type T
+    2.  Scenario 2:
+        1.  One part of a program (part A) frees an area of memory that held a variable of type T that it no longer needs
+        2.  Part A never nullifies the pointer it used to point to that area of memory though the pointer is now invalid because the program has released the space
+        3.  A second part of the program (part C) overwrites that "freed" area of memory with a variable of type S
+        4.  Part A incorrectly accesses the memory using the invalid pointer assuming that it still holds a variable of Type T
+
+    Scenario 2 is depicted visually in the following scenario and intimates why use-after-free errors are considered security vulnerabilities:
+
+    {{< figure src="/ox-hugo/6.png" >}}
+
+    In the example shown visually above, the program's use of the invalid pointer means that the user of the invalid pointer can now access an object that is at a higher privilege level (Restricted vs Regular) than the programmer intended. When the programmer calls a function through the invalid pointer they expect that a method on the Regular object will be called. Unfortunately, a method on the Restricted object will be called instead. Trouble!
+
+    The latter problem occurs when a pointer targets memory beyond the program's control. This most often occurs when the program sets a variable's address to 0 (NULL, null, nil) to indicate that it is invalid but later uses that pointer without checking its validity. For compiled languages this often results in the dreaded segmentation fault and for interpreted languages it often results in other anomalous behavior (like Java's Null Pointer Exception (NPE)). Neither are good!
+
+<!--list-separator-->
+
+-  Possible Solutions
+
+    Wouldn't it be nice if we had a way to make sure that the pointer being dereferenced is valid so we fall victim to some of the aforementioned problems? What would be the requirements of such a solution?
+
+    1.  Pointers to areas of memory that have been deallocated cannot be dereferenced.
+    2.  The type of the object at the target of a pointer always matches the programmer's expectation.
+
+    Your author describes two potential ways of doing this. First, are tombstones. Tombstones are essentially an intermediary between a pointer and its target. When the programming language implements pointers and uses tombstones for protection, a new tombstone is allocated for each pointer the programmer generates. The programmer's pointer targets the tombstone and the tombstone targets the pointer's actual target. The tombstone also contains an extra bit of information: whether it is valid. When the programmer first instantiates a pointer to some target a the compiler/interpreter
+
+    1.  generates a tombstone whose target is a
+    2.  sets the valid bit of the tombstone to valid
+    3.  points the programmer's pointer to the tombstone.
+
+    When the programmer dereferences their pointer, the compiler/runtime will check to make sure that the target tombstone's valid flag is set to valid before doing the actual dereference of the ultimate target. When the programmer "destroys" the pointer (by releasing the memory at its target or by some other means), the compiler/runtime will set the target tombstone's valid flag to invalid. As a result, if the programmer later attempts to dereference the pointer after it was destroyed, the compiler/runtime will see that the tombstone's valid flag is invalid and generate an appropriate error.
+
+    This process is depicted visually in the following diagram.
+
+    Tombstones.png
+
+    This seems like a great solution! Unfortunately, there are downsides. In order for the tombstone to provide protection for the entirety of the program's execution, once a tombstone has been allocated it cannot be reclaimed. It must remain in place forever because it is always possible that the programmer can incorrectly reuse an invalid pointer. As soon as the tombstone is deallocated, the protection that it provides is gone. The other problem is that the use of tombstones adds an additional layer of indirection to dereference a pointer and every indirection causes memory accesses. Though memory access times are small, they are not zero -- the cost of these additional memory accesses add up.
+
+    What about a solution that does not require an additional level of indirection? There is a so-called lock-and-key technique. This protection method requires that the pointer hold an additional piece of information beyond the address of the target: the key. The memory at the target of the pointer is also required to hold a key. When the system allocates memory it sets the keys of the pointer and the target to be the same value. When the programmer dereferences a pointer, the two keys are compared and the operation is only allowed to continue if the keys are the same. The process is depicted visually below.
+
+    {{< figure src="/ox-hugo/7.png" >}}
+
+    With this technique, there is no additional memory access -- that's good! However, there are still downsides. First, there is a speed cost. For every dereference there must be a check of the equality of the keys. Depending on the length of the key that can take a significant amount of time. Second, there is a space cost. Every pointer and block of allocated memory now must have enough space to store the key. For systems where memory allocations are done in big chunks, the relative size overhead of storing, say, and 8byte key is not significant. However, if the system allocates many small areas of memory, the relative size overhead is tremendous. Moreover, the more heavily the system relies on pointers the more space will be used to store keys rather than meaningful data.
+
+    Well, let's just make the keys smaller? Great idea. There's only one problem: The smaller the keys the fewer unique key values. Fewer unique key values mean that it is more likely an invalid pointer randomly points to a chunk of memory with a matching key. In this scenario, the protection afforded by the scheme is vitiated. (I just wanted to type that word -- I'm not even sure I am using it correctly!)
+
 
 ## 10/6/2021 {#10-6-2021}
+
+Original is [here](https://uc.instructure.com/courses/1476336/pages/the-daily-pl-10-slash-6-slash-2021?module%5Fitem%5Fid=65458621).
+
+I love Reese's Pieces.
+
+
+### Corrections {#corrections}
+
+None to speak of!!
+
+
+### Pointers for Dynamic Memory Management {#pointers-for-dynamic-memory-management}
+
+We finished up our discussion of pointers in today's class. In the previous class, we talked about how pointers have two important roles in programming languages:
+
+1.  indirection -- referring to other objects
+2.  dynamic memory management -- "handles" for areas of memory that are dynamically allocated and deallocated by the system.
+
+On Monday we focused on the role of pointers in indirection and how to solve some of the problems that can arise from using pointers in that capacity. In today's class, we focused on the role of pointers in dynamic memory management.
+
+As tools for dynamic memory management, the programmer can use pointers to target blocks (N.B.: I am using blocks as a generic term for memory and am not using it in the sense of a block [a.k.a. page] as defined in the context of operating systems) of dynamic memory that are allocated and deallocated by the operating system for use by an application. The programmer can use these pointers to manipulate what is stored in those blocks and, ultimately, release them back to the operating system when they are no longer needed.
+
+Memory in the system is a finite resource. If a program repeatedly asks for memory from the system without releasing previous allocations back to the system, there will come a time when the memory is exhausted. In order to be able to release existing allocations back to the operating system for reuse by other applications, the programmer must not lose track of those existing allocations. When there is a memory allocation from the operating system to the application that can no longer be reached by a pointer in the application, that memory allocation is leaked. Because the application no longer has a pointer to it, there is no way for the application to release it back to the system. Leaked memory belongs to the leaking application until it terminates.
+
+For some programs this is fine. Some applications run for a short, defined period of time. However, there are other programs (especially servers) that are written specifically to operate for extended periods of time. If such applications leak memory, they run the risk of exhausting the system's memory resources and failing (Links to an external site.).
+
+
+#### Preventing Memory Leaks {#preventing-memory-leaks}
+
+System behavior will be constrained when those systems are written in languages that do not support using pointers for dynamic memory management. However, what we learned (above) is that it is not always easy to use pointers for dynamic memory management correctly. What are some of the tools that programming languages provide to help the programmer manage pointers in their role as managers of dynamic memory.
+
+<!--list-separator-->
+
+-  Reference Counting
+
+    In a reference-counted memory management system, each allocated block of memory given to the application by the system contains a reference count. That reference count, well, counts the number of references to the object. In other words, for every pointer to an operating-system allocated block of memory, the reference count on that block increases. Every time that a pointer's target is changed, the programming language updates the reference counts of the old target (decrement) and the new target (increment), if there is a new target (the pointer could be changed to null, in which case there is no new target). When a block's reference count reaches zero, the language knows that the block is no longer needed, and automatically returns it to the system! Pretty cool.
+
+    {{< figure src="/ox-hugo/9.png" >}}
+
+    The scenario depicted visually shows the reference counting process. At time (a), the programmer allocates a block of memory dynamically from the operating system and puts an application object in that block. Assume that the application object is a node in a linked list. The first node is the head of the list. Because the programmer has a pointer that targets that allocation, the block's reference count at time (a) is 1. At time (b), the programmer allocates a second block of memory dynamically from the system and puts a second application object in that block -- another node in the linked list (the tail of the list). Because the head of the list is referencing the tail of the list, the reference count of the tail is 1. At time (c) the programmer deletes their pointer (or reassigns it to a different target) to the head of the linked list. The programming language decrements the reference count of the block of memory holding the head node and deallocates it because the reference count has dropped to 0. Transitively, the pointer from the head application object to the tail application object is deleted and the programming language decrements the reference count of its target, the block of memory holding the tail application object (time (d)). The reference count of the block of memory holding the tail application object is now 0 and so the programming language automatically deallocates the associated storage (time (e)). Voila -- an automatic way to handle dynamic memory management.
+
+    There's only one problem. What if the programmer wants to implement a circularly linked list?
+
+    {{< figure src="/ox-hugo/10.png" >}}
+
+    Because the tail node points to the head node, and the head node points to the tail node, even after the programmer's pointer to the head node is deleted or retargeted, the reference counts of the two nodes will never drop to 0. In other words, even with reference-counted automatic memory management, there could still be a memory leak! Although there are algorithms to break these cycles, it's important to remember that reference counting is not a panacea. Python is a language that manages memory using reference counting.
+
+
+#### Garbage Collection {#garbage-collection}
+
+Garbage collection (GC) is another method of automatically managing dynamically allocated memory. In a GC'd system, when a programmer allocates memory to store an object and no space is available, the programming language will stop the execution of the program (a so-called GC pause) to calculate which previously allocated memory blocks are no longer in use and can be returned to the system. Having freed up space as a result of cleaning up unused garbage, the allocation requested by the programmer can be satisfied and the execution of the program can continue.
+
+The most efficient way to engineer a GC'd system is if the programming language allocates memory to the programmer in fixed-size cells. In this scenario, every allocation request from the programmer is satisfied by a block of memory from one of several banks of fixed-size blocks that are stacked back-to-back. For example, a programming language may manage three different banks -- one that holds reserves of X-sized blocks, one that holds reserves of Y-sized blocks and one that holds reserves of Z-sized blocks. When the programmer asks for memory to hold an object that is of size a, the programming language will deliver a block that is just big enough to that object. Because the size of the requested allocation may not be exactly the same size as one of the available fixed-size blocks, space may be wasted.
+
+The fixed sizing of blocks in a GC'd system makes it easy/fast to walk through every block of memory. We will see shortly that the GC algorithm requires such an operation every time that it stops the program to do a cleanup. Without a consistent size, traversing the memory blocks would require that each block hold a tag indicating its size -- a waste of space and the cause of an additional memory read -- so that the algorithm could dynamically calculate the starting address of the next block.
+
+When the programmer requests an allocation that cannot be satisfied, the programming language stops the execution of the program and does a garbage collection. The classic GC algorithm is called mark and sweep and has three steps:
+
+Every block of memory is marked as free using a free bit attached to the block. Of course, this is only true of some of the blocks, but the GC is optimistic!
+All pointers active at the time the program is paused are traced to their targets. The free bits of those blocks are reset.
+The blocks that are marked free and released.
+
+The process is shown visually below:
+
+{{< figure src="/ox-hugo/11.png" >}}
+
+At times (a), (b) and (c), the programmer is allocating and manipulating references to dynamically allocated memory. At time (c), the allocation request for variable z cannot be satisfied because there are no available blocks. A GC pause starts at time (d) and the mark-and-sweep algorithm commences by setting the free bit of every block. At time (e) the pointers are traced and the appropriate free bits are cleared. At time (f) the memory is released from the unused block and its free bit, too, is reset. At time (g) the allocation for variable z can be satisfied, the GC pause completes and the programming language restarts execution of the program.
+
+This process seems great, just like reference counting seemed great. However, there is a significant problem: The programmer cannot predict when GC pauses will occur and the programmer cannot predict how long those pauses will take. A GC pause is completely initiated by the programming language and (usually) completely beyond the control of the programmer. Such random pauses of program execution could be extremely harmful to a system that is controlling a system that needs to keep up with interactions from the outside world. For instance, it would be totally unacceptable for an autopilot system to take an extremely long GC pause as it calculates the heading needed to land a plane. There are myriad other systems where pauses are inappropriate.
+
+The mark-and-sweep algorithm described above is extremely naive and GC algorithms are the subject of intense research. Languages like go and Java manage memory with a GC and their algorithms are incredibly sophisticated. If you want to know more, please let me know!

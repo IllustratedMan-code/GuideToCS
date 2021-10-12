@@ -167,7 +167,7 @@ Well, Will, that's fine and good and all that stuff. But, how do I use this when
 
 Compare that with the code for it's implementation in the STIMPL skeleton that you are provided for Assignment 1:
 
-```jupyter-python
+```python
 def evaluate(expression, state):
 ...
 
@@ -180,13 +180,13 @@ def evaluate(expression, state):
 
 At this point in the code we are in a function named evaluate whose first parameter is the next expression to evaluate and whose second parameter is a state. Does that sound familiar? That's because it's the same as a _configuration_! We use _pattern matching_ to select the code to execute. The pattern is based on the structure of `expression` and we match in the code above when `expression` is a variable access. Refer to Pattern Matching in Python for the exact form of the syntax. The _state_ variable is an instance of the `State` object that provides a method called `get_value` (see Assignment 1: Implementing STIMPL for more information about that function) that returns a tuple of (v, τ) In other words, get\_value works the same as σ. So,
 
-```jupyter-python
+```python
 value = state.get_value(variable_name)
 ```
 
 is a means of implementing the premise of the operational semantics.
 
-```jupyter-python
+```python
       return (*value, state)
 ```
 
@@ -198,7 +198,7 @@ Let's do the same analysis for assignment:
 
 And here's the implementation:
 
-```jupyter-python
+```python
 def evaluate(expression, state):
 ...
 
@@ -219,20 +219,20 @@ def evaluate(expression, state):
 
 First, look at
 
-```jupyter-python
+```python
       value_result, value_type, new_state = evaluate(value, state)
 ```
 
 which is how we are able to find the values needed to satisfy the left-hand premise. value\_result is v, value\_type is τ
 and new\_state is σ'.
 
-```jupyter-python
+```python
       variable_from_state = new_state.get_value(variable.variable_name)
 ```
 
 is how we are able to find the values needed to satisfy the right-hand premise. Notice that we are using new\_state (σ') to get variable.variable\_name (x). There is some trickiness in\_, variable\_type = variable\_from\_state if variable\_from\_state else (None, None) to set things up in case we are doing the first assignment to the variable (which sets its type), so ignore that for now! Remember that in our premises we guaranteed that the type of the variable in state σ' matches the type of the expression:
 
-```jupyter-python
+```python
       if value_type != variable_type and variable_type != None:
         raise InterpTypeError(f"""Mismatched types for Assignment:
             Cannot assign {value_type} to {variable_type}""")
@@ -240,13 +240,13 @@ is how we are able to find the values needed to satisfy the right-hand premise. 
 
 performs that check!
 
-```jupyter-python
+```python
       new_state = new_state.set_value(variable.variable_name, value_result, value_type)
 ```
 
 generates a new, new state (σ′[(v,τ)/x]) and
 
-```jupyter-python
+```python
 
       return (value_result, value_type, new_state)
 ```

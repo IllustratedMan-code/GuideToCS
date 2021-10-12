@@ -22,7 +22,7 @@ This is sometimes also known as _lexical scoping_. _Static scoping_ is the type 
 
 Here is pseudocode for the algorithm of determining the name/variable binding in a statically scoped programming language:
 
-```jupyter-python
+```python
 def resolve(name, current_scope) -> variable
   s = current_scope
   while (s != InvalidScope)
@@ -39,7 +39,7 @@ For practice doing name/variable binding in a statically scoped language, play a
 
 Python and C++ have different ways of creating scopes. In Python and C++ a new scope is created at the beginning of a function definition (and that scope contains the function's parameters automatically). However, Python and C++ differ in the way that scopes are declared (or not!) for variables used in loops. Consider the following Python and C++ code (also available at [loop\_scope.cpp](https://github.com/hawkinsw/cs3003/blob/main/scope%5Flifetime/loop%5Fscope.cpp) and [loop\_scope.py](https://github.com/hawkinsw/cs3003/blob/main/scope%5Flifetime/loop%5Fscope.py) :
 
-```jupyter-python
+```python
 def f():
   for i in range(1, 10):
     print(f"i (in loop body): {i}")
@@ -61,7 +61,7 @@ void f() {
 
 In the C++ code, the `for` loop introduces a new scope and `i` is in that scope. In the Python code, the `for` loop does not introduce a new scope and `i` is in the scope of `f`. Try to run the following Python code also available here at [loop\_scope\_error.py](https://github.com/hawkinsw/cs3003/blob/main/scope%5Flifetime/loop%5Fscope%5Ferror.py) to see why this distinction is important:
 
-```jupyter-python
+```python
 def f():
   print(f"i (outside loop body): {i}")
   for i in range(1, 10):
@@ -73,7 +73,7 @@ def f():
 
 _Dynamic scoping_ is the type of scope that can be determined only during program execution. In a dynamically scoped programming language, determining the name/value binding is done iteratively by searching through a block's nesting dynamic parents. The _dynamic parent_ of a block is the block from which the current block was executed. Very few programming languages use dynamic scoping (BASH, Perl [optionally] are two examples) because it makes checking the types of variables difficult for the programmer (and impossible for the compiler/interpreter) and because it increases the "distance" between name/variable binding and use during program execution. However, dynamic binding makes it possible for functions to require fewer parameters because dynamically scoped non local variables can be used in their place.
 
-```jupyter-python
+```python
 def resolve(name, current_scope) -> variable
   s = current_scope
   while (s != InvalidScope)
