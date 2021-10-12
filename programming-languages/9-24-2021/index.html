@@ -4,7 +4,7 @@
 <html>
   <head>
     <title>
-	Chapter 3 :: David&#39;s Guide to CS
+	9/24/2021 :: David&#39;s Guide to CS
 </title>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -13,7 +13,7 @@
 
 
 
-<title>Chapter 3 :: David&#39;s Guide to CS</title>
+<title>9/24/2021 :: David&#39;s Guide to CS</title>
 
 <link rel="shortcut icon" href='https://illustratedman-code.github.io/GuideToCS/images/favicon.png' type="image/x-icon" />
 
@@ -54,7 +54,7 @@
     
   </head>
 
-  <body data-url="https://illustratedman-code.github.io/GuideToCS/ecology/ch-3/"
+  <body data-url="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-24-2021/"
 
   class="">
 
@@ -269,15 +269,14 @@
     </li>
     
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/ecology/" class="dd-item parent haschildren
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/ecology/" class="dd-item haschildren
         item_level_$level
         ">
 
       
       
       
-      
-          <i class="fas fa-chevron-down ddexp"></i>
+      <i class="fas fa-chevron-right ddexp"></i>
         
       
           <a href="https://illustratedman-code.github.io/GuideToCS/ecology/">Ecology and Evolution</a>
@@ -315,7 +314,7 @@
     </li>
               
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/ecology/ch-3/" class="dd-item parent active
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/ecology/ch-3/" class="dd-item
         item_level_$level
         ">
 
@@ -441,14 +440,15 @@
     </li>
     
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/" class="dd-item haschildren
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/" class="dd-item parent haschildren
         item_level_$level
         ">
 
       
       
       
-      <i class="fas fa-chevron-right ddexp"></i>
+      
+          <i class="fas fa-chevron-down ddexp"></i>
         
       
           <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/">Programming Languages</a>
@@ -576,7 +576,7 @@
     </li>
               
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-24-2021/" class="dd-item
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-24-2021/" class="dd-item parent active
         item_level_$level
         ">
 
@@ -659,8 +659,8 @@
 	
   
     <li class="">
-      <a class="text-link" href="https://illustratedman-code.github.io/GuideToCS/ecology/">
-        Ecology and Evolution
+      <a class="text-link" href="https://illustratedman-code.github.io/GuideToCS/programming-languages/">
+        Programming Languages
       </a>
     </li>
 	
@@ -668,7 +668,7 @@
   
     <li class="active">
       
-        Chapter 3
+        9/24/2021
       
     </li>
 
@@ -689,7 +689,7 @@
 		
 
 		
-			<h1>Chapter 3</h1>
+			<h1>9/24/2021</h1>
         
 
 		
@@ -709,19 +709,15 @@
 		</span>
 		<nav id="TableOfContents">
   <ul>
-    <li><a href="#adaptation-to-environmental-factors">Adaptation to environmental factors</a></li>
-    <li><a href="#limiting-environmental-factors">Limiting environmental factors</a></li>
-    <li><a href="#optimality-and-principle-of-allocation">optimality and <code>Principle of allocation</code></a></li>
-    <li><a href="#normal-distribution-and-measures-of-variation">Normal Distribution and measures of variation</a>
+    <li><a href="#the-definitions-of-object-oriented-programming">The Definitions of Object-Oriented Programming</a></li>
+    <li><a href="#abstraction--reprise">Abstraction (Reprise)</a></li>
+    <li><a href="#the-requirements-of-an-object-oriented-programming-language">The Requirements of an Object-Oriented Programming Language</a>
       <ul>
-        <li><a href="#description-of-the-plots-used-in-ecology">Description of the plots used in ecology</a></li>
-        <li><a href="#p-value">P Value</a></li>
+        <li><a href="#inheritance">Inheritance</a></li>
+        <li><a href="#dynamic-method-binding">Dynamic Method Binding</a></li>
+        <li><a href="#oop-example-with-inheritance-and-dynamic-method-binding">OOP Example with Inheritance and Dynamic Method Binding</a></li>
       </ul>
     </li>
-    <li><a href="#behavioral-thermoregulation-dot">behavioral Thermoregulation.</a></li>
-    <li><a href="#adaptive-radiation">Adaptive radiation</a></li>
-    <li><a href="#osmoregulation--water-stress--and-photosynthesis">Osmoregulation (water stress) and photosynthesis</a></li>
-    <li><a href="#adaptation-vs-plasticity">Adaptation vs Plasticity</a></li>
   </ul>
 </nav>
 	</div>
@@ -734,77 +730,96 @@
 
 
 	<div class="content">
-	    <h2 ref="adaptation-to-environmental-factors" >Adaptation to environmental factors</h2><a class="anchor" id="adaptation-to-environmental-factors"></a>
-<ul>
-<li>Change factors that limit growth (amount of food, composition of air)</li>
-<li>Change Tolerance Range (Temperature tolerance, ph tolerance )</li>
-<li>Change Behavior to adapt beyond Range ( avoid cold areas )</li>
-</ul>
-<h2 ref="limiting-environmental-factors" >Limiting environmental factors</h2><a class="anchor" id="limiting-environmental-factors"></a>
-<ul>
-<li>physical factors (strength, ability to fly)</li>
-<li>Physical resources</li>
-<li>Tolerance bounds</li>
-</ul>
-<h2 ref="optimality-and-principle-of-allocation" >optimality and <code>Principle of allocation</code></h2><a class="anchor" id="optimality-and-principle-of-allocation"></a>
-<p>Adaptation to one challenge may decrease for another. The more an organism adapts to a stable environment (optimality), the less able it is to adapt to new environments that pose new challenges (moving from hot to cold, fresh water to salt water or vice versa)</p>
-<ul>
-<li>Large beaks make it easier to break large nuts, but harder to eat insects out of trees.</li>
-<li>Homeostasis allows humans to survive in a variety of environmental conditions, but requires more (is limited by) food.</li>
-</ul>
-<h2 ref="normal-distribution-and-measures-of-variation" >Normal Distribution and measures of variation</h2><a class="anchor" id="normal-distribution-and-measures-of-variation"></a>
-<p>Many biological factors rely on modifications to the normal distribution.</p>
-<ul>
-<li>quantified as a probability or confidence interval (95% of samples fall within this range of values)</li>
-<li>\(\text{Sample Variance} = \frac{\sum_1^n (\bar x - x_i)^2}{n-1} = s^2\)</li>
-<li>\(\text{Sample Mean} = \frac{\sum_1^n}{n} = \bar x\)</li>
-<li>\(\text{confidence statistic (percentage)} = 1-\alpha\)</li>
-<li>\(\text{confidence interval} = \bar x \pm t_{1-\alpha} * s/\sqrt n\)</li>
-<li>\(\text{Standard Error (Estimate of the mean)} = \frac{s^2}{n}\)</li>
-</ul>
-<h3 ref="description-of-the-plots-used-in-ecology" >Description of the plots used in ecology</h3><a class="anchor" id="description-of-the-plots-used-in-ecology"></a>
-<ul>
-<li>y axis refers to the frequency of individuals (higher is more)</li>
-<li>x axis refers to some limiting factor (food, temperature)</li>
-<li>Peak refers to the mean of the sample</li>
-</ul>
-<h3 ref="p-value" >P Value</h3><a class="anchor" id="p-value"></a>
-<p>The P value is the probability that the Null hypothesis is true. This value is calculated with a statistical test (t test when using a sample).</p>
-<h4 ref="example" >Example</h4><a class="anchor" id="example"></a>
-<ul>
-<li>\(H_0 = \text{Cancer is randomly occuring}\)</li>
-<li>\(H_a = \text{Cancer is caused by radiation damage}\)</li>
-<li>\(P &lt; 0.05\)</li>
-<li>There is less than a 5 percent chance that cancer is randomly occurring.</li>
-</ul>
-<h2 ref="behavioral-thermoregulation-dot" >behavioral Thermoregulation.</h2><a class="anchor" id="behavioral-thermoregulation-dot"></a>
-<p>Animals will move to areas that are conducive to their optimal temperature range.</p>
-<ul>
-<li>Snakes bask in the sun to warm up (ectotherms)</li>
-<li>Humans will go inside (or put on clothes) to warm up (endotherms)</li>
-<li>Monkeys will bathe in hot springs in cold climates. (endotherms)</li>
-</ul>
-<h2 ref="adaptive-radiation" >Adaptive radiation</h2><a class="anchor" id="adaptive-radiation"></a>
-<p>The tendency for species to diversify to fill open ecological niches.</p>
-<ul>
-<li>Early Plants</li>
-<li>Finches</li>
-</ul>
-<h2 ref="osmoregulation--water-stress--and-photosynthesis" >Osmoregulation (water stress) and photosynthesis</h2><a class="anchor" id="osmoregulation--water-stress--and-photosynthesis"></a>
-<p>Organisms alter their internal concentration of solute (or consume water) to regulate their internal water content.</p>
-<ul>
-<li>Skin and scales prevent unintended evaporation of water</li>
-<li>C3 pathway is shared by all plants (the calvin cycle)</li>
-<li>C4 pathway allows plants to save water by closing the stomata when necessary.</li>
-</ul>
-<h2 ref="adaptation-vs-plasticity" >Adaptation vs Plasticity</h2><a class="anchor" id="adaptation-vs-plasticity"></a>
-<p>Some animals have larger optimal ranges of physical resources than others (plasticity)</p>
-<ul>
-<li>Evolution thorugh natural selection adapts organisms to their environments</li>
-<li>Plasticity refers to the ability of an organism to survive in different environments</li>
-<li>Humans could be said to have high plasticity due to our tool making</li>
-<li>Octopi make estensive use of RNA editing sites to alter their expression <a href="https://www.nature.com/articles/d41586-017-00612-y">Octopus RNA editing sites</a> (plasticity?)</li>
-</ul>
+	    <p>As we conclude the penultimate week of September, we are turning the page from imperative programming and beginning our work on object-oriented programming!</p>
+<h2 ref="the-definitions-of-object-oriented-programming" >The Definitions of Object-Oriented Programming</h2><a class="anchor" id="the-definitions-of-object-oriented-programming"></a>
+<p>We started off by attempting to describe object-oriented programming using two different definitions:</p>
+<ol>
+<li>A language with support for abstraction of abstract data types (ADTs).​ (from Sebesta)</li>
+<li>A language with support for objects, containers of data (attributes, properties, fields, etc.) and code (methods).​ (from Wikipedia (Links to an external site.))</li>
+</ol>
+<p>As graduates of CS1021C and CS1080C, the second definition is probably not surprising. The first definition, however, leaves something to be desired. Using Definition (1) means that we have to a) know the definition of abstraction and abstract data types and b) know what it means to apply abstraction to ADTs.</p>
+<h2 ref="abstraction--reprise" >Abstraction (Reprise)</h2><a class="anchor" id="abstraction--reprise"></a>
+<p>There are two fundamental types of abstractions in programming: process and data. We have talked about the former but the latter is new. When we talked previously about process abstractions, we did attempt to define the term abstraction but it was not satisfying.</p>
+<p>Sebesta formally defines abstraction as the view or representation of an entity that includes only the most significant attributes. This definition seems to align with our notion of abstraction especially the way we use the term in phrases like &ldquo;abstract away the details.&rdquo; It didn&rsquo;t feel like a good definition to me until I thought of it this way:</p>
+<p>Consider that you and I are both humans. As humans, we are both carbon based and have to breath to survive. But, we may not have the same color hair. I can say that I have red hair and you have blue hair to point out the significant attributes that distinguish us. I need not say that we are both carbon based and have to breath to survive because we are both human and we have abstracted those facts into our common humanity.</p>
+<p>We returned to this point at the end of class when we described how inheritance is the mechanism of object-oriented programming that provides abstraction over ADTs.
+Abstract Data Types (ADTs)</p>
+<p>Next, we talked about the second form of abstraction available to programmers: data abstraction. As functions, procedures and methods are the syntactic and semantic means of abstracting processes in programming languages, ADTs are the syntactic and semantic means of abstracting data in programming languages. ADTs combine (encapsulate) data (usually called the ADT&rsquo;s attributes, properties, etc) and operations that operate on that data (usually called the ADT&rsquo;s methods) into a single entity.</p>
+<p>We discussed that hiding is a significant advantage of ADTs. ADTs hide the data being represented and allow that data&rsquo;s manipulation only through pre-defined methods, the ADT&rsquo;s interface. The interface typically gives the ADT&rsquo;s user the ability to manipulate/access the data internal to the type and perform other semantically meaningful operations (e.g., sorting a list).</p>
+<p>We brainstormed some common ADTs:</p>
+<ol>
+<li>Stack</li>
+<li>Queue</li>
+<li>List</li>
+<li>Array</li>
+<li>Dictionary</li>
+<li>Graph</li>
+<li>Tree</li>
+</ol>
+<p>These are are so-called user-defined ADTs because they are defined by the user of a programming language and composed of primitive data types.</p>
+<p>Next, we tackled the question of whether primitives are a type of ADT. A primitive type like floating point numbers would seem to meet the definition of an abstract data type:</p>
+<ol>
+<li>It&rsquo;s underlying representation is hidden from the user (the programmer does not care whether FPs are represented according to IEEE754 or some other specification)</li>
+<li>There are operations that manipulate the data (addition, subtraction, multiplation, division).</li>
+</ol>
+<h2 ref="the-requirements-of-an-object-oriented-programming-language" >The Requirements of an Object-Oriented Programming Language</h2><a class="anchor" id="the-requirements-of-an-object-oriented-programming-language"></a>
+<p>ADTs are just one of the three requirements that your textbook&rsquo;s author believes are required for a language to be considered object oriented. Sebesta believes that, in addition to ADTs, an object-oriented programming language requires support for inheritance and dynamic method binding.</p>
+<h3 ref="inheritance" >Inheritance</h3><a class="anchor" id="inheritance"></a>
+<p>It is inheritance where OOPs provide abstraction for ADTs. Inheritance allows programmers to abstract ADTs into common classes that share common characteristics. Consider three ADTs that we identified: trees, linked lists and graphs. These three ADTs all have nodes (of some kind or another) which means that we could abstract them into a common class: node-based things. A graph would inherit from the node-based things ADT so that its implementer could concentrate on what makes it distinct &ndash; its edges, etc.</p>
+<p>Don&rsquo;t worry if that is too theoretical. It does not negate the fact that, through inheritance, we are able to implement hierarchies that can be &ldquo;read&rdquo; using &ldquo;is a&rdquo; the way that inheritance is usually defined. With inheritance, cats inherit from mammals and &ldquo;a cat is a mammal&rdquo;.</p>
+<p>Subclasses inherit from ancestor classes. In Java, ancestor classes are called superclasses and subclasses are called, well, subclasses. In C++, ancestor classes are called base classes and subclasses are called derived classes. Subclasses inherit both data and methods.</p>
+<h3 ref="dynamic-method-binding" >Dynamic Method Binding</h3><a class="anchor" id="dynamic-method-binding"></a>
+<p>In an OOP, a variable that is typed as Class A can be assigned anything that is actually a Class A or subclass thereof. We have not officially covered this yet, but in OOP a subclass can redefine a method defined in its ancestor.</p>
+<p>Assume that every mammal can make a noise. That means that every dog can make a noise just like every cat can make a noise. Those noises do not need to be the same, though. So, a cat &ldquo;overrides&rdquo; the mammal&rsquo;s default noise and implements their own (meow). A dog does likewise (bark). A programmer can define a variable that holds a mammal and that variable can contain either a dog or a cat. When the programmer invokes the method that causes the mammal to make noise, then the appropriate method must be called depending on the actual type in the variable at the time. If the mammal held a dog, it would bark. If the mammal held a cat, it would meow.</p>
+<p>This resolution of methods at runtime is known as dynamic method binding.</p>
+<h3 ref="oop-example-with-inheritance-and-dynamic-method-binding" >OOP Example with Inheritance and Dynamic Method Binding</h3><a class="anchor" id="oop-example-with-inheritance-and-dynamic-method-binding"></a>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-java" data-lang="java">
+<span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Mammal</span> <span style="color:#f92672">{</span>
+  <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">int</span> legs <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+  Mammal<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    legs <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+  <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">makeNoise</span><span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Dog</span> <span style="color:#66d9ef">extends</span> Mammal <span style="color:#f92672">{</span>
+  Dog<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">super</span><span style="color:#f92672">();</span>
+    legs <span style="color:#f92672">=</span> 4<span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+  <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">makeNoise</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;bark&#34;</span><span style="color:#f92672">);</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Cat</span> <span style="color:#66d9ef">extends</span> Mammal <span style="color:#f92672">{</span>
+  Cat<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">super</span><span style="color:#f92672">();</span>
+    legs <span style="color:#f92672">=</span> 4<span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">makeNoise</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;meow&#34;</span><span style="color:#f92672">);</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MammalDemo</span> <span style="color:#f92672">{</span>
+  <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">makeARuckus</span><span style="color:#f92672">(</span>Mammal m<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    m<span style="color:#f92672">.</span><span style="color:#a6e22e">makeNoise</span><span style="color:#f92672">();</span>
+  <span style="color:#f92672">}</span>
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String args<span style="color:#f92672">[])</span> <span style="color:#f92672">{</span>
+    Dog fido <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Dog<span style="color:#f92672">();</span>
+    Cat checkers <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Cat<span style="color:#f92672">();</span>
+
+    makeARuckus<span style="color:#f92672">(</span>fido<span style="color:#f92672">);</span>
+    makeARuckus<span style="color:#f92672">(</span>checkers<span style="color:#f92672">);</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>This code creates a hierarchy with Mammal at the top as the superclass of both the Dog and the Cat. In other words, Dog and Cat inherit from Mammal. The abstract keyword before class Mammal indicates that Mammal is a class that cannot be directly instantiated. We will come back to that later. The Mammal class declares that there is a method that each of its subclasses must implement &ndash; the makeNoise function. If a subclass of Mammal fails to implement that function, it will not compile. The good news is that Cat and Dog do both implement that function and define behavior in accordance with their personality!</p>
+<p>The function makeARuckus has a parameter whose type is a Mammal. As we said above, in OOP that means that I can assign to that variable a Mammal or anything that inherits from Mammal. When we call makeARuckus with an argument whose type is Dog, the function relies of dynamic method binding to make sure that the proper makeNoise function is called &ndash; the one that barks &ndash; even though makeARuckus does not know whether m is a generic Mammal, a Dog or a Cat. It is because of dynamic method binding that the code above generates</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-text" data-lang="text">bark
+meow
+</code></pre></div><p>as output.</p>
 
 		</div>
 
@@ -815,10 +830,10 @@
 
 	 
 	<div class="chevrons">
-		<a class="next" href="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/" title="Intro To Comp Systems" style="margin-right: 0px;">
+		<a class="next" href="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-3-2021/" title="9/3/2021" style="margin-right: 0px;">
             <div>
                 <p>Next page</p>
-                <label>Intro To Comp Systems</label>
+                <label>9/3/2021</label>
             </div>
             <i class="fas fa-arrow-right" style="font-size: 1.7em"></i></a>
 	</div>
@@ -843,24 +858,20 @@
     <label><i class="fas fa-align-right"></i>&nbsp;&nbsp;What&#39;s on this page</label>
     <nav>
         <ul >
-            <li><a href="https://illustratedman-code.github.io/GuideToCS/ecology/ch-3/">Chapter 3</a></li>
+            <li><a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-24-2021/">9/24/2021</a></li>
         </ul>
     </nav>
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#adaptation-to-environmental-factors">Adaptation to environmental factors</a></li>
-    <li><a href="#limiting-environmental-factors">Limiting environmental factors</a></li>
-    <li><a href="#optimality-and-principle-of-allocation">optimality and <code>Principle of allocation</code></a></li>
-    <li><a href="#normal-distribution-and-measures-of-variation">Normal Distribution and measures of variation</a>
+    <li><a href="#the-definitions-of-object-oriented-programming">The Definitions of Object-Oriented Programming</a></li>
+    <li><a href="#abstraction--reprise">Abstraction (Reprise)</a></li>
+    <li><a href="#the-requirements-of-an-object-oriented-programming-language">The Requirements of an Object-Oriented Programming Language</a>
       <ul>
-        <li><a href="#description-of-the-plots-used-in-ecology">Description of the plots used in ecology</a></li>
-        <li><a href="#p-value">P Value</a></li>
+        <li><a href="#inheritance">Inheritance</a></li>
+        <li><a href="#dynamic-method-binding">Dynamic Method Binding</a></li>
+        <li><a href="#oop-example-with-inheritance-and-dynamic-method-binding">OOP Example with Inheritance and Dynamic Method Binding</a></li>
       </ul>
     </li>
-    <li><a href="#behavioral-thermoregulation-dot">behavioral Thermoregulation.</a></li>
-    <li><a href="#adaptive-radiation">Adaptive radiation</a></li>
-    <li><a href="#osmoregulation--water-stress--and-photosynthesis">Osmoregulation (water stress) and photosynthesis</a></li>
-    <li><a href="#adaptation-vs-plasticity">Adaptation vs Plasticity</a></li>
   </ul>
 </nav>
 </div>
