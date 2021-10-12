@@ -4,16 +4,16 @@
 <html>
   <head>
     <title>
-	Chapter 1 :: David&#39;s Guide to CS
+	10/4/2021 :: David&#39;s Guide to CS
 </title>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2021-10-12T19:58:37 UTC">
+<meta name="revised" content="2021-10-12T19:58:38 UTC">
 <meta name="description" content="">
 
 
 
-<title>Chapter 1 :: David&#39;s Guide to CS</title>
+<title>10/4/2021 :: David&#39;s Guide to CS</title>
 
 <link rel="shortcut icon" href='https://illustratedman-code.github.io/GuideToCS/images/favicon.png' type="image/x-icon" />
 
@@ -54,7 +54,7 @@
     
   </head>
 
-  <body data-url="https://illustratedman-code.github.io/GuideToCS/ecology/ch1/"
+  <body data-url="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-4-2021/"
 
   class="">
 
@@ -269,15 +269,14 @@
     </li>
     
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/ecology/" class="dd-item parent haschildren
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/ecology/" class="dd-item haschildren
         item_level_$level
         ">
 
       
       
       
-      
-          <i class="fas fa-chevron-down ddexp"></i>
+      <i class="fas fa-chevron-right ddexp"></i>
         
       
           <a href="https://illustratedman-code.github.io/GuideToCS/ecology/">Ecology and Evolution</a>
@@ -285,7 +284,7 @@
         <ul>
               
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/ecology/ch1/" class="dd-item parent active
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/ecology/ch1/" class="dd-item
         item_level_$level
         ">
 
@@ -441,14 +440,15 @@
     </li>
     
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/" class="dd-item haschildren
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/" class="dd-item parent haschildren
         item_level_$level
         ">
 
       
       
       
-      <i class="fas fa-chevron-right ddexp"></i>
+      
+          <i class="fas fa-chevron-down ddexp"></i>
         
       
           <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/">Programming Languages</a>
@@ -471,7 +471,7 @@
     </li>
               
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-4-2021/" class="dd-item
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-4-2021/" class="dd-item parent active
         item_level_$level
         ">
 
@@ -734,8 +734,8 @@
 	
   
     <li class="">
-      <a class="text-link" href="https://illustratedman-code.github.io/GuideToCS/ecology/">
-        Ecology and Evolution
+      <a class="text-link" href="https://illustratedman-code.github.io/GuideToCS/programming-languages/">
+        Programming Languages
       </a>
     </li>
 	
@@ -743,7 +743,7 @@
   
     <li class="active">
       
-        Chapter 1
+        10/4/2021
       
     </li>
 
@@ -764,7 +764,7 @@
 		
 
 		
-			<h1>Chapter 1</h1>
+			<h1>10/4/2021</h1>
         
 
 		
@@ -784,25 +784,11 @@
 		</span>
 		<nav id="TableOfContents">
   <ul>
-    <li><a href="#terms">Terms</a>
+    <li><a href="#corrections">Corrections</a></li>
+    <li><a href="#pointers">Pointers</a>
       <ul>
-        <li><a href="#ecology">Ecology</a></li>
-        <li><a href="#trait">Trait</a></li>
-        <li><a href="#population">Population</a></li>
-        <li><a href="#fitness">Fitness</a></li>
-      </ul>
-    </li>
-    <li><a href="#levels-of-ecological-organization">Levels of Ecological organization</a></li>
-    <li><a href="#proximate-vs-ultimate">Proximate Vs Ultimate</a>
-      <ul>
-        <li><a href="#proximate-factors">Proximate Factors</a></li>
-        <li><a href="#ultimate-factors">Ultimate Factors</a></li>
-      </ul>
-    </li>
-    <li><a href="#scientific-method-and-hypothesis-testing">Scientific Method and Hypothesis testing</a>
-      <ul>
-        <li><a href="#predictions">Predictions</a></li>
-        <li><a href="#hypotheses-and-tests">Hypotheses and tests</a></li>
+        <li><a href="#the-pros-of-pointers">The Pros of Pointers</a></li>
+        <li><a href="#the-cons-of-pointers">The Cons of Pointers</a></li>
       </ul>
     </li>
   </ul>
@@ -817,66 +803,71 @@
 
 
 	<div class="content">
-	    <h2 ref="terms" >Terms</h2><a class="anchor" id="terms"></a>
-<h3 ref="ecology" >Ecology</h3><a class="anchor" id="ecology"></a>
-<p>The study of the interactions between an organism and its biological and physical environment.</p>
-<h3 ref="trait" >Trait</h3><a class="anchor" id="trait"></a>
-<p>A combination of characteristics in an individual. A trait that increases evolutionary fitness is an <code>adaptation</code>.</p>
-<ul>
-<li>Hair color</li>
-<li>resistance to antibiotics.</li>
-</ul>
-<h3 ref="population" >Population</h3><a class="anchor" id="population"></a>
-<p>All of the organisms of a particular species in a particular area.</p>
-<ul>
-<li>The population of snow hares in the Himalayas.</li>
-</ul>
-<h3 ref="fitness" >Fitness</h3><a class="anchor" id="fitness"></a>
-<p>The degree to which an organism is likely to survive in an environment. The fitter the organism, the more likely they are to survive in an environment suited to their adaptations. This is more useful in the context of the population.</p>
-<h2 ref="levels-of-ecological-organization" >Levels of Ecological organization</h2><a class="anchor" id="levels-of-ecological-organization"></a>
+	    <p>Original is <a href="https://uc.instructure.com/courses/1476336/pages/the-daily-pl-10-slash-4-slash-2021?module%5Fitem%5Fid=65438167">here</a>
+One day closer to Candy Corn!</p>
+<h2 ref="corrections" >Corrections</h2><a class="anchor" id="corrections"></a>
+<p>When we were discussing the nature of the type of pointers, we specified that the range of valid values for a pointer are all memory addresses. In some languages this may be true. However, some other languages specify that the range of valid values for a pointer are all memory addresses and a special null value that explicitly specifies a pointer does not point to a target.</p>
+<p>We also discussed the operations that you can perform on a pointer-type variable. What we omitted was a discussion of an operation that will fetch the address of a variable in memory. For languages that use pointers to support indirect addressing (see below), such an operation is required. In C/C++, this operation is performed using the address of (&amp;) operator.</p>
+<h2 ref="pointers" >Pointers</h2><a class="anchor" id="pointers"></a>
+<p>We continued the discussion of pointers that we started on Friday! On Friday we discussed that pointers are just like any other type &ndash; they have valid values and defined operations that the programmer can perform on those values.</p>
+<h3 ref="the-pros-of-pointers" >The Pros of Pointers</h3><a class="anchor" id="the-pros-of-pointers"></a>
+<p>Though a very famous and influential computer scientist (Links to an external site.) once called his invention of null references a &ldquo;billion dollar mistake&rdquo; (he low balled it, I think!), the presence and power of pointers in a language is important for at least two reasons:</p>
 <ol>
-<li>organism</li>
-<li>population</li>
-<li>community</li>
-<li>ecosystem</li>
+<li>Without pointers, the programmer could not utilize the power of indirection.</li>
+<li>Pointers give the programmer the power to address and manage heap-dynamic memory.</li>
 </ol>
-<h2 ref="proximate-vs-ultimate" >Proximate Vs Ultimate</h2><a class="anchor" id="proximate-vs-ultimate"></a>
-<h3 ref="proximate-factors" >Proximate Factors</h3><a class="anchor" id="proximate-factors"></a>
-<p>Direct or Immediate causes/effects on the organism. The <code>How</code>.</p>
-<ul>
-<li>Changes in photoperiod</li>
-<li>Temperature changes</li>
-</ul>
-<h3 ref="ultimate-factors" >Ultimate Factors</h3><a class="anchor" id="ultimate-factors"></a>
-<p>The Indirect reason for an effect on the organism. The <code>Why</code>.</p>
-<h2 ref="scientific-method-and-hypothesis-testing" >Scientific Method and Hypothesis testing</h2><a class="anchor" id="scientific-method-and-hypothesis-testing"></a>
-<p>Good hypothesis lead to testable <code>predictions</code>. It is also falsifiable.</p>
+<p>Indirection gives the programmer the power to link between different objects in memory &ndash; something that makes writing certain data structures (like trees, graphs, linked lists, etc) easier. Management of heap-dynamic memory gives the programmer the ability to allocate, manipulate and deallocate memory at runtime. Without this power, the programmer would have to know before execution the amount of memory their program will require.</p>
+<h3 ref="the-cons-of-pointers" >The Cons of Pointers</h3><a class="anchor" id="the-cons-of-pointers"></a>
+<p>Their use as a means of indirection and managing heap-dynamic memory are powerful, but misusing either can cause serious problems.</p>
+<h4 ref="possible-problems-when-using-pointers-for-indirection" >Possible Problems when Using Pointers for Indirection</h4><a class="anchor" id="possible-problems-when-using-pointers-for-indirection"></a>
+<p>As we said in the last lecture, as long as a pointer targets memory that contains the expected type of object, everything is a-okay. Problems arise, however, when the target of the pointer is an area in memory that does not contain an object of the expected type (including garbage) and/or the pointer targets an area of memory that is inaccessible to the program.</p>
+<p>The former problem can arise when code in a program writes to areas of memory beyond their control (this behavior is usually an error, but is very common). It can also arise because of a use after free. As the name implies, a use-after-free error occurs when a program uses memory after it has been freed. There are two common scenarios that give rise to a use after free:</p>
 <ol>
-<li>Observation</li>
-<li>Hypothesis</li>
-<li>Measurements</li>
-<li>Results</li>
-<li>Conclusion</li>
+<li>Scenario 1:
+<ol>
+<li>One part of a program (part A) frees an area of memory that held a variable of type T that it no longer needs</li>
+<li>Another part of the program (part B) has a pointer to that very memory</li>
+<li>A third part of the program (part C) overwrites that &ldquo;freed&rdquo; area of memory with a variable of type S</li>
+<li>Part B accesses the memory assuming that it still holds a variable of Type T</li>
 </ol>
-<h3 ref="predictions" >Predictions</h3><a class="anchor" id="predictions"></a>
-<p>A prediction is an observation or a result that is expected if the hypothesis is true.</p>
-<h3 ref="hypotheses-and-tests" >Hypotheses and tests</h3><a class="anchor" id="hypotheses-and-tests"></a>
-<ul>
-<li>Focus on a population</li>
-<li>Why does the population exist?</li>
-<li>What unique challenges does it face?</li>
-<li>Are circumstances changing?</li>
-<li>Will the population grow, shrink, disturbed</li>
-</ul>
-<h4 ref="resources" >Resources</h4><a class="anchor" id="resources"></a>
-<ul>
-<li>reproduction</li>
-<li>Survival</li>
-<li>Mate</li>
-<li>Food</li>
-<li>Shelter</li>
-</ul>
-<p>*</p>
+</li>
+<li>Scenario 2:
+<ol>
+<li>One part of a program (part A) frees an area of memory that held a variable of type T that it no longer needs</li>
+<li>Part A never nullifies the pointer it used to point to that area of memory though the pointer is now invalid because the program has released the space</li>
+<li>A second part of the program (part C) overwrites that &ldquo;freed&rdquo; area of memory with a variable of type S</li>
+<li>Part A incorrectly accesses the memory using the invalid pointer assuming that it still holds a variable of Type T</li>
+</ol>
+</li>
+</ol>
+<p>Scenario 2 is depicted visually in the following scenario and intimates why use-after-free errors are considered security vulnerabilities:</p>
+<figure><img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/6.png"/>
+</figure>
+
+<p>In the example shown visually above, the program&rsquo;s use of the invalid pointer means that the user of the invalid pointer can now access an object that is at a higher privilege level (Restricted vs Regular) than the programmer intended. When the programmer calls a function through the invalid pointer they expect that a method on the Regular object will be called. Unfortunately, a method on the Restricted object will be called instead. Trouble!</p>
+<p>The latter problem occurs when a pointer targets memory beyond the program&rsquo;s control. This most often occurs when the program sets a variable&rsquo;s address to 0 (NULL, null, nil) to indicate that it is invalid but later uses that pointer without checking its validity. For compiled languages this often results in the dreaded segmentation fault and for interpreted languages it often results in other anomalous behavior (like Java&rsquo;s Null Pointer Exception (NPE)). Neither are good!</p>
+<h4 ref="possible-solutions" >Possible Solutions</h4><a class="anchor" id="possible-solutions"></a>
+<p>Wouldn&rsquo;t it be nice if we had a way to make sure that the pointer being dereferenced is valid so we fall victim to some of the aforementioned problems? What would be the requirements of such a solution?</p>
+<ol>
+<li>Pointers to areas of memory that have been deallocated cannot be dereferenced.</li>
+<li>The type of the object at the target of a pointer always matches the programmer&rsquo;s expectation.</li>
+</ol>
+<p>Your author describes two potential ways of doing this. First, are tombstones. Tombstones are essentially an intermediary between a pointer and its target. When the programming language implements pointers and uses tombstones for protection, a new tombstone is allocated for each pointer the programmer generates. The programmer&rsquo;s pointer targets the tombstone and the tombstone targets the pointer&rsquo;s actual target. The tombstone also contains an extra bit of information: whether it is valid. When the programmer first instantiates a pointer to some target a the compiler/interpreter</p>
+<ol>
+<li>generates a tombstone whose target is a</li>
+<li>sets the valid bit of the tombstone to valid</li>
+<li>points the programmer&rsquo;s pointer to the tombstone.</li>
+</ol>
+<p>When the programmer dereferences their pointer, the compiler/runtime will check to make sure that the target tombstone&rsquo;s valid flag is set to valid before doing the actual dereference of the ultimate target. When the programmer &ldquo;destroys&rdquo; the pointer (by releasing the memory at its target or by some other means), the compiler/runtime will set the target tombstone&rsquo;s valid flag to invalid. As a result, if the programmer later attempts to dereference the pointer after it was destroyed, the compiler/runtime will see that the tombstone&rsquo;s valid flag is invalid and generate an appropriate error.</p>
+<p>This process is depicted visually in the following diagram.</p>
+<p>Tombstones.png</p>
+<p>This seems like a great solution! Unfortunately, there are downsides. In order for the tombstone to provide protection for the entirety of the program&rsquo;s execution, once a tombstone has been allocated it cannot be reclaimed. It must remain in place forever because it is always possible that the programmer can incorrectly reuse an invalid pointer. As soon as the tombstone is deallocated, the protection that it provides is gone. The other problem is that the use of tombstones adds an additional layer of indirection to dereference a pointer and every indirection causes memory accesses. Though memory access times are small, they are not zero &ndash; the cost of these additional memory accesses add up.</p>
+<p>What about a solution that does not require an additional level of indirection? There is a so-called lock-and-key technique. This protection method requires that the pointer hold an additional piece of information beyond the address of the target: the key. The memory at the target of the pointer is also required to hold a key. When the system allocates memory it sets the keys of the pointer and the target to be the same value. When the programmer dereferences a pointer, the two keys are compared and the operation is only allowed to continue if the keys are the same. The process is depicted visually below.</p>
+<figure><img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/7.png"/>
+</figure>
+
+<p>With this technique, there is no additional memory access &ndash; that&rsquo;s good! However, there are still downsides. First, there is a speed cost. For every dereference there must be a check of the equality of the keys. Depending on the length of the key that can take a significant amount of time. Second, there is a space cost. Every pointer and block of allocated memory now must have enough space to store the key. For systems where memory allocations are done in big chunks, the relative size overhead of storing, say, and 8byte key is not significant. However, if the system allocates many small areas of memory, the relative size overhead is tremendous. Moreover, the more heavily the system relies on pointers the more space will be used to store keys rather than meaningful data.</p>
+<p>Well, let&rsquo;s just make the keys smaller? Great idea. There&rsquo;s only one problem: The smaller the keys the fewer unique key values. Fewer unique key values mean that it is more likely an invalid pointer randomly points to a chunk of memory with a matching key. In this scenario, the protection afforded by the scheme is vitiated. (I just wanted to type that word &ndash; I&rsquo;m not even sure I am using it correctly!)</p>
 
 		</div>
 
@@ -887,10 +878,10 @@
 
 	 
 	<div class="chevrons">
-		<a class="next" href="https://illustratedman-code.github.io/GuideToCS/ecology/ch-2/" title="Chapter 2" style="margin-right: 0px;">
+		<a class="next" href="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-6-2021/" title="10/6/2021" style="margin-right: 0px;">
             <div>
                 <p>Next page</p>
-                <label>Chapter 2</label>
+                <label>10/6/2021</label>
             </div>
             <i class="fas fa-arrow-right" style="font-size: 1.7em"></i></a>
 	</div>
@@ -915,30 +906,16 @@
     <label><i class="fas fa-align-right"></i>&nbsp;&nbsp;What&#39;s on this page</label>
     <nav>
         <ul >
-            <li><a href="https://illustratedman-code.github.io/GuideToCS/ecology/ch1/">Chapter 1</a></li>
+            <li><a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-4-2021/">10/4/2021</a></li>
         </ul>
     </nav>
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#terms">Terms</a>
+    <li><a href="#corrections">Corrections</a></li>
+    <li><a href="#pointers">Pointers</a>
       <ul>
-        <li><a href="#ecology">Ecology</a></li>
-        <li><a href="#trait">Trait</a></li>
-        <li><a href="#population">Population</a></li>
-        <li><a href="#fitness">Fitness</a></li>
-      </ul>
-    </li>
-    <li><a href="#levels-of-ecological-organization">Levels of Ecological organization</a></li>
-    <li><a href="#proximate-vs-ultimate">Proximate Vs Ultimate</a>
-      <ul>
-        <li><a href="#proximate-factors">Proximate Factors</a></li>
-        <li><a href="#ultimate-factors">Ultimate Factors</a></li>
-      </ul>
-    </li>
-    <li><a href="#scientific-method-and-hypothesis-testing">Scientific Method and Hypothesis testing</a>
-      <ul>
-        <li><a href="#predictions">Predictions</a></li>
-        <li><a href="#hypotheses-and-tests">Hypotheses and tests</a></li>
+        <li><a href="#the-pros-of-pointers">The Pros of Pointers</a></li>
+        <li><a href="#the-cons-of-pointers">The Cons of Pointers</a></li>
       </ul>
     </li>
   </ul>

@@ -4,16 +4,16 @@
 <html>
   <head>
     <title>
-	Chapter 1 :: David&#39;s Guide to CS
+	10/6/2021 :: David&#39;s Guide to CS
 </title>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2021-10-12T19:58:37 UTC">
+<meta name="revised" content="2021-10-12T19:58:38 UTC">
 <meta name="description" content="">
 
 
 
-<title>Chapter 1 :: David&#39;s Guide to CS</title>
+<title>10/6/2021 :: David&#39;s Guide to CS</title>
 
 <link rel="shortcut icon" href='https://illustratedman-code.github.io/GuideToCS/images/favicon.png' type="image/x-icon" />
 
@@ -54,7 +54,7 @@
     
   </head>
 
-  <body data-url="https://illustratedman-code.github.io/GuideToCS/ecology/ch1/"
+  <body data-url="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-6-2021/"
 
   class="">
 
@@ -269,15 +269,14 @@
     </li>
     
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/ecology/" class="dd-item parent haschildren
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/ecology/" class="dd-item haschildren
         item_level_$level
         ">
 
       
       
       
-      
-          <i class="fas fa-chevron-down ddexp"></i>
+      <i class="fas fa-chevron-right ddexp"></i>
         
       
           <a href="https://illustratedman-code.github.io/GuideToCS/ecology/">Ecology and Evolution</a>
@@ -285,7 +284,7 @@
         <ul>
               
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/ecology/ch1/" class="dd-item parent active
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/ecology/ch1/" class="dd-item
         item_level_$level
         ">
 
@@ -441,14 +440,15 @@
     </li>
     
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/" class="dd-item haschildren
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/" class="dd-item parent haschildren
         item_level_$level
         ">
 
       
       
       
-      <i class="fas fa-chevron-right ddexp"></i>
+      
+          <i class="fas fa-chevron-down ddexp"></i>
         
       
           <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/">Programming Languages</a>
@@ -486,7 +486,7 @@
     </li>
               
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-6-2021/" class="dd-item
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-6-2021/" class="dd-item parent active
         item_level_$level
         ">
 
@@ -734,8 +734,8 @@
 	
   
     <li class="">
-      <a class="text-link" href="https://illustratedman-code.github.io/GuideToCS/ecology/">
-        Ecology and Evolution
+      <a class="text-link" href="https://illustratedman-code.github.io/GuideToCS/programming-languages/">
+        Programming Languages
       </a>
     </li>
 	
@@ -743,7 +743,7 @@
   
     <li class="active">
       
-        Chapter 1
+        10/6/2021
       
     </li>
 
@@ -764,7 +764,7 @@
 		
 
 		
-			<h1>Chapter 1</h1>
+			<h1>10/6/2021</h1>
         
 
 		
@@ -784,25 +784,11 @@
 		</span>
 		<nav id="TableOfContents">
   <ul>
-    <li><a href="#terms">Terms</a>
+    <li><a href="#corrections">Corrections</a></li>
+    <li><a href="#pointers-for-dynamic-memory-management">Pointers for Dynamic Memory Management</a>
       <ul>
-        <li><a href="#ecology">Ecology</a></li>
-        <li><a href="#trait">Trait</a></li>
-        <li><a href="#population">Population</a></li>
-        <li><a href="#fitness">Fitness</a></li>
-      </ul>
-    </li>
-    <li><a href="#levels-of-ecological-organization">Levels of Ecological organization</a></li>
-    <li><a href="#proximate-vs-ultimate">Proximate Vs Ultimate</a>
-      <ul>
-        <li><a href="#proximate-factors">Proximate Factors</a></li>
-        <li><a href="#ultimate-factors">Ultimate Factors</a></li>
-      </ul>
-    </li>
-    <li><a href="#scientific-method-and-hypothesis-testing">Scientific Method and Hypothesis testing</a>
-      <ul>
-        <li><a href="#predictions">Predictions</a></li>
-        <li><a href="#hypotheses-and-tests">Hypotheses and tests</a></li>
+        <li><a href="#preventing-memory-leaks">Preventing Memory Leaks</a></li>
+        <li><a href="#garbage-collection">Garbage Collection</a></li>
       </ul>
     </li>
   </ul>
@@ -817,66 +803,48 @@
 
 
 	<div class="content">
-	    <h2 ref="terms" >Terms</h2><a class="anchor" id="terms"></a>
-<h3 ref="ecology" >Ecology</h3><a class="anchor" id="ecology"></a>
-<p>The study of the interactions between an organism and its biological and physical environment.</p>
-<h3 ref="trait" >Trait</h3><a class="anchor" id="trait"></a>
-<p>A combination of characteristics in an individual. A trait that increases evolutionary fitness is an <code>adaptation</code>.</p>
-<ul>
-<li>Hair color</li>
-<li>resistance to antibiotics.</li>
-</ul>
-<h3 ref="population" >Population</h3><a class="anchor" id="population"></a>
-<p>All of the organisms of a particular species in a particular area.</p>
-<ul>
-<li>The population of snow hares in the Himalayas.</li>
-</ul>
-<h3 ref="fitness" >Fitness</h3><a class="anchor" id="fitness"></a>
-<p>The degree to which an organism is likely to survive in an environment. The fitter the organism, the more likely they are to survive in an environment suited to their adaptations. This is more useful in the context of the population.</p>
-<h2 ref="levels-of-ecological-organization" >Levels of Ecological organization</h2><a class="anchor" id="levels-of-ecological-organization"></a>
+	    <p>Original is <a href="https://uc.instructure.com/courses/1476336/pages/the-daily-pl-10-slash-6-slash-2021?module%5Fitem%5Fid=65458621">here</a>.</p>
+<p>I love Reese&rsquo;s Pieces.</p>
+<h2 ref="corrections" >Corrections</h2><a class="anchor" id="corrections"></a>
+<p>None to speak of!!</p>
+<h2 ref="pointers-for-dynamic-memory-management" >Pointers for Dynamic Memory Management</h2><a class="anchor" id="pointers-for-dynamic-memory-management"></a>
+<p>We finished up our discussion of pointers in today&rsquo;s class. In the previous class, we talked about how pointers have two important roles in programming languages:</p>
 <ol>
-<li>organism</li>
-<li>population</li>
-<li>community</li>
-<li>ecosystem</li>
+<li>indirection &ndash; referring to other objects</li>
+<li>dynamic memory management &ndash; &ldquo;handles&rdquo; for areas of memory that are dynamically allocated and deallocated by the system.</li>
 </ol>
-<h2 ref="proximate-vs-ultimate" >Proximate Vs Ultimate</h2><a class="anchor" id="proximate-vs-ultimate"></a>
-<h3 ref="proximate-factors" >Proximate Factors</h3><a class="anchor" id="proximate-factors"></a>
-<p>Direct or Immediate causes/effects on the organism. The <code>How</code>.</p>
-<ul>
-<li>Changes in photoperiod</li>
-<li>Temperature changes</li>
-</ul>
-<h3 ref="ultimate-factors" >Ultimate Factors</h3><a class="anchor" id="ultimate-factors"></a>
-<p>The Indirect reason for an effect on the organism. The <code>Why</code>.</p>
-<h2 ref="scientific-method-and-hypothesis-testing" >Scientific Method and Hypothesis testing</h2><a class="anchor" id="scientific-method-and-hypothesis-testing"></a>
-<p>Good hypothesis lead to testable <code>predictions</code>. It is also falsifiable.</p>
-<ol>
-<li>Observation</li>
-<li>Hypothesis</li>
-<li>Measurements</li>
-<li>Results</li>
-<li>Conclusion</li>
-</ol>
-<h3 ref="predictions" >Predictions</h3><a class="anchor" id="predictions"></a>
-<p>A prediction is an observation or a result that is expected if the hypothesis is true.</p>
-<h3 ref="hypotheses-and-tests" >Hypotheses and tests</h3><a class="anchor" id="hypotheses-and-tests"></a>
-<ul>
-<li>Focus on a population</li>
-<li>Why does the population exist?</li>
-<li>What unique challenges does it face?</li>
-<li>Are circumstances changing?</li>
-<li>Will the population grow, shrink, disturbed</li>
-</ul>
-<h4 ref="resources" >Resources</h4><a class="anchor" id="resources"></a>
-<ul>
-<li>reproduction</li>
-<li>Survival</li>
-<li>Mate</li>
-<li>Food</li>
-<li>Shelter</li>
-</ul>
-<p>*</p>
+<p>On Monday we focused on the role of pointers in indirection and how to solve some of the problems that can arise from using pointers in that capacity. In today&rsquo;s class, we focused on the role of pointers in dynamic memory management.</p>
+<p>As tools for dynamic memory management, the programmer can use pointers to target blocks (N.B.: I am using blocks as a generic term for memory and am not using it in the sense of a block [a.k.a. page] as defined in the context of operating systems) of dynamic memory that are allocated and deallocated by the operating system for use by an application. The programmer can use these pointers to manipulate what is stored in those blocks and, ultimately, release them back to the operating system when they are no longer needed.</p>
+<p>Memory in the system is a finite resource. If a program repeatedly asks for memory from the system without releasing previous allocations back to the system, there will come a time when the memory is exhausted. In order to be able to release existing allocations back to the operating system for reuse by other applications, the programmer must not lose track of those existing allocations. When there is a memory allocation from the operating system to the application that can no longer be reached by a pointer in the application, that memory allocation is leaked. Because the application no longer has a pointer to it, there is no way for the application to release it back to the system. Leaked memory belongs to the leaking application until it terminates.</p>
+<p>For some programs this is fine. Some applications run for a short, defined period of time. However, there are other programs (especially servers) that are written specifically to operate for extended periods of time. If such applications leak memory, they run the risk of exhausting the system&rsquo;s memory resources and failing (Links to an external site.).</p>
+<h3 ref="preventing-memory-leaks" >Preventing Memory Leaks</h3><a class="anchor" id="preventing-memory-leaks"></a>
+<p>System behavior will be constrained when those systems are written in languages that do not support using pointers for dynamic memory management. However, what we learned (above) is that it is not always easy to use pointers for dynamic memory management correctly. What are some of the tools that programming languages provide to help the programmer manage pointers in their role as managers of dynamic memory.</p>
+<h4 ref="reference-counting" >Reference Counting</h4><a class="anchor" id="reference-counting"></a>
+<p>In a reference-counted memory management system, each allocated block of memory given to the application by the system contains a reference count. That reference count, well, counts the number of references to the object. In other words, for every pointer to an operating-system allocated block of memory, the reference count on that block increases. Every time that a pointer&rsquo;s target is changed, the programming language updates the reference counts of the old target (decrement) and the new target (increment), if there is a new target (the pointer could be changed to null, in which case there is no new target). When a block&rsquo;s reference count reaches zero, the language knows that the block is no longer needed, and automatically returns it to the system! Pretty cool.</p>
+<figure><img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/9.png"/>
+</figure>
+
+<p>The scenario depicted visually shows the reference counting process. At time (a), the programmer allocates a block of memory dynamically from the operating system and puts an application object in that block. Assume that the application object is a node in a linked list. The first node is the head of the list. Because the programmer has a pointer that targets that allocation, the block&rsquo;s reference count at time (a) is 1. At time (b), the programmer allocates a second block of memory dynamically from the system and puts a second application object in that block &ndash; another node in the linked list (the tail of the list). Because the head of the list is referencing the tail of the list, the reference count of the tail is 1. At time (c) the programmer deletes their pointer (or reassigns it to a different target) to the head of the linked list. The programming language decrements the reference count of the block of memory holding the head node and deallocates it because the reference count has dropped to 0. Transitively, the pointer from the head application object to the tail application object is deleted and the programming language decrements the reference count of its target, the block of memory holding the tail application object (time (d)). The reference count of the block of memory holding the tail application object is now 0 and so the programming language automatically deallocates the associated storage (time (e)). Voila &ndash; an automatic way to handle dynamic memory management.</p>
+<p>There&rsquo;s only one problem. What if the programmer wants to implement a circularly linked list?</p>
+<figure><img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/10.png"/>
+</figure>
+
+<p>Because the tail node points to the head node, and the head node points to the tail node, even after the programmer&rsquo;s pointer to the head node is deleted or retargeted, the reference counts of the two nodes will never drop to 0. In other words, even with reference-counted automatic memory management, there could still be a memory leak! Although there are algorithms to break these cycles, it&rsquo;s important to remember that reference counting is not a panacea. Python is a language that manages memory using reference counting.</p>
+<h3 ref="garbage-collection" >Garbage Collection</h3><a class="anchor" id="garbage-collection"></a>
+<p>Garbage collection (GC) is another method of automatically managing dynamically allocated memory. In a GC&rsquo;d system, when a programmer allocates memory to store an object and no space is available, the programming language will stop the execution of the program (a so-called GC pause) to calculate which previously allocated memory blocks are no longer in use and can be returned to the system. Having freed up space as a result of cleaning up unused garbage, the allocation requested by the programmer can be satisfied and the execution of the program can continue.</p>
+<p>The most efficient way to engineer a GC&rsquo;d system is if the programming language allocates memory to the programmer in fixed-size cells. In this scenario, every allocation request from the programmer is satisfied by a block of memory from one of several banks of fixed-size blocks that are stacked back-to-back. For example, a programming language may manage three different banks &ndash; one that holds reserves of X-sized blocks, one that holds reserves of Y-sized blocks and one that holds reserves of Z-sized blocks. When the programmer asks for memory to hold an object that is of size a, the programming language will deliver a block that is just big enough to that object. Because the size of the requested allocation may not be exactly the same size as one of the available fixed-size blocks, space may be wasted.</p>
+<p>The fixed sizing of blocks in a GC&rsquo;d system makes it easy/fast to walk through every block of memory. We will see shortly that the GC algorithm requires such an operation every time that it stops the program to do a cleanup. Without a consistent size, traversing the memory blocks would require that each block hold a tag indicating its size &ndash; a waste of space and the cause of an additional memory read &ndash; so that the algorithm could dynamically calculate the starting address of the next block.</p>
+<p>When the programmer requests an allocation that cannot be satisfied, the programming language stops the execution of the program and does a garbage collection. The classic GC algorithm is called mark and sweep and has three steps:</p>
+<p>Every block of memory is marked as free using a free bit attached to the block. Of course, this is only true of some of the blocks, but the GC is optimistic!
+All pointers active at the time the program is paused are traced to their targets. The free bits of those blocks are reset.
+The blocks that are marked free and released.</p>
+<p>The process is shown visually below:</p>
+<figure><img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/11.png"/>
+</figure>
+
+<p>At times (a), (b) and (c), the programmer is allocating and manipulating references to dynamically allocated memory. At time (c), the allocation request for variable z cannot be satisfied because there are no available blocks. A GC pause starts at time (d) and the mark-and-sweep algorithm commences by setting the free bit of every block. At time (e) the pointers are traced and the appropriate free bits are cleared. At time (f) the memory is released from the unused block and its free bit, too, is reset. At time (g) the allocation for variable z can be satisfied, the GC pause completes and the programming language restarts execution of the program.</p>
+<p>This process seems great, just like reference counting seemed great. However, there is a significant problem: The programmer cannot predict when GC pauses will occur and the programmer cannot predict how long those pauses will take. A GC pause is completely initiated by the programming language and (usually) completely beyond the control of the programmer. Such random pauses of program execution could be extremely harmful to a system that is controlling a system that needs to keep up with interactions from the outside world. For instance, it would be totally unacceptable for an autopilot system to take an extremely long GC pause as it calculates the heading needed to land a plane. There are myriad other systems where pauses are inappropriate.</p>
+<p>The mark-and-sweep algorithm described above is extremely naive and GC algorithms are the subject of intense research. Languages like go and Java manage memory with a GC and their algorithms are incredibly sophisticated. If you want to know more, please let me know!</p>
 
 		</div>
 
@@ -887,10 +855,10 @@
 
 	 
 	<div class="chevrons">
-		<a class="next" href="https://illustratedman-code.github.io/GuideToCS/ecology/ch-2/" title="Chapter 2" style="margin-right: 0px;">
+		<a class="next" href="https://illustratedman-code.github.io/GuideToCS/programming-languages/8-23-2021/" title="8/23/2021" style="margin-right: 0px;">
             <div>
                 <p>Next page</p>
-                <label>Chapter 2</label>
+                <label>8/23/2021</label>
             </div>
             <i class="fas fa-arrow-right" style="font-size: 1.7em"></i></a>
 	</div>
@@ -915,30 +883,16 @@
     <label><i class="fas fa-align-right"></i>&nbsp;&nbsp;What&#39;s on this page</label>
     <nav>
         <ul >
-            <li><a href="https://illustratedman-code.github.io/GuideToCS/ecology/ch1/">Chapter 1</a></li>
+            <li><a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-6-2021/">10/6/2021</a></li>
         </ul>
     </nav>
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#terms">Terms</a>
+    <li><a href="#corrections">Corrections</a></li>
+    <li><a href="#pointers-for-dynamic-memory-management">Pointers for Dynamic Memory Management</a>
       <ul>
-        <li><a href="#ecology">Ecology</a></li>
-        <li><a href="#trait">Trait</a></li>
-        <li><a href="#population">Population</a></li>
-        <li><a href="#fitness">Fitness</a></li>
-      </ul>
-    </li>
-    <li><a href="#levels-of-ecological-organization">Levels of Ecological organization</a></li>
-    <li><a href="#proximate-vs-ultimate">Proximate Vs Ultimate</a>
-      <ul>
-        <li><a href="#proximate-factors">Proximate Factors</a></li>
-        <li><a href="#ultimate-factors">Ultimate Factors</a></li>
-      </ul>
-    </li>
-    <li><a href="#scientific-method-and-hypothesis-testing">Scientific Method and Hypothesis testing</a>
-      <ul>
-        <li><a href="#predictions">Predictions</a></li>
-        <li><a href="#hypotheses-and-tests">Hypotheses and tests</a></li>
+        <li><a href="#preventing-memory-leaks">Preventing Memory Leaks</a></li>
+        <li><a href="#garbage-collection">Garbage Collection</a></li>
       </ul>
     </li>
   </ul>

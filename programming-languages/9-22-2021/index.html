@@ -8,7 +8,7 @@
 </title>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2021-10-12T02:30:52 UTC">
+<meta name="revised" content="2021-10-12T19:58:38 UTC">
 <meta name="description" content="">
 
 
@@ -456,6 +456,51 @@
         <ul>
               
 
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-1-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-1-2021/">10/1/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-4-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-4-2021/">10/4/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-6-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-6-2021/">10/6/2021</a>
+      
+        
+      
+    </li>
+              
+
     <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/8-23-2021/" class="dd-item
         item_level_$level
         ">
@@ -546,6 +591,21 @@
     </li>
               
 
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-13-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-13-2021/">9/13/2021</a>
+      
+        
+      
+    </li>
+              
+
     <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-20-2021/" class="dd-item
         item_level_$level
         ">
@@ -585,6 +645,21 @@
       
       
           <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-24-2021/">9/24/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-27-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-27-2021/">9/27/2021</a>
       
         
       
@@ -781,27 +856,27 @@
 <p>shows the value of this expression. We will assume here that + works as expected for two integers. Because the operands are integers, we can definitively write that the type of the addition will be an integer, too. We use σ'' as the resulting state because it&rsquo;s possible that evaluation of the expressions of both e1 and e2 caused side effects.</p>
 <p>The rule that we defined covers only the operational semantics for addition of two integers. The other cases (for floating-point and string types) are almost copy/paste.</p>
 <p>Now, how does that translate to an actual implementation?</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-fallback" data-lang="fallback">
-def evaluate(expression, state):
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-python" data-lang="python">
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">evaluate</span>(expression, state):
   match expression:
-  ...
+  <span style="color:#f92672">...</span>
 
-  case Add(left=left, right=right):
-      result = 0
-      left_result, left_type, new_state = evaluate(left, state)
-      right_result, right_type, new_state = evaluate(right, new_state)
+  case Add(left<span style="color:#f92672">=</span>left, right<span style="color:#f92672">=</span>right):
+      result <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+      left_result, left_type, new_state <span style="color:#f92672">=</span> evaluate(left, state)
+      right_result, right_type, new_state <span style="color:#f92672">=</span> evaluate(right, new_state)
 
-      if left_type != right_type:
-        raise InterpTypeError(f&#34;&#34;&#34;Mismatched types for Add:
-            Cannot add {left_type} to {right_type}&#34;&#34;&#34;)
+      <span style="color:#66d9ef">if</span> left_type <span style="color:#f92672">!=</span> right_type:
+        <span style="color:#66d9ef">raise</span> InterpTypeError(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;&#34;&#34;Mismatched types for Add:
+</span><span style="color:#e6db74">            Cannot add </span><span style="color:#e6db74">{</span>left_type<span style="color:#e6db74">}</span><span style="color:#e6db74"> to </span><span style="color:#e6db74">{</span>right_type<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;&#34;&#34;</span>)
 
       match left_type:
-        case Integer() | String() | FloatingPoint():
-          result = left_result + right_result
+        case Integer() <span style="color:#f92672">|</span> String() <span style="color:#f92672">|</span> FloatingPoint():
+          result <span style="color:#f92672">=</span> left_result <span style="color:#f92672">+</span> right_result
         case _:
-          raise InterpTypeError(f&#34;&#34;&#34;Cannot add {left_type}s&#34;&#34;&#34;)
+          <span style="color:#66d9ef">raise</span> InterpTypeError(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;&#34;&#34;Cannot add </span><span style="color:#e6db74">{</span>left_type<span style="color:#e6db74">}</span><span style="color:#e6db74">s&#34;&#34;&#34;</span>)
 
-      return (result, left_type, new_state)
+      <span style="color:#66d9ef">return</span> (result, left_type, new_state)
 </code></pre></div><p>In this snippet, the local variables left and right are the equivalent of e1 and e2, respectively, in the operational semantics. After initializing a variable to store the result, the evaluation of the premises is accomplished. new_state matches σ'' after being assigned and reassigned in those two evaluations. Next, the code checks to make sure that the types of the operands matches. Finally, if the types of the operands is an integer, then the result is just a traditional addition (+ in Python).</p>
 <p>You can see the implementation for the other types mixed in this code as well. Convince yourself that the code above handles all the different cases where an Add is valid in STIMPL.</p>
 <h3 ref="defining-the-semantics-of-the-if-then-else-expression" >Defining the Semantics of the If/Then/Else Expression</h3><a class="anchor" id="defining-the-semantics-of-the-if-then-else-expression"></a>
@@ -824,25 +899,25 @@ are the value and the type, respectively, of t when it is evaluated in state σ'
 \end{equation*}</p>
 <p>Again, the pattern is the same for writing the operational semantics when the condition is false.</p>
 <p>Let&rsquo;s look at how this translates into actual working code:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-fallback" data-lang="fallback">def evaluate(expression, state):
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">evaluate</span>(expression, state):
   match expression:
-  ...
+  <span style="color:#f92672">...</span>
 
-    case If(condition=condition, true=true, false=false):
-      condition_value, condition_type, new_state = evaluate(condition, state)
+    case If(condition<span style="color:#f92672">=</span>condition, true<span style="color:#f92672">=</span>true, false<span style="color:#f92672">=</span>false):
+      condition_value, condition_type, new_state <span style="color:#f92672">=</span> evaluate(condition, state)
 
-      if not isinstance(condition_type, Boolean):
-        raise InterpTypeError(&#34;Cannot branch on non-boolean value!&#34;)
+      <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> isinstance(condition_type, Boolean):
+        <span style="color:#66d9ef">raise</span> InterpTypeError(<span style="color:#e6db74">&#34;Cannot branch on non-boolean value!&#34;</span>)
 
-      result_value = None
-      result_type = None
+      result_value <span style="color:#f92672">=</span> <span style="color:#66d9ef">None</span>
+      result_type <span style="color:#f92672">=</span> <span style="color:#66d9ef">None</span>
 
-      if condition_value:
-        result_value, result_type, new_state = evaluate(true, new_state)
-      else:
-        result_value, result_type, new_state = evaluate(false, new_state)
+      <span style="color:#66d9ef">if</span> condition_value:
+        result_value, result_type, new_state <span style="color:#f92672">=</span> evaluate(true, new_state)
+      <span style="color:#66d9ef">else</span>:
+        result_value, result_type, new_state <span style="color:#f92672">=</span> evaluate(false, new_state)
 
-      return (result_value, result_type, new_state)
+      <span style="color:#66d9ef">return</span> (result_value, result_type, new_state)
 </code></pre></div><p>The local variables <code>condition</code>, <code>true</code> and <code>false</code> match c, t and f, respectively from the rule in the operational semantics. The first step in the implementation is to determine the value/type/updated state when c is evaluated in state σ. Immediately after doing that, the code checks to make sure that the condition statement has boolean type. Remember how our rule only applies when this is the case? Next, depending on whether the condition evaluated to true or false, the appropriate next expression is evaluated in the σ' state (<code>new_state</code>). It is the result of that evaluation that is the ultimate value of the expression and what is returned.</p>
 
 		</div>

@@ -1,0 +1,1148 @@
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+	9/27/2021 :: David&#39;s Guide to CS
+</title>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="revised" content="2021-10-12T19:58:38 UTC">
+<meta name="description" content="">
+
+
+
+<title>9/27/2021 :: David&#39;s Guide to CS</title>
+
+<link rel="shortcut icon" href='https://illustratedman-code.github.io/GuideToCS/images/favicon.png' type="image/x-icon" />
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.css">
+
+<script src='https://code.jquery.com/jquery-3.5.1.min.js'></script>
+
+<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel="stylesheet">
+
+
+
+<link rel="stylesheet" type="text/css" href='https://illustratedman-code.github.io/GuideToCS/sass/layout.css'>
+<link rel="stylesheet" type="text/css" href='https://illustratedman-code.github.io/GuideToCS/css/style.main.css'>
+<link rel="stylesheet" type="text/css" href='https://illustratedman-code.github.io/GuideToCS/css/style.menu.css'>
+<link rel="stylesheet" type="text/css" href='https://illustratedman-code.github.io/GuideToCS/sass/shortcodes/notice.css'>
+<link rel="stylesheet" type="text/css" href='https://illustratedman-code.github.io/GuideToCS/sass/shortcodes/tabs.css'>
+<link rel="stylesheet" type="text/css" href='https://illustratedman-code.github.io/GuideToCS/sass/shortcodes/panel.css'>
+<link rel="stylesheet" type="text/css" href='https://illustratedman-code.github.io/GuideToCS/sass/shortcodes/columns.css'>
+<link rel="stylesheet" type="text/css" href='https://illustratedman-code.github.io/GuideToCS/sass/shortcodes/children.css'>
+<link rel="stylesheet" type="text/css" href='https://illustratedman-code.github.io/GuideToCS/sass/shortcodes/attachments.css'>
+<link rel="stylesheet" type="text/css" href='https://illustratedman-code.github.io/GuideToCS/sass/shortcodes/alert.css'>
+<link rel="stylesheet" type="text/css" href='https://illustratedman-code.github.io/GuideToCS/css/docport.css'>
+
+<script src='https://illustratedman-code.github.io/GuideToCS/js/docport.js'></script>
+<script type="text/javascript">
+      var baseurl = "https:\/\/illustratedman-code.github.io\/GuideToCS";
+</script>
+
+
+<script src="https://illustratedman-code.github.io/GuideToCS/js/mathjax-config.js"></script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+
+
+    
+  </head>
+
+  <body data-url="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-27-2021/"
+
+  class="">
+
+<style type="text/css">
+  #debug{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    line-height: 3.5rem;
+    margin-bottom: .35rem;
+    padding: 0 2rem;
+    position: fixed;
+    left: 0;      right: 0;     top: 0;
+   
+    top:0px;
+    
+    min-height: 150px;
+
+    background-color: white;
+    border: 3px solid red;
+    z-index: 10000 ;
+    word-wrap: all;
+    overflow: auto;
+  }
+</style>
+ 
+
+
+    
+    
+    <header style="">
+        <div>
+    
+    <div class="burger ">
+        <a href="javascript:void(0);" style="font-size:15px;" onclick="$('article > aside').toggleClass('responsive')">&#9776;</a>
+    </div>
+    
+
+    <div>
+
+		
+	
+			
+		
+	    	<a class='baselink' href='https://illustratedman-code.github.io/GuideToCS'>David's Guide to CS</a>
+	  	
+	</div>
+    <nav class="shortcuts">
+            <li class="" role="">
+                <a href="https://github.com/IllustratedMan-code"  rel="noopener">
+                  Github
+                </a>
+            </li>
+    </nav>
+
+</div>
+    </header>
+    
+
+    <article>
+      
+      <aside class="">
+        
+<div class="search">
+	<div class="searchbox">
+	  <input data-search-input id="search-by" type="text" placeholder="Type to search...">
+	</div>
+	<script type="text/javascript" src="https://illustratedman-code.github.io/GuideToCS/vendor/lunr/lunr.min.js"></script>
+	<script type="text/javascript" src="https://illustratedman-code.github.io/GuideToCS/vendor/auto-complete/auto-complete.js"></script>
+	<link href="https://illustratedman-code.github.io/GuideToCS/vendor/auto-complete/auto-complete.css" rel="stylesheet">
+	<script type="text/javascript">
+	  
+	      var baseurl = "https:\/\/illustratedman-code.github.io\/GuideToCS";
+	  
+	</script>
+	<script type="text/javascript" src="https://illustratedman-code.github.io/GuideToCS/js/search.js"></script>
+</div>
+
+		
+	
+			
+		
+	    	
+	  	
+	<div id="close_menu">
+  <a href="javascript:void(0);" style="font-size:15px;" onclick="$('article > aside').toggleClass('responsive')">
+      <i class="fa fa-lg fa-times"></i>
+  </a>
+</div>
+
+<ul class="menu">
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/" class="dd-item haschildren
+        item_level_$level
+        ">
+
+      
+      
+      
+      <i class="fas fa-chevron-right ddexp"></i>
+        
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/">Discrete Structures</a>
+      
+        <ul>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/exam-1-review/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/exam-1-review/">Exam 1 review</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/logic/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/logic/">Logic</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/modular-arithmetic/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/modular-arithmetic/">Modular arithmetic</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/normal-forms/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/normal-forms/">Normal forms</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/set-relations/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/set-relations/">Set relations</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/set-theory/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/set-theory/">Standard Proof techniques</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/trees/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/trees/">Trees</a>
+      
+        
+      
+    </li>
+        </ul>
+    </li>
+    
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/ecology/" class="dd-item haschildren
+        item_level_$level
+        ">
+
+      
+      
+      
+      <i class="fas fa-chevron-right ddexp"></i>
+        
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/ecology/">Ecology and Evolution</a>
+      
+        <ul>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/ecology/ch1/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/ecology/ch1/">Chapter 1</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/ecology/ch-2/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/ecology/ch-2/">Chapter 2</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/ecology/ch-3/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/ecology/ch-3/">Chapter 3</a>
+      
+        
+      
+    </li>
+        </ul>
+    </li>
+    
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/" class="dd-item haschildren
+        item_level_$level
+        ">
+
+      
+      
+      
+      <i class="fas fa-chevron-right ddexp"></i>
+        
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/">Intro To Comp Systems</a>
+      
+        <ul>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/hard-vs-micro/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/hard-vs-micro/">HardWiredVsMicroProgrammed;</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/how-to-write-a-micro-instruction/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/how-to-write-a-micro-instruction/">How to write a micro-instruction</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/mock-exam-questions/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/mock-exam-questions/">Mock Exam Questions</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/formulas-and-references/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/formulas-and-references/">Useful formulas and references</a>
+      
+        
+      
+    </li>
+        </ul>
+    </li>
+    
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/phys2001/" class="dd-item haschildren
+        item_level_$level
+        ">
+
+      
+      
+      
+      <i class="fas fa-chevron-right ddexp"></i>
+        
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/phys2001/">PHYS2001</a>
+      
+        <ul>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/phys2001/test/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/phys2001/test/">Test</a>
+      
+        
+      
+    </li>
+        </ul>
+    </li>
+    
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/" class="dd-item parent haschildren
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <i class="fas fa-chevron-down ddexp"></i>
+        
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/">Programming Languages</a>
+      
+        <ul>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-1-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-1-2021/">10/1/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-4-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-4-2021/">10/4/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-6-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-6-2021/">10/6/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/8-23-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/8-23-2021/">8/23/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/8-25-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/8-25-2021/">8/25/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/8-27-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/8-27-2021/">8/27/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/8-30-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/8-30-2021/">8/30/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-1-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-1-2021/">9/1/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-10-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-10-2021/">9/10/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-13-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-13-2021/">9/13/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-20-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-20-2021/">9/20/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-22-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-22-2021/">9/22/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-24-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-24-2021/">9/24/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-27-2021/" class="dd-item parent active
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-27-2021/">9/27/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-3-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-3-2021/">9/3/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-8-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-8-2021/">9/8/2021</a>
+      
+        
+      
+    </li>
+        </ul>
+    </li>
+    
+
+
+
+</ul>
+
+		
+	
+			
+		
+	    	
+	  	
+	
+      </aside>
+      
+
+      <section class="page ">
+      
+	
+		
+    
+    
+    <nav id="ariane" aria-label="breadcrumb">
+      <ol class="ariane">
+        
+  
+  	
+		
+  
+  	
+	<li >
+      <a class="text-link" href="https://illustratedman-code.github.io/GuideToCS">
+        Home
+      </a>
+    </li>
+	
+  
+    <li class="">
+      <a class="text-link" href="https://illustratedman-code.github.io/GuideToCS/programming-languages/">
+        Programming Languages
+      </a>
+    </li>
+	
+  	
+  
+    <li class="active">
+      
+        9/27/2021
+      
+    </li>
+
+      </ol>
+    </nav>
+    
+    
+
+    
+		
+        
+		
+		
+		
+		
+		
+		
+		
+
+		
+			<h1>9/27/2021</h1>
+        
+
+		
+										
+		
+
+		
+	
+
+	
+	
+	<div class="jump-to-section">
+		<span onclick="$h = $(this);$h.next('nav').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('nav').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+  			<span class="fas fa-align-right"></span>
+  			Jump to Section
+  			<i style=";" class="fas fa-chevron-right"></i>
+		</span>
+		<nav id="TableOfContents">
+  <ul>
+    <li><a href="#overriding-in-oop">Overriding in OOP</a></li>
+    <li><a href="#subclass-vs-subtype">Subclass vs Subtype</a></li>
+    <li><a href="#open-recursion">Open Recursion</a></li>
+  </ul>
+</nav>
+	</div>
+	
+	
+
+
+
+
+
+
+	<div class="content">
+	    <p>It&rsquo;s the last week of September but the first full week of OOP. Let&rsquo;s do this!</p>
+<h2 ref="overriding-in-oop" >Overriding in OOP</h2><a class="anchor" id="overriding-in-oop"></a>
+<p>Recall the concept of inheritance that we discussed in the last class. Besides its utility as a formalism that describes the way a language supports abstraction of ADTs (and, therefore, makes it a plausibly OO language), inheritance provides a practical benefit in software engineering. Namely, it allows developers to build hierarchies of types.</p>
+<p>Hierarchies are composed of pairs of classes &ndash; one is the superclass and the other is the subclass. A superclass could conceivably be itself a subclass. A subclass could itself be a superclass. In terms of a family tree, we could say that the subclass is a descendant of the superclass (Note: remember that the terms superclass and subclass are not always the ones used by the languages themselves; C++ refers to them as base and derived classes, respectively).</p>
+<p>A subclass inherits both the data and methods from its superclass(es). However, as Sebesta says, &ldquo;&hellip; the features and capabilities of the [superclass] are not quite right for the new use.&rdquo; Overriding methods allows the programmer to keep most of the functionality of the baseclass and customize the parts that are &ldquo;not quite right.&rdquo;</p>
+<p>An overridden method is defined in a subclass and replaces the method with the same name (and usually protocol) in the parent.</p>
+<p>The official documentation and tutorials for Java describe overriding in the language this way:<a href="https://docs.oracle.com/javase/tutorial/java/IandI/override.html">&ldquo;An instance method in a subclass with the same signature (name, plus the number and the type of its parameters) and return type as an instance method in the superclass overrides the superclass&rsquo;s method.&quot;</a>  The exact rules for overriding methods in Java are <a href="https://docs.oracle.com/javase/specs/jls/se7/html/jls-8.html#jls-8.4.8.1">online at the language specification</a> .</p>
+<p>Let&rsquo;s make it concrete with an example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-java" data-lang="java">
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Car</span> <span style="color:#f92672">{</span>
+  <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">boolean</span> electric <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+  <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">int</span> wheels <span style="color:#f92672">=</span> 4<span style="color:#f92672">;</span>
+
+  Car<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">ignite</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+      System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Igniting a generic car&#39;s engine!&#34;</span><span style="color:#f92672">);</span>
+      <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Tesla</span> <span style="color:#66d9ef">extends</span> Car <span style="color:#f92672">{</span>
+  Tesla<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">super</span><span style="color:#f92672">();</span>
+    electric <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#a6e22e">@Override</span>
+  <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">ignite</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Igniting a Tesla&#39;s engine!&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Chevrolet</span> <span style="color:#66d9ef">extends</span> Car <span style="color:#f92672">{</span>
+  Chevrolet<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">super</span><span style="color:#f92672">();</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#a6e22e">@Override</span>
+  <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">ignite</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Igniting a Chevrolet&#39;s engine!&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>In this example, Car is the superclass of Tesla and Chevrolet. The Car class defines a method named ignite. That method will ignite the engine of the car &ndash; an action whose mechanics differ based on the car&rsquo;s type. In other words, this is a perfect candidate for overriding. Both Tesla and Chevrolet implement a method with the same name, return value and parameters, thereby meeting Java&rsquo;s requirements for overriding. In Java, the <code>@Override</code> is known as an annotation. Annotations are <a href="https://docs.oracle.com/javase/tutorial/java/annotations/">&ldquo;a form of metadata [that] provide data about a program that is not part of the program itself.&quot;</a>  Annotations in Java are attached to particular syntactic units. In this case, the @Override annotation is attached to a method and it tells the compiler that the method is overriding a method from its superclass. If the compiler does not find a method in the superclass(es) that is capable of being overridden by the method, an error is generated. This is a good check for the programmer. (Note: C++ offers similar functionality through the override specifier (Links to an external site.).)</p>
+<p>Let&rsquo;s say that the programmer actually implemented the Tesla class like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-java" data-lang="java">
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Tesla</span> <span style="color:#66d9ef">extends</span> Car <span style="color:#f92672">{</span>
+  Tesla<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">super</span><span style="color:#f92672">();</span>
+    electric <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#a6e22e">@Override</span>
+  <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">ignite</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> testing<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">super</span><span style="color:#f92672">.</span><span style="color:#a6e22e">ignite</span><span style="color:#f92672">();</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Igniting a Tesla&#39;s engine!&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>The ignite method implemented in Tesla does not override the ignite method from Car because it has a different set of parameters. The <code>@Override</code> annotation tells the compiler that the programmer thought they were overriding something. An error is generated and the programmer can make the appropriate fix. Without the <code>@Override</code> annotation, the code will compile but produce incorrect output when executed.</p>
+<p>Assume that the following program exists:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-java" data-lang="java">
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CarDemo</span> <span style="color:#f92672">{</span>
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String args<span style="color:#f92672">[])</span> <span style="color:#f92672">{</span>
+    Car c <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Car<span style="color:#f92672">();</span>
+    Car t <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Tesla<span style="color:#f92672">();</span>
+    Car v <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Chevrolet<span style="color:#f92672">();</span>
+
+    c<span style="color:#f92672">.</span><span style="color:#a6e22e">ignite</span><span style="color:#f92672">();</span>
+    t<span style="color:#f92672">.</span><span style="color:#a6e22e">ignite</span><span style="color:#f92672">();</span>
+    v<span style="color:#f92672">.</span><span style="color:#a6e22e">ignite</span><span style="color:#f92672">();</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>This code instantiates three different cars &ndash; the first is a generic Car, the second is a Tesla and the third is a Chevrolet. Look carefully and note that the type of each of the three is actually stored in a variable whose type is Car and not a more-specific type (ie, Tesla or Chevy). This is not a problem because of dynamic dispatch. At runtime, the JVM will find the proper ignite function and invoke it according to the variable&rsquo;s actual type and not its static type. Because ignite is overridden by Chevy and Tesla, the output of the program above is:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-text" data-lang="text">Igniting a generic car&#39;s engine!
+Igniting a Tesla&#39;s engine!
+Igniting a Chevrolet&#39;s engine!
+</code></pre></div><p>Most OOP languages provide the programmer the option to invoke the method they are overriding from the superclass. Java is no different. If an overriding method implementation wants to invoke the functionality of the method that it is overriding, it can do so using the super keyword.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-java" data-lang="java">
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Tesla</span> <span style="color:#66d9ef">extends</span> Car <span style="color:#f92672">{</span>
+  Tesla<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">super</span><span style="color:#f92672">();</span>
+    electric <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#a6e22e">@Override</span>
+  <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">ignite</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">super</span><span style="color:#f92672">.</span><span style="color:#a6e22e">ignite</span><span style="color:#f92672">();</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Igniting a Tesla&#39;s engine!&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Chevrolet</span> <span style="color:#66d9ef">extends</span> Car <span style="color:#f92672">{</span>
+  Chevrolet<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">super</span><span style="color:#f92672">();</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#a6e22e">@Override</span>
+  <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">ignite</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">super</span><span style="color:#f92672">.</span><span style="color:#a6e22e">ignite</span><span style="color:#f92672">();</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Igniting a Chevrolet&#39;s engine!&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>With these changes, the program now outputs:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-text" data-lang="text">Igniting a generic car&#39;s engine!
+Igniting a generic car&#39;s engine!
+Igniting a Tesla&#39;s engine!
+Igniting a generic car&#39;s engine!
+Igniting a Chevrolet&#39;s engine!
+</code></pre></div><p><strong>New material alert:</strong> What if the programmer does not want a subclass to be able to customize the behavior of a certain method? For example, no matter how you subclass Dog, it&rsquo;s noise method is always going to bark &ndash; no inheriting class should change that. Java provides the <code>final</code> keyword to guarantee that the implementation of a method cannot be overridden by a subclass. Let&rsquo;s change the code for the classes from above to look like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-java" data-lang="java">
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Car</span> <span style="color:#f92672">{</span>
+  <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">boolean</span> electric <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+  <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">int</span> wheels <span style="color:#f92672">=</span> 4<span style="color:#f92672">;</span>
+
+  Car<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">start</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Starting a car ...&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">ignite</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+      System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Ignited the engine!&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+      System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Did NOT ignite the engine!&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">ignite</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+      System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Igniting a generic car&#39;s engine!&#34;</span><span style="color:#f92672">);</span>
+      <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Tesla</span> <span style="color:#66d9ef">extends</span> Car <span style="color:#f92672">{</span>
+  Tesla<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">super</span><span style="color:#f92672">();</span>
+    electric <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#a6e22e">@Override</span>
+  <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">ignite</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">super</span><span style="color:#f92672">.</span><span style="color:#a6e22e">ignite</span><span style="color:#f92672">();</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Igniting a Tesla&#39;s engine!&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Chevrolet</span> <span style="color:#66d9ef">extends</span> Car <span style="color:#f92672">{</span>
+  Chevrolet<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">super</span><span style="color:#f92672">();</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#a6e22e">@Override</span>
+  <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">ignite</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">super</span><span style="color:#f92672">.</span><span style="color:#a6e22e">ignite</span><span style="color:#f92672">();</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Igniting a Chevrolet&#39;s engine!&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Notice that <code>ignite</code> in the Car class has a <code>final</code> before the return type. This makes <code>ignite</code> a <a href="https://docs.oracle.com/javase/specs/jls/se7/html/jls-8.html#jls-8.4.3.3">final method</a> : &ldquo;A method can be declared final to prevent subclasses from overriding or hiding it&rdquo;. (C++ has something similar &ndash; <a href="https://en.cppreference.com/w/cpp/language/final">the final specifier</a> .) Attempting to compile the code above produces this output:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-text" data-lang="text">
+CarDemo.java:30: error: ignite() in Tesla cannot override ignite() in Car
+  boolean ignite() {
+          ^
+  overridden method is final
+CarDemo.java:43: error: ignite() in Chevrolet cannot override ignite() in Car
+  boolean ignite() {
+          ^
+  overridden method is final
+2 errors
+</code></pre></div><h2 ref="subclass-vs-subtype" >Subclass vs Subtype</h2><a class="anchor" id="subclass-vs-subtype"></a>
+<p>In OOP there is fascinating distinction between subclasses and subtypes. All those classes that inherit from other classes are considered subclasses. However, they are not all subtypes. For a type/class S to be a subtype of type/class T, the following must hold</p>
+<p>Assume that ϕ(t)
+is some provable property that is true of t, an object of type T. Then ϕ(s)</p>
+<p>must be true as well for s, an object of type S.</p>
+<p>This formal definition can be phrased simply in terms of behaviors: If it is possible to pass objects of type T as arguments to a function that expects objects of type S without any change in the behavior, then S is a subtype of T. In other words, a subtype behaves exactly like the &ldquo;supertype&rdquo;.</p>
+<p>Barbara Liskov who pioneered the definition and study of subtypes put it this way (Links to an external site.): &ldquo;If for each object o1 of type S there is an object o2 of type T such that for all programs P defined in terms of T, the behavior of P is unchanged when o1 is substituted for o2, then S is a subtype of T.&rdquo;</p>
+<h2 ref="open-recursion" >Open Recursion</h2><a class="anchor" id="open-recursion"></a>
+<p>Open recursion in an OO PL is a fancy term for the combination of a) functionality that gives the programmer the ability to refer to the current object from within a method (usually through a variable named this or self) and b) dynamic dispatch. . Thanks to open recursion, some method A of class C can call some method B of the same class. But wait, there&rsquo;s more! (Links to an external site.) Continuing our example, in open recursion, if method B is overriden in class D (a subclass of C), then the overriden version of the method is invoked when called from method A on an object of type D even though method A is only implemented by class C. Wild! It is far easier to see this work in real life than talk about it abstractly. So, consider our cars again:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Car</span> <span style="color:#f92672">{</span>
+  <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">boolean</span> electric <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+  <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">int</span> wheels <span style="color:#f92672">=</span> 4<span style="color:#f92672">;</span>
+
+  Car<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">start</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Starting a car ...&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">ignite</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+      System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Ignited the engine!&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+      System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Did NOT ignite the engine!&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">ignite</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+      System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Igniting a generic car&#39;s engine!&#34;</span><span style="color:#f92672">);</span>
+      <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Tesla</span> <span style="color:#66d9ef">extends</span> Car <span style="color:#f92672">{</span>
+  Tesla<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">super</span><span style="color:#f92672">();</span>
+    electric <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#a6e22e">@Override</span>
+  <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">ignite</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Igniting a Tesla&#39;s engine!&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Chevrolet</span> <span style="color:#66d9ef">extends</span> Car <span style="color:#f92672">{</span>
+  Chevrolet<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">super</span><span style="color:#f92672">();</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#a6e22e">@Override</span>
+  <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">ignite</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Igniting a Chevrolet&#39;s engine!&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>The start method is only implemented in the Car class. At the time that it is compiled, the Car class has no awareness of any subclasses (ie, Tesla and Chevrolet). Let&rsquo;s run this code and see what happens:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-java" data-lang="java">
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CarDemo</span> <span style="color:#f92672">{</span>
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String args<span style="color:#f92672">[])</span> <span style="color:#f92672">{</span>
+    Car c <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Car<span style="color:#f92672">();</span>
+    Car t <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Tesla<span style="color:#f92672">();</span>
+    Car v <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Chevrolet<span style="color:#f92672">();</span>
+
+    c<span style="color:#f92672">.</span><span style="color:#a6e22e">start</span><span style="color:#f92672">();</span>
+    t<span style="color:#f92672">.</span><span style="color:#a6e22e">start</span><span style="color:#f92672">();</span>
+    v<span style="color:#f92672">.</span><span style="color:#a6e22e">start</span><span style="color:#f92672">();</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Here&rsquo;s the output:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-text" data-lang="text">Starting a car ...
+Igniting a generic car&#39;s engine!
+Ignited the engine!
+Starting a car ...
+Igniting a Tesla&#39;s engine!
+Ignited the engine!
+Starting a car ...
+Igniting a Chevrolet&#39;s engine!
+Did NOT ignite the engine!
+</code></pre></div><p>Wow! Even though the implementation of start is entirely within the Car class and the Car class knows nothing about the Tesla or Chevrolet subclasses, when the start method is invoked on object&rsquo;s of those types, the call to this&rsquo;s ignite method triggers the execution of code specific to the type of car!</p>
+<p>How cool is that?</p>
+
+		</div>
+
+
+
+
+
+
+	 
+	<div class="chevrons">
+		<a class="next" href="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-3-2021/" title="9/3/2021" style="margin-right: 0px;">
+            <div>
+                <p>Next page</p>
+                <label>9/3/2021</label>
+            </div>
+            <i class="fas fa-arrow-right" style="font-size: 1.7em"></i></a>
+	</div>
+	
+	
+
+      </section>
+
+      
+      
+      <section class="right-menu ">
+      
+	
+
+		
+	
+			
+		
+	    	
+	  	
+	<div class="TableOfContents">
+    <label><i class="fas fa-align-right"></i>&nbsp;&nbsp;What&#39;s on this page</label>
+    <nav>
+        <ul >
+            <li><a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-27-2021/">9/27/2021</a></li>
+        </ul>
+    </nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#overriding-in-oop">Overriding in OOP</a></li>
+    <li><a href="#subclass-vs-subtype">Subclass vs Subtype</a></li>
+    <li><a href="#open-recursion">Open Recursion</a></li>
+  </ul>
+</nav>
+</div>
+
+		
+	
+			
+		
+	    	
+	  	
+	<div class="Actions">
+	<nav>
+		<ul>
+				
+		    
+		    
+			
+		    
+
+    	</ul>
+	</nav>
+    
+</div>
+
+      </section>
+      
+    </article>
+    
+    
+    <footer>
+      
+
+		
+	
+			
+		
+	    	Create a content/_layout/footer/_index.md file to customize the footer content !
+	  	
+	
+    </footer>
+    
+
+
+
+  </body>
+</html>

@@ -8,7 +8,7 @@
 </title>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2021-10-12T02:30:52 UTC">
+<meta name="revised" content="2021-10-12T19:58:38 UTC">
 <meta name="description" content="">
 
 
@@ -456,6 +456,51 @@
         <ul>
               
 
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-1-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-1-2021/">10/1/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-4-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-4-2021/">10/4/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-6-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-6-2021/">10/6/2021</a>
+      
+        
+      
+    </li>
+              
+
     <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/8-23-2021/" class="dd-item
         item_level_$level
         ">
@@ -546,6 +591,21 @@
     </li>
               
 
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-13-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-13-2021/">9/13/2021</a>
+      
+        
+      
+    </li>
+              
+
     <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-20-2021/" class="dd-item
         item_level_$level
         ">
@@ -585,6 +645,21 @@
       
       
           <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-24-2021/">9/24/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-27-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-27-2021/">9/27/2021</a>
       
         
       
@@ -738,20 +813,20 @@
 <h3 ref="static-scoping" >Static Scoping</h3><a class="anchor" id="static-scoping"></a>
 <p>This is sometimes also known as <em>lexical scoping</em>. <em>Static scoping</em> is the type of scope that can be determined using only the program&rsquo;s source code. In a statically scoped programming language, determining the name/variable binding is done iteratively by searching through a <em>block</em>&rsquo;s nesting <em>static parents</em>. A <em>block</em> is a section of code with its own scope (in Python that is a function or a class and in C/C++ that is statements enclosed in a pair of {}s). The static parent of a block is the block in which the current block was declared. The list of static parents of a block are the block&rsquo;s static ancestors.</p>
 <p>Here is pseudocode for the algorithm of determining the name/variable binding in a statically scoped programming language:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-fallback" data-lang="fallback">def resolve(name, current_scope) -&gt; variable
-  s = current_scope
-  while (s != InvalidScope)
-    if s.contains(name)
-      return s.variable(name)
-    s = s.static_parent_scope()
-  return NameError
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">resolve</span>(name, current_scope) <span style="color:#f92672">-&gt;</span> variable
+  s <span style="color:#f92672">=</span> current_scope
+  <span style="color:#66d9ef">while</span> (s <span style="color:#f92672">!=</span> InvalidScope)
+    <span style="color:#66d9ef">if</span> s<span style="color:#f92672">.</span>contains(name)
+      <span style="color:#66d9ef">return</span> s<span style="color:#f92672">.</span>variable(name)
+    s <span style="color:#f92672">=</span> s<span style="color:#f92672">.</span>static_parent_scope()
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">NameError</span>
 </code></pre></div><p>For practice doing name/variable binding in a statically scoped language, play around with an example in Python: <a href="https://github.com/hawkinsw/cs3003/blob/main/scope%5Flifetime/static%5Fscope.py">static_scope.py</a></p>
 <h3 ref="consider-this-dot-dot-dot" >Consider this &hellip;</h3><a class="anchor" id="consider-this-dot-dot-dot"></a>
 <p>Python and C++ have different ways of creating scopes. In Python and C++ a new scope is created at the beginning of a function definition (and that scope contains the function&rsquo;s parameters automatically). However, Python and C++ differ in the way that scopes are declared (or not!) for variables used in loops. Consider the following Python and C++ code (also available at <a href="https://github.com/hawkinsw/cs3003/blob/main/scope%5Flifetime/loop%5Fscope.cpp">loop_scope.cpp</a> and <a href="https://github.com/hawkinsw/cs3003/blob/main/scope%5Flifetime/loop%5Fscope.py">loop_scope.py</a> :</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-fallback" data-lang="fallback">def f():
-  for i in range(1, 10):
-    print(f&#34;i (in loop body): {i}&#34;)
-  print(f&#34;i (outside loop body): {i}&#34;)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">f</span>():
+  <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">10</span>):
+    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;i (in loop body): </span><span style="color:#e6db74">{</span>i<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+  print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;i (outside loop body): </span><span style="color:#e6db74">{</span>i<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
 </code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">f</span>() {
   <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">10</span>; i<span style="color:#f92672">++</span>) {
     std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;i: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> i <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
@@ -763,19 +838,19 @@
 </span><span style="color:#75715e"></span>  <span style="color:#75715e">// std::cout &lt;&lt; &#34;i: &#34; &lt;&lt; i &lt;&lt; &#34;\n&#34;;
 </span><span style="color:#75715e"></span>}
 </code></pre></div><p>In the C++ code, the <code>for</code> loop introduces a new scope and <code>i</code> is in that scope. In the Python code, the <code>for</code> loop does not introduce a new scope and <code>i</code> is in the scope of <code>f</code>. Try to run the following Python code also available here at <a href="https://github.com/hawkinsw/cs3003/blob/main/scope%5Flifetime/loop%5Fscope%5Ferror.py">loop_scope_error.py</a> to see why this distinction is important:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-fallback" data-lang="fallback">def f():
-  print(f&#34;i (outside loop body): {i}&#34;)
-  for i in range(1, 10):
-    print(f&#34;i (in loop body): {i}&#34;)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">f</span>():
+  print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;i (outside loop body): </span><span style="color:#e6db74">{</span>i<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+  <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">10</span>):
+    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;i (in loop body): </span><span style="color:#e6db74">{</span>i<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
 </code></pre></div><h3 ref="dynamic-scoping" >Dynamic Scoping</h3><a class="anchor" id="dynamic-scoping"></a>
 <p><em>Dynamic scoping</em> is the type of scope that can be determined only during program execution. In a dynamically scoped programming language, determining the name/value binding is done iteratively by searching through a block&rsquo;s nesting dynamic parents. The <em>dynamic parent</em> of a block is the block from which the current block was executed. Very few programming languages use dynamic scoping (BASH, Perl [optionally] are two examples) because it makes checking the types of variables difficult for the programmer (and impossible for the compiler/interpreter) and because it increases the &ldquo;distance&rdquo; between name/variable binding and use during program execution. However, dynamic binding makes it possible for functions to require fewer parameters because dynamically scoped non local variables can be used in their place.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-fallback" data-lang="fallback">def resolve(name, current_scope) -&gt; variable
-  s = current_scope
-  while (s != InvalidScope)
-    if s.contains(name)
-      return s.variable(name)
-    s = s.dynamic_parent_scope()
-  return NameError
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">resolve</span>(name, current_scope) <span style="color:#f92672">-&gt;</span> variable
+  s <span style="color:#f92672">=</span> current_scope
+  <span style="color:#66d9ef">while</span> (s <span style="color:#f92672">!=</span> InvalidScope)
+    <span style="color:#66d9ef">if</span> s<span style="color:#f92672">.</span>contains(name)
+      <span style="color:#66d9ef">return</span> s<span style="color:#f92672">.</span>variable(name)
+    s <span style="color:#f92672">=</span> s<span style="color:#f92672">.</span>dynamic_parent_scope()
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">NameError</span>
 </code></pre></div><p>For practice doing name/variable binding in a dynamically scoped language, play around with an example in Python: <a href="https://github.com/hawkinsw/cs3003/blob/main/scope%5Flifetime/dynamic%5Fscope.py">dynamic_scope.py</a> . Note that because Python is intrinsically a statically scoped language, the example includes some hacking of the Python interpreter to emulate dynamic scoping. Compare the <code>dynamic</code> in the aforementioned Python code with the <code>resolve</code> function in the pseudocode and see if there are differences!</p>
 <h3 ref="referencing-environment--new-material-alert" >Referencing Environment (New Material Alert)</h3><a class="anchor" id="referencing-environment--new-material-alert"></a>
 <p>The referencing environment of a statement contains all the name/variable bindings visible at that statement. NOTE: The example in the book on page 224 is absolutely horrendous &ndash; disregard it entirely. Consider the example online here: <a href="https://github.com/hawkinsw/cs3003/blob/main/scope%5Flifetime/referencing%5Fenvironment.py">referencing_environment.py</a> . Play around with that code and make sure that you understand why certain variables are in the referencing environment and others are not.</p>

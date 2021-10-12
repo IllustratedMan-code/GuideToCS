@@ -8,7 +8,7 @@
 </title>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2021-10-12T02:30:52 UTC">
+<meta name="revised" content="2021-10-12T19:58:38 UTC">
 <meta name="description" content="">
 
 
@@ -456,6 +456,51 @@
         <ul>
               
 
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-1-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-1-2021/">10/1/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-4-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-4-2021/">10/4/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-6-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-6-2021/">10/6/2021</a>
+      
+        
+      
+    </li>
+              
+
     <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/8-23-2021/" class="dd-item
         item_level_$level
         ">
@@ -546,6 +591,21 @@
     </li>
               
 
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-13-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-13-2021/">9/13/2021</a>
+      
+        
+      
+    </li>
+              
+
     <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-20-2021/" class="dd-item parent active
         item_level_$level
         ">
@@ -585,6 +645,21 @@
       
       
           <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-24-2021/">9/24/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-27-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-27-2021/">9/27/2021</a>
       
         
       
@@ -838,52 +913,52 @@ is v, and τ. Moreover, the premise tells us that the state may have changed dur
 \(\frac{\sigma(x) \rightarrow (v, \tau)} {&lt;\text{Variable}(x), \sigma &gt; \rightarrow (v, \tau, \sigma)}\)
 \end{equation*}</p>
 <p>Compare that with the code for it&rsquo;s implementation in the STIMPL skeleton that you are provided for Assignment 1:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-fallback" data-lang="fallback">def evaluate(expression, state):
-...
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">evaluate</span>(expression, state):
+<span style="color:#f92672">...</span>
 
-    case Variable(variable_name=variable_name):
-      value = state.get_value(variable_name)
-      if value == None:
-        raise InterpSyntaxError(f&#34;Cannot read from {variable_name} before assignment.&#34;)
-      return (*value, state)
+    case Variable(variable_name<span style="color:#f92672">=</span>variable_name):
+      value <span style="color:#f92672">=</span> state<span style="color:#f92672">.</span>get_value(variable_name)
+      <span style="color:#66d9ef">if</span> value <span style="color:#f92672">==</span> <span style="color:#66d9ef">None</span>:
+        <span style="color:#66d9ef">raise</span> InterpSyntaxError(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Cannot read from </span><span style="color:#e6db74">{</span>variable_name<span style="color:#e6db74">}</span><span style="color:#e6db74"> before assignment.&#34;</span>)
+      <span style="color:#66d9ef">return</span> (<span style="color:#f92672">*</span>value, state)
 </code></pre></div><p>At this point in the code we are in a function named evaluate whose first parameter is the next expression to evaluate and whose second parameter is a state. Does that sound familiar? That&rsquo;s because it&rsquo;s the same as a <em>configuration</em>! We use <em>pattern matching</em> to select the code to execute. The pattern is based on the structure of <code>expression</code> and we match in the code above when <code>expression</code> is a variable access. Refer to Pattern Matching in Python for the exact form of the syntax. The <em>state</em> variable is an instance of the <code>State</code> object that provides a method called <code>get_value</code> (see Assignment 1: Implementing STIMPL for more information about that function) that returns a tuple of (v, τ) In other words, get_value works the same as σ. So,</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-fallback" data-lang="fallback">value = state.get_value(variable_name)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-python" data-lang="python">value <span style="color:#f92672">=</span> state<span style="color:#f92672">.</span>get_value(variable_name)
 </code></pre></div><p>is a means of implementing the premise of the operational semantics.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-fallback" data-lang="fallback">      return (*value, state)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-python" data-lang="python">      <span style="color:#66d9ef">return</span> (<span style="color:#f92672">*</span>value, state)
 </code></pre></div><p>yields the final result! Pretty cool, right?</p>
 <p>Let&rsquo;s do the same analysis for assignment:</p>
 <p>\(\frac{&lt;e,\sigma&gt;\longrightarrow(v,\tau,\sigma′),\sigma′(x)\longrightarrow(*,\tau)}{&lt;Assign(Variable(x),e),σ&gt;\longrightarrow(v,\tau,σ′[(v,\tau)/x])}\)</p>
 <p>And here&rsquo;s the implementation:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-fallback" data-lang="fallback">def evaluate(expression, state):
-...
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">evaluate</span>(expression, state):
+<span style="color:#f92672">...</span>
 
-   case Assign(variable=variable, value=value):
+   case Assign(variable<span style="color:#f92672">=</span>variable, value<span style="color:#f92672">=</span>value):
 
-      value_result, value_type, new_state = evaluate(value, state)
+      value_result, value_type, new_state <span style="color:#f92672">=</span> evaluate(value, state)
 
-      variable_from_state = new_state.get_value(variable.variable_name)
-      _, variable_type = variable_from_state if variable_from_state else (None, None)
+      variable_from_state <span style="color:#f92672">=</span> new_state<span style="color:#f92672">.</span>get_value(variable<span style="color:#f92672">.</span>variable_name)
+      _, variable_type <span style="color:#f92672">=</span> variable_from_state <span style="color:#66d9ef">if</span> variable_from_state <span style="color:#66d9ef">else</span> (<span style="color:#66d9ef">None</span>, <span style="color:#66d9ef">None</span>)
 
-      if value_type != variable_type and variable_type != None:
-        raise InterpTypeError(f&#34;&#34;&#34;Mismatched types for Assignment:
-            Cannot assign {value_type} to {variable_type}&#34;&#34;&#34;)
+      <span style="color:#66d9ef">if</span> value_type <span style="color:#f92672">!=</span> variable_type <span style="color:#f92672">and</span> variable_type <span style="color:#f92672">!=</span> <span style="color:#66d9ef">None</span>:
+        <span style="color:#66d9ef">raise</span> InterpTypeError(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;&#34;&#34;Mismatched types for Assignment:
+</span><span style="color:#e6db74">            Cannot assign </span><span style="color:#e6db74">{</span>value_type<span style="color:#e6db74">}</span><span style="color:#e6db74"> to </span><span style="color:#e6db74">{</span>variable_type<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;&#34;&#34;</span>)
 
-      new_state = new_state.set_value(variable.variable_name, value_result, value_type)
-      return (value_result, value_type, new_state)
+      new_state <span style="color:#f92672">=</span> new_state<span style="color:#f92672">.</span>set_value(variable<span style="color:#f92672">.</span>variable_name, value_result, value_type)
+      <span style="color:#66d9ef">return</span> (value_result, value_type, new_state)
 </code></pre></div><p>First, look at</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-fallback" data-lang="fallback">      value_result, value_type, new_state = evaluate(value, state)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-python" data-lang="python">      value_result, value_type, new_state <span style="color:#f92672">=</span> evaluate(value, state)
 </code></pre></div><p>which is how we are able to find the values needed to satisfy the left-hand premise. value_result is v, value_type is τ
 and new_state is σ&rsquo;.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-fallback" data-lang="fallback">      variable_from_state = new_state.get_value(variable.variable_name)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-python" data-lang="python">      variable_from_state <span style="color:#f92672">=</span> new_state<span style="color:#f92672">.</span>get_value(variable<span style="color:#f92672">.</span>variable_name)
 </code></pre></div><p>is how we are able to find the values needed to satisfy the right-hand premise. Notice that we are using new_state (σ') to get variable.variable_name (x). There is some trickiness in_, variable_type = variable_from_state if variable_from_state else (None, None) to set things up in case we are doing the first assignment to the variable (which sets its type), so ignore that for now! Remember that in our premises we guaranteed that the type of the variable in state σ' matches the type of the expression:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-fallback" data-lang="fallback">      if value_type != variable_type and variable_type != None:
-        raise InterpTypeError(f&#34;&#34;&#34;Mismatched types for Assignment:
-            Cannot assign {value_type} to {variable_type}&#34;&#34;&#34;)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-python" data-lang="python">      <span style="color:#66d9ef">if</span> value_type <span style="color:#f92672">!=</span> variable_type <span style="color:#f92672">and</span> variable_type <span style="color:#f92672">!=</span> <span style="color:#66d9ef">None</span>:
+        <span style="color:#66d9ef">raise</span> InterpTypeError(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;&#34;&#34;Mismatched types for Assignment:
+</span><span style="color:#e6db74">            Cannot assign </span><span style="color:#e6db74">{</span>value_type<span style="color:#e6db74">}</span><span style="color:#e6db74"> to </span><span style="color:#e6db74">{</span>variable_type<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;&#34;&#34;</span>)
 </code></pre></div><p>performs that check!</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-fallback" data-lang="fallback">      new_state = new_state.set_value(variable.variable_name, value_result, value_type)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-python" data-lang="python">      new_state <span style="color:#f92672">=</span> new_state<span style="color:#f92672">.</span>set_value(variable<span style="color:#f92672">.</span>variable_name, value_result, value_type)
 </code></pre></div><p>generates a new, new state (σ′[(v,τ)/x]) and</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-fallback" data-lang="fallback">
-      return (value_result, value_type, new_state)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-python" data-lang="python">
+      <span style="color:#66d9ef">return</span> (value_result, value_type, new_state)
 </code></pre></div><p>yields the final result!</p>
 
 		</div>
