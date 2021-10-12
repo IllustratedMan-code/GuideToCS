@@ -4,7 +4,7 @@
 <html>
   <head>
     <title>
-	Useful formulas and references :: David&#39;s Guide to CS
+	9/3/2021 :: David&#39;s Guide to CS
 </title>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -13,7 +13,7 @@
 
 
 
-<title>Useful formulas and references :: David&#39;s Guide to CS</title>
+<title>9/3/2021 :: David&#39;s Guide to CS</title>
 
 <link rel="shortcut icon" href='https://illustratedman-code.github.io/GuideToCS/images/favicon.png' type="image/x-icon" />
 
@@ -54,7 +54,7 @@
     
   </head>
 
-  <body data-url="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/formulas-and-references/"
+  <body data-url="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-3-2021/"
 
   class="">
 
@@ -331,15 +331,14 @@
     </li>
     
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/" class="dd-item parent haschildren
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/" class="dd-item haschildren
         item_level_$level
         ">
 
       
       
       
-      
-          <i class="fas fa-chevron-down ddexp"></i>
+      <i class="fas fa-chevron-right ddexp"></i>
         
       
           <a href="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/">Intro To Comp Systems</a>
@@ -392,7 +391,7 @@
     </li>
               
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/formulas-and-references/" class="dd-item parent active
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/formulas-and-references/" class="dd-item
         item_level_$level
         ">
 
@@ -441,14 +440,15 @@
     </li>
     
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/" class="dd-item haschildren
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/" class="dd-item parent haschildren
         item_level_$level
         ">
 
       
       
       
-      <i class="fas fa-chevron-right ddexp"></i>
+      
+          <i class="fas fa-chevron-down ddexp"></i>
         
       
           <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/">Programming Languages</a>
@@ -531,7 +531,7 @@
     </li>
               
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-3-2021/" class="dd-item
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-3-2021/" class="dd-item parent active
         item_level_$level
         ">
 
@@ -584,8 +584,8 @@
 	
   
     <li class="">
-      <a class="text-link" href="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/">
-        Intro To Comp Systems
+      <a class="text-link" href="https://illustratedman-code.github.io/GuideToCS/programming-languages/">
+        Programming Languages
       </a>
     </li>
 	
@@ -593,7 +593,7 @@
   
     <li class="active">
       
-        Useful formulas and references
+        9/3/2021
       
     </li>
 
@@ -614,7 +614,7 @@
 		
 
 		
-			<h1>Useful formulas and references</h1>
+			<h1>9/3/2021</h1>
         
 
 		
@@ -634,24 +634,15 @@
 		</span>
 		<nav id="TableOfContents">
   <ul>
-    <li><a href="#hard-drives">Hard Drives</a>
+    <li><a href="#scope">Scope</a>
       <ul>
-        <li><a href="#formulas">Formulas</a></li>
+        <li><a href="#static-scoping">Static Scoping</a></li>
+        <li><a href="#consider-this-dot-dot-dot">Consider this &hellip;</a></li>
+        <li><a href="#dynamic-scoping">Dynamic Scoping</a></li>
+        <li><a href="#referencing-environment--new-material-alert">Referencing Environment (New Material Alert)</a></li>
+        <li><a href="#scope-and-lifetime-are-not-the-same--new-material-alert">Scope and Lifetime Are Not the Same (New Material Alert)</a></li>
       </ul>
     </li>
-    <li><a href="#circuit-reference">Circuit reference</a></li>
-    <li><a href="#computer-arithmetic">Computer Arithmetic</a></li>
-    <li><a href="#memory-plus-cache">Memory + Cache</a>
-      <ul>
-        <li><a href="#formulas">Formulas</a></li>
-      </ul>
-    </li>
-    <li><a href="#pipelining">Pipelining</a>
-      <ul>
-        <li><a href="#formulas">Formulas</a></li>
-      </ul>
-    </li>
-    <li><a href="#mips">MIPS</a></li>
   </ul>
 </nav>
 	</div>
@@ -664,110 +655,69 @@
 
 
 	<div class="content">
-	    <h2 ref="hard-drives" >Hard Drives</h2><a class="anchor" id="hard-drives"></a>
-<p><a href="https://www.gatevidyalay.com/magnetic-disk-secondary-memory-coa/">Hard Drive Website</a>
-<a href="https://illustratedman-code.github.io/GuideToCS/ox-hugo/MagneticDisk.pdf">Hard Drive Document from nitin</a></p>
-<h3 ref="formulas" >Formulas</h3><a class="anchor" id="formulas"></a>
-<ul>
-<li><code>Disk access time</code> = Seek Time + Rotational delay + Transfer time + Controller overhead + Queuing delay</li>
-<li><code>Average Disk Access</code> Time = Average seek time + Average rotational delay + Transfer time + Controller overhead + Queuing delay</li>
-<li><code>Average Seek Time</code> = 1/3 * Time taken for one full stroke
-<ul>
-<li>(Time taken to move from track 1 to track 1 + Time taken to move from track 1 to last track)/2</li>
-<li>{0 + (k-1)t}/2</li>
-<li>(k-1)t/2</li>
-</ul>
-</li>
-<li><code>Average Rotational Latency</code> = 1/2 * Time taken for one full rotation</li>
-<li><code>Capacity of disk pack</code> = Total number of surfaces * Number of tracks per surface * Number of sectors per track * storage capacity of one sector</li>
-<li><code>Formatting Overhead</code> = Number of sectors * Overhead per sector</li>
-<li><code>Formatted Disk Space</code> = Total disk space or capacity - formatting overhead</li>
-<li><code>Recording density or storage density</code> = Capacity of track / circumference of the track</li>
-<li><code>Track Capacity</code> = Recording density of the track * Circumference of the track</li>
-<li><code>Data Transfer Rate</code> = Number of heads * Bytes that can be read in one full rotation * Number of rotations in one second = Number of heads * Capacity of one track * Number of rotations in one second</li>
-<li>Tracks per surface = (Outer radius - Inner radius) / Inter Track gap</li>
-</ul>
-<h2 ref="circuit-reference" >Circuit reference</h2><a class="anchor" id="circuit-reference"></a>
-<ul>
-<li>Logic Gates
-<img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/logicGates.png" alt=""></li>
-<li>Full Adder</li>
-</ul>
-<figure><img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/fullAdder.png"/>
-</figure>
+	    <p>Welcome to The Daily PL for 9/3/2021. We spent most of Friday reviewing material from Episode 1 of PL After Dark and going over scoping examples in C++ and Python. Before continuing, make sure that you have viewed Episode 1 of PL After Dark.</p>
+<h2 ref="scope" >Scope</h2><a class="anchor" id="scope"></a>
+<p>We briefly discussed the difference between local and global scope.</p>
+<p>It is easy to get fooled into thinking that a variable&rsquo;s name is intrinsic to the variable. However, a variable&rsquo;s name is just another binding like address, storage, value, etc.</p>
+<p>As a programmer, when a variable is local determining the name/variable binding is straightforward. Determining the name/variable binding becomes more complicated (and more important) when source code uses a non-local name to reference a variable. In cases like this, determining the name/variable binding depends on whether the language is statically or dynamically scoped.</p>
+<h3 ref="static-scoping" >Static Scoping</h3><a class="anchor" id="static-scoping"></a>
+<p>This is sometimes also known as <em>lexical scoping</em>. <em>Static scoping</em> is the type of scope that can be determined using only the program&rsquo;s source code. In a statically scoped programming language, determining the name/variable binding is done iteratively by searching through a <em>block</em>&rsquo;s nesting <em>static parents</em>. A <em>block</em> is a section of code with its own scope (in Python that is a function or a class and in C/C++ that is statements enclosed in a pair of {}s). The static parent of a block is the block in which the current block was declared. The list of static parents of a block are the block&rsquo;s static ancestors.</p>
+<p>Here is pseudocode for the algorithm of determining the name/variable binding in a statically scoped programming language:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-fallback" data-lang="fallback">def resolve(name, current_scope) -&gt; variable
+  s = current_scope
+  while (s != InvalidScope)
+    if s.contains(name)
+      return s.variable(name)
+    s = s.static_parent_scope()
+  return NameError
+</code></pre></div><p>For practice doing name/variable binding in a statically scoped language, play around with an example in Python: <a href="https://github.com/hawkinsw/cs3003/blob/main/scope%5Flifetime/static%5Fscope.py">static_scope.py</a></p>
+<h3 ref="consider-this-dot-dot-dot" >Consider this &hellip;</h3><a class="anchor" id="consider-this-dot-dot-dot"></a>
+<p>Python and C++ have different ways of creating scopes. In Python and C++ a new scope is created at the beginning of a function definition (and that scope contains the function&rsquo;s parameters automatically). However, Python and C++ differ in the way that scopes are declared (or not!) for variables used in loops. Consider the following Python and C++ code (also available at <a href="https://github.com/hawkinsw/cs3003/blob/main/scope%5Flifetime/loop%5Fscope.cpp">loop_scope.cpp</a> and <a href="https://github.com/hawkinsw/cs3003/blob/main/scope%5Flifetime/loop%5Fscope.py">loop_scope.py</a> :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-fallback" data-lang="fallback">def f():
+  for i in range(1, 10):
+    print(f&#34;i (in loop body): {i}&#34;)
+  print(f&#34;i (outside loop body): {i}&#34;)
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">f</span>() {
+  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">10</span>; i<span style="color:#f92672">++</span>) {
+    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;i: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> i <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+  }
 
-<h2 ref="computer-arithmetic" >Computer Arithmetic</h2><a class="anchor" id="computer-arithmetic"></a>
-<p><a href="https://illustratedman-code.github.io/GuideToCS/ox-hugo/Computer%20Arithemtic.pdf">Computer arithemetic document from nitin</a></p>
-<h2 ref="memory-plus-cache" >Memory + Cache</h2><a class="anchor" id="memory-plus-cache"></a>
-<ul>
-<li><a href="https://upscfever.com/upsc-fever/en/gatecse/en-gatecse-chp166.html#:~:text=Memory%20Connection%20to%20CPU,through%20its%20chip%20select%20inputs.&amp;text=When%2001%2C%20the%20second%20RAM,is%20selected%2C%20and%20so%20on">Main Memory and Organization</a> : credit to Robbie Schad</li>
-<li><a href="https://illustratedman-code.github.io/GuideToCS/ox-hugo/notes_cache.pdf">Cache Notes</a></li>
-<li><a href="https://illustratedman-code.github.io/GuideToCS/ox-hugo/Direct%20Mapping%20Examples.pdf">Direct Mapping Examples</a></li>
-<li><a href="https://illustratedman-code.github.io/GuideToCS/ox-hugo/Fully%20Associative%20Mapping%20Examples.pdf">Fully Associative Mapping Examples</a></li>
-<li><a href="https://illustratedman-code.github.io/GuideToCS/ox-hugo/Set%20Associative%20Mapping%20Examples.pdf">Set Associate Mapping Examples</a></li>
-</ul>
-<h3 ref="formulas" >Formulas</h3><a class="anchor" id="formulas"></a>
-<h4 ref="direct-mapped-cache" >Direct mapped cache</h4><a class="anchor" id="direct-mapped-cache"></a>
-<ul>
-<li>physical address size (bits) = TAG + Line Number + Block/Line Offset</li>
-<li>\(\text{MM(size in bytes)} = 2^{\text{number Of Bits In Physical Address}} * 2^3\)</li>
-<li>\(\text{BlockOffset(size in bytes)} = 2^{\text{Bits In Block Offset}} * 2^3 \)</li>
-<li>\(\text{number of lines} = 2^{\text{bits in line number}} = \frac{\text{Cache size}}{\text{Line Size}} \)</li>
-<li>\(\text{tag directory size} = \text{number of lines in cache * Number of bits in tag} = \text{Number of Tags} * \text{Tag size} \)</li>
-</ul>
-<h4 ref="set-associative-mapped-cache" >Set Associative Mapped cache</h4><a class="anchor" id="set-associative-mapped-cache"></a>
-<ul>
-<li>physical address size (bits) = TAG + Set Number + Block/line Offset</li>
-<li>\(2^\text{Set Number (bits)} = \frac{\text{Lines in cache}}{\text{Number of sets}}\)</li>
-</ul>
-<h4 ref="fully-associative-cache" >Fully associative cache</h4><a class="anchor" id="fully-associative-cache"></a>
-<ul>
-<li>physical address size (bits) = TAG + Block offset</li>
-</ul>
-<h2 ref="pipelining" >Pipelining</h2><a class="anchor" id="pipelining"></a>
-<p><a href="https://illustratedman-code.github.io/GuideToCS/ox-hugo/Pipelining%20in%20Computer%20Architecture.pdf">pipelining document from nitin</a></p>
-<h3 ref="formulas" >Formulas</h3><a class="anchor" id="formulas"></a>
-<ul>
-<li>
-<p>\(\text{Speed Up (S)} = \frac{\text{Non-pipelined execution time}}{\text{Pipelined execution time}}\)</p>
-</li>
-<li>
-<p>\(\text{Efficiency} = \frac{\text{Speed Up}}{\text{Number of stages in Pipelined Architecture}}\)</p>
-</li>
-<li>
-<p>\(\text{Efficiency} = \frac{\text{Number of boxes utilized in phase time diagram}}{\text{Number of boxes in phase time diagram}}\)</p>
-</li>
-<li>
-<p>\(\text{Throughput} = \frac{\text{Number of instructions executed}}{\text{Total time taken}}\)</p>
-</li>
-<li>
-<p>Non-pipelined execution time = Total number of instructions * Time taken to execute one instruction = n * k clock cycles</p>
-</li>
-<li>
-<p>Pipelined execution time</p>
-<p>= Time taken to execute first instruction + Time take to execute remaining instructions</p>
-<p>= 1 * k clock cycles + (n-1) * 1 clock cycle</p>
-<p>= (k + n-1) clock cycles</p>
-</li>
-<li>
-<p><code>Cycle time</code> = Maximum delay due to any stage + Delay due to its register</p>
-</li>
-<li>
-<p><code>delay due to its register</code> = <code>latch delay</code></p>
-</li>
-<li>
-<p>pipeline time for x tasks = Time taken for 1st task + Time taken for remaining tasks</p>
-<p>= number of phases * cycle time + (total tasks -1) * cycle time</p>
-</li>
-</ul>
-<h2 ref="mips" >MIPS</h2><a class="anchor" id="mips"></a>
-<ul>
-<li><a href="https://illustratedman-code.github.io/GuideToCS/ox-hugo/MIPS-Theory.pdf">Mips Theory</a></li>
-<li><a href="https://inst.eecs.berkeley.edu/~cs61c/resources/MIPS%5Fhelp.html">Mips Reference from Berkeley</a></li>
-<li><a href="http://www.cburch.com/cs/330/reading/mips-ref.pdf">Mips Reference from Cburch</a></li>
-<li><a href="https://illustratedman-code.github.io/GuideToCS/ox-hugo/mips-datapath.png">MIPS DATAPATH</a></li>
-<li><a href="https://illustratedman-code.github.io/GuideToCS/ox-hugo/mips-datapath-pipelined.png">MIPS PIPELINED DATAPATH</a></li>
-</ul>
+  <span style="color:#75715e">// The following statement will cause a compilation error
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// because i is local to the code in the body of the for
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// loop.
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// std::cout &lt;&lt; &#34;i: &#34; &lt;&lt; i &lt;&lt; &#34;\n&#34;;
+</span><span style="color:#75715e"></span>}
+</code></pre></div><p>In the C++ code, the <code>for</code> loop introduces a new scope and <code>i</code> is in that scope. In the Python code, the <code>for</code> loop does not introduce a new scope and <code>i</code> is in the scope of <code>f</code>. Try to run the following Python code also available here at <a href="https://github.com/hawkinsw/cs3003/blob/main/scope%5Flifetime/loop%5Fscope%5Ferror.py">loop_scope_error.py</a> to see why this distinction is important:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-fallback" data-lang="fallback">def f():
+  print(f&#34;i (outside loop body): {i}&#34;)
+  for i in range(1, 10):
+    print(f&#34;i (in loop body): {i}&#34;)
+</code></pre></div><h3 ref="dynamic-scoping" >Dynamic Scoping</h3><a class="anchor" id="dynamic-scoping"></a>
+<p><em>Dynamic scoping</em> is the type of scope that can be determined only during program execution. In a dynamically scoped programming language, determining the name/value binding is done iteratively by searching through a block&rsquo;s nesting dynamic parents. The <em>dynamic parent</em> of a block is the block from which the current block was executed. Very few programming languages use dynamic scoping (BASH, Perl [optionally] are two examples) because it makes checking the types of variables difficult for the programmer (and impossible for the compiler/interpreter) and because it increases the &ldquo;distance&rdquo; between name/variable binding and use during program execution. However, dynamic binding makes it possible for functions to require fewer parameters because dynamically scoped non local variables can be used in their place.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-fallback" data-lang="fallback">def resolve(name, current_scope) -&gt; variable
+  s = current_scope
+  while (s != InvalidScope)
+    if s.contains(name)
+      return s.variable(name)
+    s = s.dynamic_parent_scope()
+  return NameError
+</code></pre></div><p>For practice doing name/variable binding in a dynamically scoped language, play around with an example in Python: <a href="https://github.com/hawkinsw/cs3003/blob/main/scope%5Flifetime/dynamic%5Fscope.py">dynamic_scope.py</a> . Note that because Python is intrinsically a statically scoped language, the example includes some hacking of the Python interpreter to emulate dynamic scoping. Compare the <code>dynamic</code> in the aforementioned Python code with the <code>resolve</code> function in the pseudocode and see if there are differences!</p>
+<h3 ref="referencing-environment--new-material-alert" >Referencing Environment (New Material Alert)</h3><a class="anchor" id="referencing-environment--new-material-alert"></a>
+<p>The referencing environment of a statement contains all the name/variable bindings visible at that statement. NOTE: The example in the book on page 224 is absolutely horrendous &ndash; disregard it entirely. Consider the example online here: <a href="https://github.com/hawkinsw/cs3003/blob/main/scope%5Flifetime/referencing%5Fenvironment.py">referencing_environment.py</a> . Play around with that code and make sure that you understand why certain variables are in the referencing environment and others are not.</p>
+<p>In case you think that this is theoretical and not useful to you as a real, practicing programmer, take a look at the official documentation of the Python execution model and see how the language relies on the concept of referencing environments: <a href="https://docs.python.org/3/reference/executionmodel.html#naming-and-binding">naming-and-binding</a> .</p>
+<h3 ref="scope-and-lifetime-are-not-the-same--new-material-alert" >Scope and Lifetime Are Not the Same (New Material Alert)</h3><a class="anchor" id="scope-and-lifetime-are-not-the-same--new-material-alert"></a>
+<p>It is common for programmers to think that the scope and the lifetime of a variable are the same. However, this is not always true. Consider the following code in C++ (also available at <a href="https://github.com/hawkinsw/cs3003/blob/main/scope%5Flifetime/scope%5Fne%5Flifetime.cpp">scope_new_lifetime.cpp</a>)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">f</span>(<span style="color:#66d9ef">void</span>) {
+  <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> variable <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>;
+}
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+  f();
+  <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><p>In this program, the scope of variable is limited to the function f. However, the lifetime of variable is the entire program. Just something to keep in mind when you are programming!</p>
 
 		</div>
 
@@ -778,10 +728,10 @@
 
 	 
 	<div class="chevrons">
-		<a class="next" href="https://illustratedman-code.github.io/GuideToCS/phys2001/" title="PHYS2001" style="margin-right: 0px;">
+		<a class="next" href="https://illustratedman-code.github.io/GuideToCS/programming-languages/8-23-2021/" title="8/23/2021" style="margin-right: 0px;">
             <div>
                 <p>Next page</p>
-                <label>PHYS2001</label>
+                <label>8/23/2021</label>
             </div>
             <i class="fas fa-arrow-right" style="font-size: 1.7em"></i></a>
 	</div>
@@ -806,29 +756,20 @@
     <label><i class="fas fa-align-right"></i>&nbsp;&nbsp;What&#39;s on this page</label>
     <nav>
         <ul >
-            <li><a href="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/formulas-and-references/">Useful formulas and references</a></li>
+            <li><a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-3-2021/">9/3/2021</a></li>
         </ul>
     </nav>
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#hard-drives">Hard Drives</a>
+    <li><a href="#scope">Scope</a>
       <ul>
-        <li><a href="#formulas">Formulas</a></li>
+        <li><a href="#static-scoping">Static Scoping</a></li>
+        <li><a href="#consider-this-dot-dot-dot">Consider this &hellip;</a></li>
+        <li><a href="#dynamic-scoping">Dynamic Scoping</a></li>
+        <li><a href="#referencing-environment--new-material-alert">Referencing Environment (New Material Alert)</a></li>
+        <li><a href="#scope-and-lifetime-are-not-the-same--new-material-alert">Scope and Lifetime Are Not the Same (New Material Alert)</a></li>
       </ul>
     </li>
-    <li><a href="#circuit-reference">Circuit reference</a></li>
-    <li><a href="#computer-arithmetic">Computer Arithmetic</a></li>
-    <li><a href="#memory-plus-cache">Memory + Cache</a>
-      <ul>
-        <li><a href="#formulas">Formulas</a></li>
-      </ul>
-    </li>
-    <li><a href="#pipelining">Pipelining</a>
-      <ul>
-        <li><a href="#formulas">Formulas</a></li>
-      </ul>
-    </li>
-    <li><a href="#mips">MIPS</a></li>
   </ul>
 </nav>
 </div>

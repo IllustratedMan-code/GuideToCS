@@ -4,7 +4,7 @@
 <html>
   <head>
     <title>
-	Useful formulas and references :: David&#39;s Guide to CS
+	9/1/2021 :: David&#39;s Guide to CS
 </title>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -13,7 +13,7 @@
 
 
 
-<title>Useful formulas and references :: David&#39;s Guide to CS</title>
+<title>9/1/2021 :: David&#39;s Guide to CS</title>
 
 <link rel="shortcut icon" href='https://illustratedman-code.github.io/GuideToCS/images/favicon.png' type="image/x-icon" />
 
@@ -54,7 +54,7 @@
     
   </head>
 
-  <body data-url="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/formulas-and-references/"
+  <body data-url="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-1-2021/"
 
   class="">
 
@@ -331,15 +331,14 @@
     </li>
     
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/" class="dd-item parent haschildren
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/" class="dd-item haschildren
         item_level_$level
         ">
 
       
       
       
-      
-          <i class="fas fa-chevron-down ddexp"></i>
+      <i class="fas fa-chevron-right ddexp"></i>
         
       
           <a href="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/">Intro To Comp Systems</a>
@@ -392,7 +391,7 @@
     </li>
               
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/formulas-and-references/" class="dd-item parent active
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/formulas-and-references/" class="dd-item
         item_level_$level
         ">
 
@@ -441,14 +440,15 @@
     </li>
     
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/" class="dd-item haschildren
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/" class="dd-item parent haschildren
         item_level_$level
         ">
 
       
       
       
-      <i class="fas fa-chevron-right ddexp"></i>
+      
+          <i class="fas fa-chevron-down ddexp"></i>
         
       
           <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/">Programming Languages</a>
@@ -516,7 +516,7 @@
     </li>
               
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-1-2021/" class="dd-item
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-1-2021/" class="dd-item parent active
         item_level_$level
         ">
 
@@ -584,8 +584,8 @@
 	
   
     <li class="">
-      <a class="text-link" href="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/">
-        Intro To Comp Systems
+      <a class="text-link" href="https://illustratedman-code.github.io/GuideToCS/programming-languages/">
+        Programming Languages
       </a>
     </li>
 	
@@ -593,7 +593,7 @@
   
     <li class="active">
       
-        Useful formulas and references
+        9/1/2021
       
     </li>
 
@@ -614,7 +614,7 @@
 		
 
 		
-			<h1>Useful formulas and references</h1>
+			<h1>9/1/2021</h1>
         
 
 		
@@ -634,24 +634,14 @@
 		</span>
 		<nav id="TableOfContents">
   <ul>
-    <li><a href="#hard-drives">Hard Drives</a>
+    <li><a href="#binding-example">Binding Example</a></li>
+    <li><a href="#variables-storage-bindings">Variables' Storage Bindings</a></li>
+    <li><a href="#variables-name-bindings">Variables' Name Bindings</a>
       <ul>
-        <li><a href="#formulas">Formulas</a></li>
+        <li><a href="#static-scoping">Static Scoping</a></li>
+        <li><a href="#dynamic-scoping">Dynamic Scoping</a></li>
       </ul>
     </li>
-    <li><a href="#circuit-reference">Circuit reference</a></li>
-    <li><a href="#computer-arithmetic">Computer Arithmetic</a></li>
-    <li><a href="#memory-plus-cache">Memory + Cache</a>
-      <ul>
-        <li><a href="#formulas">Formulas</a></li>
-      </ul>
-    </li>
-    <li><a href="#pipelining">Pipelining</a>
-      <ul>
-        <li><a href="#formulas">Formulas</a></li>
-      </ul>
-    </li>
-    <li><a href="#mips">MIPS</a></li>
   </ul>
 </nav>
 	</div>
@@ -664,110 +654,78 @@
 
 
 	<div class="content">
-	    <h2 ref="hard-drives" >Hard Drives</h2><a class="anchor" id="hard-drives"></a>
-<p><a href="https://www.gatevidyalay.com/magnetic-disk-secondary-memory-coa/">Hard Drive Website</a>
-<a href="https://illustratedman-code.github.io/GuideToCS/ox-hugo/MagneticDisk.pdf">Hard Drive Document from nitin</a></p>
-<h3 ref="formulas" >Formulas</h3><a class="anchor" id="formulas"></a>
-<ul>
-<li><code>Disk access time</code> = Seek Time + Rotational delay + Transfer time + Controller overhead + Queuing delay</li>
-<li><code>Average Disk Access</code> Time = Average seek time + Average rotational delay + Transfer time + Controller overhead + Queuing delay</li>
-<li><code>Average Seek Time</code> = 1/3 * Time taken for one full stroke
-<ul>
-<li>(Time taken to move from track 1 to track 1 + Time taken to move from track 1 to last track)/2</li>
-<li>{0 + (k-1)t}/2</li>
-<li>(k-1)t/2</li>
-</ul>
-</li>
-<li><code>Average Rotational Latency</code> = 1/2 * Time taken for one full rotation</li>
-<li><code>Capacity of disk pack</code> = Total number of surfaces * Number of tracks per surface * Number of sectors per track * storage capacity of one sector</li>
-<li><code>Formatting Overhead</code> = Number of sectors * Overhead per sector</li>
-<li><code>Formatted Disk Space</code> = Total disk space or capacity - formatting overhead</li>
-<li><code>Recording density or storage density</code> = Capacity of track / circumference of the track</li>
-<li><code>Track Capacity</code> = Recording density of the track * Circumference of the track</li>
-<li><code>Data Transfer Rate</code> = Number of heads * Bytes that can be read in one full rotation * Number of rotations in one second = Number of heads * Capacity of one track * Number of rotations in one second</li>
-<li>Tracks per surface = (Outer radius - Inner radius) / Inter Track gap</li>
-</ul>
-<h2 ref="circuit-reference" >Circuit reference</h2><a class="anchor" id="circuit-reference"></a>
-<ul>
-<li>Logic Gates
-<img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/logicGates.png" alt=""></li>
-<li>Full Adder</li>
-</ul>
-<figure><img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/fullAdder.png"/>
-</figure>
-
-<h2 ref="computer-arithmetic" >Computer Arithmetic</h2><a class="anchor" id="computer-arithmetic"></a>
-<p><a href="https://illustratedman-code.github.io/GuideToCS/ox-hugo/Computer%20Arithemtic.pdf">Computer arithemetic document from nitin</a></p>
-<h2 ref="memory-plus-cache" >Memory + Cache</h2><a class="anchor" id="memory-plus-cache"></a>
-<ul>
-<li><a href="https://upscfever.com/upsc-fever/en/gatecse/en-gatecse-chp166.html#:~:text=Memory%20Connection%20to%20CPU,through%20its%20chip%20select%20inputs.&amp;text=When%2001%2C%20the%20second%20RAM,is%20selected%2C%20and%20so%20on">Main Memory and Organization</a> : credit to Robbie Schad</li>
-<li><a href="https://illustratedman-code.github.io/GuideToCS/ox-hugo/notes_cache.pdf">Cache Notes</a></li>
-<li><a href="https://illustratedman-code.github.io/GuideToCS/ox-hugo/Direct%20Mapping%20Examples.pdf">Direct Mapping Examples</a></li>
-<li><a href="https://illustratedman-code.github.io/GuideToCS/ox-hugo/Fully%20Associative%20Mapping%20Examples.pdf">Fully Associative Mapping Examples</a></li>
-<li><a href="https://illustratedman-code.github.io/GuideToCS/ox-hugo/Set%20Associative%20Mapping%20Examples.pdf">Set Associate Mapping Examples</a></li>
-</ul>
-<h3 ref="formulas" >Formulas</h3><a class="anchor" id="formulas"></a>
-<h4 ref="direct-mapped-cache" >Direct mapped cache</h4><a class="anchor" id="direct-mapped-cache"></a>
-<ul>
-<li>physical address size (bits) = TAG + Line Number + Block/Line Offset</li>
-<li>\(\text{MM(size in bytes)} = 2^{\text{number Of Bits In Physical Address}} * 2^3\)</li>
-<li>\(\text{BlockOffset(size in bytes)} = 2^{\text{Bits In Block Offset}} * 2^3 \)</li>
-<li>\(\text{number of lines} = 2^{\text{bits in line number}} = \frac{\text{Cache size}}{\text{Line Size}} \)</li>
-<li>\(\text{tag directory size} = \text{number of lines in cache * Number of bits in tag} = \text{Number of Tags} * \text{Tag size} \)</li>
-</ul>
-<h4 ref="set-associative-mapped-cache" >Set Associative Mapped cache</h4><a class="anchor" id="set-associative-mapped-cache"></a>
-<ul>
-<li>physical address size (bits) = TAG + Set Number + Block/line Offset</li>
-<li>\(2^\text{Set Number (bits)} = \frac{\text{Lines in cache}}{\text{Number of sets}}\)</li>
-</ul>
-<h4 ref="fully-associative-cache" >Fully associative cache</h4><a class="anchor" id="fully-associative-cache"></a>
-<ul>
-<li>physical address size (bits) = TAG + Block offset</li>
-</ul>
-<h2 ref="pipelining" >Pipelining</h2><a class="anchor" id="pipelining"></a>
-<p><a href="https://illustratedman-code.github.io/GuideToCS/ox-hugo/Pipelining%20in%20Computer%20Architecture.pdf">pipelining document from nitin</a></p>
-<h3 ref="formulas" >Formulas</h3><a class="anchor" id="formulas"></a>
-<ul>
+	    <p>Welcome to the Daily PL for September 1st, 2021! As we turn the page from August to September, we started the month discussing variable lifetime and scope. Lifetime is related to the storage binding and scope is related to the name binding. Before we learned that new material, however, we went over an example of the different bindings and their times in an assignment statement.</p>
+<h2 ref="binding-example" >Binding Example</h2><a class="anchor" id="binding-example"></a>
+<p>Consider a Python statement like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-fallback" data-lang="fallback">vrb = arb + 5
+</code></pre></div><p>Recall that a binding is an association between an attribute and an entity. What are some of the possible bindings (and their times) in the statement above?</p>
+<ol>
+<li>The symbol + (entity) must be bound to an operation (attribute). In a language like Python, that binding can only be done at runtime. In order to determine whether the operation is a mathematical addition, a string concatenation or some other behavior, the interpreter needs to know the type of arb which is only possible at runtime.</li>
+<li>The numerical literal 5 (entity) must be bound to some in-memory representation (attribute). For Python, it appears that the interpreter chooses the format for representing numbers in memory (<a href="https://docs.python.org/3/library/sys.html#sys.int%5Finfo">https://docs.python.org/3/library/sys.html#sys.int%5Finfo</a> (Links to an external site.), <a href="https://docs.python.org/3/library/sys.html#sys.float%5Finfo">https://docs.python.org/3/library/sys.html#sys.float%5Finfo</a> (Links to an external site.)) which means that this binding is done at the time of language implementation.</li>
+<li>The value (attribute) of the variables <code>vrb</code> and <code>arb</code> (entities) are bound at runtime. Remember that the value of a variable is just another binding.</li>
+</ol>
+<p>This is not an exhaustive list of the bindings that are active for this statement. In particular, the variables <code>vrb</code> and <code>arb</code> must be bound to some address, lifetime and scope. Discussing those bindings requires more information about the statement&rsquo;s place in the source code.</p>
+<h2 ref="variables-storage-bindings" >Variables' Storage Bindings</h2><a class="anchor" id="variables-storage-bindings"></a>
+<p>The storage binding is related to the variable&rsquo;s lifetime (the time during which a variable is bound to memory). There are four common lifetimes:</p>
+<ol>
 <li>
-<p>\(\text{Speed Up (S)} = \frac{\text{Non-pipelined execution time}}{\text{Pipelined execution time}}\)</p>
+<p>static: Variable is bound to storage before execution and remains bound to the same storage throughout program execution.</p>
+<ol>
+<li>Variables with static storage binding cannot share memory with other variables (they need their storage throughout execution).</li>
+<li>Variables with static storage binding can be accessed directly (in other words, their access does not require redirection through a pointer) because the address of their storage is constant throughout execution. Direct addressing means that accesses are faster.</li>
+<li>Storage for variables with static binding does not need to be repeatedly allocated and deallocated throughout execution &ndash; this will make program execution faster.</li>
+<li>In C++, variables with static storage binding are declared using the <code>static</code> keyword inside functions and classes.</li>
+<li>Variables with static storage binding are sometimes referred to as history sensitive because they retain their value throughout execution.</li>
+</ol>
 </li>
 <li>
-<p>\(\text{Efficiency} = \frac{\text{Speed Up}}{\text{Number of stages in Pipelined Architecture}}\)</p>
+<p>stack dynamic: Variable is bound to storage when it&rsquo;s declaration statements are elaborated (the time when a declaration statement is executed).</p>
+<ol>
+<li>Variables with stack dynamic storage bindings make recursion possible because their storage is allocated anew every time that their declaration is elaborated. To fully understand this point it is necessary to understand the way that function invocation is handled using a runtime stack. We will cover this topic next week. Stay tuned!</li>
+<li>Variables with stack dynamic storage bindings cannot be directly accessed. Accesses must be made through an intermediary which makes them slower. Again, this will make more sense when we discuss the typical mechanism for function invocation.</li>
+<li>The storage for variables with stack dynamic storage bindings are constantly allocated and deallocated which adds to runtime overhead.</li>
+</ol>
+<p>Variables with stack dynamic storage bindings are not history sensitive.</p>
 </li>
 <li>
-<p>\(\text{Efficiency} = \frac{\text{Number of boxes utilized in phase time diagram}}{\text{Number of boxes in phase time diagram}}\)</p>
+<p>Explicit heap dynamic: Variable is bound to storage by explicit instruction from the programmer. E.g., <code>new</code> / <code>malloc</code> in C/C++.</p>
+<ol>
+<li>The binding to storage is done at runtime when these explicit instructions are executed.</li>
+<li>The storage sizes can be customized for the use.</li>
+<li>The storage is hard to manage and requires careful attention from the programmer.</li>
+<li>The storage for variables with explicit heap dynamic storage bindings are constantly allocated and deallocated which adds to runtime overhead.</li>
+</ol>
 </li>
 <li>
-<p>\(\text{Throughput} = \frac{\text{Number of instructions executed}}{\text{Total time taken}}\)</p>
+<p>Implicit heap dynamic: Variable is bound to storage when it is assigned a value at runtime.</p>
+<ol>
+<li>All storage bindings for variables in Python are handled in this way. <a href="https://docs.python.org/3/c-api/memory.html">https://docs.python.org/3/c-api/memory.html</a> (Links to an external site.)</li>
+<li>When a variable with implicit heap dynamic storage bindings is assigned a value, storage for that variable is dynamically allocated.</li>
+<li>Allocation and deallocation of storage for variables with implicit heap dynamic storage bindings is handled automatically by the language compiler/interpreter. (More on this when we discuss memory management techniques in Module 3).</li>
+</ol>
 </li>
-<li>
-<p>Non-pipelined execution time = Total number of instructions * Time taken to execute one instruction = n * k clock cycles</p>
-</li>
-<li>
-<p>Pipelined execution time</p>
-<p>= Time taken to execute first instruction + Time take to execute remaining instructions</p>
-<p>= 1 * k clock cycles + (n-1) * 1 clock cycle</p>
-<p>= (k + n-1) clock cycles</p>
-</li>
-<li>
-<p><code>Cycle time</code> = Maximum delay due to any stage + Delay due to its register</p>
-</li>
-<li>
-<p><code>delay due to its register</code> = <code>latch delay</code></p>
-</li>
-<li>
-<p>pipeline time for x tasks = Time taken for 1st task + Time taken for remaining tasks</p>
-<p>= number of phases * cycle time + (total tasks -1) * cycle time</p>
-</li>
-</ul>
-<h2 ref="mips" >MIPS</h2><a class="anchor" id="mips"></a>
+</ol>
+<h2 ref="variables-name-bindings" >Variables' Name Bindings</h2><a class="anchor" id="variables-name-bindings"></a>
+<p>See the Pl for the <a href="https://uc.instructure.com/courses/1476336/pages/the-daily-pl-9-slash-1-slash-2021?module%5Fitem%5Fid=65306283">Video</a>.</p>
+<p>This new material is presented above as Episode 1 of PL After Dark. Below you will find a written recap!</p>
+<p>Scope is the range of statements in which a variable is visible (either referencable or assignable). Using the vocabulary of bindings, scope can also be defined as the collection of statements which can access a name binding. In other words, scope determines the binding of a name to a variable.</p>
+<p>It is easy to get fooled into thinking that a variable&rsquo;s name is intrinsic to the variable. However, a variable&rsquo;s name is just another binding like address, storage, value, etc. There are two scopes that most languages employ:</p>
 <ul>
-<li><a href="https://illustratedman-code.github.io/GuideToCS/ox-hugo/MIPS-Theory.pdf">Mips Theory</a></li>
-<li><a href="https://inst.eecs.berkeley.edu/~cs61c/resources/MIPS%5Fhelp.html">Mips Reference from Berkeley</a></li>
-<li><a href="http://www.cburch.com/cs/330/reading/mips-ref.pdf">Mips Reference from Cburch</a></li>
-<li><a href="https://illustratedman-code.github.io/GuideToCS/ox-hugo/mips-datapath.png">MIPS DATAPATH</a></li>
-<li><a href="https://illustratedman-code.github.io/GuideToCS/ox-hugo/mips-datapath-pipelined.png">MIPS PIPELINED DATAPATH</a></li>
+<li>local: A variable is locally scoped to a unit or block of a program if it is declared there. In Python, a variable that is the subject of an assignment is local to the immediate enclosing function definition. For instance, in</li>
 </ul>
+<!--listend-->
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-fallback" data-lang="fallback">def add(a, b):
+    total = a + b
+    return total
+</code></pre></div><p><code>total</code> is a local variable.</p>
+<ul>
+<li>global: A variable is globally scoped when it is not in any local scope (terribly unhelpful, isn&rsquo;t it?) Using global variables breaks the principles of encapsulation and data hiding.</li>
+</ul>
+<p>For a variable that is used that is not local, the compiler/interpreter must determine to which variable the name refers. Determining the name/variable binding can be done statically or dynamically:</p>
+<h3 ref="static-scoping" >Static Scoping</h3><a class="anchor" id="static-scoping"></a>
+<p>This is sometimes also known as <em>lexical scoping</em>. Static scoping is the type of scope that can be determined using only the program&rsquo;s source code. In a statically scoped programming language, determining the name/variable binding is done iteratively by searching through a block&rsquo;s nesting <em>static parents</em>. A <em>block</em> is a section of code with its own scope (in Python that is a function or a class and in C/C++ that is statements enclosed in a pair of {}s). The <em>static parent</em> of a block is the block in which the current block was declared. The list of static parents of a block are the block&rsquo;s <em>static ancestors</em>.</p>
+<h3 ref="dynamic-scoping" >Dynamic Scoping</h3><a class="anchor" id="dynamic-scoping"></a>
+<p><em>Dynamic scoping</em> is the type of scope that can be determined only during program execution. In a dynamically scoped programming language, determining the name/value binding is done iteratively by searching through a block&rsquo;s nesting <em>dynamic parents</em>. The <em>dynamic parent</em> of a block is the block from which the current block was executed. Very few programming languages use dynamic scoping (BASH, PERL [optionally]) because it makes checking the types of variables difficult for the programmer (and impossible for the compiler/interpreter) and because it increases the &ldquo;distance&rdquo; between name/variable binding and use during program execution. However, dynamic binding makes it possible for functions to require fewer parameters because dynamically scoped non local variables can be used in their place.</p>
 
 		</div>
 
@@ -778,10 +736,10 @@
 
 	 
 	<div class="chevrons">
-		<a class="next" href="https://illustratedman-code.github.io/GuideToCS/phys2001/" title="PHYS2001" style="margin-right: 0px;">
+		<a class="next" href="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-3-2021/" title="9/3/2021" style="margin-right: 0px;">
             <div>
                 <p>Next page</p>
-                <label>PHYS2001</label>
+                <label>9/3/2021</label>
             </div>
             <i class="fas fa-arrow-right" style="font-size: 1.7em"></i></a>
 	</div>
@@ -806,29 +764,19 @@
     <label><i class="fas fa-align-right"></i>&nbsp;&nbsp;What&#39;s on this page</label>
     <nav>
         <ul >
-            <li><a href="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/formulas-and-references/">Useful formulas and references</a></li>
+            <li><a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-1-2021/">9/1/2021</a></li>
         </ul>
     </nav>
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#hard-drives">Hard Drives</a>
+    <li><a href="#binding-example">Binding Example</a></li>
+    <li><a href="#variables-storage-bindings">Variables' Storage Bindings</a></li>
+    <li><a href="#variables-name-bindings">Variables' Name Bindings</a>
       <ul>
-        <li><a href="#formulas">Formulas</a></li>
+        <li><a href="#static-scoping">Static Scoping</a></li>
+        <li><a href="#dynamic-scoping">Dynamic Scoping</a></li>
       </ul>
     </li>
-    <li><a href="#circuit-reference">Circuit reference</a></li>
-    <li><a href="#computer-arithmetic">Computer Arithmetic</a></li>
-    <li><a href="#memory-plus-cache">Memory + Cache</a>
-      <ul>
-        <li><a href="#formulas">Formulas</a></li>
-      </ul>
-    </li>
-    <li><a href="#pipelining">Pipelining</a>
-      <ul>
-        <li><a href="#formulas">Formulas</a></li>
-      </ul>
-    </li>
-    <li><a href="#mips">MIPS</a></li>
   </ul>
 </nav>
 </div>

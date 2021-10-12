@@ -1,0 +1,1576 @@
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+	Programming Languages :: David&#39;s Guide to CS
+</title>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="revised" content="2021-10-12T01:45:33 UTC">
+<meta name="description" content="">
+
+
+
+<title>Programming Languages :: David&#39;s Guide to CS</title>
+
+<link rel="shortcut icon" href='https://illustratedman-code.github.io/GuideToCS/images/favicon.png' type="image/x-icon" />
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.css">
+
+<script src='https://code.jquery.com/jquery-3.5.1.min.js'></script>
+
+<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel="stylesheet">
+
+
+
+<link rel="stylesheet" type="text/css" href='https://illustratedman-code.github.io/GuideToCS/sass/layout.css'>
+<link rel="stylesheet" type="text/css" href='https://illustratedman-code.github.io/GuideToCS/css/style.main.css'>
+<link rel="stylesheet" type="text/css" href='https://illustratedman-code.github.io/GuideToCS/css/style.menu.css'>
+<link rel="stylesheet" type="text/css" href='https://illustratedman-code.github.io/GuideToCS/sass/shortcodes/notice.css'>
+<link rel="stylesheet" type="text/css" href='https://illustratedman-code.github.io/GuideToCS/sass/shortcodes/tabs.css'>
+<link rel="stylesheet" type="text/css" href='https://illustratedman-code.github.io/GuideToCS/sass/shortcodes/panel.css'>
+<link rel="stylesheet" type="text/css" href='https://illustratedman-code.github.io/GuideToCS/sass/shortcodes/columns.css'>
+<link rel="stylesheet" type="text/css" href='https://illustratedman-code.github.io/GuideToCS/sass/shortcodes/children.css'>
+<link rel="stylesheet" type="text/css" href='https://illustratedman-code.github.io/GuideToCS/sass/shortcodes/attachments.css'>
+<link rel="stylesheet" type="text/css" href='https://illustratedman-code.github.io/GuideToCS/sass/shortcodes/alert.css'>
+<link rel="stylesheet" type="text/css" href='https://illustratedman-code.github.io/GuideToCS/css/docport.css'>
+
+<script src='https://illustratedman-code.github.io/GuideToCS/js/docport.js'></script>
+<script type="text/javascript">
+      var baseurl = "https:\/\/illustratedman-code.github.io\/GuideToCS";
+</script>
+
+
+<script src="https://illustratedman-code.github.io/GuideToCS/js/mathjax-config.js"></script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+
+
+    
+  </head>
+
+  <body data-url="https://illustratedman-code.github.io/GuideToCS/programming-languages/"
+
+  class="">
+
+<style type="text/css">
+  #debug{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    line-height: 3.5rem;
+    margin-bottom: .35rem;
+    padding: 0 2rem;
+    position: fixed;
+    left: 0;      right: 0;     top: 0;
+   
+    top:0px;
+    
+    min-height: 150px;
+
+    background-color: white;
+    border: 3px solid red;
+    z-index: 10000 ;
+    word-wrap: all;
+    overflow: auto;
+  }
+</style>
+ 
+
+
+    
+    
+    <header style="">
+        <div>
+    
+    <div class="burger ">
+        <a href="javascript:void(0);" style="font-size:15px;" onclick="$('article > aside').toggleClass('responsive')">&#9776;</a>
+    </div>
+    
+
+    <div>
+
+		
+	
+			
+		
+	    	<a class='baselink' href='https://illustratedman-code.github.io/GuideToCS'>David's Guide to CS</a>
+	  	
+	</div>
+    <nav class="shortcuts">
+            <li class="" role="">
+                <a href="https://github.com/IllustratedMan-code"  rel="noopener">
+                  Github
+                </a>
+            </li>
+    </nav>
+
+</div>
+    </header>
+    
+
+    <article>
+      
+      <aside class="">
+        
+<div class="search">
+	<div class="searchbox">
+	  <input data-search-input id="search-by" type="text" placeholder="Type to search...">
+	</div>
+	<script type="text/javascript" src="https://illustratedman-code.github.io/GuideToCS/vendor/lunr/lunr.min.js"></script>
+	<script type="text/javascript" src="https://illustratedman-code.github.io/GuideToCS/vendor/auto-complete/auto-complete.js"></script>
+	<link href="https://illustratedman-code.github.io/GuideToCS/vendor/auto-complete/auto-complete.css" rel="stylesheet">
+	<script type="text/javascript">
+	  
+	      var baseurl = "https:\/\/illustratedman-code.github.io\/GuideToCS";
+	  
+	</script>
+	<script type="text/javascript" src="https://illustratedman-code.github.io/GuideToCS/js/search.js"></script>
+</div>
+
+		
+	
+			
+		
+	    	
+	  	
+	<div id="close_menu">
+  <a href="javascript:void(0);" style="font-size:15px;" onclick="$('article > aside').toggleClass('responsive')">
+      <i class="fa fa-lg fa-times"></i>
+  </a>
+</div>
+
+<ul class="menu">
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/" class="dd-item haschildren
+        item_level_$level
+        ">
+
+      
+      
+      
+      <i class="fas fa-chevron-right ddexp"></i>
+        
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/">Discrete Structures</a>
+      
+        <ul>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/exam-1-review/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/exam-1-review/">Exam 1 review</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/logic/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/logic/">Logic</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/modular-arithmetic/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/modular-arithmetic/">Modular arithmetic</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/normal-forms/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/normal-forms/">Normal forms</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/set-relations/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/set-relations/">Set relations</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/set-theory/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/set-theory/">Standard Proof techniques</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/trees/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/trees/">Trees</a>
+      
+        
+      
+    </li>
+        </ul>
+    </li>
+    
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/ecology/" class="dd-item haschildren
+        item_level_$level
+        ">
+
+      
+      
+      
+      <i class="fas fa-chevron-right ddexp"></i>
+        
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/ecology/">Ecology and Evolution</a>
+      
+        <ul>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/ecology/ch1/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/ecology/ch1/">Chapter 1</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/ecology/ch-2/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/ecology/ch-2/">Chapter 2</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/ecology/ch-3/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/ecology/ch-3/">Chapter 3</a>
+      
+        
+      
+    </li>
+        </ul>
+    </li>
+    
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/" class="dd-item haschildren
+        item_level_$level
+        ">
+
+      
+      
+      
+      <i class="fas fa-chevron-right ddexp"></i>
+        
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/">Intro To Comp Systems</a>
+      
+        <ul>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/hard-vs-micro/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/hard-vs-micro/">HardWiredVsMicroProgrammed;</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/how-to-write-a-micro-instruction/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/how-to-write-a-micro-instruction/">How to write a micro-instruction</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/mock-exam-questions/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/mock-exam-questions/">Mock Exam Questions</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/formulas-and-references/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/formulas-and-references/">Useful formulas and references</a>
+      
+        
+      
+    </li>
+        </ul>
+    </li>
+    
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/phys2001/" class="dd-item haschildren
+        item_level_$level
+        ">
+
+      
+      
+      
+      <i class="fas fa-chevron-right ddexp"></i>
+        
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/phys2001/">PHYS2001</a>
+      
+        <ul>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/phys2001/test/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/phys2001/test/">Test</a>
+      
+        
+      
+    </li>
+        </ul>
+    </li>
+    
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/" class="dd-item parent active haschildren
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <i class="fas fa-chevron-down ddexp"></i>
+        
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/">Programming Languages</a>
+      
+        <ul>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/8-23-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/8-23-2021/">8/23/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/8-25-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/8-25-2021/">8/25/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/8-27-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/8-27-2021/">8/27/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/8-30-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/8-30-2021/">8/30/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-1-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-1-2021/">9/1/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-3-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-3-2021/">9/3/2021</a>
+      
+        
+      
+    </li>
+        </ul>
+    </li>
+    
+
+
+
+</ul>
+
+		
+	
+			
+		
+	    	
+	  	
+	
+      </aside>
+      
+
+      <section class="page ">
+      
+	
+		
+    
+    
+    <nav id="ariane" aria-label="breadcrumb">
+      <ol class="ariane">
+        
+  
+  	
+	<li >
+      <a class="text-link" href="https://illustratedman-code.github.io/GuideToCS">
+        Home
+      </a>
+    </li>
+	
+  
+    <li class="active">
+      
+        Programming Languages
+      
+    </li>
+
+      </ol>
+    </nav>
+    
+    
+
+    
+		
+        
+		
+		
+		
+		
+		
+		
+		
+
+		
+			<h1>Programming Languages</h1>
+        
+
+		
+										
+		
+
+		
+	
+
+	
+	
+	<div class="jump-to-section">
+		<span onclick="$h = $(this);$h.next('nav').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('nav').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+  			<span class="fas fa-align-right"></span>
+  			Jump to Section
+  			<i style=";" class="fas fa-chevron-right"></i>
+		</span>
+		<nav id="TableOfContents">
+  <ul>
+    <li><a href="#8-23-2021">8/23/2021</a>
+      <ul>
+        <li><a href="#definitions">Definitions:</a></li>
+        <li><a href="#concepts">Concepts:</a></li>
+        <li><a href="#practice">Practice:</a></li>
+      </ul>
+    </li>
+    <li><a href="#8-23-2021">8/23/2021</a>
+      <ul>
+        <li><a href="#the-value-of-studying-pls">The value of studying PLs</a></li>
+        <li><a href="#programming-domains">Programming domains</a></li>
+        <li><a href="#the-john-von-neumann-model-of-computing">The John von Neumann Model of Computing</a></li>
+      </ul>
+    </li>
+    <li><a href="#8-27-2021">8/27/2021</a>
+      <ul>
+        <li><a href="#programming-paradigms">Programming Paradigms</a></li>
+        <li><a href="#language-evaluation-criteria--new-material-alert">Language Evaluation Criteria (New Material Alert)</a></li>
+      </ul>
+    </li>
+    <li><a href="#8-27-2021">8/27/2021</a>
+      <ul>
+        <li><a href="#imperative-programming-languages">Imperative Programming Languages</a></li>
+        <li><a href="#variables">Variables</a></li>
+        <li><a href="#looking-forward-to-binding--new-material-alert">Looking forward to Binding (New Material Alert)</a></li>
+      </ul>
+    </li>
+    <li><a href="#9-1-2021">9/1/2021</a>
+      <ul>
+        <li><a href="#binding-example">Binding Example</a></li>
+        <li><a href="#variables-storage-bindings">Variables' Storage Bindings</a></li>
+        <li><a href="#variables-name-bindings">Variables' Name Bindings</a></li>
+      </ul>
+    </li>
+    <li><a href="#9-3-2021">9/3/2021</a>
+      <ul>
+        <li><a href="#scope">Scope</a></li>
+      </ul>
+    </li>
+    <li><a href="#9-8-2021">9/8/2021</a>
+      <ul>
+        <li><a href="#recap">Recap</a></li>
+        <li><a href="#array">Array</a></li>
+        <li><a href="#associative-arrays-records-tuples-lists-unions-algebraic-data-types-pattern-matching-list-comprehensions-and-equivalence">Associative Arrays, Records, Tuples, Lists, Unions, Algebraic Data Types, Pattern Matching, List Comprehensions, and Equivalence</a></li>
+      </ul>
+    </li>
+    <li><a href="#9-10-2021">9/10/2021</a>
+      <ul>
+        <li><a href="#expressions">Expressions</a></li>
+        <li><a href="#order-of-evaluation">Order of Evaluation</a></li>
+        <li><a href="#short-circuit-evaluation">Short-circuit Evaluation</a></li>
+        <li><a href="#referential-transparency">Referential Transparency</a></li>
+        <li><a href="#put-it-all-together">Put It All Together</a></li>
+      </ul>
+    </li>
+    <li><a href="#9-13-2021">9/13/2021</a>
+      <ul>
+        <li><a href="#subprograms">Subprograms</a></li>
+        <li><a href="#polymorphism">Polymorphism</a></li>
+        <li><a href="#coroutines">Coroutines</a></li>
+      </ul>
+    </li>
+    <li><a href="#9-20-2021">9/20/2021</a>
+      <ul>
+        <li><a href="#formal-program-semantics">Formal Program Semantics</a></li>
+        <li><a href="#testing-vs-proving">Testing vs Proving</a></li>
+        <li><a href="#three-types-of-formal-semantics">Three Types of Formal Semantics</a></li>
+        <li><a href="#operational-semantics">Operational Semantics</a></li>
+        <li><a href="#example-1-defining-the-semantics-of-variable-access-dot">Example 1: Defining the semantics of variable access.</a></li>
+        <li><a href="#example-2-defining-the-semantics-of-variable-assignment--for-a-variable-that-already-exists--dot">Example 2: Defining the semantics of variable assignment (for a variable that already exists).</a></li>
+      </ul>
+    </li>
+    <li><a href="#9-22-2021">9/22/2021</a></li>
+    <li><a href="#9-24-2021">9/24/2021</a></li>
+    <li><a href="#9-27-2021">9/27/2021</a></li>
+    <li><a href="#10-1-2021">10/1/2021</a></li>
+    <li><a href="#10-4-2021">10/4/2021</a></li>
+    <li><a href="#10-6-2021">10/6/2021</a></li>
+  </ul>
+</nav>
+	</div>
+	
+	
+
+
+
+
+
+
+	<div class="content">
+	    <p>Programming Languages</p>
+<h2 ref="8-23-2021" >8/23/2021</h2><a class="anchor" id="8-23-2021"></a>
+<h3 ref="definitions" >Definitions:</h3><a class="anchor" id="definitions"></a>
+<ol>
+<li>programming language: A system of communicating computational ideas between people and computing machines.</li>
+<li>high-level programming language: A programming language that is independent of any particular machine architecture.</li>
+<li>syntax: The rules for constructing structurally valid (note: valid, not correct) computer programs in a particular language.</li>
+<li>names: A means of identifying &ldquo;entities&rdquo; in a programming language.</li>
+<li>types: A type denotes the kinds of values that a program can manipulate. (A more specific definition will come later in the course).</li>
+<li>semantics: The effect of each statement&rsquo;s execution on the program&rsquo;s operation.</li>
+</ol>
+<h3 ref="concepts" >Concepts:</h3><a class="anchor" id="concepts"></a>
+<p>There are four fundamental components of every programming language: syntax, names, types, and semantics.</p>
+<h3 ref="practice" >Practice:</h3><a class="anchor" id="practice"></a>
+<ul>
+<li>
+<p>For your favorite programming language, attempt to explain the most meaningful parts of its syntax. Think about what are valid identifiers in the language, how statements are separated, whether blocks of code are put inside braces, etc.</p>
+</li>
+<li>
+<p>Next, ask yourself how your favorite language handles types. Are variables in the language given types explicitly or implicitly? If the language is compiled, are types assigned to variables before the code is compiled or as the program executes? These are issues that we will discuss in detail in Module 2.</p>
+</li>
+<li>
+<p>Finally, think about how statements in your favorite programming language affect the program&rsquo;s execution. Does the language have loops? if-then statements? function composition? goto?</p>
+</li>
+</ul>
+<h2 ref="8-23-2021" >8/23/2021</h2><a class="anchor" id="8-23-2021"></a>
+<h3 ref="the-value-of-studying-pls" >The value of studying PLs</h3><a class="anchor" id="the-value-of-studying-pls"></a>
+<ol>
+<li>Every new language that you learn gives you new ways to think about and solve problems.
+<ol>
+<li>There is a parallel here with natural languages.</li>
+<li>Certain written/spoken languages have words for concepts that others do not.</li>
+<li>Linguists have said that people can only conceive ideas for which there are words.</li>
+<li>In certain programming languages there may be constructs (&ldquo;words&rdquo;) that give you a power to solve problems and write algorithms in new, interesting ways.</li>
+</ol>
+</li>
+<li>You can choose the right tool for the job.
+<ul>
+<li>When all you have is a hammer, everything looks like a nail.</li>
+</ul>
+</li>
+<li>Makes you an increasingly flexible programmer.
+<ul>
+<li>The more you know about the concepts of programming languages (and the PLs that you know) the easier it is to learn new languages.</li>
+</ul>
+</li>
+<li>Using PLs better
+Studying PLs will teach you about how languages are implemented.
+This &ldquo;awareness&rdquo; can give you insight into the &ldquo;right way&rdquo; to do something in a particular language.
+For instance, if you know that recursion and looping are equally performant and computationally powerful, you can choose to use the one that improves the readability of your code. However, if you know that iteration is faster (and that&rsquo;s important for your application) then you will choose that method for invoking statements repeatedly.</li>
+</ol>
+<h3 ref="programming-domains" >Programming domains</h3><a class="anchor" id="programming-domains"></a>
+<ul>
+<li>We write programs to solve real-world problems.</li>
+<li>The problems that we are attempting to solve lend themselves to programming languages with certain characteristics.</li>
+<li>Some of those real-world problems are related to helping others solve real-world problems (systems programs):
+<ul>
+<li>e.g., operating systems, utilities, compilers, interpreters, etc.</li>
+<li>There are a number of good languages for writing these applications: C, C++, Rust, Python, Go, etc.</li>
+</ul>
+</li>
+<li>But, most of programs are designed/written to solve actually real-world problems:
+<ul>
+<li>scientific calculations: these applications need to be fast (parallel?) and mathematically precise (work with numbers of many kinds). Scientific applications were the earliest programming domain and inspired the first high-level programming language, Fortran.</li>
+<li>artificial intelligence: AI applications manipulate symbols (in particular, lists of symbols) as opposed to numbers. This application requirement gave rise to a special type of language designed especially for manipulating lists, Lisp (List Processor).</li>
+<li>world wide web: WWW applications must embed code in data (HTML). Because of how WWW applications advance so quickly, it is important that languages for writing these applications support rapid iteration. Common languages for writing web applications are PERL, Python, JavaScript, Ruby, Go, etc.</li>
+<li>business: business applications need to produce reports, process character-based data, describe and store numbers with specific precision (aka, decimals). COBOL has traditionally been the language of business applications, although new business applications are being written in other languages these days (Java, the .Net languages).</li>
+<li>machine learning: machine learning applications require sophisticated math and algorithms and most developers do not want to rewrite these when good alternatives are available. For this reason, a language with a good ecosystem of existing libraries makes an ideal candidate for writing ML programs (Python).</li>
+<li>game development: So-called AAA games must be fast enough to generate lifelike graphics and immersive scenes in near-real time. For this reason, games are often written in a language that is expressive but generates code that is optimized, C++.</li>
+</ul>
+</li>
+</ul>
+<p>This list is non-exhaustive, obviously!</p>
+<h3 ref="the-john-von-neumann-model-of-computing" >The John von Neumann Model of Computing</h3><a class="anchor" id="the-john-von-neumann-model-of-computing"></a>
+<ul>
+<li>This computing model has had more influence on the development of PLs than we can imagine.</li>
+<li>There are two hardware components in this Model (the processor [CPU] and the memory) and they are connected by a pipe.
+<ul>
+<li>The CPU pipes data and instructions (see below) to/from the memory (fetch).</li>
+<li>The CPU reads that data to determine the action to take (decode).</li>
+<li>The CPU performs that operation (execute).</li>
+<li>Because there is only one path between the CPU and the memory, the speed of the pipe is a bottleneck on the processor&rsquo;s efficiency.</li>
+</ul>
+</li>
+<li>The Model is interesting because of the way that it stores instructions and data together in the same memory.</li>
+<li>It is different than the Harvard Architecture where programs and data are stored in different memory.</li>
+<li>In the Model, every bit of data is accessible according to its address.</li>
+<li>Sequential instructions are placed nearby in memory.
+<ul>
+<li>For instance, in</li>
+</ul>
+</li>
+</ul>
+<!--listend-->
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">100</span>; i<span style="color:#f92672">++</span>) {
+  statement1;
+  statement2;
+  statement3;
+}
+</code></pre></div><p>statement1, statement2 and statement3 are all stored one after the other in memory.</p>
+<ul>
+<li>Modern implementations of the Model make fetching nearby data fast.</li>
+<li>Therefore, implementing repeated instructions with loops is faster than implementing repeated loops with recursion.</li>
+<li><strong>Or is it?</strong></li>
+<li><strong>This is a particular case where learning about PL will help you as a programmer!</strong></li>
+</ul>
+<h2 ref="8-27-2021" >8/27/2021</h2><a class="anchor" id="8-27-2021"></a>
+<h3 ref="programming-paradigms" >Programming Paradigms</h3><a class="anchor" id="programming-paradigms"></a>
+<ol>
+<li>A paradigm is a pattern or model. A programming paradigm is a pattern of problem-solving thought that underlies a particular genre of programs and languages.
+<ul>
+<li>According to their syntax, names and types, and semantics, it is possible to classify languages into one of four categories (imperative, object-oriented, functional and logic).</li>
+<li>That said, modern researchers in PL are no longer as convinced that these are meaningful categories because new languages are generally a collection of functionality and features and contain bits and pieces from each paradigm.</li>
+</ul>
+</li>
+<li>The paradigms:
+<ol>
+<li>Imperative: Imperative languages are based on the centrality of assignment statements to change program state, selection statements to control program flow, loops to repeat statements and procedures for process abstraction (a term we will learn later).
+<ul>
+<li>These languages are most closely associated with the von Neumann architecture, especially assignment statements that approximate the piping operation at the hardware level.</li>
+<li>Examples of imperative languages include C, Fortran, Cobol, Perl.</li>
+</ul>
+</li>
+<li>Object-oriented: Object-oriented languages are based upon a combination of data abstraction, data hiding, inheritance and message passing.
+<ul>
+<li>Objects respond to messages by modifying their internal data &ndash; in other words, they become active.</li>
+<li>The power of inheritance is that an object can reuse an implementation without having to rewrite the code.</li>
+<li>These languages, too, are closely associated with the von Neumann architecture and (usually) inherit selection statements, assignment statements and loops from imperative programming languages.
+Examples of object-oriented languages include Smalltalk, Ruby, C++, Java, Python, JavaScript.</li>
+</ul>
+</li>
+<li>Functional: Functional programming languages are based on the concept that functions are first-class objects in the language &ndash; in other words, functions are just another type like integers, strings, etc.
+<ul>
+<li>In a functional PL, functions can be passed to other functions as parameters and returned from functions.</li>
+<li>The loops and selection statements of imperative programming languages are replaced with composition, conditionals, and recursion in functional PLs.</li>
+<li>A subset of functional PLs are known as pure functional PLs because functions those languages have no side-effects (a side-effect occurs in a function when that function performs a modification that can be seen outside the function &ndash; e.g., changing a value of a parameter, changing a global variable, etc).</li>
+<li>Examples of functional languages include Lisp, Scheme, Haskell, ML, JavaScript, Python.</li>
+</ul>
+</li>
+<li>Logic: Simply put, logic programming languages are based on describing what to compute and not how to compute it.
+<ul>
+<li>Prolog (and its variants) are really the only logic programming language in widespread use.</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<h3 ref="language-evaluation-criteria--new-material-alert" >Language Evaluation Criteria (New Material Alert)</h3><a class="anchor" id="language-evaluation-criteria--new-material-alert"></a>
+<p>There are four (common) criteria for evaluating a programming language:</p>
+<ol>
+<li>Readability: A metric for describing how easy/hard it is to comprehend the meaning of a computer program written in a particular language.
+<ol>
+<li>
+<p>Overall simplicity: The number of basic concepts that a PL has.</p>
+<ol>
+<li>Feature multiplicity: Having more than one way to accomplish the same thing.</li>
+<li>Operator overloading: Operators perform different computation depending upon the context (i.e., the type of the operands)</li>
+<li>Simplicity can be taken too far. Consider machine language.</li>
+</ol>
+</li>
+<li>
+<p>Orthogonality: How easy/hard it is for the constructs of a language to be combined to build higher-level control and data structures.</p>
+<ol>
+<li>Alternate definition: The mutual independence of primitive operations.</li>
+<li>Orthogonal example: any type of entity in a language can be passed as a parameter to a function.</li>
+<li>Non-orthogonal example: only certain entities in a language can be used as a return value from a function (e.g., in C/C++ you cannot return an array).</li>
+<li>This term comes from the mathematical concept of orthogonal vectors where orthogonal means independent.</li>
+<li>The more orthogonal a language, the fewer exceptional cases there are in the language&rsquo;s semantics.</li>
+<li>The more orthogonal a language, the slower the language: The compiler/interpreter must be able to compute based on every single possible combination of language constructs. If those combinations are restricted, the compiler can make optimizations and assumptions that will speed up program execution.</li>
+</ol>
+</li>
+<li>
+<p>Data types: Data types make it easier to understand the meaning of variables.</p>
+<ul>
+<li>e.g., the difference between <code>int userHappy = 0;</code> and <code>bool userHappy = True;</code></li>
+</ul>
+</li>
+<li>
+<p>Syntax design</p>
+<ol>
+<li>A PL&rsquo;s reserved words should make things clear. For instance, it is easier to match the beginnings and endings of loops in a language that uses names rather than { }s.</li>
+<li>The PL&rsquo;s syntax should evoke the operation that it is performing.
+<ol>
+<li>For instance, a + should perform some type of addition operation (mathematical, concatenation, etc)</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Writeability
+<ol>
+<li>Includes all the aspects of Readability, and</li>
+<li>Expressiveness: An expressive language has relatively convenient rather than cumbersome way of specifying computations.</li>
+</ol>
+</li>
+<li>Reliability: How likely is it that a program written in a certain PL is correct and runs without errors.
+<ol>
+<li>Type checking: a language with type checking is more reliable than one without type checking; type checking is testing for operations that compute on variables with incorrect types at compile time or runtime.
+<ul>
+<li>Type checking is better done at runtime.</li>
+<li>A strongly typed programming language is one that is always able to detect type errors either at compile time or runtime.</li>
+</ul>
+</li>
+<li>Exception handling (the ability of a program to intercept runtime errors and take corrective action) and aliasing (when two or more distinct names in a program point to the same resource) affect the PL&rsquo;s reliability.</li>
+<li>
+<ol start="3">
+<li>
+<ol start="3">
+<li>
+<ol start="3">
+<li>
+<ol start="3">
+<li>
+<ol start="3">
+<li>
+<ol start="3">
+<li>
+<ol start="3">
+<li>In truth, there are so many things that affect the reliability of a PL.</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>The easier a PL is to read and write, the more reliable the code is going to be.</li>
+</ol>
+</li>
+<li>Cost: The cost of writing a program in a certain PL is a function of
+<ol>
+<li>The cost to train programmers to use that language</li>
+<li>The cost of writing the program in that language</li>
+<li>The time/speed of execution of the program once it is written</li>
+<li>The cost of poor reliability</li>
+<li>The cost of maintenance &ndash; most of the time spent on a program is in maintaining it and not developing it!</li>
+</ol>
+</li>
+</ol>
+<h2 ref="8-27-2021" >8/27/2021</h2><a class="anchor" id="8-27-2021"></a>
+<p>Today we learned a more complete definition of imperative programming languages and studied the defining characteristics of variables. Unfortunately we did not get as far as I wanted during the class which means that there is some new material in this edition of the Daily PL!</p>
+<h3 ref="imperative-programming-languages" >Imperative Programming Languages</h3><a class="anchor" id="imperative-programming-languages"></a>
+<p>Any language that is an abstraction of the von Neumann Architecture can be considered an imperative programming language.</p>
+<p>There are 5 calling cards of imperative programming languages:</p>
+<ol>
+<li><em>state, assignment statements, and expressions</em>: Imperative programs have state. Assignment statements are used to modify the program state with computed values from expressions
+<ol>
+<li><em>state</em>: The contents of the computer&rsquo;s memory as a program executes.</li>
+<li><em>expression</em>: The fundamental means of specifying a computation in a programming language. As a computation, they produce a value.</li>
+<li><em>assignment statement</em>: A statement with the semantic effect of destroying a previous value contained in memory and replacing it with a new value. The primary purpose of the assignment statement is to have a side effect of changing values in memory. As Sebesta says, &ldquo;The essence of the imperative programming languages is the dominant role of the assignment statement.&rdquo;</li>
+</ol>
+</li>
+<li><em>variables</em>: The abstraction of the memory cell.</li>
+<li><em>loops</em>: Iterative form of repetition (for, while, do &hellip; while, foreach, etc)</li>
+<li><em>selection statements</em>: Conditional statements (if/then, switch, when)</li>
+<li><em>procedural abstraction</em>: A way to specify a process without providing details of how the process is performed. The primary means of procedural abstraction is through definition of subprograms (functions, procedures, methods).</li>
+</ol>
+<h3 ref="variables" >Variables</h3><a class="anchor" id="variables"></a>
+<p>There are 6 attributes of variables. Remember, though, that a variable is an abstraction of a memory cell.</p>
+<ol>
+<li><em>type</em>: Collection of a variable&rsquo;s valid data values and the collection of valid operations on those values.</li>
+<li><em>name</em>: String of characters used to identify the variable in the program&rsquo;s source code.</li>
+<li><em>scope</em>: The range of statements in a program in which a variable is visible.
+Using the yet-to-be-defined concept of binding, there is an alternative definition: The range of statements where the name&rsquo;s binding to the variable is active.</li>
+<li><em>lifetime</em>: The period of time during program execution when a variable is associated with computer memory.</li>
+<li><em>address</em>: The place in memory where a variable&rsquo;s contents (value) are stored. This is sometimes called the variable&rsquo;s l-value because only a variable associated with an address can be placed on the left side of an assignment operator.</li>
+<li><em>value</em>: The contents of the variable. The value is sometimes call the variable&rsquo;s r-value because a variable with a value can be used on the right side of an assignment operator.</li>
+</ol>
+<h3 ref="looking-forward-to-binding--new-material-alert" >Looking forward to Binding (New Material Alert)</h3><a class="anchor" id="looking-forward-to-binding--new-material-alert"></a>
+<p>A <em>binding</em> is an association between an attribute and an entity in a programming language. For example, you can bind an operation to a symbol: the + symbol can be bound to the addition operation.</p>
+<p><em>Binding</em> can happen at various times:</p>
+<ol>
+<li>Language design (when the language&rsquo;s syntax and semantics are defined or standardized)</li>
+<li>Language implementation (when the language&rsquo;s compiler or interpreter is implemented)</li>
+<li>Compilation</li>
+<li>Loading (when a program [either compiled or interpreted] is loaded into memory)</li>
+<li>Execution</li>
+</ol>
+<p>A <em>static binding</em> occurs before runtime and does not change throughout program execution. A <em>dynamic binding</em> occurs at runtime and/or changes during program execution.</p>
+<p>Notice that the six &ldquo;things&rdquo; we talked about that characterize variables are actually attributes!! In other words, those attributes have to be bound to variables at some point. When these bindings occur is important for users of a programming language to understand. We will discuss this on Wednesday!
+blob:<a href="https://1492301-4.kaf.kaltura.com/903896d9-2341-4dd3-9709-ca344de08719">https://1492301-4.kaf.kaltura.com/903896d9-2341-4dd3-9709-ca344de08719</a></p>
+<h2 ref="9-1-2021" >9/1/2021</h2><a class="anchor" id="9-1-2021"></a>
+<p>Welcome to the Daily PL for September 1st, 2021! As we turn the page from August to September, we started the month discussing variable lifetime and scope. Lifetime is related to the storage binding and scope is related to the name binding. Before we learned that new material, however, we went over an example of the different bindings and their times in an assignment statement.</p>
+<h3 ref="binding-example" >Binding Example</h3><a class="anchor" id="binding-example"></a>
+<p>Consider a Python statement like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-fallback" data-lang="fallback">vrb = arb + 5
+</code></pre></div><p>Recall that a binding is an association between an attribute and an entity. What are some of the possible bindings (and their times) in the statement above?</p>
+<ol>
+<li>The symbol + (entity) must be bound to an operation (attribute). In a language like Python, that binding can only be done at runtime. In order to determine whether the operation is a mathematical addition, a string concatenation or some other behavior, the interpreter needs to know the type of arb which is only possible at runtime.</li>
+<li>The numerical literal 5 (entity) must be bound to some in-memory representation (attribute). For Python, it appears that the interpreter chooses the format for representing numbers in memory (<a href="https://docs.python.org/3/library/sys.html#sys.int%5Finfo">https://docs.python.org/3/library/sys.html#sys.int%5Finfo</a> (Links to an external site.), <a href="https://docs.python.org/3/library/sys.html#sys.float%5Finfo">https://docs.python.org/3/library/sys.html#sys.float%5Finfo</a> (Links to an external site.)) which means that this binding is done at the time of language implementation.</li>
+<li>The value (attribute) of the variables <code>vrb</code> and <code>arb</code> (entities) are bound at runtime. Remember that the value of a variable is just another binding.</li>
+</ol>
+<p>This is not an exhaustive list of the bindings that are active for this statement. In particular, the variables <code>vrb</code> and <code>arb</code> must be bound to some address, lifetime and scope. Discussing those bindings requires more information about the statement&rsquo;s place in the source code.</p>
+<h3 ref="variables-storage-bindings" >Variables' Storage Bindings</h3><a class="anchor" id="variables-storage-bindings"></a>
+<p>The storage binding is related to the variable&rsquo;s lifetime (the time during which a variable is bound to memory). There are four common lifetimes:</p>
+<ol>
+<li>
+<p>static: Variable is bound to storage before execution and remains bound to the same storage throughout program execution.</p>
+<ol>
+<li>Variables with static storage binding cannot share memory with other variables (they need their storage throughout execution).</li>
+<li>Variables with static storage binding can be accessed directly (in other words, their access does not require redirection through a pointer) because the address of their storage is constant throughout execution. Direct addressing means that accesses are faster.</li>
+<li>Storage for variables with static binding does not need to be repeatedly allocated and deallocated throughout execution &ndash; this will make program execution faster.</li>
+<li>In C++, variables with static storage binding are declared using the <code>static</code> keyword inside functions and classes.</li>
+<li>Variables with static storage binding are sometimes referred to as history sensitive because they retain their value throughout execution.</li>
+</ol>
+</li>
+<li>
+<p>stack dynamic: Variable is bound to storage when it&rsquo;s declaration statements are elaborated (the time when a declaration statement is executed).</p>
+<ol>
+<li>Variables with stack dynamic storage bindings make recursion possible because their storage is allocated anew every time that their declaration is elaborated. To fully understand this point it is necessary to understand the way that function invocation is handled using a runtime stack. We will cover this topic next week. Stay tuned!</li>
+<li>Variables with stack dynamic storage bindings cannot be directly accessed. Accesses must be made through an intermediary which makes them slower. Again, this will make more sense when we discuss the typical mechanism for function invocation.</li>
+<li>The storage for variables with stack dynamic storage bindings are constantly allocated and deallocated which adds to runtime overhead.</li>
+</ol>
+<p>Variables with stack dynamic storage bindings are not history sensitive.</p>
+</li>
+<li>
+<p>Explicit heap dynamic: Variable is bound to storage by explicit instruction from the programmer. E.g., <code>new</code> / <code>malloc</code> in C/C++.</p>
+<ol>
+<li>The binding to storage is done at runtime when these explicit instructions are executed.</li>
+<li>The storage sizes can be customized for the use.</li>
+<li>The storage is hard to manage and requires careful attention from the programmer.</li>
+<li>The storage for variables with explicit heap dynamic storage bindings are constantly allocated and deallocated which adds to runtime overhead.</li>
+</ol>
+</li>
+<li>
+<p>Implicit heap dynamic: Variable is bound to storage when it is assigned a value at runtime.</p>
+<ol>
+<li>All storage bindings for variables in Python are handled in this way. <a href="https://docs.python.org/3/c-api/memory.html">https://docs.python.org/3/c-api/memory.html</a> (Links to an external site.)</li>
+<li>When a variable with implicit heap dynamic storage bindings is assigned a value, storage for that variable is dynamically allocated.</li>
+<li>Allocation and deallocation of storage for variables with implicit heap dynamic storage bindings is handled automatically by the language compiler/interpreter. (More on this when we discuss memory management techniques in Module 3).</li>
+</ol>
+</li>
+</ol>
+<h3 ref="variables-name-bindings" >Variables' Name Bindings</h3><a class="anchor" id="variables-name-bindings"></a>
+<p>See the Pl for the <a href="https://uc.instructure.com/courses/1476336/pages/the-daily-pl-9-slash-1-slash-2021?module%5Fitem%5Fid=65306283">Video</a>.</p>
+<p>This new material is presented above as Episode 1 of PL After Dark. Below you will find a written recap!</p>
+<p>Scope is the range of statements in which a variable is visible (either referencable or assignable). Using the vocabulary of bindings, scope can also be defined as the collection of statements which can access a name binding. In other words, scope determines the binding of a name to a variable.</p>
+<p>It is easy to get fooled into thinking that a variable&rsquo;s name is intrinsic to the variable. However, a variable&rsquo;s name is just another binding like address, storage, value, etc. There are two scopes that most languages employ:</p>
+<ul>
+<li>local: A variable is locally scoped to a unit or block of a program if it is declared there. In Python, a variable that is the subject of an assignment is local to the immediate enclosing function definition. For instance, in</li>
+</ul>
+<!--listend-->
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-fallback" data-lang="fallback">def add(a, b):
+    total = a + b
+    return total
+</code></pre></div><p><code>total</code> is a local variable.</p>
+<ul>
+<li>global: A variable is globally scoped when it is not in any local scope (terribly unhelpful, isn&rsquo;t it?) Using global variables breaks the principles of encapsulation and data hiding.</li>
+</ul>
+<p>For a variable that is used that is not local, the compiler/interpreter must determine to which variable the name refers. Determining the name/variable binding can be done statically or dynamically:</p>
+<h4 ref="static-scoping" >Static Scoping</h4><a class="anchor" id="static-scoping"></a>
+<p>This is sometimes also known as <em>lexical scoping</em>. Static scoping is the type of scope that can be determined using only the program&rsquo;s source code. In a statically scoped programming language, determining the name/variable binding is done iteratively by searching through a block&rsquo;s nesting <em>static parents</em>. A <em>block</em> is a section of code with its own scope (in Python that is a function or a class and in C/C++ that is statements enclosed in a pair of {}s). The <em>static parent</em> of a block is the block in which the current block was declared. The list of static parents of a block are the block&rsquo;s <em>static ancestors</em>.</p>
+<h4 ref="dynamic-scoping" >Dynamic Scoping</h4><a class="anchor" id="dynamic-scoping"></a>
+<p><em>Dynamic scoping</em> is the type of scope that can be determined only during program execution. In a dynamically scoped programming language, determining the name/value binding is done iteratively by searching through a block&rsquo;s nesting <em>dynamic parents</em>. The <em>dynamic parent</em> of a block is the block from which the current block was executed. Very few programming languages use dynamic scoping (BASH, PERL [optionally]) because it makes checking the types of variables difficult for the programmer (and impossible for the compiler/interpreter) and because it increases the &ldquo;distance&rdquo; between name/variable binding and use during program execution. However, dynamic binding makes it possible for functions to require fewer parameters because dynamically scoped non local variables can be used in their place.</p>
+<h2 ref="9-3-2021" >9/3/2021</h2><a class="anchor" id="9-3-2021"></a>
+<p>Welcome to The Daily PL for 9/3/2021. We spent most of Friday reviewing material from Episode 1 of PL After Dark and going over scoping examples in C++ and Python. Before continuing, make sure that you have viewed Episode 1 of PL After Dark.</p>
+<h3 ref="scope" >Scope</h3><a class="anchor" id="scope"></a>
+<p>We briefly discussed the difference between local and global scope.</p>
+<p>It is easy to get fooled into thinking that a variable&rsquo;s name is intrinsic to the variable. However, a variable&rsquo;s name is just another binding like address, storage, value, etc.</p>
+<p>As a programmer, when a variable is local determining the name/variable binding is straightforward. Determining the name/variable binding becomes more complicated (and more important) when source code uses a non-local name to reference a variable. In cases like this, determining the name/variable binding depends on whether the language is statically or dynamically scoped.</p>
+<h4 ref="static-scoping" >Static Scoping</h4><a class="anchor" id="static-scoping"></a>
+<p>This is sometimes also known as <em>lexical scoping</em>. <em>Static scoping</em> is the type of scope that can be determined using only the program&rsquo;s source code. In a statically scoped programming language, determining the name/variable binding is done iteratively by searching through a <em>block</em>&rsquo;s nesting <em>static parents</em>. A <em>block</em> is a section of code with its own scope (in Python that is a function or a class and in C/C++ that is statements enclosed in a pair of {}s). The static parent of a block is the block in which the current block was declared. The list of static parents of a block are the block&rsquo;s static ancestors.</p>
+<p>Here is pseudocode for the algorithm of determining the name/variable binding in a statically scoped programming language:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-fallback" data-lang="fallback">def resolve(name, current_scope) -&gt; variable
+  s = current_scope
+  while (s != InvalidScope)
+    if s.contains(name)
+      return s.variable(name)
+    s = s.static_parent_scope()
+  return NameError
+</code></pre></div><p>For practice doing name/variable binding in a statically scoped language, play around with an example in Python: <a href="https://github.com/hawkinsw/cs3003/blob/main/scope%5Flifetime/static%5Fscope.py">static_scope.py</a></p>
+<h4 ref="consider-this-dot-dot-dot" >Consider this &hellip;</h4><a class="anchor" id="consider-this-dot-dot-dot"></a>
+<p>Python and C++ have different ways of creating scopes. In Python and C++ a new scope is created at the beginning of a function definition (and that scope contains the function&rsquo;s parameters automatically). However, Python and C++ differ in the way that scopes are declared (or not!) for variables used in loops. Consider the following Python and C++ code (also available at <a href="https://github.com/hawkinsw/cs3003/blob/main/scope%5Flifetime/loop%5Fscope.cpp">loop_scope.cpp</a> and <a href="https://github.com/hawkinsw/cs3003/blob/main/scope%5Flifetime/loop%5Fscope.py">loop_scope.py</a> :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-fallback" data-lang="fallback">def f():
+  for i in range(1, 10):
+    print(f&#34;i (in loop body): {i}&#34;)
+  print(f&#34;i (outside loop body): {i}&#34;)
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">f</span>() {
+  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">10</span>; i<span style="color:#f92672">++</span>) {
+    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;i: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> i <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+  }
+
+  <span style="color:#75715e">// The following statement will cause a compilation error
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// because i is local to the code in the body of the for
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// loop.
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// std::cout &lt;&lt; &#34;i: &#34; &lt;&lt; i &lt;&lt; &#34;\n&#34;;
+</span><span style="color:#75715e"></span>}
+</code></pre></div><p>In the C++ code, the <code>for</code> loop introduces a new scope and <code>i</code> is in that scope. In the Python code, the <code>for</code> loop does not introduce a new scope and <code>i</code> is in the scope of <code>f</code>. Try to run the following Python code also available here at <a href="https://github.com/hawkinsw/cs3003/blob/main/scope%5Flifetime/loop%5Fscope%5Ferror.py">loop_scope_error.py</a> to see why this distinction is important:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-fallback" data-lang="fallback">def f():
+  print(f&#34;i (outside loop body): {i}&#34;)
+  for i in range(1, 10):
+    print(f&#34;i (in loop body): {i}&#34;)
+</code></pre></div><h4 ref="dynamic-scoping" >Dynamic Scoping</h4><a class="anchor" id="dynamic-scoping"></a>
+<p><em>Dynamic scoping</em> is the type of scope that can be determined only during program execution. In a dynamically scoped programming language, determining the name/value binding is done iteratively by searching through a block&rsquo;s nesting dynamic parents. The <em>dynamic parent</em> of a block is the block from which the current block was executed. Very few programming languages use dynamic scoping (BASH, Perl [optionally] are two examples) because it makes checking the types of variables difficult for the programmer (and impossible for the compiler/interpreter) and because it increases the &ldquo;distance&rdquo; between name/variable binding and use during program execution. However, dynamic binding makes it possible for functions to require fewer parameters because dynamically scoped non local variables can be used in their place.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-fallback" data-lang="fallback">def resolve(name, current_scope) -&gt; variable
+  s = current_scope
+  while (s != InvalidScope)
+    if s.contains(name)
+      return s.variable(name)
+    s = s.dynamic_parent_scope()
+  return NameError
+</code></pre></div><p>For practice doing name/variable binding in a dynamically scoped language, play around with an example in Python: <a href="https://github.com/hawkinsw/cs3003/blob/main/scope%5Flifetime/dynamic%5Fscope.py">dynamic_scope.py</a> . Note that because Python is intrinsically a statically scoped language, the example includes some hacking of the Python interpreter to emulate dynamic scoping. Compare the <code>dynamic</code> in the aforementioned Python code with the <code>resolve</code> function in the pseudocode and see if there are differences!</p>
+<h4 ref="referencing-environment--new-material-alert" >Referencing Environment (New Material Alert)</h4><a class="anchor" id="referencing-environment--new-material-alert"></a>
+<p>The referencing environment of a statement contains all the name/variable bindings visible at that statement. NOTE: The example in the book on page 224 is absolutely horrendous &ndash; disregard it entirely. Consider the example online here: <a href="https://github.com/hawkinsw/cs3003/blob/main/scope%5Flifetime/referencing%5Fenvironment.py">referencing_environment.py</a> . Play around with that code and make sure that you understand why certain variables are in the referencing environment and others are not.</p>
+<p>In case you think that this is theoretical and not useful to you as a real, practicing programmer, take a look at the official documentation of the Python execution model and see how the language relies on the concept of referencing environments: <a href="https://docs.python.org/3/reference/executionmodel.html#naming-and-binding">naming-and-binding</a> .</p>
+<h4 ref="scope-and-lifetime-are-not-the-same--new-material-alert" >Scope and Lifetime Are Not the Same (New Material Alert)</h4><a class="anchor" id="scope-and-lifetime-are-not-the-same--new-material-alert"></a>
+<p>It is common for programmers to think that the scope and the lifetime of a variable are the same. However, this is not always true. Consider the following code in C++ (also available at <a href="https://github.com/hawkinsw/cs3003/blob/main/scope%5Flifetime/scope%5Fne%5Flifetime.cpp">scope_new_lifetime.cpp</a>)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">f</span>(<span style="color:#66d9ef">void</span>) {
+  <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> variable <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>;
+}
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+  f();
+  <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><p>In this program, the scope of variable is limited to the function f. However, the lifetime of variable is the entire program. Just something to keep in mind when you are programming!</p>
+<h2 ref="9-8-2021" >9/8/2021</h2><a class="anchor" id="9-8-2021"></a>
+<p>Welcome to The Daily PL for September 8, 2021. I&rsquo;m not lying when I say that this is the best. edition. ever. There is new material included in this edition which will be covered in a forthcoming episode of PL After Dark. When that video is available, this post will be updated!</p>
+<h3 ref="recap" >Recap</h3><a class="anchor" id="recap"></a>
+<p>The Type Characteristics of a Language</p>
+<p>In today&rsquo;s lecture we talked about types (again!). In particular, we talked about the two independent axis of types for a programming language: whether a PL is statically or dynamically typed and whether it is strongly or weakly typed. In other words, the time of the binding of type/variable in a language is independent of that language&rsquo;s ability to detect type errors.</p>
+<ol>
+<li>A statically typed language is one where the type/variable binding is done before the code is run and does not change throughout program execution.</li>
+<li>A dynamically typed language is one where the type/variable binding is done at runtime and/or may change throughout program execution.</li>
+</ol>
+<!--listend-->
+<ol>
+<li>A strongly typed language is one where type errors are always detected (either at before or during program execution)</li>
+<li>A weakly typed language is one that is, well, not strongly typed.
+<img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/1.png" alt=""></li>
+</ol>
+<p>In order to have a completely a satisfying definition of strongly typed language, we defined type error as any error that occurs when an operation is attempted on a type for which it is not well defined. In Python, <code>&quot;3&quot; + 5</code> results in a <code>TypeError: can only concatenate str (not &quot;int&quot;) to str</code>. In this example, the operation is <code>+</code> and the types are <code>str</code> and <code>int</code>.</p>
+<p>Certain strongly typed languages <em>appear</em> to be weakly typed because of coercions. A coercion occurs when the language implicitly converts a variable of one type to another. C++ allows the programmer to define operations that will convert the type of a variable from, say, type <em>a</em> to type <em>b</em>. If the compiler sees an expression using a variable of type b where only a variable of type a is valid, then it will invoke that conversion operation automatically. While this adds to the language&rsquo;s flexibility, the conversion behavior may hide the fact that a type error exists and, ultimately, make code more difficult to debug. Note that coercions are done implicitly &ndash; a change between types done at the explicit request of the programmer is know as a (<em>type</em>)cast.</p>
+<p>Finally, before digging in to actual types, we defined type system: A type system is the set of types supported by a language and the rules for their usage.</p>
+<h4 ref="aggregate-data-types" >Aggregate Data Types</h4><a class="anchor" id="aggregate-data-types"></a>
+<p>Aggregate data types are data types composed of one or more basic, or primitive, data types. Do not ask me to write a specific definition for primitive data type &ndash; it will only get us into a circular mess :-)</p>
+<h3 ref="array" >Array</h3><a class="anchor" id="array"></a>
+<p>An array is a homogeneous (i.e., all its elements must be of the same type) aggregate data type in which an individual element is accessed by its position (i.e., index) in the aggregate. There are myriad design decisions associated with a language&rsquo;s implementation of arrays (the type of the index, whether their size must be fixed or whether it can be dynamic, etc.) One of those design decisions is the way that a language lays out a two dimensional array in memory. There are two options: row-major order and column-major order. For a second, forget the concept of rows and columns altogether and consider that you access two dimensional arrays by letters and numbers. See the following diagram:</p>
+<p><img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/2.png" alt="">
+The memory of actual computers is linear. Therefore, two dimensional arrays must be <em>flattened</em>. In &ldquo;letter major&rdquo; order, the slices of the array identified by letters are stored in memory one after the other. In &ldquo;number major&rdquo; order, the slices of the array identified by numbers are stored in memory one after another. Notice that, in &ldquo;letter major&rdquo; order, the numbers &ldquo;change fastest&rdquo; and that, in &ldquo;number major&rdquo; order, the letters &ldquo;change fastest&rdquo;.</p>
+<p>Substitute &ldquo;row&rdquo; for &ldquo;letter&rdquo; and &ldquo;column&rdquo; for &ldquo;number&rdquo; and, voila, you understand!! The C programming language stores arrays in row-major order; Fortran stores arrays in column-major order.</p>
+<p>Keep in mind that this description is only one way (or many) to store two dimensional arrays. There are (Links to an external site.) others (Links to an external site.).</p>
+<h3 ref="associative-arrays-records-tuples-lists-unions-algebraic-data-types-pattern-matching-list-comprehensions-and-equivalence" >Associative Arrays, Records, Tuples, Lists, Unions, Algebraic Data Types, Pattern Matching, List Comprehensions, and Equivalence</h3><a class="anchor" id="associative-arrays-records-tuples-lists-unions-algebraic-data-types-pattern-matching-list-comprehensions-and-equivalence"></a>
+<p>All that, and more, in Episode 2 of PL After Dark!</p>
+<p>Note: In this video, I said that Python&rsquo;s Lists function as arrays and that Python does not have true arrays. Your book implies as much in the section on Lists. However, I went back to check, and it does appear that there is a standard module in Python that provides arrays, in certain cases. Take a look at the documentation here: <a href="https://docs.python.org/3/library/array.html">python arrays</a> . The commonly used NumPy package also provides an array type: <a href="https://numpy.org/doc/stable/reference/generated/numpy.array.html">numpy arrays</a> . While the language, per se, does not define an array type, the presence of the modules (particularly the former) is important to note. Sorry for the confusion!</p>
+<h2 ref="9-10-2021" >9/10/2021</h2><a class="anchor" id="9-10-2021"></a>
+<p>In today&rsquo;s edition of the Daily PL we will recap our discussion from today that covered expressions, order of evaluation, short-circuit evaluation and referential transparency.</p>
+<h3 ref="expressions" >Expressions</h3><a class="anchor" id="expressions"></a>
+<p>An <em>expression</em> is the means of specifying computations in a programming language. Informally, it is anything that yields a value. For example,</p>
+<ul>
+<li><code>5</code> is an expression (value 5)</li>
+<li><code>5 + 2</code> is an expression (value 7)</li>
+<li>Assuming <code>fun</code> is a function that returns a value, <code>fun()</code> is an expression (value is the return value)</li>
+<li>Assuming <code>f</code> is a variable, <code>f</code> is an expression (the value is the value of the variable)</li>
+</ul>
+<p>Certain languages allow more exotic statements to be expressions. For example, in C/C++, the <code>=</code> operator yields a value (the value of the expression on the right operand). It is this choice by the language designer that allows a C/C++ programmer to write</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">int</span> a, b, c, d;
+a <span style="color:#f92672">=</span> b <span style="color:#f92672">=</span> c <span style="color:#f92672">=</span> d <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>;
+</code></pre></div><p>to initialize all four variables to 5.</p>
+<p>When we discuss functional programming languages, we will see how many more things are expressions that programmers typically think are simply statements.</p>
+<h3 ref="order-of-evaluation" >Order of Evaluation</h3><a class="anchor" id="order-of-evaluation"></a>
+<p>Programmers learn the associativity and precedence of operations in their languages. That knowledge enables them to mentally calculate the value of statements like 5 + 4 * 3 / 2.</p>
+<p>What programmers often forget to learn about their language, is the order of evaluation of operands. Take several of those constants from the previous expression and replace them with variables and function calls:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-c++" data-lang="c++"><span style="color:#ae81ff">5</span> <span style="color:#f92672">+</span> a() <span style="color:#f92672">*</span> c <span style="color:#f92672">/</span> b()
+</code></pre></div><p>The questions abound:</p>
+<ul>
+<li>Is a() executed before the value of variable c is retrieved?</li>
+<li>Is b() executed before c()?</li>
+<li>Is b() executed at all?</li>
+</ul>
+<p>In a language with <em>functional</em> side effects, the answer to these questions matter. Why? Consider that a could have a side effect that changes c. If the value of c is retrieved <em>before</em> the execution of a() then the expression will evaluate to a certain value and if the value of c is retrieved after execution of a() then the expression will evaluate to a different value.</p>
+<p>Certain languages define the order of evaluation of operands (Python, Java) and others do not (C/C++). There are reasons why defining the order is a good thing:</p>
+<ul>
+<li>The programmer can depend on that order and benefit from the consistency</li>
+<li>The program&rsquo;s readability is improved.</li>
+<li>The program&rsquo;s reliability is improved.</li>
+</ul>
+<p>But there is at least one really good reason for not defining that order: optimizations. If the compiler/interpreter can move around the order of evaluation of those operands, it may be able to find a way to generate faster code!</p>
+<h3 ref="short-circuit-evaluation" >Short-circuit Evaluation</h3><a class="anchor" id="short-circuit-evaluation"></a>
+<p>Languages with <em>short-circuit evaluation</em> take these potential optimizations one step further. For a boolean expression, the compiler will stop evaluating the expression as soon as the result is fixed. For instance, in <code>a() &amp;&amp; b()</code>, if <code>a()</code> is <code>false</code>, then the entire statement will always be false, no matter the value of <code>b()</code>. In this case, the compiler/interpreter will simply not execute <code>b()</code>. On the other hand, in <code>a() || b()</code> if <code>a()</code> is true, then the entire statement will always be true, no matter the value of <code>b()</code>. In this case, the compiler/interpreter will simply not execute <code>b()</code>.</p>
+<p>A programmer&rsquo;s reliance on this type of behavior in a programming language is very common. For instance, this is a common idiom in C/C++:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">int</span> <span style="color:#f92672">*</span>variable <span style="color:#f92672">=</span> <span style="color:#66d9ef">nullptr</span>;
+
+...
+
+<span style="color:#66d9ef">if</span> (variable <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nullptr</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">*</span>variable <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">5</span>) {
+  ...
+}
+</code></pre></div><p>In this code, the programmer is checking to see whether there is memory allocated to variable before they attempt to read that memory. This is defensive programming thanks to short-circuit evaluation.</p>
+<h3 ref="referential-transparency" >Referential Transparency</h3><a class="anchor" id="referential-transparency"></a>
+<p>Most of these issues would not be a problem if programmer&rsquo;s wrote functions that did not have side effects (remember that those are called pure functions). There are languages that will not allow side effects and those languages support referential transparency: A function has referential transparency if its value (its output) depends only on the value of its parameter(s). In other words, if given the same inputs, a referentially transparent function always gives the same output.</p>
+<h3 ref="put-it-all-together" >Put It All Together</h3><a class="anchor" id="put-it-all-together"></a>
+<p>Try you hand at the practice quiz Expressions, precedence, associativity and coercions to check your understanding of the material we covered in class on Friday and the material from your assigned reading! For the why, check out <a href="https://github.com/hawkinsw/cs3003/blob/main/expressions/relational.cpp">relational.cpp</a> .</p>
+<h2 ref="9-13-2021" >9/13/2021</h2><a class="anchor" id="9-13-2021"></a>
+<p>In today&rsquo;s edition of the Daily PL we will recap our discussion from today that covered subprograms, polymorphism and coroutines!</p>
+<h3 ref="subprograms" >Subprograms</h3><a class="anchor" id="subprograms"></a>
+<p>A <em>subprogram</em> is a type of abstraction. It is process abstraction where the how of a process is hidden from the user who concerns themselves only with the what. A subprogram provides process abstraction by naming a collection of statements that define parameterized computations.​ Again, the collection of statements determines how the process is implemented. Subprogram parameters give the user the ability to control the way that the process executes. There are three types of subprograms:</p>
+<ol>
+<li>Procedure: A subprogram that does not return a value.</li>
+<li>Function: A subprogram that does return a value.</li>
+<li>Method: A subprogram that operates with an implicit association to an object; a method may or may not return a value.</li>
+</ol>
+<p>Pay close attention to the book&rsquo;s explanation and definitions of terms like parameter, parameter profile, argument, protocol, definition, and declaration.</p>
+<p>Subprograms are characterized by three facts:</p>
+<ol>
+<li>A subprogram has only one entry point</li>
+<li>Only one subprogram is active at any time</li>
+<li>Program execution returns to the caller upon completion</li>
+</ol>
+<h3 ref="polymorphism" >Polymorphism</h3><a class="anchor" id="polymorphism"></a>
+<p><em>Polymorphism</em> allows subprograms to take different types of parameters on different invocations. There are two types of polymorphism:</p>
+<ol>
+<li><em>ad-hoc polymorphism:</em> A type of polymorphism where the semantics of the function may change depending on the parameter types.</li>
+<li><em>parametric polymorphism</em>: A type of polymorphism where subprograms take an implicit/explicit type parameter used to define the types of their subprogram&rsquo;s parameters; no matter the value of the type parameter, in parametric polymorphism the subprogram&rsquo;s semantics are always the same.</li>
+</ol>
+<p>Ad-hoc polymorphism is sometimes call function overloading (C++). Subprograms that participate in ad-hoc polymorphism share the same name but must have different protocols. If the subprograms' protocols and names were the same, how would the compiler/interpreter choose which one to invoke? Although a subprogram&rsquo;s protocol includes its return type, not all languages allow ad-hoc polymorphism to depend on the return type (e.g., C++). See the various definitions of <code>add</code> in the C++ code here: <a href="https://github.com/hawkinsw/cs3003/blob/main/subprograms/subprograms.cpp">subprograms.cpp</a> . Note how they all have different protocols. Further, note that not all the versions of the function <code>add</code> perform an actual addition! That&rsquo;s the point of ad-hoc polymorphism &ndash; the programmer can change the meaning of a function.</p>
+<p>Functions that are parametrically polymorphic are sometimes called function templates (C++) or generics (Java, soon to be in Go, Rust). A parametrically polymorphic function is like the blueprint for a house with a variable number of floors. A home buyer may want a home with three stories &ndash; the architect takes their variably floored house blueprint and &ldquo;stamps out&rdquo; a version with three floors. Some &ldquo;new&rdquo; languages call this process monomorphization (Links to an external site.). See the definition of minimum in the C++ code here: <a href="https://github.com/hawkinsw/cs3003/blob/main/subprograms/subprograms.cpp">subprograms.cpp</a> . Note how there is only one definition of the function. The associated type parameter is <code>T</code>. The compiler will &ldquo;stamp out&rdquo; copies of minimum for different types when it is invoked. For example, if the programmer writes</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-c++" data-lang="c++">
+<span style="color:#66d9ef">auto</span> m <span style="color:#f92672">=</span> minimum(<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">4</span>);
+</code></pre></div><p>then the compiler will generate</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">minimum</span>(<span style="color:#66d9ef">int</span> a, <span style="color:#66d9ef">int</span> b) {
+
+ <span style="color:#66d9ef">return</span> a <span style="color:#f92672">&lt;</span> b <span style="color:#f92672">?</span> a : b;
+}
+</code></pre></div><p>behind the scenes.</p>
+<h3 ref="coroutines" >Coroutines</h3><a class="anchor" id="coroutines"></a>
+<p>Just when you thought that you were getting the hang of subprograms, a new kid steps on the block: coroutines. Sebesta defines coroutines as a subprogram that cooperates with a caller. The first time that a programmer uses a coroutine, they call it at which point program execution is transferred to the statements of the coroutine. The coroutine executes until it yields control. The coroutine may yield control back to its caller or to another coroutine. When the coroutine yields control, it does not cease to exist &ndash; it simply goes dormant. When the coroutine is again invoked &ndash; resumed &ndash; the coroutine begins executing where it previously yielded. In other words, coroutines have</p>
+<ol>
+<li>multiple entry points</li>
+<li>full control over execution until they yield</li>
+<li>the property that only one is active at a time (although many may be dormant)</li>
+</ol>
+<p>Coroutines could be used to write a card game. Each player is a coroutine that knows about the player to their left (that is, a coroutine). The PlayerA coroutine performs their actions (perhaps drawing a card from the deck, etc) and checks to see if they won. If they did not win, then the PlayerA coroutine yields to the PlayerB coroutine who performs the same set of actions. This process continues until a player no longer has someone to their left. At that point, everything unwinds back to the point where PlayerA was last resumed &ndash; the signal that a round is complete. The process continues by resuming PlayerA to start another round of the game. Because each player is a coroutine, it never ceased to exist and, therefore, retains information about previous draws from the deck. When a player finally wins, the process completes. To see this in code, check out  <a href="https://github.com/hawkinsw/cs3003/blob/main/subprograms/cardgame.py">cardgame.py</a> .</p>
+<h2 ref="9-20-2021" >9/20/2021</h2><a class="anchor" id="9-20-2021"></a>
+<p>This is an issue of the Daily PL that you are going to want to make sure that you keep safe &ndash; definitely worth framing and passing on to your children! You will want to make sure you remember where you were when you first learned about &hellip;</p>
+<h3 ref="formal-program-semantics" >Formal Program Semantics</h3><a class="anchor" id="formal-program-semantics"></a>
+<p>Although we have not yet learned about it (we will, don&rsquo;t worry!), there is a robust set of theory around the way that PL designers describe the syntax of their language. You can use regular expressions, context-free grammars, parsers (recursive-descent, etc) and other techniques for defining what is a valid program.</p>
+<p>On the other hand, there is less of a consensus about how a program language designer formally describes the semantics of programs written in their language. The codification of the semantics of a program written in a particular is known as <em>formal program semantics</em>. In other words, formal program semantics are a  precise mathematical description of the semantics of an executing program.​ Sebesta uses the term <em>dynamic semantics</em> which is defines as the &ldquo;meaning[] of the expressions, statements and program units of a programming language.&rdquo;</p>
+<p>The goal of defining formal program semantics is to understand and reason about the behavior of programs. There are many, many reasons why PL designers want a formal semantics of their language. However, there are two really important reasons: With formal semantics it is possible to prove that</p>
+<ol>
+<li>two programs calculate the same result (in other words, that two programs are equivalent), and</li>
+<li>a program calculates the correct result.</li>
+</ol>
+<p>The alternative to formal program semantics are standards promulgated by committees that use natural language to define the meaning of program elements. Here is an example of a page from the standard for the C programming language:</p>
+<figure><img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/3.png"/>
+</figure>
+
+<p>If you are interested, you can find the <a href="https://isocpp.org/std/the-standard">C++ language standard</a> , <a href="https://docs.oracle.com/javase/specs/">the Java language standard</a> , the <a href="http://www.open-std.org/jtc1/sc22/wg14/">C language standard</a> , <a href="https://golang.org/ref/spec">the Go language standard</a> and <a href="https://docs.python.org/3/reference/">the Python language standard</a>  all online.</p>
+<h3 ref="testing-vs-proving" >Testing vs Proving</h3><a class="anchor" id="testing-vs-proving"></a>
+<p>There is absolutely a benefit to testing software. No doubt about it. However, testing that a piece of software behaves a certain way does not prove that it operates a certain way.</p>
+<p><em>&ldquo;Program testing can be used to show the presence of bugs, but never to show their absence!&quot;</em> - <a href="https://en.wikipedia.org/wiki/Edsger%5FW.%5FDijkstra">Edsger Dijkstra</a></p>
+<p>There is an entire field of computer science known as formal methods whose goal is to understand how to write software that is provably correct. There are systems available for writing programs about which things can be proven. There is <a href="https://pvs.csl.sri.com/">PVS</a>, <a href="https://coq.inria.fr/">Coq</a> ,<a href="https://isabelle.in.tum.de/doc/tutorial.pdf">Isabelle</a> , and <a href="https://lamport.azurewebsites.net/tla/tla.html">TLA+</a> , to name a few. PVS is used by NASA to write its mission-critical software and even it makes an appearance in the movie <a href="https://shemesh.larc.nasa.gov/fm/pvs/TheMartian/">The Martian</a> .</p>
+<h3 ref="three-types-of-formal-semantics" >Three Types of Formal Semantics</h3><a class="anchor" id="three-types-of-formal-semantics"></a>
+<p>There are three common types of formal semantics. It is important that you know the names of these systems, but we will only focus on one in this course!</p>
+<ol>
+<li>Operational Semantics: The meaning of a program is defined by how the program executes on an idealized virtual machine.</li>
+<li>Denotational Semantics: Program units &ldquo;denote&rdquo; mathematical functions and those functions transform the mathematically defined state of the program.</li>
+<li>Axiomatic Semantics: The meaning of the program is based on proof rules for each programming unit with an emphasis on proving the correctness of a program.</li>
+</ol>
+<p>We will focus on operational semantics only!</p>
+<h3 ref="operational-semantics" >Operational Semantics</h3><a class="anchor" id="operational-semantics"></a>
+<h4 ref="program-state" >Program State</h4><a class="anchor" id="program-state"></a>
+<p>We have referred to the state of the program throughout this course. We have talked about how statements in imperative languages can have side effects that affect the value of the state and we have talked about how the assignment statement&rsquo;s raison d&rsquo;etre is to change a program&rsquo;s state. For operational semantics, we have to very precisely define a program&rsquo;s state.</p>
+<p>At all times, a program has a state. A state is just a function whose domain is the set of defined program variables and whose range is V * T where V is the set of all valid variable values (e.g., 5, 6.0, True, &ldquo;Hello&rdquo;, etc) and T is the set of all valid variable types (e.g., Integer, Floating Point, Boolean, String, etc). ​In other words, you can ask a state about a particular variable and, if it is defined, the function will return the variable&rsquo;s current value and its type.</p>
+<p>It is important to note that PL researchers have math envy. They are not mathematicians but they like to use Greek symbols. So, here we go:</p>
+<p>\begin{equation*}
+\(\sigma(x) = (v, \tau)​\)
+\end{equation*}</p>
+<p>The state function is denoted with the σ
+. τ always represents some arbitrary variable type. Generally, v represents a value. So, you can read the definition above as &ldquo;Variable x has value v and type τ in state σ.&rdquo;</p>
+<h4 ref="program-configuration" >Program Configuration</h4><a class="anchor" id="program-configuration"></a>
+<p>Between execution steps (a term that we will define shortly), a program is always in a particular configuration:</p>
+<p>\begin{equation*}
+\(&lt;e, \sigma&gt;\)
+\end{equation*}</p>
+<p>This means that the program in state σ</p>
+<p>is about to evaluate expression e.</p>
+<h4 ref="program-steps" >Program Steps</h4><a class="anchor" id="program-steps"></a>
+<p>A program step is an atomic (indivisible) change from one program configuration to another. Operational semantics defines steps using rules. The general form of a rule is</p>
+<p>\begin{equation*}
+\(\frac{premises}{conclusion}\)
+\end{equation*}</p>
+<p>The conclusion is generally written like &lt;e, σ&gt; ⟶ (v, τ, σ). This statement means that, when the premises hold, the rule evaluates to a value (v), type (τ) and (possibly modified) state (σ') after a single step of execution of a program in configuration &lt;e, σ&gt;. Note that rules do not yield configurations. All this will make sense when we see an example.</p>
+<h3 ref="example-1-defining-the-semantics-of-variable-access-dot" >Example 1: Defining the semantics of variable access.</h3><a class="anchor" id="example-1-defining-the-semantics-of-variable-access-dot"></a>
+<p>In STIMPL, the expression to access a variable, say i, is written like Variable(&ldquo;i&rdquo;). Our operational semantic rule for evaluating such an access should &ldquo;read&rdquo; something like: When the program is about to execute an expression to access variable i in a state σ, the value of the expression will be the triple of i&rsquo;s value, i&rsquo;s type and the unchanged state σ.&rdquo; In other words, the evaluation of the next step of a program that is about to access a value is the value and type of the variable being accessed and the program&rsquo;s state is unchanged.</p>
+<p>Let&rsquo;s write that formally!</p>
+<p>\begin{equation*}
+\(\frac{\sigma(x) \rightarrow (v, \tau)} {&lt;\text{Variable}(x), \sigma &gt; \rightarrow (v, \tau, \sigma)}\)
+\end{equation*}</p>
+<h4 ref="state-update" >State Update</h4><a class="anchor" id="state-update"></a>
+<p>How do we write down that the state is being changed? Why would we want to change the state? Let&rsquo;s answer the second question first: we want to change the state when, for example, there is an assignment statement. If σ
+(&ldquo;i&rdquo;) = (4, Integer) and then the program evaluated an expression like Assign(Variable(&ldquo;i&rdquo;), IntLiteral(2)), we don&rsquo;t want the σ</p>
+<p>function to return (4, Integer) any more! We want it to return (2, Integer). We can define that mathematically like:</p>
+<p>\begin{equation*}
+\sigma[(v,\tau)/x](y)= \begin{cases} &amp; \sigma(y) \quad y \ne x \ &amp;(v,\tau) \quad y=x \end{cases}
+\end{equation*}</p>
+<p>This means that if you are querying the updated state for the variable that was just reassigned (x), then return its new value and type (m and τ
+). Otherwise, just return the value that you would get from accessing the existing σ</p>
+<p>.</p>
+<h3 ref="example-2-defining-the-semantics-of-variable-assignment--for-a-variable-that-already-exists--dot" >Example 2: Defining the semantics of variable assignment (for a variable that already exists).</h3><a class="anchor" id="example-2-defining-the-semantics-of-variable-assignment--for-a-variable-that-already-exists--dot"></a>
+<p>In STIMPL, the expression to overwrite the value of an existing variable, say i, with, say, an integer literal 5 is written like <code>Assign(Variable(&quot;i&quot;), IntLiteral(5))</code>. Our operational semantic rule for evaluating such an assignment should &ldquo;read&rdquo; something like: When the program is about to execute an expression to assign variable i to the integer literal 5 in a state σ
+and the type of the variable i in state σ is Integer, the value of the expression will be the triple of 5, Integer and the changed state σ' which is exactly the same as state σ</p>
+<p>except where (5, Integer) replaced i&rsquo;s earlier contents.&quot; That&rsquo;s such a mouthful! But, I think we got it. Let&rsquo;s replace some of those literals with symbols for abstraction purposes and then write it down!</p>
+<p>\begin{equation*}
+\(\frac{&lt;e, \sigma&gt; \longrightarrow (v, \tau, \sigma'), \sigma(x) \longrightarrow (*,, \tau)} {&lt;\text{Assign(Variable)}(x, e), \sigma &gt; \longrightarrow (v, \tau, \sigma' [(v, \tau)/x])}\)
+\end{equation*}</p>
+<p>Let&rsquo;s look at it step-by-step:</p>
+<p>\begin{equation*}
+&lt;Assign(Variable(x),e),\sigma&gt;
+\end{equation*}</p>
+<p>is the configuration and means that we are about to execute an expression that will assign value of expression e to variable x. But what is the value of expression e? The premise</p>
+<p>\begin{equation}
+&lt;e,\sigma&gt;⟶(v,\tau, \sigma′)
+\end{equation}</p>
+<p>tells us that the value and type of e when evaluated in state σ
+is v, and τ. Moreover, the premise tells us that the state may have changed during evaluation of expression e and that subsequent evaluation should use a new state, σ</p>
+<p>&lsquo;. Our mouthful above had another important caveat: the type of the value to be assigned to variable x must match the type of the value already stored in variable x. The second premise</p>
+<p>\begin{equation*}
+\sigma′(x)\longrightarrow(*, \tau)
+\end{equation*}</p>
+<p>tells us that the types match &ndash; see how the τs are the same in the two premises? (We use the * to indicate that we don&rsquo;t care what that value is!)</p>
+<p>Now we can just put together everything we have and say that the expression assigning the value of expression e to variable x evaluates to</p>
+<p>\begin{equation*}
+(v,\tau,\sigma′[(v,\tau)/x])
+\end{equation*}</p>
+<h4 ref="that-s-great-but-show-me-code" >That&rsquo;s Great, But Show Me Code!</h4><a class="anchor" id="that-s-great-but-show-me-code"></a>
+<p>Well, Will, that&rsquo;s fine and good and all that stuff. But, how do I use this when I am implementing STIMPL? I&rsquo;ll show you! Remember the operational semantics for variable access:</p>
+<p>\begin{equation*}
+\(\frac{\sigma(x) \rightarrow (v, \tau)} {&lt;\text{Variable}(x), \sigma &gt; \rightarrow (v, \tau, \sigma)}\)
+\end{equation*}</p>
+<p>Compare that with the code for it&rsquo;s implementation in the STIMPL skeleton that you are provided for Assignment 1:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-fallback" data-lang="fallback">def evaluate(expression, state):
+...
+
+    case Variable(variable_name=variable_name):
+      value = state.get_value(variable_name)
+      if value == None:
+        raise InterpSyntaxError(f&#34;Cannot read from {variable_name} before assignment.&#34;)
+      return (*value, state)
+</code></pre></div><p>At this point in the code we are in a function named evaluate whose first parameter is the next expression to evaluate and whose second parameter is a state. Does that sound familiar? That&rsquo;s because it&rsquo;s the same as a <em>configuration</em>! We use <em>pattern matching</em> to select the code to execute. The pattern is based on the structure of <code>expression</code> and we match in the code above when <code>expression</code> is a variable access. Refer to Pattern Matching in Python for the exact form of the syntax. The <em>state</em> variable is an instance of the <code>State</code> object that provides a method called <code>get_value</code> (see Assignment 1: Implementing STIMPL for more information about that function) that returns a tuple of (v, τ) In other words, get_value works the same as σ. So,</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-fallback" data-lang="fallback">value = state.get_value(variable_name)
+</code></pre></div><p>is a means of implementing the premise of the operational semantics.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-fallback" data-lang="fallback">      return (*value, state)
+</code></pre></div><p>yields the final result! Pretty cool, right?</p>
+<p>Let&rsquo;s do the same analysis for assignment:</p>
+<p>\(\frac{&lt;e,\sigma&gt;\longrightarrow(v,\tau,\sigma′),\sigma′(x)\longrightarrow(*,\tau)}{&lt;Assign(Variable(x),e),σ&gt;\longrightarrow(v,\tau,σ′[(v,\tau)/x])}\)</p>
+<p>And here&rsquo;s the implementation:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-fallback" data-lang="fallback">def evaluate(expression, state):
+...
+
+   case Assign(variable=variable, value=value):
+
+      value_result, value_type, new_state = evaluate(value, state)
+
+      variable_from_state = new_state.get_value(variable.variable_name)
+      _, variable_type = variable_from_state if variable_from_state else (None, None)
+
+      if value_type != variable_type and variable_type != None:
+        raise InterpTypeError(f&#34;&#34;&#34;Mismatched types for Assignment:
+            Cannot assign {value_type} to {variable_type}&#34;&#34;&#34;)
+
+      new_state = new_state.set_value(variable.variable_name, value_result, value_type)
+      return (value_result, value_type, new_state)
+</code></pre></div><p>First, look at</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-fallback" data-lang="fallback">      value_result, value_type, new_state = evaluate(value, state)
+</code></pre></div><p>which is how we are able to find the values needed to satisfy the left-hand premise. value_result is v, value_type is τ
+and new_state is σ&rsquo;.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-fallback" data-lang="fallback">      variable_from_state = new_state.get_value(variable.variable_name)
+</code></pre></div><p>is how we are able to find the values needed to satisfy the right-hand premise. Notice that we are using new_state (σ') to get variable.variable_name (x). There is some trickiness in_, variable_type = variable_from_state if variable_from_state else (None, None) to set things up in case we are doing the first assignment to the variable (which sets its type), so ignore that for now! Remember that in our premises we guaranteed that the type of the variable in state σ' matches the type of the expression:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-fallback" data-lang="fallback">      if value_type != variable_type and variable_type != None:
+        raise InterpTypeError(f&#34;&#34;&#34;Mismatched types for Assignment:
+            Cannot assign {value_type} to {variable_type}&#34;&#34;&#34;)
+</code></pre></div><p>performs that check!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-fallback" data-lang="fallback">      new_state = new_state.set_value(variable.variable_name, value_result, value_type)
+</code></pre></div><p>generates a new, new state (σ′[(v,τ)/x]) and</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-fallback" data-lang="fallback">
+      return (value_result, value_type, new_state)
+</code></pre></div><p>yields the final result!</p>
+<h2 ref="9-22-2021" >9/22/2021</h2><a class="anchor" id="9-22-2021"></a>
+<h2 ref="9-24-2021" >9/24/2021</h2><a class="anchor" id="9-24-2021"></a>
+<h2 ref="9-27-2021" >9/27/2021</h2><a class="anchor" id="9-27-2021"></a>
+<h2 ref="10-1-2021" >10/1/2021</h2><a class="anchor" id="10-1-2021"></a>
+<h2 ref="10-4-2021" >10/4/2021</h2><a class="anchor" id="10-4-2021"></a>
+<h2 ref="10-6-2021" >10/6/2021</h2><a class="anchor" id="10-6-2021"></a>
+
+		</div>
+
+
+
+
+
+
+	 
+	<div class="chevrons">
+		<a class="next" href="https://illustratedman-code.github.io/GuideToCS/programming-languages/8-23-2021/" title="8/23/2021" style="margin-right: 0px;">
+            <div>
+                <p>Next page</p>
+                <label>8/23/2021</label>
+            </div>
+            <i class="fas fa-arrow-right" style="font-size: 1.7em"></i></a>
+	</div>
+	
+	
+
+      </section>
+
+      
+      
+      <section class="right-menu ">
+      
+	
+
+		
+	
+			
+		
+	    	
+	  	
+	<div class="TableOfContents">
+    <label><i class="fas fa-align-right"></i>&nbsp;&nbsp;What&#39;s on this page</label>
+    <nav>
+        <ul >
+            <li><a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/">Programming Languages</a></li>
+        </ul>
+    </nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#8-23-2021">8/23/2021</a>
+      <ul>
+        <li><a href="#definitions">Definitions:</a></li>
+        <li><a href="#concepts">Concepts:</a></li>
+        <li><a href="#practice">Practice:</a></li>
+      </ul>
+    </li>
+    <li><a href="#8-23-2021">8/23/2021</a>
+      <ul>
+        <li><a href="#the-value-of-studying-pls">The value of studying PLs</a></li>
+        <li><a href="#programming-domains">Programming domains</a></li>
+        <li><a href="#the-john-von-neumann-model-of-computing">The John von Neumann Model of Computing</a></li>
+      </ul>
+    </li>
+    <li><a href="#8-27-2021">8/27/2021</a>
+      <ul>
+        <li><a href="#programming-paradigms">Programming Paradigms</a></li>
+        <li><a href="#language-evaluation-criteria--new-material-alert">Language Evaluation Criteria (New Material Alert)</a></li>
+      </ul>
+    </li>
+    <li><a href="#8-27-2021">8/27/2021</a>
+      <ul>
+        <li><a href="#imperative-programming-languages">Imperative Programming Languages</a></li>
+        <li><a href="#variables">Variables</a></li>
+        <li><a href="#looking-forward-to-binding--new-material-alert">Looking forward to Binding (New Material Alert)</a></li>
+      </ul>
+    </li>
+    <li><a href="#9-1-2021">9/1/2021</a>
+      <ul>
+        <li><a href="#binding-example">Binding Example</a></li>
+        <li><a href="#variables-storage-bindings">Variables' Storage Bindings</a></li>
+        <li><a href="#variables-name-bindings">Variables' Name Bindings</a></li>
+      </ul>
+    </li>
+    <li><a href="#9-3-2021">9/3/2021</a>
+      <ul>
+        <li><a href="#scope">Scope</a></li>
+      </ul>
+    </li>
+    <li><a href="#9-8-2021">9/8/2021</a>
+      <ul>
+        <li><a href="#recap">Recap</a></li>
+        <li><a href="#array">Array</a></li>
+        <li><a href="#associative-arrays-records-tuples-lists-unions-algebraic-data-types-pattern-matching-list-comprehensions-and-equivalence">Associative Arrays, Records, Tuples, Lists, Unions, Algebraic Data Types, Pattern Matching, List Comprehensions, and Equivalence</a></li>
+      </ul>
+    </li>
+    <li><a href="#9-10-2021">9/10/2021</a>
+      <ul>
+        <li><a href="#expressions">Expressions</a></li>
+        <li><a href="#order-of-evaluation">Order of Evaluation</a></li>
+        <li><a href="#short-circuit-evaluation">Short-circuit Evaluation</a></li>
+        <li><a href="#referential-transparency">Referential Transparency</a></li>
+        <li><a href="#put-it-all-together">Put It All Together</a></li>
+      </ul>
+    </li>
+    <li><a href="#9-13-2021">9/13/2021</a>
+      <ul>
+        <li><a href="#subprograms">Subprograms</a></li>
+        <li><a href="#polymorphism">Polymorphism</a></li>
+        <li><a href="#coroutines">Coroutines</a></li>
+      </ul>
+    </li>
+    <li><a href="#9-20-2021">9/20/2021</a>
+      <ul>
+        <li><a href="#formal-program-semantics">Formal Program Semantics</a></li>
+        <li><a href="#testing-vs-proving">Testing vs Proving</a></li>
+        <li><a href="#three-types-of-formal-semantics">Three Types of Formal Semantics</a></li>
+        <li><a href="#operational-semantics">Operational Semantics</a></li>
+        <li><a href="#example-1-defining-the-semantics-of-variable-access-dot">Example 1: Defining the semantics of variable access.</a></li>
+        <li><a href="#example-2-defining-the-semantics-of-variable-assignment--for-a-variable-that-already-exists--dot">Example 2: Defining the semantics of variable assignment (for a variable that already exists).</a></li>
+      </ul>
+    </li>
+    <li><a href="#9-22-2021">9/22/2021</a></li>
+    <li><a href="#9-24-2021">9/24/2021</a></li>
+    <li><a href="#9-27-2021">9/27/2021</a></li>
+    <li><a href="#10-1-2021">10/1/2021</a></li>
+    <li><a href="#10-4-2021">10/4/2021</a></li>
+    <li><a href="#10-6-2021">10/6/2021</a></li>
+  </ul>
+</nav>
+</div>
+
+		
+	
+			
+		
+	    	
+	  	
+	<div class="Actions">
+	<nav>
+		<ul>
+				
+		    
+		    
+			
+		    
+
+    	</ul>
+	</nav>
+    
+</div>
+
+      </section>
+      
+    </article>
+    
+    
+    <footer>
+      
+
+		
+	
+			
+		
+	    	Create a content/_layout/footer/_index.md file to customize the footer content !
+	  	
+	
+    </footer>
+    
+
+
+
+  </body>
+</html>

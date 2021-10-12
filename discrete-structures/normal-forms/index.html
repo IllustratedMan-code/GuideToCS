@@ -4,7 +4,7 @@
 <html>
   <head>
     <title>
-	Useful formulas and references :: David&#39;s Guide to CS
+	Normal forms :: David&#39;s Guide to CS
 </title>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -13,7 +13,7 @@
 
 
 
-<title>Useful formulas and references :: David&#39;s Guide to CS</title>
+<title>Normal forms :: David&#39;s Guide to CS</title>
 
 <link rel="shortcut icon" href='https://illustratedman-code.github.io/GuideToCS/images/favicon.png' type="image/x-icon" />
 
@@ -54,7 +54,7 @@
     
   </head>
 
-  <body data-url="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/formulas-and-references/"
+  <body data-url="https://illustratedman-code.github.io/GuideToCS/discrete-structures/normal-forms/"
 
   class="">
 
@@ -147,14 +147,15 @@
 
 <ul class="menu">
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/" class="dd-item haschildren
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/" class="dd-item parent haschildren
         item_level_$level
         ">
 
       
       
       
-      <i class="fas fa-chevron-right ddexp"></i>
+      
+          <i class="fas fa-chevron-down ddexp"></i>
         
       
           <a href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/">Discrete Structures</a>
@@ -207,7 +208,7 @@
     </li>
               
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/normal-forms/" class="dd-item
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/normal-forms/" class="dd-item parent active
         item_level_$level
         ">
 
@@ -331,15 +332,14 @@
     </li>
     
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/" class="dd-item parent haschildren
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/" class="dd-item haschildren
         item_level_$level
         ">
 
       
       
       
-      
-          <i class="fas fa-chevron-down ddexp"></i>
+      <i class="fas fa-chevron-right ddexp"></i>
         
       
           <a href="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/">Intro To Comp Systems</a>
@@ -392,7 +392,7 @@
     </li>
               
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/formulas-and-references/" class="dd-item parent active
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/formulas-and-references/" class="dd-item
         item_level_$level
         ">
 
@@ -584,8 +584,8 @@
 	
   
     <li class="">
-      <a class="text-link" href="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/">
-        Intro To Comp Systems
+      <a class="text-link" href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/">
+        Discrete Structures
       </a>
     </li>
 	
@@ -593,7 +593,7 @@
   
     <li class="active">
       
-        Useful formulas and references
+        Normal forms
       
     </li>
 
@@ -614,7 +614,7 @@
 		
 
 		
-			<h1>Useful formulas and references</h1>
+			<h1>Normal forms</h1>
         
 
 		
@@ -634,24 +634,9 @@
 		</span>
 		<nav id="TableOfContents">
   <ul>
-    <li><a href="#hard-drives">Hard Drives</a>
-      <ul>
-        <li><a href="#formulas">Formulas</a></li>
-      </ul>
-    </li>
-    <li><a href="#circuit-reference">Circuit reference</a></li>
-    <li><a href="#computer-arithmetic">Computer Arithmetic</a></li>
-    <li><a href="#memory-plus-cache">Memory + Cache</a>
-      <ul>
-        <li><a href="#formulas">Formulas</a></li>
-      </ul>
-    </li>
-    <li><a href="#pipelining">Pipelining</a>
-      <ul>
-        <li><a href="#formulas">Formulas</a></li>
-      </ul>
-    </li>
-    <li><a href="#mips">MIPS</a></li>
+    <li><a href="#disjunctive-normal-form--dnf">Disjunctive Normal Form (DNF)</a></li>
+    <li><a href="#conjunctive-normal-form--cnf">Conjunctive Normal Form (CNF)</a></li>
+    <li><a href="#expression-trees">Expression Trees</a></li>
   </ul>
 </nav>
 	</div>
@@ -664,110 +649,92 @@
 
 
 	<div class="content">
-	    <h2 ref="hard-drives" >Hard Drives</h2><a class="anchor" id="hard-drives"></a>
-<p><a href="https://www.gatevidyalay.com/magnetic-disk-secondary-memory-coa/">Hard Drive Website</a>
-<a href="https://illustratedman-code.github.io/GuideToCS/ox-hugo/MagneticDisk.pdf">Hard Drive Document from nitin</a></p>
-<h3 ref="formulas" >Formulas</h3><a class="anchor" id="formulas"></a>
+	    <h2 ref="disjunctive-normal-form--dnf" >Disjunctive Normal Form (DNF)</h2><a class="anchor" id="disjunctive-normal-form--dnf"></a>
+<table>
+<thead>
+<tr>
+<th>p</th>
+<th>q</th>
+<th>r</th>
+<th>\(f\)</th>
+<th>Clause Conjunction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F</td>
+<td>F</td>
+<td>F</td>
+<td>T</td>
+<td>\(\neg p \wedge \neg q \vee \neg r\)</td>
+</tr>
+<tr>
+<td>F</td>
+<td>F</td>
+<td>T</td>
+<td>F</td>
+<td></td>
+</tr>
+<tr>
+<td>F</td>
+<td>T</td>
+<td>F</td>
+<td>T</td>
+<td>\(\neg p \wedge \neg q \wedge r\)</td>
+</tr>
+<tr>
+<td>F</td>
+<td>T</td>
+<td>T</td>
+<td>T</td>
+<td>\(\neg p \wedge q \wedge r\)</td>
+</tr>
+<tr>
+<td>T</td>
+<td>F</td>
+<td>F</td>
+<td>F</td>
+<td></td>
+</tr>
+<tr>
+<td>T</td>
+<td>F</td>
+<td>T</td>
+<td>F</td>
+<td></td>
+</tr>
+<tr>
+<td>T</td>
+<td>T</td>
+<td>F</td>
+<td>T</td>
+<td>\(p \wedge q \wedge \neg r\)</td>
+</tr>
+<tr>
+<td>T</td>
+<td>T</td>
+<td>T</td>
+<td>T</td>
+<td>\(p \wedge q \wedge r\)</td>
+</tr>
+</tbody>
+</table>
 <ul>
-<li><code>Disk access time</code> = Seek Time + Rotational delay + Transfer time + Controller overhead + Queuing delay</li>
-<li><code>Average Disk Access</code> Time = Average seek time + Average rotational delay + Transfer time + Controller overhead + Queuing delay</li>
-<li><code>Average Seek Time</code> = 1/3 * Time taken for one full stroke
+<li>Take all of the true statements in the table and write a clause for them</li>
+<li>Concatenate all of the true clauses together with a disjunction statement \(\vee\)</li>
+<li>\(\neg f \Leftrightarrow (\neg p \wedge \neg q \wedge \neg r) \vee (\neg p \wedge q \wedge \neg r) \vee ( \neg p \wedge q \wedge r) \vee (p \wedge q \wedge r) \vee (p \wedge q \wedge \neg r) \vee (p \wedge q \wedge r)\)</li>
+</ul>
+<h2 ref="conjunctive-normal-form--cnf" >Conjunctive Normal Form (CNF)</h2><a class="anchor" id="conjunctive-normal-form--cnf"></a>
 <ul>
-<li>(Time taken to move from track 1 to track 1 + Time taken to move from track 1 to last track)/2</li>
-<li>{0 + (k-1)t}/2</li>
-<li>(k-1)t/2</li>
+<li>Negate the DNF form</li>
+<li>\(\neg (\neg f) \Leftrightarrow f\)</li>
+<li>Use demorgans law to distribute</li>
 </ul>
-</li>
-<li><code>Average Rotational Latency</code> = 1/2 * Time taken for one full rotation</li>
-<li><code>Capacity of disk pack</code> = Total number of surfaces * Number of tracks per surface * Number of sectors per track * storage capacity of one sector</li>
-<li><code>Formatting Overhead</code> = Number of sectors * Overhead per sector</li>
-<li><code>Formatted Disk Space</code> = Total disk space or capacity - formatting overhead</li>
-<li><code>Recording density or storage density</code> = Capacity of track / circumference of the track</li>
-<li><code>Track Capacity</code> = Recording density of the track * Circumference of the track</li>
-<li><code>Data Transfer Rate</code> = Number of heads * Bytes that can be read in one full rotation * Number of rotations in one second = Number of heads * Capacity of one track * Number of rotations in one second</li>
-<li>Tracks per surface = (Outer radius - Inner radius) / Inter Track gap</li>
-</ul>
-<h2 ref="circuit-reference" >Circuit reference</h2><a class="anchor" id="circuit-reference"></a>
-<ul>
-<li>Logic Gates
-<img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/logicGates.png" alt=""></li>
-<li>Full Adder</li>
-</ul>
-<figure><img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/fullAdder.png"/>
+<h2 ref="expression-trees" >Expression Trees</h2><a class="anchor" id="expression-trees"></a>
+<p>A binary tree representation of the logical expression</p>
+<figure><img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/expressionTree.png" width="200px"/>
 </figure>
 
-<h2 ref="computer-arithmetic" >Computer Arithmetic</h2><a class="anchor" id="computer-arithmetic"></a>
-<p><a href="https://illustratedman-code.github.io/GuideToCS/ox-hugo/Computer%20Arithemtic.pdf">Computer arithemetic document from nitin</a></p>
-<h2 ref="memory-plus-cache" >Memory + Cache</h2><a class="anchor" id="memory-plus-cache"></a>
-<ul>
-<li><a href="https://upscfever.com/upsc-fever/en/gatecse/en-gatecse-chp166.html#:~:text=Memory%20Connection%20to%20CPU,through%20its%20chip%20select%20inputs.&amp;text=When%2001%2C%20the%20second%20RAM,is%20selected%2C%20and%20so%20on">Main Memory and Organization</a> : credit to Robbie Schad</li>
-<li><a href="https://illustratedman-code.github.io/GuideToCS/ox-hugo/notes_cache.pdf">Cache Notes</a></li>
-<li><a href="https://illustratedman-code.github.io/GuideToCS/ox-hugo/Direct%20Mapping%20Examples.pdf">Direct Mapping Examples</a></li>
-<li><a href="https://illustratedman-code.github.io/GuideToCS/ox-hugo/Fully%20Associative%20Mapping%20Examples.pdf">Fully Associative Mapping Examples</a></li>
-<li><a href="https://illustratedman-code.github.io/GuideToCS/ox-hugo/Set%20Associative%20Mapping%20Examples.pdf">Set Associate Mapping Examples</a></li>
-</ul>
-<h3 ref="formulas" >Formulas</h3><a class="anchor" id="formulas"></a>
-<h4 ref="direct-mapped-cache" >Direct mapped cache</h4><a class="anchor" id="direct-mapped-cache"></a>
-<ul>
-<li>physical address size (bits) = TAG + Line Number + Block/Line Offset</li>
-<li>\(\text{MM(size in bytes)} = 2^{\text{number Of Bits In Physical Address}} * 2^3\)</li>
-<li>\(\text{BlockOffset(size in bytes)} = 2^{\text{Bits In Block Offset}} * 2^3 \)</li>
-<li>\(\text{number of lines} = 2^{\text{bits in line number}} = \frac{\text{Cache size}}{\text{Line Size}} \)</li>
-<li>\(\text{tag directory size} = \text{number of lines in cache * Number of bits in tag} = \text{Number of Tags} * \text{Tag size} \)</li>
-</ul>
-<h4 ref="set-associative-mapped-cache" >Set Associative Mapped cache</h4><a class="anchor" id="set-associative-mapped-cache"></a>
-<ul>
-<li>physical address size (bits) = TAG + Set Number + Block/line Offset</li>
-<li>\(2^\text{Set Number (bits)} = \frac{\text{Lines in cache}}{\text{Number of sets}}\)</li>
-</ul>
-<h4 ref="fully-associative-cache" >Fully associative cache</h4><a class="anchor" id="fully-associative-cache"></a>
-<ul>
-<li>physical address size (bits) = TAG + Block offset</li>
-</ul>
-<h2 ref="pipelining" >Pipelining</h2><a class="anchor" id="pipelining"></a>
-<p><a href="https://illustratedman-code.github.io/GuideToCS/ox-hugo/Pipelining%20in%20Computer%20Architecture.pdf">pipelining document from nitin</a></p>
-<h3 ref="formulas" >Formulas</h3><a class="anchor" id="formulas"></a>
-<ul>
-<li>
-<p>\(\text{Speed Up (S)} = \frac{\text{Non-pipelined execution time}}{\text{Pipelined execution time}}\)</p>
-</li>
-<li>
-<p>\(\text{Efficiency} = \frac{\text{Speed Up}}{\text{Number of stages in Pipelined Architecture}}\)</p>
-</li>
-<li>
-<p>\(\text{Efficiency} = \frac{\text{Number of boxes utilized in phase time diagram}}{\text{Number of boxes in phase time diagram}}\)</p>
-</li>
-<li>
-<p>\(\text{Throughput} = \frac{\text{Number of instructions executed}}{\text{Total time taken}}\)</p>
-</li>
-<li>
-<p>Non-pipelined execution time = Total number of instructions * Time taken to execute one instruction = n * k clock cycles</p>
-</li>
-<li>
-<p>Pipelined execution time</p>
-<p>= Time taken to execute first instruction + Time take to execute remaining instructions</p>
-<p>= 1 * k clock cycles + (n-1) * 1 clock cycle</p>
-<p>= (k + n-1) clock cycles</p>
-</li>
-<li>
-<p><code>Cycle time</code> = Maximum delay due to any stage + Delay due to its register</p>
-</li>
-<li>
-<p><code>delay due to its register</code> = <code>latch delay</code></p>
-</li>
-<li>
-<p>pipeline time for x tasks = Time taken for 1st task + Time taken for remaining tasks</p>
-<p>= number of phases * cycle time + (total tasks -1) * cycle time</p>
-</li>
-</ul>
-<h2 ref="mips" >MIPS</h2><a class="anchor" id="mips"></a>
-<ul>
-<li><a href="https://illustratedman-code.github.io/GuideToCS/ox-hugo/MIPS-Theory.pdf">Mips Theory</a></li>
-<li><a href="https://inst.eecs.berkeley.edu/~cs61c/resources/MIPS%5Fhelp.html">Mips Reference from Berkeley</a></li>
-<li><a href="http://www.cburch.com/cs/330/reading/mips-ref.pdf">Mips Reference from Cburch</a></li>
-<li><a href="https://illustratedman-code.github.io/GuideToCS/ox-hugo/mips-datapath.png">MIPS DATAPATH</a></li>
-<li><a href="https://illustratedman-code.github.io/GuideToCS/ox-hugo/mips-datapath-pipelined.png">MIPS PIPELINED DATAPATH</a></li>
-</ul>
 
 		</div>
 
@@ -778,10 +745,10 @@
 
 	 
 	<div class="chevrons">
-		<a class="next" href="https://illustratedman-code.github.io/GuideToCS/phys2001/" title="PHYS2001" style="margin-right: 0px;">
+		<a class="next" href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/set-relations/" title="Set relations" style="margin-right: 0px;">
             <div>
                 <p>Next page</p>
-                <label>PHYS2001</label>
+                <label>Set relations</label>
             </div>
             <i class="fas fa-arrow-right" style="font-size: 1.7em"></i></a>
 	</div>
@@ -806,29 +773,14 @@
     <label><i class="fas fa-align-right"></i>&nbsp;&nbsp;What&#39;s on this page</label>
     <nav>
         <ul >
-            <li><a href="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/formulas-and-references/">Useful formulas and references</a></li>
+            <li><a href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/normal-forms/">Normal forms</a></li>
         </ul>
     </nav>
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#hard-drives">Hard Drives</a>
-      <ul>
-        <li><a href="#formulas">Formulas</a></li>
-      </ul>
-    </li>
-    <li><a href="#circuit-reference">Circuit reference</a></li>
-    <li><a href="#computer-arithmetic">Computer Arithmetic</a></li>
-    <li><a href="#memory-plus-cache">Memory + Cache</a>
-      <ul>
-        <li><a href="#formulas">Formulas</a></li>
-      </ul>
-    </li>
-    <li><a href="#pipelining">Pipelining</a>
-      <ul>
-        <li><a href="#formulas">Formulas</a></li>
-      </ul>
-    </li>
-    <li><a href="#mips">MIPS</a></li>
+    <li><a href="#disjunctive-normal-form--dnf">Disjunctive Normal Form (DNF)</a></li>
+    <li><a href="#conjunctive-normal-form--cnf">Conjunctive Normal Form (CNF)</a></li>
+    <li><a href="#expression-trees">Expression Trees</a></li>
   </ul>
 </nav>
 </div>
