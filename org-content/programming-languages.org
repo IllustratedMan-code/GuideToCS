@@ -1,5 +1,6 @@
 #+hugo_base_dir: ../
 #+OPTIONS: num:nil
+#+STARTUP: show2levels
 #+latex_header: \usepackage{siunitx} \usepackage{gensymb} \usepackage{enumerate}
 * Programming Languages
 :PROPERTIES:

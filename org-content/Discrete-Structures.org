@@ -1,22 +1,27 @@
 #+hugo_base_dir: ../
-#+hugo_section: Discrete-Structures
-#+STARTUP: folded
-* Set Theory
+#+STARTUP: show2levels
+* Discrete Structures
 :PROPERTIES:
-:EXPORT_HUGO_SECTION*: Set Theory
+:EXPORT_HUGO_SECTION: Discrete-Structures
 :EXPORT_FILE_NAME: _index
 :END:
-** Sets
+Discrete Structures as taught by Ken Berman
+** Set Theory
+:PROPERTIES:
+:EXPORT_HUGO_SECTION**: Set Theory
+:EXPORT_FILE_NAME: _index
+:END:
+*** Sets
 unordered collection (group) of zero or more distinct objects
 + set theory (operations about sets)
 + S,T,U,A,B ... for sets
 + List elements in curly braces ={a, b, c}=
 + Sets are equal if and only if they contain the same elements.
-*** Set Builder
+**** Set Builder
 + \(\{x:P(x)\}\), \(\{x|P(x)\}\).
 + The set of all x such that P(x)
 + {x: x is an integer where x>0 and x<5}
-*** Set relations
+**** Set relations
 + \(\forall\) for all
 + \(\rightarrow\) implies
 + \(\leftrightarrow\) if and only if
@@ -26,82 +31,82 @@ unordered collection (group) of zero or more distinct objects
 + \(\vee\) or
 + \(x\in S\) x in S
 + \(x \notin S\) x not in S
-*** Empty set
+**** Empty set
 + \(\varnothing = \{\}\)
-*** Subset and superset
+**** Subset and superset
 + \(S\subseteq T\) subset
 + \(S \supseteq T\) superset
 + \(S\subset T\) proper set
 + \(S \supset T\) proper superset
-*** Cardinality
+**** Cardinality
 + \(|S|\) Cardinality of S or the number of elements in S
-*** Universal Set
+**** Universal Set
 + \(U\) is the set containing all other sets (in the problem)
 + universe of discorse
-*** Union
+**** Union
 + \(\{a,b,c\} \cup \{c,e\} = \{a,b,c,e\}\)
-*** Intersection
+**** Intersection
 + \(\{a,b,c\} \cap \{c,e\} = \{c\}\)
-*** Disjointedness
+**** Disjointedness
 \(A \cap B = \varnothing\)
-*** Set difference
+**** Set difference
 + \(A - B\)
 + \(\{a,b,c\} - \{c,e\} = \{a, b\}\)
 + Set of all elements in A but not B
 + Compliment with universal set
-*** Compliment
+**** Compliment
 + \(\bar A = U - A\)
-*** Symmetric difference
+**** Symmetric difference
 + \(A \bigoplus B = A \cup B - A \cap B\)
-*** Cartesian product
+**** Cartesian product
 + \(A \times B = \{(a,b) | a \in A \text{\: and \:} b \in B\}\)
 + \(|A| \times |B| = |A \times B|\)
-*** Generalized Union and Intersection
+**** Generalized Union and Intersection
 Union or intersection of many sets.
-* Standard Proof techniques
+** Standard Proof techniques
 :PROPERTIES:
-:EXPORT_HUGO_SECTION*: Set Theory
+:EXPORT_HUGO_SECTION**: Set Theory
 :EXPORT_FILE_NAME: _index
 :END:
-** Disproof by Counterexample
+*** Disproof by Counterexample
 Shows that a conjecture is not true by pointing out an example where the conjecture does not hold.
 + No nickels
 + 1 quarter + 5 pennies
 + 3 dimes
 + Greedy method is not appropriate with limited change
-** Proof by Contradiction
+*** Proof by Contradiction
 Proof that the opposite cannot be true.
-*** Square root of 2 is irrational
+**** Square root of 2 is irrational
 + \(\sqrt 2 = a/b\)
 + \(a/b\) is simplified
 + a or b or both must be odd (otherwise could be simplified)
 + \(2 = a^2/b^2\)
-+ \(a^2 = 2 * b^2\)
++ \(a^2 = 2 ** b^2\)
 + \(a^2\) must be even (2 times any number is even)
 + \(a\) is even as well (odd times odd is odd)
-+ \(a = 2 * k\) where k is a / 2
-+ \(2 = (2 * k)^2/b^2 \rightarrow b^2 = 2k^2\)
++ \(a = 2 ** k\) where k is a / 2
++ \(2 = (2 ** k)^2/b^2 \rightarrow b^2 = 2k^2\)
 + \(b\) is also odd by this method
 + \(a\) and \(b\) cannot be odd
 + \(\sqrt 2\) cannot be rational
-* Trees
+** Trees
 :PROPERTIES:
-:EXPORT_HUGO_SECTION*: Trees
+:EXPORT_HUGO_SECTION**: Trees
 :EXPORT_FILE_NAME: _index
 :END:
 + set of nodes
 + first node is root
 + every other node has a "parent" node
-** Two Trees
+*** Two Trees
 + Every node that is not a leaf has 2 child nodes
-** Binary Trees
+*** Binary Trees
 + Every node has a maximum of 2 children
-* Logic
+** Logic
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: Discrete-Structures/Logic
 :EXPORT_FILE_NAME: _index
 :END:
-** Boolean operators
+*** Boolean operators
 :PROPERTIES:
 :Custom_ID: Logic
 :END:
@@ -111,47 +116,47 @@ Proof that the opposite cannot be true.
 | Exclusive OR  | XOR     | Binary | \(\bigoplus\) |
 | Implication   | IMPLIES | Binary | \(\rightarrow\)         |
 | Bi-conditional | IFF     | Binary | \(\leftrightarrow\)         |
-** Negation
+*** Negation
 | p | \(\neg p\) |
 | T | F       |
 | F | T       |
-** Conjunction
+*** Conjunction
 | p | q | \(p \wedge q\) |
 | F | F | F         |
 | F | T | F         |
 | T | F | F         |
 | T | T | T         |
-** Disjunction
+*** Disjunction
 | p | q | \(p \vee q\) |
 | F | F | F         |
 | F | T | T         |
 | T | F | T         |
 | T | T | T         |
-** Exclusive Or
+*** Exclusive Or
 | p | q | \(p \bigoplus q\) |
 | F | F | F                 |
 | F | T | T                 |
 | T | F | T                 |
 | T | T | F                 |
 
-** Implication
+*** Implication
 | p | q | \(p \rightarrow q\) |
 | F | F | T         |
 | F | T | T         |
 | T | F | F         |
 | T | T | T         |
-** Bi-conditional
+*** Bi-conditional
 | p | q | \(p \leftrightarrow q\) |
 | F | F | T         |
 | F | T | F         |
 | T | F | F         |
 | T | T | T         |
-* Normal forms
+** Normal forms
 :PROPERTIES:
-:EXPORT_HUGO_SECTION*: Normal Forms
+:EXPORT_HUGO_SECTION**: Normal Forms
 :EXPORT_FILE_NAME: _index
 :END:
-** Disjunctive Normal Form (DNF)
+*** Disjunctive Normal Form (DNF)
 | p | q | r | \(f\) | Clause Conjunction  |
 | F | F | F | T     | \(\neg p \wedge \neg q \vee \neg r\) |
 | F | F | T | F     |                     |
@@ -165,12 +170,12 @@ Proof that the opposite cannot be true.
 + Take all of the true statements in the table and write a clause for them
 + Concatenate all of the true clauses together with a disjunction statement \(\vee\)
 + \(\neg f \Leftrightarrow (\neg p \wedge \neg q \wedge \neg r) \vee (\neg p \wedge q \wedge \neg r) \vee ( \neg p \wedge q \wedge r) \vee (p \wedge q \wedge r) \vee (p \wedge q \wedge \neg r) \vee (p \wedge q \wedge r)\)
-** Conjunctive Normal Form (CNF)
+*** Conjunctive Normal Form (CNF)
 + Negate the DNF form
 + \(\neg (\neg f) \Leftrightarrow f\)
 + Use demorgans law to distribute
 
-** Expression Trees
+*** Expression Trees
 A binary tree representation of the logical expression
 
 #+begin_src latex :file images/expressionTree.png
@@ -189,57 +194,57 @@ A binary tree representation of the logical expression
 #+attr_org: :width 100px
 #+RESULTS:
 [[file:images/expressionTree.png]]
-* Set relations
+** Set relations
 :PROPERTIES:
-:EXPORT_HUGO_SECTION*: Set Relations
+:EXPORT_HUGO_SECTION**: Set Relations
 :EXPORT_FILE_NAME: _index
 :END:
-** reflexive
+*** reflexive
 reflexive if, for every element \(a \in A\) we have \(aRa \Rightarrow (a, a) \in R\)
 + \( A = \{(a, a): a \in A\}\)
-** Symmetric
+*** Symmetric
 symmetric iff \((x,y) \in R \wedge (y,x) \in R\)
-** Transitive
+*** Transitive
 Iff R relates \(a\) to \(b\) and \(b\) to \( c\) then \(a \) relates to \(c\)
 + \(a < b < c \rightarrow a < c\)
 + \(a = b = c \rightarrow a = c\)
 
-* Modular arithmetic
+** Modular arithmetic
 :PROPERTIES:
-:EXPORT_HUGO_SECTION*: Modular Arithmetic
+:EXPORT_HUGO_SECTION**: Modular Arithmetic
 :EXPORT_FILE_NAME: _index
 :END:
 + \(x \equiv y (\text{mod} \: n) \leftrightarrow (x-y) \: \text {mod} \: n = 0\)
 
-** Addition Tables
+*** Addition Tables
 + Z mod 4
   | + | 0                      | 1 | 2 | 3 |
   | 0 | \((0 + 0) \mod 4 = 0\) | 1 | 2 | 3 |
   | 1 | \((1 + 0) \mod 4 = 1\) | 2 | 3 | 0 |
   | 2 | \((2 + 0) \mod 4 = 1\) | 3 | 0 | 1 |
   | 3 | \((3 + 0) \mod 4 = 3\) | 0 | 1 | 2 |
-** Multiplication tables
+*** Multiplication tables
 + Z mod 4
   | x | 0                      | 1 | 2 | 3 |
   | 0 | \((0 \cdot 0) \mod 4 = 0\) | 0 | 0 | 0 |
   | 1 | \((1 \cdot 0) \mod 4 = 0\) | 1 | 2 | 3 |
   | 2 | \((2 \cdot 0) \mod 4 = 0\) | 2 | 0 | 2 |
   | 3 | \((3 \cdot 0) \mod 4 = 0\) | 3 | 2 | 1 |
-* Exam 1 review
+** Exam 1 review
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: Discrete-Structures/Exam 1 Review
 :EXPORT_FILE_NAME: _index
 :END:
 [[file:pdfs/combine.pdf][All-Slides]]
-** Set Theory
-*** Union
+*** Set Theory
+**** Union
 + \(S = A \cup B\)
 | \(A\) | \(B\) | \(A \cup B\) |
 | T     | T     | T         |
 | T     | F     | T         |
 | F     | T     | T         |
 | F     | F     | F         |
-*** Intersection
+**** Intersection
 + \(S = A \cap B\)
 | \(A\) | \(B\) | \(A \cup B\) |
 | T     | T     | T         |
@@ -247,14 +252,14 @@ Iff R relates \(a\) to \(b\) and \(b\) to \( c\) then \(a \) relates to \(c\)
 | F     | T     | F         |
 | F     | F     | F         |
 
-*** Difference
+**** Difference
 + \(S = A - B\)
 | \(A\) | \(B\) | \(A \cup B\) |
 | T     | T     | T         |
 | T     | F     | T         |
 | F     | T     | T         |
 | F     | F     | F         |
-*** Symmetric difference
+**** Symmetric difference
 + \(S = A \bigoplus B\)
 + \((a \in S \iff (a \in A \quad \text{and} \quad a \ni B)\)
 | \(A\) | \(B\) | \(A \cup B\) |
@@ -262,35 +267,35 @@ Iff R relates \(a\) to \(b\) and \(b\) to \( c\) then \(a \) relates to \(c\)
 | T     | F     | T         |
 | F     | T     | T         |
 | F     | F     | F         |
-*** Demorgans law
+**** Demorgans law
 \(\neg (A \cup B) = \neg A \cap \neg B\)
-*** Principle of Inclusion-Exclusion
+**** Principle of Inclusion-Exclusion
 \(|A \cup B \cup C| = |A| + |B| + |C| - |A \cap B| - |A \cap C| - |B \cap C| + |A \cap B \cap C|\)
-** Proof Techniques
+*** Proof Techniques
 + Counterexample
 + Contradiction
 + Induction
 + Trees
-*** Trees
+**** Trees
 + n nodes
 + n-1 edges
 + leaf nodes = intermediate nodes + 1
 + Total nodes = intermediate nodes + leaf nodes
-** power sets
+*** power sets
 + \(A= \{a, b, c\}\)
 + \(P(A) = \varnothing , \{a\}, \{b\}, \{c\}, \{a, b\}, \{a, c\}, \{b, c\}, \{a, b, c\}\)
 + \(|P(A)| = 2^{|A|} = 2^3 = 8\)
-** Propositional logic
+*** Propositional logic
 + All F = contradiction
 + All T = Tautology
 + CNF conjunction of all disjunction clauses, unsatisfiable when all combinations of clauses are present
 + DNF disjunction of all conjunction clauses
 + [[https://illustratedman-code.github.io/GuideToCS/discrete-structures/logic/][Logic]]
-*** NP and NP-completeness
+**** NP and NP-completeness
 + P = problem that can be solved in polynomial time
 + NP = non-deterministic polynomial (unknown if it can be solved in polynomial time)
 + NP-complete = any NP problem A can be reduced to problem B
-** Functions and relations
+*** Functions and relations
 + One to one -> (injective)
 + Onto () -> surjective
 + One to one and Onto -> Bijective
@@ -305,6 +310,6 @@ Iff R relates \(a\) to \(b\) and \(b\) to \( c\) then \(a \) relates to \(c\)
   + reflexive
   + Antisymmetric
   + Transitive
-** Mod Arithmetic
+*** Mod Arithmetic
 + \((x + y) \mod k = (x \mod k \quad + \quad y \mod k) \mod k \)
 + \(b^{n-1} = 1 \mod n \)
