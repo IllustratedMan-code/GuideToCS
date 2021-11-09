@@ -318,4 +318,38 @@ Iff R relates \(a\) to \(b\) and \(b\) to \( c\) then \(a \) relates to \(c\)
 :EXPORT_HUGO_SECTION: Discrete-Structures/Exam 2 Review
 :EXPORT_FILE_NAME: _index
 :END:
-[[file:pdfs/combine2.pdf][All-Slides]] after the last exam.
++ [[file:pdfs/combine2.pdf][All-Slides]] after the first exam.
++ [[file:pdfs/Topic Coverage for Test 2 CS2071 Fall 2021-1.pdf][All Topics]]
+*** RSA Public Key Cryptosystem
+**** Extended GCD to compute private key
++ \(\varphi(n) = (p-1)(q-1)\)
++ \(se + t\varphi(n) = g = 1 = gcd(e, \varphi(n))\)
++ \(se \equiv 1(\mod \varphi (n))\)
++ \(s = e^{-1}(\mod \varphi(n))\)
+***** R implementation of GCD
+This is an implementation of Eculid's recursive GCD algorithm. Should be easy to convert to python.
+#+begin_src R
+euclid <- function(a, b) {
+  print(c(a, b))
+  if (b == 0) {
+    return(a)
+  }
+  euclid(b, a %% b)
+}
+#+end_src
+*** Intro to Graph Theory, Euler's Degree Formula
++ A Graph is a series of vertices (nodes) that are connected by edges
++ Degree (in this class) is equal to the number of edges that a node is connected to
++ Complete graph is a graph where every node is connected to every other node.
++ A subgraph is a graph made from a subset of nodes in another graph
++ An induced subgraph must have the same edges that the parent graph had.
+*** Graph Isomorphism, Path, Coloring
+*** Planar Graphs and Euler's Polyhedron Formula
+*** Spanning Trees and Eulerian Circuits
+*** Hypercubes and hamiltonian Cycles
+*** Implementation of Graphs and Digraphs
+*** Digraphs
+*** The Web Digraph and PageRank
+*** Intro to Combinatorics and Counting
+*** Permutations and Combinations
+*** Identities, Binomial Theorem, Pascals Triangle
