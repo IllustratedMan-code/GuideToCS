@@ -313,3 +313,9 @@ Iff R relates \(a\) to \(b\) and \(b\) to \( c\) then \(a \) relates to \(c\)
 *** Mod Arithmetic
 + \((x + y) \mod k = (x \mod k \quad + \quad y \mod k) \mod k \)
 + \(b^{n-1} = 1 \mod n \)
+** Exam 2 review
+:PROPERTIES:
+:EXPORT_HUGO_SECTION: Discrete-Structures/Exam 1 Review
+:EXPORT_FILE_NAME: _index
+:END:
+[[file:pdfs/combine2.pdf][All-Slides]] after the last exam.
