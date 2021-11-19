@@ -68,6 +68,6 @@ tabWidth = 2
 [[menu.shortcuts]]
 name = "Github"
 identifier = "ds"
-url = "https://github.com/IllustratedMan-code"
+url = "https://github.com/IllustratedMan-code/GuideToCS"
 weight = 10
 
