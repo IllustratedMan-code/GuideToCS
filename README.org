@@ -1,1 +1,20 @@
-[[https://illustratedman-code.github.io/GuideToCS/]]
+Website Link: [[https://illustratedman-code.github.io/GuideToCS/]]
+
+* Contribution guide
+This repository is very open to contributions, I will try to detail how to do so here. If there is any confusion, do not hesitate to file a github issue.
+** Prerequisites
++ I am assuming knowledge of a markdown syntax supported by [[https://gohugo.io/content-management/formats/][hugo]].
++ A github account, currently this is necessary because the repository is only located on github.
+** Forking and creating a pull request
+Follow this [[https://docs.github.com/en/get-started/quickstart/contributing-to-projects][guide]].
+** Organization of project
+Markdown files are stored in the =content= folder.
+To create a new section, add a new directory and create an =_index.md= file inside it.
+Subsections are created by adding a folder inside a section folder and adding an =_index.md= file inside it.
+Refer to the existing content folder for examples.
+*** Emacs specific markdown files
++ If writing org mode files in emacs (this is how I do it), there is an =org-content= folder.
++ I use the emacs package [[https://github.com/kaushalmodi/ox-hugo][ox-hugo]] for exporting to the markdown in the content folder.
+*** Contributing to the theme
++ If you want to contribute to the appearance of the website, then create a hugo [[https://gohugo.io/commands/hugo_new_theme/#readout][theme]] in a separate repository.
++ Add your theme as a git submodule to your fork of this project and create a pull request.
