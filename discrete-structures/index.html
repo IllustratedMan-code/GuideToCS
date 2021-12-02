@@ -8,7 +8,7 @@
 </title>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2021-11-19T16:44:25 UTC">
+<meta name="revised" content="2021-12-02T21:26:21 UTC">
 <meta name="description" content="">
 
 
@@ -846,7 +846,23 @@
         <li><a href="#mod-arithmetic">Mod Arithmetic</a></li>
       </ul>
     </li>
-    <li><a href="#exam-2-review">Exam 2 review</a></li>
+    <li><a href="#exam-2-review">Exam 2 review</a>
+      <ul>
+        <li><a href="#rsa-public-key-cryptosystem">RSA Public Key Cryptosystem</a></li>
+        <li><a href="#intro-to-graph-theory-euler-s-degree-formula">Intro to Graph Theory, Euler&rsquo;s Degree Formula</a></li>
+        <li><a href="#graph-isomorphism-path-coloring">Graph Isomorphism, Path, Coloring</a></li>
+        <li><a href="#planar-graphs-and-euler-s-polyhedron-formula">Planar Graphs and Euler&rsquo;s Polyhedron Formula</a></li>
+        <li><a href="#spanning-trees-and-eulerian-circuits">Spanning Trees and Eulerian Circuits</a></li>
+        <li><a href="#hypercubes-and-hamiltonian-cycles">Hypercubes and hamiltonian Cycles</a></li>
+        <li><a href="#implementation-of-graphs-and-digraphs">Implementation of Graphs and Digraphs</a></li>
+        <li><a href="#digraphs">Digraphs</a></li>
+        <li><a href="#the-web-digraph-and-pagerank">The Web Digraph and PageRank</a></li>
+        <li><a href="#intro-to-combinatorics-and-counting">Intro to Combinatorics and Counting</a></li>
+        <li><a href="#permutations-and-combinations">Permutations and Combinations</a></li>
+        <li><a href="#identities-binomial-theorem-pascals-triangle">Identities, Binomial Theorem, Pascals Triangle</a></li>
+      </ul>
+    </li>
+    <li><a href="#exam-3-review">Exam 3 review</a></li>
   </ul>
 </nav>
 	</div>
@@ -1610,7 +1626,78 @@
 <li>\(b^{n-1} = 1 \mod n \)</li>
 </ul>
 <h2 ref="exam-2-review" >Exam 2 review</h2><a class="anchor" id="exam-2-review"></a>
-<p><a href="https://illustratedman-code.github.io/GuideToCS/ox-hugo/combine2.pdf">All-Slides</a> after the last exam.</p>
+<ul>
+<li><a href="https://illustratedman-code.github.io/GuideToCS/ox-hugo/combine2.pdf">All-Slides</a> after the first exam.</li>
+<li><a href="https://illustratedman-code.github.io/GuideToCS/ox-hugo/Topic%20Coverage%20for%20Test%202%20CS2071%20Fall%202021-1.pdf">All Topics</a> most formulas are in this one.</li>
+</ul>
+<h3 ref="rsa-public-key-cryptosystem" >RSA Public Key Cryptosystem</h3><a class="anchor" id="rsa-public-key-cryptosystem"></a>
+<h4 ref="extended-gcd-to-compute-private-key" >Extended GCD to compute private key</h4><a class="anchor" id="extended-gcd-to-compute-private-key"></a>
+<ul>
+<li>\(\varphi(n) = (p-1)(q-1)\)</li>
+<li>\(se + t\varphi(n) = g = 1 = gcd(e, \varphi(n))\)</li>
+<li>\(se \equiv 1(\mod \varphi (n))\)</li>
+<li>\(s = e^{-1}(\mod \varphi(n))\)</li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>R implementation of GCD</p>
+<p>This is an implementation of Eculid&rsquo;s recursive GCD algorithm. Should be easy to convert to python.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-R" data-lang="R">euclid <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">function</span>(a, b) {
+  <span style="color:#a6e22e">print</span>(<span style="color:#a6e22e">c</span>(a, b))
+  <span style="color:#a6e22e">if </span>(b <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) {
+    <span style="color:#a6e22e">return</span>(a)
+  }
+  <span style="color:#a6e22e">euclid</span>(b, a <span style="color:#f92672">%%</span> b)
+}
+</code></pre></div></li>
+</ul>
+<h3 ref="intro-to-graph-theory-euler-s-degree-formula" >Intro to Graph Theory, Euler&rsquo;s Degree Formula</h3><a class="anchor" id="intro-to-graph-theory-euler-s-degree-formula"></a>
+<ul>
+<li>A Graph is a series of vertices (nodes) that are connected by edges</li>
+<li>Degree (in this class) is equal to the number of edges that a node is connected to</li>
+<li>Complete graph is a graph where every node is connected to every other node.</li>
+<li>A subgraph is a graph made from a subset of nodes in another graph</li>
+<li>An induced subgraph must have the same edges that the parent graph had.</li>
+</ul>
+<h3 ref="graph-isomorphism-path-coloring" >Graph Isomorphism, Path, Coloring</h3><a class="anchor" id="graph-isomorphism-path-coloring"></a>
+<ul>
+<li>Isomorphic graphs are identical except for node position, connections are the same</li>
+<li>nodes in colored Graphs are colored to be different than all of the adjacent nodes.</li>
+<li>A path is a sequence of vertices connected by edges within a graph. Vertices may be repeated. A path is the same as a trail.</li>
+<li>Simple paths are paths where vertices are not repeated.</li>
+</ul>
+<h3 ref="planar-graphs-and-euler-s-polyhedron-formula" >Planar Graphs and Euler&rsquo;s Polyhedron Formula</h3><a class="anchor" id="planar-graphs-and-euler-s-polyhedron-formula"></a>
+<ul>
+<li><a href="https://illustratedman-code.github.io/GuideToCS/ox-hugo/SupplementalNotesPlanarGraphs.pdf">Supplemental Notes For Planar Graph (Kuratowski)</a></li>
+<li>Planar graphs are graphs that can be represented isomorphically without any overlapping edges.</li>
+<li>\(\sum_{g \in F}\deg(g) = 2m\) where g is a vertex in face F, and m is the number of edges</li>
+<li>5 regular polyhedra
+<ol>
+<li>Tetrahedron</li>
+<li>Cube</li>
+<li>Dodecahedron</li>
+<li>Icosahedron</li>
+<li>Octahedron</li>
+</ol>
+</li>
+</ul>
+<h3 ref="spanning-trees-and-eulerian-circuits" >Spanning Trees and Eulerian Circuits</h3><a class="anchor" id="spanning-trees-and-eulerian-circuits"></a>
+<ul>
+<li>Eulerian path contains all edges in a graph exactly once</li>
+<li>Eulerian circuit is a circuit that contains all edges exactly once.</li>
+<li>Simple path that contains every vertex in the graph is a Hamiltonian Path</li>
+<li>Hamiltonian cycle is a cycle that contains every vertex in the path</li>
+</ul>
+<h3 ref="hypercubes-and-hamiltonian-cycles" >Hypercubes and hamiltonian Cycles</h3><a class="anchor" id="hypercubes-and-hamiltonian-cycles"></a>
+<h3 ref="implementation-of-graphs-and-digraphs" >Implementation of Graphs and Digraphs</h3><a class="anchor" id="implementation-of-graphs-and-digraphs"></a>
+<h3 ref="digraphs" >Digraphs</h3><a class="anchor" id="digraphs"></a>
+<h3 ref="the-web-digraph-and-pagerank" >The Web Digraph and PageRank</h3><a class="anchor" id="the-web-digraph-and-pagerank"></a>
+<h3 ref="intro-to-combinatorics-and-counting" >Intro to Combinatorics and Counting</h3><a class="anchor" id="intro-to-combinatorics-and-counting"></a>
+<h3 ref="permutations-and-combinations" >Permutations and Combinations</h3><a class="anchor" id="permutations-and-combinations"></a>
+<h3 ref="identities-binomial-theorem-pascals-triangle" >Identities, Binomial Theorem, Pascals Triangle</h3><a class="anchor" id="identities-binomial-theorem-pascals-triangle"></a>
+<h2 ref="exam-3-review" >Exam 3 review</h2><a class="anchor" id="exam-3-review"></a>
+<p><a href="https://illustratedman-code.github.io/GuideToCS/ox-hugo/combine3.pdf">Link to all Slides</a></p>
 
 		</div>
 
@@ -1712,7 +1799,23 @@
         <li><a href="#mod-arithmetic">Mod Arithmetic</a></li>
       </ul>
     </li>
-    <li><a href="#exam-2-review">Exam 2 review</a></li>
+    <li><a href="#exam-2-review">Exam 2 review</a>
+      <ul>
+        <li><a href="#rsa-public-key-cryptosystem">RSA Public Key Cryptosystem</a></li>
+        <li><a href="#intro-to-graph-theory-euler-s-degree-formula">Intro to Graph Theory, Euler&rsquo;s Degree Formula</a></li>
+        <li><a href="#graph-isomorphism-path-coloring">Graph Isomorphism, Path, Coloring</a></li>
+        <li><a href="#planar-graphs-and-euler-s-polyhedron-formula">Planar Graphs and Euler&rsquo;s Polyhedron Formula</a></li>
+        <li><a href="#spanning-trees-and-eulerian-circuits">Spanning Trees and Eulerian Circuits</a></li>
+        <li><a href="#hypercubes-and-hamiltonian-cycles">Hypercubes and hamiltonian Cycles</a></li>
+        <li><a href="#implementation-of-graphs-and-digraphs">Implementation of Graphs and Digraphs</a></li>
+        <li><a href="#digraphs">Digraphs</a></li>
+        <li><a href="#the-web-digraph-and-pagerank">The Web Digraph and PageRank</a></li>
+        <li><a href="#intro-to-combinatorics-and-counting">Intro to Combinatorics and Counting</a></li>
+        <li><a href="#permutations-and-combinations">Permutations and Combinations</a></li>
+        <li><a href="#identities-binomial-theorem-pascals-triangle">Identities, Binomial Theorem, Pascals Triangle</a></li>
+      </ul>
+    </li>
+    <li><a href="#exam-3-review">Exam 3 review</a></li>
   </ul>
 </nav>
 </div>
