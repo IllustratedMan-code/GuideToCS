@@ -370,3 +370,5 @@ euclid <- function(a, b) {
 *** Intro to Combinatorics and Counting
 *** Permutations and Combinations
 *** Identities, Binomial Theorem, Pascals Triangle
+** Exam 3 review
+[[file:pdfs/combine3.pdf][Link to all Slides]]

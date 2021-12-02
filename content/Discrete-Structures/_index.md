@@ -450,4 +450,96 @@ Iff R relates \\(a\\) to \\(b\\) and \\(b\\) to \\( c\\) then \\(a \\) relates t
 
 ## Exam 2 review {#exam-2-review}
 
-[All-Slides](/ox-hugo/combine2.pdf) after the last exam.
+-   [All-Slides](/ox-hugo/combine2.pdf) after the first exam.
+-   [All Topics](</ox-hugo/Topic Coverage for Test 2 CS2071 Fall 2021-1.pdf>) most formulas are in this one.
+
+
+### RSA Public Key Cryptosystem {#rsa-public-key-cryptosystem}
+
+
+#### Extended GCD to compute private key {#extended-gcd-to-compute-private-key}
+
+-   \\(\varphi(n) = (p-1)(q-1)\\)
+-   \\(se + t\varphi(n) = g = 1 = gcd(e, \varphi(n))\\)
+-   \\(se \equiv 1(\mod \varphi (n))\\)
+-   \\(s = e^{-1}(\mod \varphi(n))\\)
+
+<!--list-separator-->
+
+-  R implementation of GCD
+
+    This is an implementation of Eculid's recursive GCD algorithm. Should be easy to convert to python.
+
+    ```R
+    euclid <- function(a, b) {
+      print(c(a, b))
+      if (b == 0) {
+        return(a)
+      }
+      euclid(b, a %% b)
+    }
+    ```
+
+
+### Intro to Graph Theory, Euler's Degree Formula {#intro-to-graph-theory-euler-s-degree-formula}
+
+-   A Graph is a series of vertices (nodes) that are connected by edges
+-   Degree (in this class) is equal to the number of edges that a node is connected to
+-   Complete graph is a graph where every node is connected to every other node.
+-   A subgraph is a graph made from a subset of nodes in another graph
+-   An induced subgraph must have the same edges that the parent graph had.
+
+
+### Graph Isomorphism, Path, Coloring {#graph-isomorphism-path-coloring}
+
+-   Isomorphic graphs are identical except for node position, connections are the same
+-   nodes in colored Graphs are colored to be different than all of the adjacent nodes.
+-   A path is a sequence of vertices connected by edges within a graph. Vertices may be repeated. A path is the same as a trail.
+-   Simple paths are paths where vertices are not repeated.
+
+
+### Planar Graphs and Euler's Polyhedron Formula {#planar-graphs-and-euler-s-polyhedron-formula}
+
+-   [Supplemental Notes For Planar Graph (Kuratowski)](/ox-hugo/SupplementalNotesPlanarGraphs.pdf)
+-   Planar graphs are graphs that can be represented isomorphically without any overlapping edges.
+-   \\(\sum\_{g \in F}\deg(g) = 2m\\) where g is a vertex in face F, and m is the number of edges
+-   5 regular polyhedra
+    1.  Tetrahedron
+    2.  Cube
+    3.  Dodecahedron
+    4.  Icosahedron
+    5.  Octahedron
+
+
+### Spanning Trees and Eulerian Circuits {#spanning-trees-and-eulerian-circuits}
+
+-   Eulerian path contains all edges in a graph exactly once
+-   Eulerian circuit is a circuit that contains all edges exactly once.
+-   Simple path that contains every vertex in the graph is a Hamiltonian Path
+-   Hamiltonian cycle is a cycle that contains every vertex in the path
+
+
+### Hypercubes and hamiltonian Cycles {#hypercubes-and-hamiltonian-cycles}
+
+
+### Implementation of Graphs and Digraphs {#implementation-of-graphs-and-digraphs}
+
+
+### Digraphs {#digraphs}
+
+
+### The Web Digraph and PageRank {#the-web-digraph-and-pagerank}
+
+
+### Intro to Combinatorics and Counting {#intro-to-combinatorics-and-counting}
+
+
+### Permutations and Combinations {#permutations-and-combinations}
+
+
+### Identities, Binomial Theorem, Pascals Triangle {#identities-binomial-theorem-pascals-triangle}
+
+
+## Exam 3 review {#exam-3-review}
+
+[Link to all Slides](/ox-hugo/combine3.pdf)
