@@ -4,7 +4,7 @@
 <html>
   <head>
     <title>
-	Normal forms :: David&#39;s Guide to CS
+	10/27/2021 :: David&#39;s Guide to CS
 </title>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -13,7 +13,7 @@
 
 
 
-<title>Normal forms :: David&#39;s Guide to CS</title>
+<title>10/27/2021 :: David&#39;s Guide to CS</title>
 
 <link rel="shortcut icon" href='https://illustratedman-code.github.io/GuideToCS/images/favicon.png' type="image/x-icon" />
 
@@ -54,7 +54,7 @@
     
   </head>
 
-  <body data-url="https://illustratedman-code.github.io/GuideToCS/discrete-structures/normal-forms/"
+  <body data-url="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-27-2021/"
 
   class="">
 
@@ -147,15 +147,14 @@
 
 <ul class="menu">
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/" class="dd-item parent haschildren
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/" class="dd-item haschildren
         item_level_$level
         ">
 
       
       
       
-      
-          <i class="fas fa-chevron-down ddexp"></i>
+      <i class="fas fa-chevron-right ddexp"></i>
         
       
           <a href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/">Discrete Structures</a>
@@ -223,7 +222,7 @@
     </li>
               
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/normal-forms/" class="dd-item parent active
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/normal-forms/" class="dd-item
         item_level_$level
         ">
 
@@ -456,14 +455,15 @@
     </li>
     
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/" class="dd-item haschildren
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/" class="dd-item parent haschildren
         item_level_$level
         ">
 
       
       
       
-      <i class="fas fa-chevron-right ddexp"></i>
+      
+          <i class="fas fa-chevron-down ddexp"></i>
         
       
           <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/">Programming Languages</a>
@@ -531,7 +531,7 @@
     </li>
               
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-27-2021/" class="dd-item
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-27-2021/" class="dd-item parent active
         item_level_$level
         ">
 
@@ -929,8 +929,8 @@
 	
   
     <li class="">
-      <a class="text-link" href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/">
-        Discrete Structures
+      <a class="text-link" href="https://illustratedman-code.github.io/GuideToCS/programming-languages/">
+        Programming Languages
       </a>
     </li>
 	
@@ -938,7 +938,7 @@
   
     <li class="active">
       
-        Normal forms
+        10/27/2021
       
     </li>
 
@@ -959,7 +959,7 @@
 		
 
 		
-			<h1>Normal forms</h1>
+			<h1>10/27/2021</h1>
         
 
 		
@@ -979,9 +979,9 @@
 		</span>
 		<nav id="TableOfContents">
   <ul>
-    <li><a href="#disjunctive-normal-form--dnf">Disjunctive Normal Form (DNF)</a></li>
-    <li><a href="#conjunctive-normal-form--cnf">Conjunctive Normal Form (CNF)</a></li>
-    <li><a href="#expression-trees">Expression Trees</a></li>
+    <li><a href="#the-tail-that-wags-the-dog">The Tail That Wags the Dog</a></li>
+    <li><a href="#tail-recursion-hope">Tail Recursion - Hope</a></li>
+    <li><a href="#rewriting">Rewriting</a></li>
   </ul>
 </nav>
 	</div>
@@ -994,92 +994,38 @@
 
 
 	<div class="content">
-	    <h2 ref="disjunctive-normal-form--dnf" >Disjunctive Normal Form (DNF)</h2><a class="anchor" id="disjunctive-normal-form--dnf"></a>
-<table>
-<thead>
-<tr>
-<th>p</th>
-<th>q</th>
-<th>r</th>
-<th>\(f\)</th>
-<th>Clause Conjunction</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>F</td>
-<td>F</td>
-<td>F</td>
-<td>T</td>
-<td>\(\neg p \wedge \neg q \vee \neg r\)</td>
-</tr>
-<tr>
-<td>F</td>
-<td>F</td>
-<td>T</td>
-<td>F</td>
-<td></td>
-</tr>
-<tr>
-<td>F</td>
-<td>T</td>
-<td>F</td>
-<td>T</td>
-<td>\(\neg p \wedge \neg q \wedge r\)</td>
-</tr>
-<tr>
-<td>F</td>
-<td>T</td>
-<td>T</td>
-<td>T</td>
-<td>\(\neg p \wedge q \wedge r\)</td>
-</tr>
-<tr>
-<td>T</td>
-<td>F</td>
-<td>F</td>
-<td>F</td>
-<td></td>
-</tr>
-<tr>
-<td>T</td>
-<td>F</td>
-<td>T</td>
-<td>F</td>
-<td></td>
-</tr>
-<tr>
-<td>T</td>
-<td>T</td>
-<td>F</td>
-<td>T</td>
-<td>\(p \wedge q \wedge \neg r\)</td>
-</tr>
-<tr>
-<td>T</td>
-<td>T</td>
-<td>T</td>
-<td>T</td>
-<td>\(p \wedge q \wedge r\)</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>Take all of the true statements in the table and write a clause for them</li>
-<li>Concatenate all of the true clauses together with a disjunction statement \(\vee\)</li>
-<li>\(\neg f \Leftrightarrow (\neg p \wedge \neg q \wedge \neg r) \vee (\neg p \wedge q \wedge \neg r) \vee ( \neg p \wedge q \wedge r) \vee (p \wedge q \wedge r) \vee (p \wedge q \wedge \neg r) \vee (p \wedge q \wedge r)\)</li>
-</ul>
-<h2 ref="conjunctive-normal-form--cnf" >Conjunctive Normal Form (CNF)</h2><a class="anchor" id="conjunctive-normal-form--cnf"></a>
-<ul>
-<li>Negate the DNF form</li>
-<li>\(\neg (\neg f) \Leftrightarrow f\)</li>
-<li>Use demorgans law to distribute</li>
-</ul>
-<h2 ref="expression-trees" >Expression Trees</h2><a class="anchor" id="expression-trees"></a>
-<p>A binary tree representation of the logical expression</p>
-<figure><img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/expressionTree.png" width="200px"/>
+	    <h2 ref="the-tail-that-wags-the-dog" >The Tail That Wags the Dog</h2><a class="anchor" id="the-tail-that-wags-the-dog"></a>
+<p>There are no loops in functional programming languages. We&rsquo;ve learned that, instead, functional programming languages are characterised by the fact that they use recursion for control flow. As we discussed earlier in the class (much earlier, in fact), when running code on a von Neumann machine, iterative algorithms typically perform faster than recursive algorithms because of the way that the former leverages the properties of the hardware (e.g., <a href="https://en.wikipedia.org/wiki/Locality%5Fof%5Freference">spatial and temporal locality of code</a> ). In addition, recursive algorithms typically use much more memory than iterative algorithms.</p>
+<p>Why? To answer that question, we will need to recall what we learned about stack frames. For every function invocation, an activation record (aka stack frame) is allocated on the run-time stack (aka call stack). The function&rsquo;s parameters, local variables, and return value are all stored in its activation record. The activation record for a function invocation remains on the stack until it has completed execution. In other words, if a function f invokes a function g, then function f&rsquo;s activation record remains on the stack until (at least) g has completed execution.</p>
+<p>Consider some algorithm A. Let&rsquo;s assume that an iterative implementation of A requires n executions of a loop and l local integer variables. If that implementation is contained in a function, an invocation of that function would consume approximately l*sizeof(integer variable) + activation record overhead space on the runtime stack. Let&rsquo;s further assume that a function implementing the recursive version of A also uses l local integer variables and also requires n executions of itself. Each invocation of the implementing function, then, needs l*sizeof(integer variable) + activation record overhead space on the runtime stack. Multiply that by n, the number of recursive calls, and you can see that, at it&rsquo;s peak, executing the recursive version of algorithm A requires n * (l * sizeof(integer variable) + activation record overhead) space on the run-time stack. In other words, the recursive version requires n times more memory!
+That escalated quickly
+.</p>
+<p>That&rsquo;s all very abstract. Let&rsquo;s look at the implications with a real-world example, which we will write in Haskell syntax:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-haskell" data-lang="haskell"><span style="color:#a6e22e">myLen</span> <span style="color:#66d9ef">[]</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+<span style="color:#a6e22e">myLen</span> (x<span style="color:#66d9ef">:</span>xs) <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> (myLen xs)
+</code></pre></div><p>myLen is a function that recursively calculates the length of a list. Let&rsquo;s see what the stack would look like when we call myLen [1,2,3]:</p>
+<figure><img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/Non%20Tail%20Recursion.png"/>
 </figure>
 
+<p>When the recursive implementation of myLen reaches the base case, there are four activation records on the run-time stack.</p>
+<p>Allocating space on the stack takes time. Therefore, the more activation records placed on the stack, the more time the program will take to execute. But, if we are willing to live with a slower program, then there&rsquo;s nothing else to worry about.</p>
+<p>Right?</p>
+<p>Wrong. Modern hardware is fast. Modern computers have lots of memory. Unfortunately, they don&rsquo;t have an infinite amount of memory. A program only has a finite amount of stack space. Given a long enough list, myLen could cause so many activation records to be placed on the stack that the amount of stack space is exhausted and the program crashes. In other words, it&rsquo;s not just that a recursive algorithm might execute slower, a recursive algorithm might fail to calculate the correct result entirely!</p>
+<h2 ref="tail-recursion-hope" >Tail Recursion - Hope</h2><a class="anchor" id="tail-recursion-hope"></a>
+<p>The activation records of functions that recursively call themselves remain on the stack because, presumably, they need the result of the recursive invocation to complete their work. For example, in our myLen function, an invocation of myLen cannot completely calculate the length of the list given as a parameter until the recursive call completes.</p>
+<p>What if there was some way to rewrite a recursive function in a way that it did not need to wait on a future recursive invocation to completely calculate its result? If that could happen, then the stack frame of the current invocation of the function could be replaced by the stack frame of the recursive invocation. Why? Because the information contained in the current invocation of the function has no bearing on its overall result &ndash; the only information needed to completely calculate the result of the function is the result of the future recursive invocation! The implementation of a recursive function that matches this specification is known as a tail-recursive function. The book says &ldquo;A function is tail recursive if its recursive call is the last operation in the function.&rdquo;</p>
+<p>With a tail-recursive function, we get the expressiveness of a recursive definition of the algorithm along with the efficiency of an iterative solution! Ron Popeil, that&rsquo;s a deal!</p>
+<h2 ref="rewriting" >Rewriting</h2><a class="anchor" id="rewriting"></a>
+<p>The rub is that we need to figure out a way to rewrite those non-tail recursive functions into tail-recursive versions. I am not aware of any general purpose algorithms for such a conversion. However, there is one technique that is widely applicable: accumulators. It is sometimes possible to add a parameter to a non-tail recursive function and use that parameter to define a tail-recursive version. Seeing an accumulator in action is the easiest way to define the technique. Let&rsquo;s rewrite myLen in a tail-recursive manner using an accumulator:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-haskell" data-lang="haskell"><span style="color:#a6e22e">myLen</span> list <span style="color:#f92672">=</span> myLenImpl <span style="color:#ae81ff">0</span> list
+<span style="color:#a6e22e">myLenImpl</span> acc <span style="color:#66d9ef">[]</span> <span style="color:#f92672">=</span> acc
+<span style="color:#a6e22e">myLenImpl</span> acc (x<span style="color:#66d9ef">:</span>xs) <span style="color:#f92672">=</span> myLenImpl (<span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> acc) xs
+</code></pre></div><p>First, notice how we are turning myLen into a function that simply invokes a worker function whose job is to do the actual calculation! The first parameter to myLenImpl is used to hold a running tally of the length of the list so far. The first invocation of myLenImpl from the implementation of myLen, then, passes 0 as the argument to the accumulator because the running tally of the length so far is, well, 0. The implementation of myLenImpl adds 1 to that accumulator variable for every list item that is stripped from the front of the list. The result is that the result of an invocation of myLenImpl does not rely on the completion of a recursive execution. Therefore, myLenImpl qualifies as a tail-recursive function! Woah.</p>
+<p>Let&rsquo;s look at the difference in the contents of the run-time stack when we use the tail-recursive version of myLen to calculate the length of the list [1,2,3]:</p>
+<figure><img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/Tail%20Recursion.png"/>
+</figure>
+
+<p>A constant amount of stack space is being used &ndash; amazing!</p>
 
 		</div>
 
@@ -1090,10 +1036,10 @@
 
 	 
 	<div class="chevrons">
-		<a class="next" href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/set-relations/" title="Set relations" style="margin-right: 0px;">
+		<a class="next" href="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-29-2021/" title="10/29/2021" style="margin-right: 0px;">
             <div>
                 <p>Next page</p>
-                <label>Set relations</label>
+                <label>10/29/2021</label>
             </div>
             <i class="fas fa-arrow-right" style="font-size: 1.7em"></i></a>
 	</div>
@@ -1118,14 +1064,14 @@
     <label><i class="fas fa-align-right"></i>&nbsp;&nbsp;What&#39;s on this page</label>
     <nav>
         <ul >
-            <li><a href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/normal-forms/">Normal forms</a></li>
+            <li><a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-27-2021/">10/27/2021</a></li>
         </ul>
     </nav>
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#disjunctive-normal-form--dnf">Disjunctive Normal Form (DNF)</a></li>
-    <li><a href="#conjunctive-normal-form--cnf">Conjunctive Normal Form (CNF)</a></li>
-    <li><a href="#expression-trees">Expression Trees</a></li>
+    <li><a href="#the-tail-that-wags-the-dog">The Tail That Wags the Dog</a></li>
+    <li><a href="#tail-recursion-hope">Tail Recursion - Hope</a></li>
+    <li><a href="#rewriting">Rewriting</a></li>
   </ul>
 </nav>
 </div>

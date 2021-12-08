@@ -4,16 +4,16 @@
 <html>
   <head>
     <title>
-	Normal forms :: David&#39;s Guide to CS
+	11/12/2021 :: David&#39;s Guide to CS
 </title>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2021-12-08T21:10:31 UTC">
+<meta name="revised" content="2021-12-08T21:10:32 UTC">
 <meta name="description" content="">
 
 
 
-<title>Normal forms :: David&#39;s Guide to CS</title>
+<title>11/12/2021 :: David&#39;s Guide to CS</title>
 
 <link rel="shortcut icon" href='https://illustratedman-code.github.io/GuideToCS/images/favicon.png' type="image/x-icon" />
 
@@ -54,7 +54,7 @@
     
   </head>
 
-  <body data-url="https://illustratedman-code.github.io/GuideToCS/discrete-structures/normal-forms/"
+  <body data-url="https://illustratedman-code.github.io/GuideToCS/programming-languages/11-12-2021/"
 
   class="">
 
@@ -147,15 +147,14 @@
 
 <ul class="menu">
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/" class="dd-item parent haschildren
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/" class="dd-item haschildren
         item_level_$level
         ">
 
       
       
       
-      
-          <i class="fas fa-chevron-down ddexp"></i>
+      <i class="fas fa-chevron-right ddexp"></i>
         
       
           <a href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/">Discrete Structures</a>
@@ -223,7 +222,7 @@
     </li>
               
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/normal-forms/" class="dd-item parent active
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/normal-forms/" class="dd-item
         item_level_$level
         ">
 
@@ -456,14 +455,15 @@
     </li>
     
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/" class="dd-item haschildren
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/" class="dd-item parent haschildren
         item_level_$level
         ">
 
       
       
       
-      <i class="fas fa-chevron-right ddexp"></i>
+      
+          <i class="fas fa-chevron-down ddexp"></i>
         
       
           <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/">Programming Languages</a>
@@ -621,7 +621,7 @@
     </li>
               
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/11-12-2021/" class="dd-item
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/11-12-2021/" class="dd-item parent active
         item_level_$level
         ">
 
@@ -929,8 +929,8 @@
 	
   
     <li class="">
-      <a class="text-link" href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/">
-        Discrete Structures
+      <a class="text-link" href="https://illustratedman-code.github.io/GuideToCS/programming-languages/">
+        Programming Languages
       </a>
     </li>
 	
@@ -938,7 +938,7 @@
   
     <li class="active">
       
-        Normal forms
+        11/12/2021
       
     </li>
 
@@ -959,7 +959,7 @@
 		
 
 		
-			<h1>Normal forms</h1>
+			<h1>11/12/2021</h1>
         
 
 		
@@ -979,9 +979,8 @@
 		</span>
 		<nav id="TableOfContents">
   <ul>
-    <li><a href="#disjunctive-normal-form--dnf">Disjunctive Normal Form (DNF)</a></li>
-    <li><a href="#conjunctive-normal-form--cnf">Conjunctive Normal Form (CNF)</a></li>
-    <li><a href="#expression-trees">Expression Trees</a></li>
+    <li><a href="#the-possibilities-are-endless">The Possibilities Are Endless</a></li>
+    <li><a href="#dr-dot-cutyll-and-mr-dot-unify">Dr. Cutyll and Mr. Unify</a></li>
   </ul>
 </nav>
 	</div>
@@ -994,92 +993,63 @@
 
 
 	<div class="content">
-	    <h2 ref="disjunctive-normal-form--dnf" >Disjunctive Normal Form (DNF)</h2><a class="anchor" id="disjunctive-normal-form--dnf"></a>
-<table>
-<thead>
-<tr>
-<th>p</th>
-<th>q</th>
-<th>r</th>
-<th>\(f\)</th>
-<th>Clause Conjunction</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>F</td>
-<td>F</td>
-<td>F</td>
-<td>T</td>
-<td>\(\neg p \wedge \neg q \vee \neg r\)</td>
-</tr>
-<tr>
-<td>F</td>
-<td>F</td>
-<td>T</td>
-<td>F</td>
-<td></td>
-</tr>
-<tr>
-<td>F</td>
-<td>T</td>
-<td>F</td>
-<td>T</td>
-<td>\(\neg p \wedge \neg q \wedge r\)</td>
-</tr>
-<tr>
-<td>F</td>
-<td>T</td>
-<td>T</td>
-<td>T</td>
-<td>\(\neg p \wedge q \wedge r\)</td>
-</tr>
-<tr>
-<td>T</td>
-<td>F</td>
-<td>F</td>
-<td>F</td>
-<td></td>
-</tr>
-<tr>
-<td>T</td>
-<td>F</td>
-<td>T</td>
-<td>F</td>
-<td></td>
-</tr>
-<tr>
-<td>T</td>
-<td>T</td>
-<td>F</td>
-<td>T</td>
-<td>\(p \wedge q \wedge \neg r\)</td>
-</tr>
-<tr>
-<td>T</td>
-<td>T</td>
-<td>T</td>
-<td>T</td>
-<td>\(p \wedge q \wedge r\)</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>Take all of the true statements in the table and write a clause for them</li>
-<li>Concatenate all of the true clauses together with a disjunction statement \(\vee\)</li>
-<li>\(\neg f \Leftrightarrow (\neg p \wedge \neg q \wedge \neg r) \vee (\neg p \wedge q \wedge \neg r) \vee ( \neg p \wedge q \wedge r) \vee (p \wedge q \wedge r) \vee (p \wedge q \wedge \neg r) \vee (p \wedge q \wedge r)\)</li>
-</ul>
-<h2 ref="conjunctive-normal-form--cnf" >Conjunctive Normal Form (CNF)</h2><a class="anchor" id="conjunctive-normal-form--cnf"></a>
-<ul>
-<li>Negate the DNF form</li>
-<li>\(\neg (\neg f) \Leftrightarrow f\)</li>
-<li>Use demorgans law to distribute</li>
-</ul>
-<h2 ref="expression-trees" >Expression Trees</h2><a class="anchor" id="expression-trees"></a>
-<p>A binary tree representation of the logical expression</p>
-<figure><img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/expressionTree.png" width="200px"/>
+	    <p>If the append/3 predicate that we wrote on <a href="https://uc.instructure.com/courses/1476336/pages/the-daily-pl-11-slash-10-slash-2021">Wednesday</a> is a horse that we can ride to accomplish many different tasks, then Prolog is like a wild stallion that tends to run in a direction of its choosing. We can use cuts to tame our mustang and make it go where we want it to go!</p>
+<h2 ref="the-possibilities-are-endless" >The Possibilities Are Endless</h2><a class="anchor" id="the-possibilities-are-endless"></a>
+<p>Let&rsquo;s start the discussion by writing a merge/3 predicate. The first two arguments are sorted lists. The final argument should unify to the in-order version of the first two arguments merged. Before starting to write some Prolog, let&rsquo;s think about how we could do this.</p>
+<p>Let&rsquo;s deal with the base cases first: When either of the first two lists are empty, the merged list is the non-empty list. We&rsquo;ll write that like</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#a6e22e">merge</span>(Xs, [], Xs).
+<span style="color:#a6e22e">merge</span>([], Ys, Ys).
+</code></pre></div><p>And now, for the recursive cases: We will call the first argument Left, the second argument Right, and the third argument Sorted. The first element of Left can be called HeadLeft and the rest of Left can be called TailLeft. The first element of Right can be called HeadRight and the rest of Right can be called TailRight. In order to merge, there are three cases to consider:</p>
+<ol>
+<li>HeadLeft is less than HeadRight</li>
+<li>HeadLeft is equal to HeadRight</li>
+<li>HeadRight is less than HeadLeft</li>
+</ol>
+<p>For case (1), the head of the merged result is HeadLeft and the tail of the merged result is the result of merging TailLeft with Right. For case (2), the head of the merged result is HeadLeft and the tail of the merged result is the result of merging TailLeft with TailRight. For case (3), the head of the merged result is HeadRight and the tail of the merged result is the result of merging Left with TailRight.</p>
+<p>It&rsquo;s far easier to write this in Prolog than English:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#a6e22e">merge</span>([X|Xs], [Y|Ys], [X|Zs]) :- X<span style="color:#f92672">&lt;</span>Y, <span style="color:#a6e22e">merge</span>(Xs, [Y|Ys], Zs).
+<span style="color:#a6e22e">merge</span>([X|Xs], [Y|Ys], [X|Zs]) :- X<span style="color:#f92672">=:=</span>Y, <span style="color:#a6e22e">merge</span>(Xs, Ys, Zs).
+<span style="color:#a6e22e">merge</span>([X|Xs], [Y|Ys], [Y|Zs]) :- Y<span style="color:#f92672">&lt;</span>X, <span style="color:#a6e22e">merge</span>([X|Xs], Ys, Zs).
+</code></pre></div><p>(Note: <code>:</code> is the &ldquo;equal to&rdquo; boolean operator in Prolog. See =:=/2 (Links to an external site.) for more information.</p>
+<p>For merge/3, let&rsquo;s write the base cases after our recursive cases. With that switcheroo, we have the following complete definition of merge/3:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#a6e22e">merge</span>([X|Xs], [Y|Ys], [X|Zs]) :- X<span style="color:#f92672">&lt;</span>Y, <span style="color:#a6e22e">merge</span>(Xs, [Y|Ys], Zs).
+<span style="color:#a6e22e">merge</span>([X|Xs], [Y|Ys], [X|Zs]) :- X<span style="color:#f92672">=:=</span>Y, <span style="color:#a6e22e">merge</span>(Xs, Ys, Zs).
+<span style="color:#a6e22e">merge</span>([X|Xs], [Y|Ys], [Y|Zs]) :- Y<span style="color:#f92672">&lt;</span>X, <span style="color:#a6e22e">merge</span>([X|Xs], Ys, Zs).
+<span style="color:#a6e22e">merge</span>(Xs, [], Xs).
+<span style="color:#a6e22e">merge</span>([], Ys, Ys).
+</code></pre></div><p>Let&rsquo;s follow Prolog as it attempts to use our predicate to answer the query</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#a6e22e">merge</span>([<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">5</span>], [<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">6</span>], M).
+</code></pre></div><p>As we know, Prolog will search top to bottom when looking for ways to unify and the first rule that Prolog sees is applicable:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#a6e22e">merge</span>([X|Xs], [Y|Ys], [X|Zs]) :- X<span style="color:#f92672">&lt;</span>Y, <span style="color:#a6e22e">merge</span>(Xs, [Y|Ys], Zs).
+</code></pre></div><p>Why? Because Prolog sees X as 1 and Y as 2 and 1 &lt; 2. Therefore, Prolog will complete its unification for this query by replacing it with another query:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#a6e22e">merge</span>([<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">5</span>], [<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">6</span>], Zs).
+</code></pre></div><figure><img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/Merge%20No%20Cut%281%29.png"/>
 </figure>
 
+<p>Once Prolog has completed that query, the response comes back:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog">M <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">6</span>]
+</code></pre></div><p>Unfortunately, that&rsquo;s not the whole story. While Prolog is off attempting to satisfy the subquery merge([3,5], [2,4,6], Zs)., it believes that there are still several other viable alternatives for satisfying our original query:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#a6e22e">merge</span>([X|Xs], [Y|Ys], [X|Zs]) :- X<span style="color:#f92672">=:=</span>Y, <span style="color:#a6e22e">merge</span>(Xs, Ys, Zs).
+<span style="color:#a6e22e">merge</span>([X|Xs], [Y|Ys], [Y|Zs]) :- Y<span style="color:#f92672">&lt;</span>X, <span style="color:#a6e22e">merge</span>([X|Xs], Ys, Zs).
+<span style="color:#a6e22e">merge</span>(Xs, [], Xs).
+<span style="color:#a6e22e">merge</span>([], Ys, Ys).
+</code></pre></div><p>The result is that Prolog will have to use memory to remember those alternatives. As the lists that we ask Prolog to merge get longer and longer, that memory will have an impact on the system&rsquo;s performance. However, we know that those other alternatives will never match and keeping them around is a waste. How do we know that? Well, if X &lt; Y then it cannot be equal to Y and it certainly cannot be greater than Y. Moreover, the lists in the first two arguments cannot be empty. Overall, each of the possible rules for merge/3 are mutually exclusive. You can only choose one.</p>
+<p>If there were a way to tell Prolog that those other possibilities are impossible after it encounters a matching rule that would save Prolog from having to keep them around. The good news is that there is!</p>
+<p>We can use the cut (Links to an external site.) operator to tell Prolog that once it has &ldquo;descended&rdquo; down a particular path, there is no sense backtracking beyond that point to look for alternate solutions. The technical definition of a cut is</p>
+<blockquote>
+<p>Discard all choice points created since entering the predicate in which the cut appears. In other words, commit to the clause in which the cut appears and discard choice points that have been created by goals to the left of the cut in the current clause.</p>
+</blockquote>
+<p>Let&rsquo;s rewrite our merge/3 predicate to take advantage of cuts and save some overhead:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#a6e22e">merge</span>([X|Xs], [Y|Ys], [X|Zs]) :- X<span style="color:#f92672">&lt;</span>Y, !, <span style="color:#a6e22e">merge</span>(Xs, [Y|Ys], Zs).
+<span style="color:#a6e22e">merge</span>([X|Xs], [Y|Ys], [X|Zs]) :- X<span style="color:#f92672">=:=</span>Y, !, <span style="color:#a6e22e">merge</span>(Xs, Ys, Zs).
+<span style="color:#a6e22e">merge</span>([X|Xs], [Y|Ys], [Y|Zs]) :- Y<span style="color:#f92672">&lt;</span>X, !, <span style="color:#a6e22e">merge</span>([X|Xs], Ys, Zs).
+<span style="color:#a6e22e">merge</span>(Xs, [], Xs) :- !.
+<span style="color:#a6e22e">merge</span>([], Ys, Ys) :- !.
+</code></pre></div><p>Returning to the definition of cut, in the first rule we are telling Prolog (through our use of the cut) to disregard all choice points created to the left of the !. In particular, we are telling Prolog to forget about the choice it made that X &lt; Y. The result is that Prolog is no longer under the impression that there are other rules that are applicable. Visually, the situation resembles</p>
+<p><a href="https://uc.instructure.com/courses/1476336/pages/the-daily-pl-11-slash-10-slash-2021">Merge Cut.png</a></p>
+<h2 ref="dr-dot-cutyll-and-mr-dot-unify" >Dr. Cutyll and Mr. Unify</h2><a class="anchor" id="dr-dot-cutyll-and-mr-dot-unify"></a>
+<p>Cuts are not always so beneficial. In fact, their use in Prolog is somewhat controversial. A cut necessarily limits Prolog&rsquo;s ability to backtrack. If the Prolog programmer uses a cut in a rule that is meant to be used declaratively (in order to generate values) and procedurally, then the cut may change the results.</p>
+<p>There are two types of cuts. A green cut is a cut that does not change the meaning of a predicate. The cut that we added in the merge/3 predicate above is a green cut. A red cut is, technically speaking, a cut that is not a green cut. I know that&rsquo;s a satisfying definition. Sorry. The implication, however, is that a red cut is a cut that changes the meaning of predicate.</p>
 
 		</div>
 
@@ -1090,10 +1060,10 @@
 
 	 
 	<div class="chevrons">
-		<a class="next" href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/set-relations/" title="Set relations" style="margin-right: 0px;">
+		<a class="next" href="https://illustratedman-code.github.io/GuideToCS/programming-languages/11-15-2021/" title="11/15/2021" style="margin-right: 0px;">
             <div>
                 <p>Next page</p>
-                <label>Set relations</label>
+                <label>11/15/2021</label>
             </div>
             <i class="fas fa-arrow-right" style="font-size: 1.7em"></i></a>
 	</div>
@@ -1118,14 +1088,13 @@
     <label><i class="fas fa-align-right"></i>&nbsp;&nbsp;What&#39;s on this page</label>
     <nav>
         <ul >
-            <li><a href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/normal-forms/">Normal forms</a></li>
+            <li><a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/11-12-2021/">11/12/2021</a></li>
         </ul>
     </nav>
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#disjunctive-normal-form--dnf">Disjunctive Normal Form (DNF)</a></li>
-    <li><a href="#conjunctive-normal-form--cnf">Conjunctive Normal Form (CNF)</a></li>
-    <li><a href="#expression-trees">Expression Trees</a></li>
+    <li><a href="#the-possibilities-are-endless">The Possibilities Are Endless</a></li>
+    <li><a href="#dr-dot-cutyll-and-mr-dot-unify">Dr. Cutyll and Mr. Unify</a></li>
   </ul>
 </nav>
 </div>

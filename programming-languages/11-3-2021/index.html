@@ -4,16 +4,16 @@
 <html>
   <head>
     <title>
-	Normal forms :: David&#39;s Guide to CS
+	11/3/2021 :: David&#39;s Guide to CS
 </title>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2021-12-08T21:10:31 UTC">
+<meta name="revised" content="2021-12-08T21:10:32 UTC">
 <meta name="description" content="">
 
 
 
-<title>Normal forms :: David&#39;s Guide to CS</title>
+<title>11/3/2021 :: David&#39;s Guide to CS</title>
 
 <link rel="shortcut icon" href='https://illustratedman-code.github.io/GuideToCS/images/favicon.png' type="image/x-icon" />
 
@@ -54,7 +54,7 @@
     
   </head>
 
-  <body data-url="https://illustratedman-code.github.io/GuideToCS/discrete-structures/normal-forms/"
+  <body data-url="https://illustratedman-code.github.io/GuideToCS/programming-languages/11-3-2021/"
 
   class="">
 
@@ -147,15 +147,14 @@
 
 <ul class="menu">
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/" class="dd-item parent haschildren
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/" class="dd-item haschildren
         item_level_$level
         ">
 
       
       
       
-      
-          <i class="fas fa-chevron-down ddexp"></i>
+      <i class="fas fa-chevron-right ddexp"></i>
         
       
           <a href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/">Discrete Structures</a>
@@ -223,7 +222,7 @@
     </li>
               
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/normal-forms/" class="dd-item parent active
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/normal-forms/" class="dd-item
         item_level_$level
         ">
 
@@ -456,14 +455,15 @@
     </li>
     
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/" class="dd-item haschildren
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/" class="dd-item parent haschildren
         item_level_$level
         ">
 
       
       
       
-      <i class="fas fa-chevron-right ddexp"></i>
+      
+          <i class="fas fa-chevron-down ddexp"></i>
         
       
           <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/">Programming Languages</a>
@@ -651,7 +651,7 @@
     </li>
               
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/11-3-2021/" class="dd-item
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/11-3-2021/" class="dd-item parent active
         item_level_$level
         ">
 
@@ -929,8 +929,8 @@
 	
   
     <li class="">
-      <a class="text-link" href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/">
-        Discrete Structures
+      <a class="text-link" href="https://illustratedman-code.github.io/GuideToCS/programming-languages/">
+        Programming Languages
       </a>
     </li>
 	
@@ -938,7 +938,7 @@
   
     <li class="active">
       
-        Normal forms
+        11/3/2021
       
     </li>
 
@@ -959,7 +959,7 @@
 		
 
 		
-			<h1>Normal forms</h1>
+			<h1>11/3/2021</h1>
         
 
 		
@@ -979,9 +979,9 @@
 		</span>
 		<nav id="TableOfContents">
   <ul>
-    <li><a href="#disjunctive-normal-form--dnf">Disjunctive Normal Form (DNF)</a></li>
-    <li><a href="#conjunctive-normal-form--cnf">Conjunctive Normal Form (CNF)</a></li>
-    <li><a href="#expression-trees">Expression Trees</a></li>
+    <li><a href="#i-do-declare">I Do Declare</a></li>
+    <li><a href="#in-the-beginning">In the Beginning</a></li>
+    <li><a href="#just-the-facts">Just The Facts</a></li>
   </ul>
 </nav>
 	</div>
@@ -994,92 +994,110 @@
 
 
 	<div class="content">
-	    <h2 ref="disjunctive-normal-form--dnf" >Disjunctive Normal Form (DNF)</h2><a class="anchor" id="disjunctive-normal-form--dnf"></a>
-<table>
-<thead>
-<tr>
-<th>p</th>
-<th>q</th>
-<th>r</th>
-<th>\(f\)</th>
-<th>Clause Conjunction</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>F</td>
-<td>F</td>
-<td>F</td>
-<td>T</td>
-<td>\(\neg p \wedge \neg q \vee \neg r\)</td>
-</tr>
-<tr>
-<td>F</td>
-<td>F</td>
-<td>T</td>
-<td>F</td>
-<td></td>
-</tr>
-<tr>
-<td>F</td>
-<td>T</td>
-<td>F</td>
-<td>T</td>
-<td>\(\neg p \wedge \neg q \wedge r\)</td>
-</tr>
-<tr>
-<td>F</td>
-<td>T</td>
-<td>T</td>
-<td>T</td>
-<td>\(\neg p \wedge q \wedge r\)</td>
-</tr>
-<tr>
-<td>T</td>
-<td>F</td>
-<td>F</td>
-<td>F</td>
-<td></td>
-</tr>
-<tr>
-<td>T</td>
-<td>F</td>
-<td>T</td>
-<td>F</td>
-<td></td>
-</tr>
-<tr>
-<td>T</td>
-<td>T</td>
-<td>F</td>
-<td>T</td>
-<td>\(p \wedge q \wedge \neg r\)</td>
-</tr>
-<tr>
-<td>T</td>
-<td>T</td>
-<td>T</td>
-<td>T</td>
-<td>\(p \wedge q \wedge r\)</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>Take all of the true statements in the table and write a clause for them</li>
-<li>Concatenate all of the true clauses together with a disjunction statement \(\vee\)</li>
-<li>\(\neg f \Leftrightarrow (\neg p \wedge \neg q \wedge \neg r) \vee (\neg p \wedge q \wedge \neg r) \vee ( \neg p \wedge q \wedge r) \vee (p \wedge q \wedge r) \vee (p \wedge q \wedge \neg r) \vee (p \wedge q \wedge r)\)</li>
-</ul>
-<h2 ref="conjunctive-normal-form--cnf" >Conjunctive Normal Form (CNF)</h2><a class="anchor" id="conjunctive-normal-form--cnf"></a>
-<ul>
-<li>Negate the DNF form</li>
-<li>\(\neg (\neg f) \Leftrightarrow f\)</li>
-<li>Use demorgans law to distribute</li>
-</ul>
-<h2 ref="expression-trees" >Expression Trees</h2><a class="anchor" id="expression-trees"></a>
-<p>A binary tree representation of the logical expression</p>
-<figure><img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/expressionTree.png" width="200px"/>
+	    <p>It&rsquo;s the 3rd day of November and we are about to switch to non-daylight savings time. What better way to celebrate the <a href="https://www.timeanddate.com/time/change/usa">worst day of the year</a>  than switching our attention to a new topic!</p>
+<h2 ref="i-do-declare" >I Do Declare</h2><a class="anchor" id="i-do-declare"></a>
+<p>In this module we are going to focus on logic (also known as declarative) programming languages. Users of a declarative programming language declare the outcome they wish to achieve and let the compiler do the work of achieving it. This is in marked contrast to users of an imperative programming language who have to tell the compiler not only the outcome they wish to achieve but also how to achieve it. A declarative programming language does not have program control flow constructs, per se. Instead, a declarative programming language gives the programmer the power to control execution by means of recursion (again?? I know, sorry!) and backtracking. Backtracking is a concept that we will return to later. A declarative program is all about defining facts (either as axioms or as ways to build new facts from axioms) and asking questions about those facts. From the programming language&rsquo;s perspective, those facts have no inherent meaning. We, the programmers, have to impugn meaning on to the facts. Finally, declarative programming languages do have variables, but they are nothing the variables that we know and love in imperative programming languages.</p>
+<p>As we have worked through the different programming paradigms, we have discussed the theoretical underpinning of each. For imperative programming languages, the theoretical model is the Turing Machine. For the functional programming languages, the theoretical model is the Lambda Calculus. The declarative programming paradigm has a theoretical underpinning, too: first-order predicate calculus. We will talk more about that in class soon!</p>
+<h2 ref="in-the-beginning" >In the Beginning</h2><a class="anchor" id="in-the-beginning"></a>
+<p>Unlike imperative, object-oriented and functional programming languages, there is really only one extant declarative/logic programming language: Prolog.<a href="https://uc.instructure.com/courses/1476336/files/149577847?wrap=1">Prolog was developed by Alain Colmeraurer, Phillipe Roussel, and Robert Kowalski</a> in order to do research in artificial intelligence and natural language processing</p>
+<p>. Its official birthday is 1972.</p>
+<figure><img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/Programming%20Language%20What_How%20Continuum%20-%20With%20Examples.png"/>
 </figure>
 
+<p>Prolog programs are made up of exactly three components:</p>
+<ol>
+<li>Facts</li>
+<li>Rules</li>
+<li>Queries</li>
+</ol>
+<p>The syntax of Prolog defines the rules for writing facts, rules and queries. Syntactic elements in Prolog belong to one of three categories:</p>
+<ol>
+<li>Atoms: The most fundamental unit of a Prolog program. They are simply symbols. Usually they are simply sequences of characters that begin with a lowercase letter. However, atoms can contain spaces (in which case they are enclosed in &rsquo;s) and they can start with uppercase letters (in which case they are wrapped with &rsquo;s).</li>
+<li>Variables: Like atoms, but variables always start with uppercase letters.</li>
+<li>Functors: Like atoms, but functors define relationships/facts.</li>
+</ol>
+<p>If Prolog is a logic programming language, there must be some means for specifying logical operations. There is! In the context of specifying a rule, the and operation is written using a ,. In the context of specifying a rule, the or operation is written using a ;. Obviously!</p>
+<p>The best way to learn Prolog is to start writing some programs. We&rsquo;ll come back to the theory later!</p>
+<h2 ref="just-the-facts" >Just The Facts</h2><a class="anchor" id="just-the-facts"></a>
+<p>At its most basic, a Prolog program is a set of facts:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">jane</span>, <span style="color:#e6db74">cs4999</span>).
+<span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">alicia</span>, <span style="color:#e6db74">cs2020</span>).
+<span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">alice</span>, <span style="color:#e6db74">cs4000</span>).
+<span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">mary</span>, <span style="color:#e6db74">cs1021</span>).
+<span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">bob</span>, <span style="color:#e6db74">cs1021</span>).
+<span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">kristi</span>, <span style="color:#e6db74">cs4000</span>).
+<span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">sam</span>, <span style="color:#e6db74">cs1021</span>).
+<span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">will</span>, <span style="color:#e6db74">cs2080</span>).
+<span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">alicia</span>, <span style="color:#e6db74">cs3050</span>).
+</code></pre></div><figure><img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/Basic%20Fact%20in%20Prolog-1.png"/>
+</figure>
+
+<p>In relation to the first-order predicate logic that Prolog models, takes is a logical predicate. We&rsquo;ll refer to them as facts or predicates, depending on what&rsquo;s convenient. Formally, they predicates and facts are written as <principle functor>/<arity>. Two (or more) facts/predicates with the same functor but different arities are not the same. For instance, takes/1 and takes/2 are completely different.</p>
+<p>Let&rsquo;s read one of these facts in English:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">jane</span>, <span style="color:#e6db74">cs4999</span>).
+</code></pre></div><p>could be read as &ldquo;Jane takes CS4999.&rdquo;. As programmers, we know what that means: the student named Jane is enrolled in the class CS4999. However, Prolog does not share our sense of meaning! Prolog simply thinks that we are defining one element of the takes relationship where jane is somehow related to cs4999. As a Prolog programmer, we could just has easily have written</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#a6e22e">tennis_shoes</span>(<span style="color:#e6db74">jane</span>, <span style="color:#e6db74">cs4999</span>).
+<span style="color:#a6e22e">tennis_shoes</span>(<span style="color:#e6db74">alicia</span>, <span style="color:#e6db74">cs2020</span>).
+<span style="color:#a6e22e">tennis_shoes</span>(<span style="color:#e6db74">alice</span>, <span style="color:#e6db74">cs4000</span>).
+<span style="color:#a6e22e">tennis_shoes</span>(<span style="color:#e6db74">mary</span>, <span style="color:#e6db74">cs1021</span>).
+<span style="color:#a6e22e">tennis_shoes</span>(<span style="color:#e6db74">bob</span>, <span style="color:#e6db74">cs1021</span>).
+<span style="color:#a6e22e">tennis_shoes</span>(<span style="color:#e6db74">kristi</span>, <span style="color:#e6db74">cs4000</span>).
+<span style="color:#a6e22e">tennis_shoes</span>(<span style="color:#e6db74">sam</span>, <span style="color:#e6db74">cs1021</span>).
+<span style="color:#a6e22e">tennis_shoes</span>(<span style="color:#e6db74">will</span>, <span style="color:#e6db74">cs2080</span>).
+<span style="color:#a6e22e">tennis_shoes</span>(<span style="color:#e6db74">alicia</span>, <span style="color:#e6db74">cs3050</span>).
+</code></pre></div><p>and gotten the same result! But, we programmers want to define something that is meaningful, so we choose to use atoms that reflect their semantic meaning. With nothing more than the facts that we have defined above, we can write queries. In order to interact with queries in real time, we can use the Prolog REPL. Once we have started the Prolog REPL, we will see a prompt like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#e6db74">?-</span>
+</code></pre></div><p>The world awaits &hellip;</p>
+<p>To load a Prolog file in to the REPL, we will use the consult predicate:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#e6db74">?-</span> <span style="color:#a6e22e">consult</span>(<span style="color:#e6db74">&#39;intro.pl&#39;</span>).
+<span style="color:#e6db74">true</span>.
+</code></pre></div><p>The Prolog facts, rules and queries in the intro.pl file are now available to us. Assume that intro.pl contains the takes facts from above. Let&rsquo;s make some queries:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#e6db74">?-</span> <span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">bob</span>, <span style="color:#e6db74">cs1021</span>).
+<span style="color:#e6db74">true</span>.
+
+<span style="color:#e6db74">?-</span> <span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">will</span>, <span style="color:#e6db74">cs2080</span>).
+<span style="color:#e6db74">true</span>.
+
+<span style="color:#e6db74">?-</span> <span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">ali</span>, <span style="color:#e6db74">cs4999</span>).
+<span style="color:#e6db74">false</span>.
+</code></pre></div><p>These are simple yes/no queries and Prolog obliges us with terse answers. But, even with the simple facts shown above, Prolog can be used to make some powerful inferences. Prolog can tell us the names of all the people it knows who are taking a particular class:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#e6db74">?-</span> <span style="color:#a6e22e">takes</span>(Students, <span style="color:#e6db74">cs1021</span>).
+Students <span style="color:#f92672">=</span> <span style="color:#e6db74">mary</span> ;
+Students <span style="color:#f92672">=</span> <span style="color:#e6db74">bob</span> ;
+Students <span style="color:#f92672">=</span> <span style="color:#e6db74">sam</span>.
+</code></pre></div><p>Wow! Here Prolog is telling us that there are three different values of the Students variable that will make the query true: mary, bob and sam. In the lingo, Prolog is unifying Students with the values that will make our query true. Let&rsquo;s go the other way around:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#e6db74">?-</span> <span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">alicia</span>, Classes).
+Classes <span style="color:#f92672">=</span> <span style="color:#e6db74">cs2020</span> ;
+Classes <span style="color:#f92672">=</span> <span style="color:#e6db74">cs3050</span>.
+</code></pre></div><p>Here Prolog is telling us that there are two different classes that Alicia is taking. Nice.</p>
+<p>That&rsquo;s great, but pretty limited: it&rsquo;s kind of terrible if we had to write out each fact explicitly! The good news is that we don&rsquo;t have to do that! We can use a Prolog rule to define facts based on the existence of other facts. Let&rsquo;s define a rule which will tell us the students who are CS majors. To be a CS major, you must be taking (exactly) two classes:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#a6e22e">cs_major</span>(X) :- <span style="color:#a6e22e">takes</span>(X, Y), <span style="color:#a6e22e">takes</span>(X, Z), Y <span style="color:#e6db74">@&lt;</span> Z.
+</code></pre></div><p>That&rsquo;s lots to take in at first glance. Start by looking at the general format of a rule:</p>
+<figure><img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/Basic%20Rule%20in%20Prolog-1.png"/>
+</figure>
+
+<p>Okay, so now back to our particular rule that defines what it means to be a CS Major. (For the purposes of this discussion, assume that the @&lt; operator is &ldquo;not equal&rdquo;). Building on what we know (e.g., , is and, :- is implication, etc), we can read the rule like: &ldquo;X is a CS Major if X takes class Y and X takes class Z and class Y and Z are not the same class.&rdquo; Pretty succinct definition.</p>
+<p>To make the next few examples a little more meaningful, let&rsquo;s update our list of facts before moving on:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">jane</span>, <span style="color:#e6db74">cs4999</span>).
+<span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">alicia</span>, <span style="color:#e6db74">cs2020</span>).
+<span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">alice</span>, <span style="color:#e6db74">cs4000</span>).
+<span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">mary</span>, <span style="color:#e6db74">cs1021</span>).
+<span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">bob</span>, <span style="color:#e6db74">cs1021</span>).
+<span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">bob</span>, <span style="color:#e6db74">cs8000</span>).
+<span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">kristi</span>, <span style="color:#e6db74">cs4000</span>).
+<span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">sam</span>, <span style="color:#e6db74">cs1021</span>).
+<span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">will</span>, <span style="color:#e6db74">cs2080</span>).
+<span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">alicia</span>, <span style="color:#e6db74">cs3050</span>).
+</code></pre></div><p>With that, let&rsquo;s find out if our rule works as intended!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#e6db74">?-</span> <span style="color:#a6e22e">cs_major</span>(<span style="color:#e6db74">alicia</span>).
+<span style="color:#e6db74">true</span> ;
+<span style="color:#e6db74">false</span>.
+</code></pre></div><p>Wow! Pretty cool! Prolog used the rule that we wrote, combined it with the facts that it knows, and inferred that Alicia is a CS major! (For now, disregard the second False &ndash; we&rsquo;ll come back to that!). Like we could use Prolog to generate the list of classes that a particular student is taking, can we ask Prolog to generate a list of all the CS majors that it knows?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#e6db74">?-</span> <span style="color:#a6e22e">cs_major</span>(X).
+X <span style="color:#f92672">=</span> <span style="color:#e6db74">alicia</span> ;
+X <span style="color:#f92672">=</span> <span style="color:#e6db74">bob</span> ;
+<span style="color:#e6db74">false</span>.
+</code></pre></div><p>Boom!</p>
 
 		</div>
 
@@ -1090,10 +1108,10 @@
 
 	 
 	<div class="chevrons">
-		<a class="next" href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/set-relations/" title="Set relations" style="margin-right: 0px;">
+		<a class="next" href="https://illustratedman-code.github.io/GuideToCS/programming-languages/11-5-2021/" title="11/5/2021" style="margin-right: 0px;">
             <div>
                 <p>Next page</p>
-                <label>Set relations</label>
+                <label>11/5/2021</label>
             </div>
             <i class="fas fa-arrow-right" style="font-size: 1.7em"></i></a>
 	</div>
@@ -1118,14 +1136,14 @@
     <label><i class="fas fa-align-right"></i>&nbsp;&nbsp;What&#39;s on this page</label>
     <nav>
         <ul >
-            <li><a href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/normal-forms/">Normal forms</a></li>
+            <li><a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/11-3-2021/">11/3/2021</a></li>
         </ul>
     </nav>
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#disjunctive-normal-form--dnf">Disjunctive Normal Form (DNF)</a></li>
-    <li><a href="#conjunctive-normal-form--cnf">Conjunctive Normal Form (CNF)</a></li>
-    <li><a href="#expression-trees">Expression Trees</a></li>
+    <li><a href="#i-do-declare">I Do Declare</a></li>
+    <li><a href="#in-the-beginning">In the Beginning</a></li>
+    <li><a href="#just-the-facts">Just The Facts</a></li>
   </ul>
 </nav>
 </div>

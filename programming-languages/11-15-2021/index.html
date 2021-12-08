@@ -4,16 +4,16 @@
 <html>
   <head>
     <title>
-	Normal forms :: David&#39;s Guide to CS
+	11/15/2021 :: David&#39;s Guide to CS
 </title>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2021-12-08T21:10:31 UTC">
+<meta name="revised" content="2021-12-08T21:10:32 UTC">
 <meta name="description" content="">
 
 
 
-<title>Normal forms :: David&#39;s Guide to CS</title>
+<title>11/15/2021 :: David&#39;s Guide to CS</title>
 
 <link rel="shortcut icon" href='https://illustratedman-code.github.io/GuideToCS/images/favicon.png' type="image/x-icon" />
 
@@ -54,7 +54,7 @@
     
   </head>
 
-  <body data-url="https://illustratedman-code.github.io/GuideToCS/discrete-structures/normal-forms/"
+  <body data-url="https://illustratedman-code.github.io/GuideToCS/programming-languages/11-15-2021/"
 
   class="">
 
@@ -147,15 +147,14 @@
 
 <ul class="menu">
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/" class="dd-item parent haschildren
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/" class="dd-item haschildren
         item_level_$level
         ">
 
       
       
       
-      
-          <i class="fas fa-chevron-down ddexp"></i>
+      <i class="fas fa-chevron-right ddexp"></i>
         
       
           <a href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/">Discrete Structures</a>
@@ -223,7 +222,7 @@
     </li>
               
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/normal-forms/" class="dd-item parent active
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/normal-forms/" class="dd-item
         item_level_$level
         ">
 
@@ -456,14 +455,15 @@
     </li>
     
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/" class="dd-item haschildren
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/" class="dd-item parent haschildren
         item_level_$level
         ">
 
       
       
       
-      <i class="fas fa-chevron-right ddexp"></i>
+      
+          <i class="fas fa-chevron-down ddexp"></i>
         
       
           <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/">Programming Languages</a>
@@ -636,7 +636,7 @@
     </li>
               
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/11-15-2021/" class="dd-item
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/11-15-2021/" class="dd-item parent active
         item_level_$level
         ">
 
@@ -929,8 +929,8 @@
 	
   
     <li class="">
-      <a class="text-link" href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/">
-        Discrete Structures
+      <a class="text-link" href="https://illustratedman-code.github.io/GuideToCS/programming-languages/">
+        Programming Languages
       </a>
     </li>
 	
@@ -938,7 +938,7 @@
   
     <li class="active">
       
-        Normal forms
+        11/15/2021
       
     </li>
 
@@ -959,7 +959,7 @@
 		
 
 		
-			<h1>Normal forms</h1>
+			<h1>11/15/2021</h1>
         
 
 		
@@ -979,9 +979,8 @@
 		</span>
 		<nav id="TableOfContents">
   <ul>
-    <li><a href="#disjunctive-normal-form--dnf">Disjunctive Normal Form (DNF)</a></li>
-    <li><a href="#conjunctive-normal-form--cnf">Conjunctive Normal Form (CNF)</a></li>
-    <li><a href="#expression-trees">Expression Trees</a></li>
+    <li><a href="#red-alert">Red Alert</a></li>
+    <li><a href="#the-fundamentals">The Fundamentals</a></li>
   </ul>
 </nav>
 	</div>
@@ -994,92 +993,83 @@
 
 
 	<div class="content">
-	    <h2 ref="disjunctive-normal-form--dnf" >Disjunctive Normal Form (DNF)</h2><a class="anchor" id="disjunctive-normal-form--dnf"></a>
-<table>
-<thead>
-<tr>
-<th>p</th>
-<th>q</th>
-<th>r</th>
-<th>\(f\)</th>
-<th>Clause Conjunction</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>F</td>
-<td>F</td>
-<td>F</td>
-<td>T</td>
-<td>\(\neg p \wedge \neg q \vee \neg r\)</td>
-</tr>
-<tr>
-<td>F</td>
-<td>F</td>
-<td>T</td>
-<td>F</td>
-<td></td>
-</tr>
-<tr>
-<td>F</td>
-<td>T</td>
-<td>F</td>
-<td>T</td>
-<td>\(\neg p \wedge \neg q \wedge r\)</td>
-</tr>
-<tr>
-<td>F</td>
-<td>T</td>
-<td>T</td>
-<td>T</td>
-<td>\(\neg p \wedge q \wedge r\)</td>
-</tr>
-<tr>
-<td>T</td>
-<td>F</td>
-<td>F</td>
-<td>F</td>
-<td></td>
-</tr>
-<tr>
-<td>T</td>
-<td>F</td>
-<td>T</td>
-<td>F</td>
-<td></td>
-</tr>
-<tr>
-<td>T</td>
-<td>T</td>
-<td>F</td>
-<td>T</td>
-<td>\(p \wedge q \wedge \neg r\)</td>
-</tr>
-<tr>
-<td>T</td>
-<td>T</td>
-<td>T</td>
-<td>T</td>
-<td>\(p \wedge q \wedge r\)</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>Take all of the true statements in the table and write a clause for them</li>
-<li>Concatenate all of the true clauses together with a disjunction statement \(\vee\)</li>
-<li>\(\neg f \Leftrightarrow (\neg p \wedge \neg q \wedge \neg r) \vee (\neg p \wedge q \wedge \neg r) \vee ( \neg p \wedge q \wedge r) \vee (p \wedge q \wedge r) \vee (p \wedge q \wedge \neg r) \vee (p \wedge q \wedge r)\)</li>
-</ul>
-<h2 ref="conjunctive-normal-form--cnf" >Conjunctive Normal Form (CNF)</h2><a class="anchor" id="conjunctive-normal-form--cnf"></a>
-<ul>
-<li>Negate the DNF form</li>
-<li>\(\neg (\neg f) \Leftrightarrow f\)</li>
-<li>Use demorgans law to distribute</li>
-</ul>
-<h2 ref="expression-trees" >Expression Trees</h2><a class="anchor" id="expression-trees"></a>
-<p>A binary tree representation of the logical expression</p>
-<figure><img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/expressionTree.png" width="200px"/>
+	    <h2 ref="red-alert" >Red Alert</h2><a class="anchor" id="red-alert"></a>
+<p>At the end of lecture on Friday, we discussed the two different types of cuts &ndash; red and green. A green cut is one that does not alter the behavior of a Prolog program. A red cut does alter the behavior of a Prolog program. The implication was that red cuts are bad and green cuts are good. But, is this always the case?</p>
+<p>To frame our discussion, let&rsquo;s look at a Prolog program that performs a Bubble Sort on a list of numbers. The predicate, bsort/2, is defined like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#a6e22e">bsort</span>(Unsorted, Sorted):-
+  <span style="color:#a6e22e">append</span>(Left, [A, B | Right], Unsorted),
+  B<span style="color:#f92672">&lt;</span>A,
+  <span style="color:#a6e22e">append</span>(Left, [B, A | Right], MoreSorted),
+  <span style="color:#a6e22e">bsort</span>(MoreSorted, Sorted).
+<span style="color:#a6e22e">bsort</span>(Sorted, Sorted).
+</code></pre></div><p>The first rule handles the recursive case (when there is at least one list item out of order) and the second rule handles the base case (when the list is sorted). According to this definition, how does Prolog handle the query</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#a6e22e">bsort</span>([<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">5</span>], M).
+</code></pre></div><p>Prolog (as we are well aware) searches its rule top to bottom. The first rule that it sees is the recursive case and Prolog immediately opts for it. Opting for this case is not without consequences &ndash; a choice point is created. Why? Because Prolog made the choice to attempt to satisfy the query according to the first rule and not the (just as applicable) second rule! Let&rsquo;s call this choice point A.</p>
+<p>Next, Prolog attempts to unify the subquery append(Left, [A, B | Right], Unsorted). The first (of many) unifications that append/3 generates is Left = [], A = 2, B = 1, Right = [3, 5]. By continuing with this particular unification, Prolog creates another choice point. For what reason? Well, Prolog knows that append/3 could generate other potential unifications and it will need to check those to see if they, too, satisfy the original query! Let&rsquo;s call this choice point B. Next, Prolog checks whether A is less than B &ndash; it is. Prolog continues in a like manner to satisfy the final two subgoals of the rule.</p>
+<p>When Prolog does satisfy those, it has generated a sorted version of [2,1,3,5]. It reports that result to the querier. Great! There&rsquo;s only one problem. There are still choice points that Prolog wants to explore. In particular, there are choice points A and B. In this case, we can forget about choice point B because there are no other unifications of append/3 that meet the criteria for A&lt;B in Unsorted. In other words, visually the situation looks like this:</p>
+<figure><img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/bsort%20no%20cut.png"/>
 </figure>
 
+<p>If the querier is using bsort/2 declaratively, this scenario is a problem: Prolog will backtrack to choice point A and then consider the base case rule for bsort/2. In other words, Prolog will also generate</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog">[<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">5</span>]
+</code></pre></div><p>as a unification! This is clearly not right. What&rsquo;s more, the Prolog programmer could query for</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#a6e22e">bsort</span>([<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">5</span>], Sorted).
+</code></pre></div><p>in which choice point B will have consequences. Run this query for yourself (using trace), examine the results, and make sure you understand why the results are generated.</p>
+<p>So, what are we to do? cut/0 (Links to an external site.) to the rescue! Logically speaking, once our bsort/3 rule finds a single element out of order and we adjust that element, the recursive call to itself will handle ordering any other unordered elements. In other words, we can forget any earlier choice points! This is exactly what the cut is intended for!</p>
+<p>Let&rsquo;s rewrite bsort/3 using cuts and see if our problem is sorted (see what I did there?):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#a6e22e">bsort</span>(Unsorted, Sorted):-
+  <span style="color:#a6e22e">append</span>(Left, [A, B | Right], Unsorted),
+  B<span style="color:#f92672">&lt;</span>A, !,
+  <span style="color:#a6e22e">append</span>(Left, [B, A | Right], MoreSorted),
+  <span style="color:#a6e22e">bsort</span>(MoreSorted, Sorted).
+<span style="color:#a6e22e">bsort</span>(Sorted, Sorted).
+</code></pre></div><p>And now let&rsquo;s see how our earlier troublesome queries perform:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#e6db74">?-</span> <span style="color:#a6e22e">bsort</span>([<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">5</span>], Sorted).
+Sorted <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">5</span>].
+
+<span style="color:#e6db74">?-</span> <span style="color:#a6e22e">bsort</span>([<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">5</span>], Sorted).
+Sorted <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>].
+</code></pre></div><p>Amazing!</p>
+<p>Here&rsquo;s the rub: The version of our Prolog program with the cut gave different results than the version without. Is this cut a green or a red cut? That&rsquo;s right, it&rsquo;s a red cut. I guess there are such things as good red cuts after all!</p>
+<h2 ref="the-fundamentals" >The Fundamentals</h2><a class="anchor" id="the-fundamentals"></a>
+<p>As we have said in the past, there is a theoretical underpinning for each of the programming paradigms that we have studied this semester. Logic programming is no different. The theory behind logic programming is first-order predicate logic. Predicate logic is an extension of propositional logic. Propositional logic is based on the evaluation of propositions.</p>
+<p>A proposition is simply any statement that can be true or false. For example,</p>
+<ul>
+<li>Will is a programmer.</li>
+<li>Alicia is a programmer.</li>
+<li>Sam is a programmer.</li>
+</ul>
+<p>Those statements can be true or false. In propositional logic we can build more complicated propositions from existing propositions using logical connectives like and, or, not, and implication (if &hellip; then). Each of these has an associated truth table to determine the truth of two combined propositions.</p>
+<p>Look closely at the example propositions above and you will notice an underlying theme: they all do with someone (let&rsquo;s call them x) being a programmer. In propositional logic, our ability to reason using that underlying theme is impossible. We can only work with the truth of the statement as a whole.</p>
+<p>If we add to propositional logic variables, constants, and quantifiers then we get predicate logic and we are able to reason more subtly. Although you might argue that propositional logic has variables, everyone can agree that they are limited &ndash; they can only have two values, true and false. In first-order predicate logic, variables can have domains other than just {T, F}. That&rsquo;s already a huge step!</p>
+<p>Quantifiers &ldquo;define&rdquo; variables and &ldquo;constrain&rdquo; their possible values. There are two quantifiers in first-order predicate logic &ndash; the universal and the existential. The universal is the &ldquo;for all&rdquo; (aka &ldquo;every&rdquo;) quantifier. We can use the universal quantifier to write statements (in logic) like &ldquo;Every person is a Bearcats fan.&rdquo; Symbolically, we write the universal quantifier with the \(\forall\). We can write our obvious statement from above in logic like</p>
+<style>.org-center { margin-left: auto; margin-right: auto; text-align: center; }</style>
+<div class="org-center">
+  <div></div>
+<p>\(\forall x(person(x) \Longrightarrow fan(x, bearcats))\)</p>
+</div>
+<p>Now we are talking! As for the existential quantifier, it allows us to write statements (in logic) like &ldquo;There is some person on earth that speaks Russian.&rdquo; Symbolically, we write the existential quantifier with the \(\exists\). We can write the statement about our Russian-speaking person as</p>
+<style>.org-center { margin-left: auto; margin-right: auto; text-align: center; }</style>
+<div class="org-center">
+  <div></div>
+<p>\(\exists x(person(x) \land speaks(x, russion))\)</p>
+</div>
+<p>How are quantifiers embedded in Prolog? Variables in Prolog queries are existentially qualified &ndash; &ldquo;Does there exist …?&ldquo;​ Variables in Prolog rules are universally quantified &ndash; &ldquo;For all ….&rdquo;</p>
+<p>In first-order predicate logic, there are such things as Boolean-valued functions. This is familiar territory for us programmers. A Boolean-valued function is a function that has 0 or more parameters and returns true or false.</p>
+<p>With these definitions, we can now define predicates: A predicate is a proposition in which some Boolean variables are replaced by Boolean-valued functions and quantified expressions. Let&rsquo;s look at an example.</p>
+<style>.org-center { margin-left: auto; margin-right: auto; text-align: center; }</style>
+<div class="org-center">
+  <div></div>
+<p>\(p \Longrightarrow q\)</p>
+</div>
+<p>is a proposition where p and q are boolean variables. Replace p with the Boolean-valued function \(is\_teacher(x)\) and q with the quantified expression \(\exists y(student(x) \land teaches(x, russion))\)
+and we have the predicate</p>
+<style>.org-center { margin-left: auto; margin-right: auto; text-align: center; }</style>
+<div class="org-center">
+  <div></div>
+<p>\(is\_teacher(x) \Longrightarrow \exists y(student(x) \land teaches(x,y))\)</p>
+</div>
+<p>There is only one remaining question: Why is it called first-order predicate logic and not, say, higher-order predicate logic? &ldquo;First-order&rdquo; here indicates that the predicates in this logic cannot manipulate or reason about predicates themselves. Does this sound familiar? Imperative languages can define functions but they cannot reason about functions themselves while functional languages can!</p>
 
 		</div>
 
@@ -1090,10 +1080,10 @@
 
 	 
 	<div class="chevrons">
-		<a class="next" href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/set-relations/" title="Set relations" style="margin-right: 0px;">
+		<a class="next" href="https://illustratedman-code.github.io/GuideToCS/programming-languages/11-3-2021/" title="11/3/2021" style="margin-right: 0px;">
             <div>
                 <p>Next page</p>
-                <label>Set relations</label>
+                <label>11/3/2021</label>
             </div>
             <i class="fas fa-arrow-right" style="font-size: 1.7em"></i></a>
 	</div>
@@ -1118,14 +1108,13 @@
     <label><i class="fas fa-align-right"></i>&nbsp;&nbsp;What&#39;s on this page</label>
     <nav>
         <ul >
-            <li><a href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/normal-forms/">Normal forms</a></li>
+            <li><a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/11-15-2021/">11/15/2021</a></li>
         </ul>
     </nav>
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#disjunctive-normal-form--dnf">Disjunctive Normal Form (DNF)</a></li>
-    <li><a href="#conjunctive-normal-form--cnf">Conjunctive Normal Form (CNF)</a></li>
-    <li><a href="#expression-trees">Expression Trees</a></li>
+    <li><a href="#red-alert">Red Alert</a></li>
+    <li><a href="#the-fundamentals">The Fundamentals</a></li>
   </ul>
 </nav>
 </div>

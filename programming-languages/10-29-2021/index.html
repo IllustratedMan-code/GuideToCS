@@ -4,7 +4,7 @@
 <html>
   <head>
     <title>
-	Normal forms :: David&#39;s Guide to CS
+	10/29/2021 :: David&#39;s Guide to CS
 </title>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -13,7 +13,7 @@
 
 
 
-<title>Normal forms :: David&#39;s Guide to CS</title>
+<title>10/29/2021 :: David&#39;s Guide to CS</title>
 
 <link rel="shortcut icon" href='https://illustratedman-code.github.io/GuideToCS/images/favicon.png' type="image/x-icon" />
 
@@ -54,7 +54,7 @@
     
   </head>
 
-  <body data-url="https://illustratedman-code.github.io/GuideToCS/discrete-structures/normal-forms/"
+  <body data-url="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-29-2021/"
 
   class="">
 
@@ -147,15 +147,14 @@
 
 <ul class="menu">
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/" class="dd-item parent haschildren
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/" class="dd-item haschildren
         item_level_$level
         ">
 
       
       
       
-      
-          <i class="fas fa-chevron-down ddexp"></i>
+      <i class="fas fa-chevron-right ddexp"></i>
         
       
           <a href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/">Discrete Structures</a>
@@ -223,7 +222,7 @@
     </li>
               
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/normal-forms/" class="dd-item parent active
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/normal-forms/" class="dd-item
         item_level_$level
         ">
 
@@ -456,14 +455,15 @@
     </li>
     
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/" class="dd-item haschildren
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/" class="dd-item parent haschildren
         item_level_$level
         ">
 
       
       
       
-      <i class="fas fa-chevron-right ddexp"></i>
+      
+          <i class="fas fa-chevron-down ddexp"></i>
         
       
           <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/">Programming Languages</a>
@@ -546,7 +546,7 @@
     </li>
               
 
-    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-29-2021/" class="dd-item
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-29-2021/" class="dd-item parent active
         item_level_$level
         ">
 
@@ -929,8 +929,8 @@
 	
   
     <li class="">
-      <a class="text-link" href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/">
-        Discrete Structures
+      <a class="text-link" href="https://illustratedman-code.github.io/GuideToCS/programming-languages/">
+        Programming Languages
       </a>
     </li>
 	
@@ -938,7 +938,7 @@
   
     <li class="active">
       
-        Normal forms
+        10/29/2021
       
     </li>
 
@@ -959,7 +959,7 @@
 		
 
 		
-			<h1>Normal forms</h1>
+			<h1>10/29/2021</h1>
         
 
 		
@@ -979,9 +979,9 @@
 		</span>
 		<nav id="TableOfContents">
   <ul>
-    <li><a href="#disjunctive-normal-form--dnf">Disjunctive Normal Form (DNF)</a></li>
-    <li><a href="#conjunctive-normal-form--cnf">Conjunctive Normal Form (CNF)</a></li>
-    <li><a href="#expression-trees">Expression Trees</a></li>
+    <li><a href="#no-one-puts-locals-in-a-corner">No one Puts Locals In a Corner</a></li>
+    <li><a href="#the-walls-are-closing-in">The Walls Are Closing In</a></li>
+    <li><a href="#connections-with-other-material">Connections with Other Material</a></li>
   </ul>
 </nav>
 	</div>
@@ -994,92 +994,42 @@
 
 
 	<div class="content">
-	    <h2 ref="disjunctive-normal-form--dnf" >Disjunctive Normal Form (DNF)</h2><a class="anchor" id="disjunctive-normal-form--dnf"></a>
-<table>
-<thead>
-<tr>
-<th>p</th>
-<th>q</th>
-<th>r</th>
-<th>\(f\)</th>
-<th>Clause Conjunction</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>F</td>
-<td>F</td>
-<td>F</td>
-<td>T</td>
-<td>\(\neg p \wedge \neg q \vee \neg r\)</td>
-</tr>
-<tr>
-<td>F</td>
-<td>F</td>
-<td>T</td>
-<td>F</td>
-<td></td>
-</tr>
-<tr>
-<td>F</td>
-<td>T</td>
-<td>F</td>
-<td>T</td>
-<td>\(\neg p \wedge \neg q \wedge r\)</td>
-</tr>
-<tr>
-<td>F</td>
-<td>T</td>
-<td>T</td>
-<td>T</td>
-<td>\(\neg p \wedge q \wedge r\)</td>
-</tr>
-<tr>
-<td>T</td>
-<td>F</td>
-<td>F</td>
-<td>F</td>
-<td></td>
-</tr>
-<tr>
-<td>T</td>
-<td>F</td>
-<td>T</td>
-<td>F</td>
-<td></td>
-</tr>
-<tr>
-<td>T</td>
-<td>T</td>
-<td>F</td>
-<td>T</td>
-<td>\(p \wedge q \wedge \neg r\)</td>
-</tr>
-<tr>
-<td>T</td>
-<td>T</td>
-<td>T</td>
-<td>T</td>
-<td>\(p \wedge q \wedge r\)</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>Take all of the true statements in the table and write a clause for them</li>
-<li>Concatenate all of the true clauses together with a disjunction statement \(\vee\)</li>
-<li>\(\neg f \Leftrightarrow (\neg p \wedge \neg q \wedge \neg r) \vee (\neg p \wedge q \wedge \neg r) \vee ( \neg p \wedge q \wedge r) \vee (p \wedge q \wedge r) \vee (p \wedge q \wedge \neg r) \vee (p \wedge q \wedge r)\)</li>
-</ul>
-<h2 ref="conjunctive-normal-form--cnf" >Conjunctive Normal Form (CNF)</h2><a class="anchor" id="conjunctive-normal-form--cnf"></a>
-<ul>
-<li>Negate the DNF form</li>
-<li>\(\neg (\neg f) \Leftrightarrow f\)</li>
-<li>Use demorgans law to distribute</li>
-</ul>
-<h2 ref="expression-trees" >Expression Trees</h2><a class="anchor" id="expression-trees"></a>
-<p>A binary tree representation of the logical expression</p>
-<figure><img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/expressionTree.png" width="200px"/>
+	    <h2 ref="no-one-puts-locals-in-a-corner" >No one Puts Locals In a Corner</h2><a class="anchor" id="no-one-puts-locals-in-a-corner"></a>
+<p>One of the really cool things about functional programming languages is their first-class support for functions. In functional programming languages, the programmer can pass functions as parameters to other functions and return functions from functions. Let&rsquo;s take a closer look at functions that &ldquo;generate&rdquo; other functions. JavaScript has the capability to return functions from functions so we&rsquo;ll use that language to explore:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">urlGenerator</span>(<span style="color:#a6e22e">prefix</span>) {
+  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">return_function</span>(<span style="color:#a6e22e">url</span>) {
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">prefix</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;://&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">url</span>;
+  }
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">return_function</span>;
+}
+</code></pre></div><p>The urlGenerator function takes a single parameter &ndash; prefix. The caller of urlGenerator passes the protocol prefix as the argument (probably either &ldquo;http&rdquo; or &ldquo;https&rdquo;). The return value of urlGenerator is itself a function that takes a single parameter, a url, and returns url prepended with the prefix specified by the call to urlGenerator. An example might help:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">httpsUrlGenerator</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">urlGenerator</span>(<span style="color:#e6db74">&#34;https&#34;</span>);
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">httpUrlGenerator</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">urlGenerator</span>(<span style="color:#e6db74">&#34;http&#34;</span>);
+
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">httpsUrlGenerator</span>(<span style="color:#e6db74">&#34;google.com&#34;</span>));
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">httpUrlGenerator</span>(<span style="color:#e6db74">&#34;google.com&#34;</span>));
+</code></pre></div><p>generates</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-fallback" data-lang="fallback">&#34;https://google.com&#34;
+&#34;http://google.com&#34;
+</code></pre></div><p>In other words, the definition of httpsUrlGenerator is (conceptually)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-javascript" data-lang="javascript">  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">httpsUrlGenerator</span>(<span style="color:#a6e22e">url</span>) {
+    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;https&#34;</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;://&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">url</span>;
+  }
+</code></pre></div><p>and the definition of httpUrlGenerator is (conceptually)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-javascript" data-lang="javascript">  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">httpUrlGenerator</span>(<span style="color:#a6e22e">url</span>) {
+    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;http&#34;</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;://&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">url</span>;
+  }
+</code></pre></div><p>But that&rsquo;s only a conceptual definition! The real definition continues to contain prefix:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-javascript" data-lang="javascript">    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">prefix</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;://&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">url</span>;
+</code></pre></div><p>But, prefix is locally scoped to the urlGenerator function. So, how can httpUrlGenerator and httpsUrlGenerator continue to use its value after leaving the scope of urlGenerator?</p>
+<h2 ref="the-walls-are-closing-in" >The Walls Are Closing In</h2><a class="anchor" id="the-walls-are-closing-in"></a>
+<p>JavaScript, and other languages like it, have the concept of closures. A closure is a context that travels with a function returned by another function. Inside the closure are values for the free variables (remember that definition?) of the returned function. In urlGenerator, the returned function (return_function) uses the free variable prefix. Therefore, the closure associated with return_function contains the value of prefix at the time the closure is created!</p>
+<p>In the example above, there are two different copies of return_function generated &ndash; one when urlGenerator is called with the argument &ldquo;http&rdquo; and one when urlGenerator is called with the parameter &ldquo;https&rdquo;. Visually, the situation is</p>
+<figure><img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/Closures.png"/>
 </figure>
 
+<h2 ref="connections-with-other-material" >Connections with Other Material</h2><a class="anchor" id="connections-with-other-material"></a>
+<p>Think about the connection between closures and the format of the urlGenerator/return_function functions and other concepts we&rsquo;ve explored previously like partial application and currying.</p>
 
 		</div>
 
@@ -1090,10 +1040,10 @@
 
 	 
 	<div class="chevrons">
-		<a class="next" href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/set-relations/" title="Set relations" style="margin-right: 0px;">
+		<a class="next" href="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-4-2021/" title="10/4/2021" style="margin-right: 0px;">
             <div>
                 <p>Next page</p>
-                <label>Set relations</label>
+                <label>10/4/2021</label>
             </div>
             <i class="fas fa-arrow-right" style="font-size: 1.7em"></i></a>
 	</div>
@@ -1118,14 +1068,14 @@
     <label><i class="fas fa-align-right"></i>&nbsp;&nbsp;What&#39;s on this page</label>
     <nav>
         <ul >
-            <li><a href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/normal-forms/">Normal forms</a></li>
+            <li><a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-29-2021/">10/29/2021</a></li>
         </ul>
     </nav>
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#disjunctive-normal-form--dnf">Disjunctive Normal Form (DNF)</a></li>
-    <li><a href="#conjunctive-normal-form--cnf">Conjunctive Normal Form (CNF)</a></li>
-    <li><a href="#expression-trees">Expression Trees</a></li>
+    <li><a href="#no-one-puts-locals-in-a-corner">No one Puts Locals In a Corner</a></li>
+    <li><a href="#the-walls-are-closing-in">The Walls Are Closing In</a></li>
+    <li><a href="#connections-with-other-material">Connections with Other Material</a></li>
   </ul>
 </nav>
 </div>
