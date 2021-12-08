@@ -720,7 +720,7 @@ How do we write down that the state is being changed? Why would we want to chang
 function to return (4, Integer) any more! We want it to return (2, Integer). We can define that mathematically like:
 
 \begin{equation\*}
-\sigma[(v,\tau)/x\]\(y)= \begin{cases} & \sigma(y) \quad y \ne x \\ &(v,\tau) \quad y=x \end{cases}
+\sigma[(v,\tau)/x\]\(y)= \begin{cases} & \sigma(y) \quad y \ne x \\\ &(v,\tau) \quad y=x \end{cases}
 \end{equation\*}
 
 This means that if you are querying the updated state for the variable that was just reassigned (x), then return its new value and type (m and τ
@@ -1850,3 +1850,1835 @@ At times (a), (b) and (c), the programmer is allocating and manipulating referen
 This process seems great, just like reference counting seemed great. However, there is a significant problem: The programmer cannot predict when GC pauses will occur and the programmer cannot predict how long those pauses will take. A GC pause is completely initiated by the programming language and (usually) completely beyond the control of the programmer. Such random pauses of program execution could be extremely harmful to a system that is controlling a system that needs to keep up with interactions from the outside world. For instance, it would be totally unacceptable for an autopilot system to take an extremely long GC pause as it calculates the heading needed to land a plane. There are myriad other systems where pauses are inappropriate.
 
 The mark-and-sweep algorithm described above is extremely naive and GC algorithms are the subject of intense research. Languages like go and Java manage memory with a GC and their algorithms are incredibly sophisticated. If you want to know more, please let me know!
+
+
+## 10/15/2021 {#10-15-2021}
+
+The hunt for October!
+
+
+### Corrections {#corrections}
+
+None to speak of!!
+
+
+### Introduction to Functional Programming {#introduction-to-functional-programming}
+
+We spent Friday beginning our module on Functional Programming (FP)! As we said at the beginning of the semester when we were learning about programming paradigms, FP is very different than imperative programming. In imperative programming, developers tell the computer how to do the operation. While functional programming is not logic programming (where developers just tell the computer what to compute and leave the how entirely to the language implementation), the writer of a program in a functional PL is much more concerned with specifying what to compute than how to compute it.
+
+{{< figure src="/ox-hugo/Programming Language What_How Continuum.png" >}}
+
+
+### Four Characteristics of Functional Programming {#four-characteristics-of-functional-programming}
+
+There are four characteristics that epitomize FP:
+
+1.  There is no state
+2.  Functions are central
+    1.  Functions can be parameters to other functions
+    2.  Functions can be return values from other others
+    3.  Program execution is function evaluation
+3.  Control flow is performed by recursion and conditional expressions
+4.  Lists are a fundamental data type
+
+In a functional programming language, there are no variables, per se. And because there are no variables, there is no state. That does not mean there are no names. Names are still important. It simply means that names refer to expressions themselves and not their values. The distinction will become more obvious as we continue to learn more about writing programs in functional languages.
+
+Because there is no state, a functional programming language is not history sensitive. A language that is history sensitive means that results of operations in that language can be affected by operations that have come before it. For example, in an imperative programming language, a function may be history sensitive if it relies on the value of a global variable to calculate its return value. Why does that count as history sensitive? Because the value in the global variable could be affected by prior operations.
+
+A language that is not history sensitive has referential transparency. We learned the definition of referential transparency before, but now it might make a little more sense. In a language that has referential transparency, a the same function called with the same arguments generates the same result no matter what operations have preceded it.
+
+In a functional programming language there are no loops (unless they are added as syntactic sugar) -- recursion is the way to accomplish repetition. Selective execution (as opposed to sequential execution) is accomplished using the conditional expression. A conditional expression is, well, an expression that evaluates to one of two values depending on the value of a condition. We have seen conditional expressions in STIMPL. That a conditional statement can have a value (thus making it a conditional expression) is relatively surprising for people who only have experience in imperative programming languages. Nevertheless, the conditional expressions is a very, very sharp sword in the sheath of the functional programmer.
+
+A functional program is a series of functions and the execution of a functional program is simply an evaluation of those functions. That sounds abstract at this point, but will become more clear when we see some real functional programs.
+
+Lists are a fundamental data type in functional programming languages. Powerful syntactic tools for manipulating lists are built in to most functional PLs. Understanding how to wield these tools effectively is vital for writing code in functional PLs.
+
+
+### The Historical Setting of the Development of Functional PLs {#the-historical-setting-of-the-development-of-functional-pls}
+
+The first functional programming language was developed in the mid-1950s by [John McCarthy](https://en.wikipedia.org/wiki/John%5FMcCarthy%5F(computer%5Fscientist)) . At the time, computing was most associated with mathematical calculations. McCarthy was instead focused on artificial intelligence which involved symbolic computing. Computer scientists thought that it was possible to represent cognitive processes as lists of symbols. A language that made it possible to process those lists would allow developers to build systems that work like our brains.
+
+{{< figure src="/ox-hugo/_56264828_johnmccarthy2-1.jpg" >}}
+
+McCarthy started with the goal of writing a system of meta notation that programmers could attach to Fortran. These meta notations would be reduced to actual Fortran programs. As they did their work, they found their way to a program representation built entirely of lists (and lists of lists, and lists of lists of lists, etc). Their thinking resulted in the development of Lisp, a list processing language. In Lisp, data are lists and programs are lists. They showed that list processing, the basis of the semantics of Lisp, is capable of universal computing. In other words, Lisp, and other list processing languages, is/are Turing complete.
+
+The inability to execute a Lisp program efficiently on a physical computer based on the von Neumann model has given Lisp (and other functional programming languages) a reputation as slow and wasteful. (N.B.: This is not true today!) Until the late 1980s hardware vendors thought that it would be worthwhile to build physical machines with non-von Neumann architectures that made executing Lisp programs faster. Here is an image of a so-called Lisp Machine.
+
+{{< figure src="/ox-hugo/800px-LISP_machine.jpg" >}}
+
+
+### LISP {#lisp}
+
+We will not study Lisp in this course. However, there are a few aspects of Lisp that you should know because they pervade the general field of computer science.
+
+First, you should know CAR, CDR and CONS -- pronounced car, could-er, and cahns, respectively. CAR is a function that takes a list as a parameter and returns the first element of the list. CDR is a function that takes a list as a parameter and returns the tail, everything but the head, of the list. CONS takes two parameters -- a single element and a list -- and returns a new list with the first argument appended to the front of the second argument.
+
+For instance,
+
+```elisp
+(car (1 2 3))
+```
+
+is `1`.
+
+```elisp
+(cdr (1 2 3))
+```
+
+is `(2 3)`.
+
+Second, you should know that, in Lisp, all data are lists _and_ programs are lists.
+
+```elisp
+(a b c)
+```
+
+is a list in Lisp. In Lisp, (a b c) could be interpreted as a list of atoms a, b and c or an invocation of function a with parameters b and c.
+
+
+### Lambda Calculus {#lambda-calculus}
+
+Lambda Calculus is the theoretical basis of functional programming languages in the same way that the Turing Machine is the theoretical basis of the imperative programming languages. The Lambda Calculus is nothing like "calculus" -- the word calculus is used here in its strict sense: [a method or system of calculation](https://en.wikipedia.org/wiki/Calculus%5F(disambiguation)) . It is better to think of Lambda Calculus as a programming language rather than a branch of mathematics.
+
+Lambda Calculus is a model of computation defined entirely by function application. The Lambda Calculus is as powerful as a Turning Machine which means that anything computable can be computed in the Lambda Calculus. For a language as simple as the Lambda Calculus, that's remarkable!
+
+The entirety of the Lambda Calculus is made up of three entities:
+
+1.  Expression: a name, a function or an application
+2.  Function: \\(\lambda\\)<name> . <expression>
+3.  Application: <expression> <expression>
+
+Notice how the elements of the Lambda Calculus are defined in terms of themselves. In most cases it is possible to restrict names in the Lambda Calculus to be any single letter of the alphabet -- a is a name, z is a name, etc. Strictly speaking, functions in the Lambda Calculus are anonymous -- in other words they have no name. The name after the
+
+in a function in the Lambda Calculus can be thought of as the parameter of the function. Here's an example of a function in the Lambda Calculus:
+
+`\(\lambda\)x . x`
+
+Lambda Calculiticians (yes, I just made up that term) refer to this as the identity function. This function simply returns the value of its argument! But didn't I say that functions in the Lambda Calculus don't have names? Yes, I did. Within the language there is no way to name a function. That does not mean that we cannot assign semantic values to those functions. In fact, associating meaning with functions of a certain format is exactly how high-level computing is done with the Lambda Calculus.
+
+
+## 10/18/2021 {#10-18-2021}
+
+[Lambda lower now. How low can you go?](https://www.youtube.com/watch?v=gq7pxUgjLz0)
+
+
+### Corrections {#corrections}
+
+None to speak of!!
+
+
+### (Recalling) Lambda Calculus {#recalling--lambda-calculus}
+
+Remember that we said Lambda Calculus is the theoretical basis of functional programming languages in the same way that the Turing Machine is the theoretical basis of the imperative programming languages. Again, don't freak out when you hear the phrase "calculus". As we said in class, it is better to think of the Lambda Calculus as a programming language rather than a branch of mathematics.
+
+Lambda Calculus is a model of computation defined entirely by function application. The Lambda Calculus is as powerful as a Turning Machine which means that anything computable can be computed in the Lambda Calculus. For a language as simple as the Lambda Calculus, that's remarkable!
+
+Remember that the entirety of the Lambda Calculus is made up of a small number of entities:
+
+1.  Expression: a name, a function or an application
+2.  Function: \\(\lambda\\)<name> `.` <expression>
+3.  Application: <expression> <expression>
+
+We made the point in class that, without loss of generality, we will assume that all names are single letters from the alphabet. In other words, if you see two consecutive letters, e.g., ab, those are two separate names.
+
+
+### Bound and Free Names and the Tao of Function Application {#bound-and-free-names-and-the-tao-of-function-application}
+
+Because the entirety of the Lambda Calculus is function application, it is important that we get it exactly right. Let's recall the simplest example of function application:
+\\((\lambda a. a)x = \left \lfloor x/a \right \rfloor a = x\\)
+The \\(\lfloor x/a \rfloor a\\) means "replace all instances of a with x in whatever comes after the \\(\lfloor \rfloor\\) ".  This is so easy. What about this, though?
+
+\\((\lambda a. \lambda b. ba)b\\)
+
+The first thing to realize is that the _b_ in the expression that is the body of the nested lambda function is completely separate from the _b_ to which the lambda function is being applied. Why is that? Because the _b_ in the nested lambda function is the "parameter" to that function. So, what are we to do?
+
+First, let's step back and consider the definitions of _free_ and _bound_ names. Loosely speaking, a name is _bound_ as soon as it is used as a parameter to a lambda function. It continues to be _bound_ in nested expressions _but may be rebound!_ For example,
+
+\\(\lambda x. x \lambda x. x\\)
+
+The "body" of the outer function is \\(x \lambda x . x\\) and the leftmost x is the x from the outer function's parameter. In other words,
+
+\\((\lambda  x.x \lambda x.x) (a) = a \lambda x.x\\)
+
+The substitution of a for x continues no further because x is rebound at the start of the nested lambda function. You will be relieved to know that,
+
+\\(\lambda  x.x \lambda x.x  =  \lambda x.x \lambda a.a\\)
+
+In fact, renaming like that has a special name: alpha conversion!
+
+_Free_ names are those that are not bound.
+
+Wow, that got pretty complicated pretty quickly! This is one case where some formalism actually improves the clarity of things, I think. Here is the formal definition of what it means for a name to be bound:
+
+-   name is bound in \\(\lambda name\_1.expression\\) if name = name1 or name is bound in expression.
+-   name is bound in \\(E\_1 E\_2\\) if name is bound in either \\(E\_1\\) or \\(E\_2\\).
+
+Here is the formal definition of what it means for a name to be free:
+
+-   name is free in name
+-   name is free in \\(\lambda name\_1.expression\\) when name \\(\ne\\) name1 and name is free in expression
+-   name is free in \\(E\_1E\_2\\) if name is free in either E1 or E2
+
+Note that a name can be free and bound at the same time.
+
+All this [hullabaloo](https://en.wiktionary.org/wiki/hullabaloo#English)  means that we need to be slightly more sophisticated in our function application. We have to check two boxes before assuming that can treat function application as a simple textual search/replace:
+
+When applying \\(\lambda x. E\_1\\) to E2, we only replace the free instances of x in E1 with E2 and if E2 contains a free name that is bound in E1, we have to alpha convert that bound name in E1 to something that doesn't conflict. There is a good example of this in Section 1.2 of the XXXX that I will recreate here:
+
+\\((\lambda x. (\lambda y . (x\lambda x. xy)))y\\)
+
+First, note y (our E2 in this case) contains y (a free name) that is bound in \\((\lambda y. (x \lambda x.xy))\\)(our E1). In other words, before doing a straight substitution, we have to alpha convert the bound y in E1 to something that doesn't conflict. Let's choose t:
+
+\\((\lambda x. (\lambda t. (x \lambda x.xt)))y\\)
+
+Now we can do our substitution! But, be careful: x appears free in \\((\lambda y. (x \lambda x.xy)\\)
+(again, our E1) one time -- its leftmost appearance! So, the substitution would yield:
+
+\\((\lambda t. (y \lambda x.xt)\\)
+
+Voila!
+
+
+### Currying Functions {#currying-functions}
+
+Currying is the process of turning a function that takes multiple parameters into a sequence of functions that each take a single parameter. Currying is only possible in languages that support high-order functions: functions that a) take functions as parameters, b) return functions or c) both. Python is such a language. Let's look at how you would write a function that calculates the sum of three numbers in Python:
+
+```python
+def sum3(a, b, c):
+  return a + b + c
+```
+
+That makes perfect sense!
+
+Let's see if we can Curry that function. Because a Curried function can only take one parameter and we are Currying a function with three parameters, it stands to reason that we are going to have to generate three different functions. Let's start with the first:
+
+```python
+def sum1(a):
+  # Something?
+```
+
+What something are we going to do? Well, we are going to declare another function inside sum1, call it sum2, that takes a parameter and then use that as the return value of sum1! It looks something like this:
+
+```python
+def sum1(a):
+  def sum2(b):
+    pass
+  return sum2
+```
+
+That means, if we call sum1 with a single parameter, the result is another function, one that takes a single parameter! So, we've knocked off two of the three parameters, now we need one more. So, let's write something like this:
+
+```python
+def sum1(a):
+  def sum2(b):
+    def sum3(c):
+      pass
+    return sum3
+  return sum2
+```
+
+This means that if we call sum1 with a single parameter and call the result of that with a single parameter, the result is another function, one that also takes a single parameter! What do we want that innermost function to do? That's right: the summation! So, here's our final code:
+
+```python
+def sum1(a):
+  def sum2(b):
+    def sum3(c):
+      return a + b + c
+    return sum3
+  return sum2
+```
+
+We've successfully Curried a three-parameter summation function! There's just one issue left to address? How can we possibly use a and b in the innermost function? Will, I thought you told us that Python was statically scoped! In order for this to work correctly, wouldn't Python have to have something magical and dynamic-scope-like? Well, yes! And, it does. It has closures.
+
+When you return sum2 from the body of sum1, Python closes around the variables that are needed by any code in the implementation of the returned function. Because a is needed in the implementation of sum2 (the function returned by sum1), Python creates a closure around that function which includes the value of a at the time sum2 was returned. It is important to remember that every time sum2 is defined pursuant to an invocation of sum1, a new version of sum2 is returned with a new closure. This closure-creation process repeats when we return sum3 pursuant to an invocation of sum2 (which itself was generated as a result of an invocation of sum1)! Whew.
+
+Because we Curried the sum3 function as sum1, we have to call them slightly differently:
+
+```python
+  sum3(1, 2, 3)
+  sum1(1)(2)(3)
+```
+
+As we learn more about functional programming in Haskell, you will see this pattern more and more and it will become second nature.
+
+The "good" news, if you can call it that, is that functions in the Lambda Calculus always exist in their Curried form. Prove it to yourself by looking back at the way we formally defined the Lambda Calculus.
+
+But, because it is laborious to write all those \\(\lambda\\)s over and over, we will introduce a shorthand for functions in the Lambda Calculus that take more than one parameter:
+
+\\(\lambda p\_1p\_2 ... p\_n.expression\\)
+
+is a function with n parameters named p1 through pn (which are each one letter). Simply put,
+
+\\(\lambda x . \lambda y.xy = \lambda xy.xy\\)
+
+for example.
+
+
+### Doing Something with Lambda Calculus {#doing-something-with-lambda-calculus}
+
+Remember how we have stressed that you cannot name functions inside the Lambda Calculus but how I have stressed that does not mean we cannot give names to functions from outside the Lambda Calculus? Well, here's where it starts to pay off! We are going learn how to do boolean operations using the Lambda Calculus. Let's assume that anytime we see a lambda function that takes two parameters and reduces to the first, we call that T. When we see a lambda function that takes two parameters and reduces to the second, we call that F:
+
+\\(T \equiv \lambda xy.x\\)
+
+\\(F \equiv \lambda xy.y\\)
+
+To reiterate, it is the form that matters. If we see
+
+\\(\lambda ab.a\\)
+
+that is T too! In what follows, I will type T and F to save myself from writing all those
+\\(\lambda\\)s, but remember: T and F are just functions!!
+
+Okay, let's do something boolean operations. We can define the and operation as
+
+\\(\wedge = \lambda xy.xy F\\)
+
+Let's give it a whirl. First, let's get on the same page: True and False is False.
+
+\\(\wedge TF = (\lambda xy.xyF)TF = TFF = (\lambda xy.x) FF = F\\)
+
+Awesome! Let's try another: True and True is True.
+
+\\(\wedge TT = (\lambda xy.xyF)TT = TTF = (\lambda xy.x) TF = T\\)
+
+We can define the or operation as
+
+\\(\lor = \lambda xy.xTy\\)
+
+Try your hand at working through a few examples and make sure you get the expected results!
+
+
+## 10/22/2021 {#10-22-2021}
+
+
+### Corrections {#corrections}
+
+Thanks to Donald's persistence, I researched the mechanism by which Haskell and other pure functional languages
+
+1.  handle associations between names and expressions, and
+2.  pass around infinite lists (without having to generate the entire list first -- an obvious impossibility)
+
+thunks are covered below!
+
+
+### Function Invocation in Functional Programming Languages {#function-invocation-in-functional-programming-languages}
+
+In imperative programming languages, it may matter to the correctness of a program the order in which parameters to a function are evaluated. (Note: For the purposes of this discussion we will assume that all operators [+, -, /, etc] are implemented as functions that take the operands as arguments in order to simplify the discussion. In other words, when describe the order of function evaluation we are also talking about the order of operand evaluation.) While the choice of the order in which we evaluate the operands is the language designer's prerogative, the choice has consequences. Why? Because of side effects! For example:
+
+```c
+#include <stdio.h>
+
+int operation(int parameter) {
+  static int divisor = 1;
+  return parameter / (divisor++);
+}
+
+int main() {
+  int result = operation(5) + operation(2);
+  printf("result: %d\n", result);
+  return 0;
+}
+```
+
+prints
+
+```nil
+result: 6
+```
+
+whereas
+
+```c
+#include <stdio.h>
+
+int operation(int parameter) {
+  static int divisor = 1;
+  return parameter / (divisor++);
+}
+
+int main() {
+  int result = operation(2) + operation(5);
+  printf("result: %d\n", result);
+  return 0;
+}
+```
+
+prints
+
+```nil
+result: 4
+```
+
+In the difference between the two programs we see vividly the role that the static variable plays in the state of the program and its ultimate output.
+
+Because of the referential transparency in pure functional programming languages, the designer of such a language does not need to worry about the consequences of the decision about the order of evaluation of arguments to functions. However, that does not mean that the language designer of a pure functional programming language does not have choices to make in this area.
+
+A very important choice the designer has to make is the time when function arguments are evaluated. There are two options available:
+
+1.  All function arguments are evaluated before the function is evaluated.
+2.  Function arguments are evaluated only when their results are needed.
+
+Let's look at an example: Assume that there are two functions: dbl, a function that doubles its input, and average, a function that averages its three parameters:
+
+```haskell
+dbl x = (+) x x
+average a b c = (/) ((+) a ((+) b c)) 3
+```
+
+Both functions are written using prefix notation (i.e., (<operator> <operand1> ... <operandn>). We will call these functions like this:
+
+```haskell
+dbl (average 3 4 5)
+```
+
+If the language designer chooses to evaluate function arguments only when their results are needed, the execution of this function call proceeds as follows:
+
+```haskell
+dbl (average 3 4 5)
++ (average 3 4 5) (average 3 4 5)
++ ((/) ((+) 3 ((+) 4 5)) 3) (average 3 4 5)
++ (4) (average 3 4 5)
++ (4) ((/) ((+) 3 ((+) 4 5)) 3)
++ (4) (4)
+8
+```
+
+The outermost function is always reduced (expand) before the inner functions. Note: Primitive functions (+, and / in this example) cannot be expanded further so we move inward in evaluation if we encounter such a function for reduction.
+
+If, however, the language designer chooses to evaluate function arguments before the function is evaluated, the execution of the function call proceeds as follows:
+
+```haskell
+dbl (average 3 4 5)
+dbl ((/) ((+) 3 ((+) 4 5)) 3)
+dbl 4
++ 4 4
+8
+```
+
+No matter the designer's choice, the outcome of the evaluation is the same. However, there is something strikingly different about the two. Notice that in the first derivation, the calculation of the average of the three numbers happens twice. In the second derivation, it happens only once! That efficiency is not a fluke! Generally speaking, the method of function invocation where arguments are evaluated before the function is evaluated is faster.
+
+These two techniques have technical names:
+
+1.  _applicative order_:  "all the arguments to … procedures are evaluated when the procedure is applied."
+2.  _normal order_: "delay evaluation of procedure arguments until the actual argument values are needed."
+
+These definitions come from
+
+[Abelson, H., Sussman, G. J.,, with Julie Sussman (1996). Structure and Interpretation of Computer Programs. Cambridge: MIT Press/McGraw-Hill. ISBN: 0-262-01153-0](http://uclid.uc.edu/record=b2528617~S39)
+
+It is obvious, then, that any serious language designer would choose applicative order for their language. There's no reason redeeming value for the inefficiency of normal order.
+The Implications of Applicative Order
+
+Scheme is a [Lisp dialect](https://en.wikipedia.org/wiki/Lisp%5F(programming%5Flanguage)#Major%5Fdialects) . I told you that we weren't going to work much with Lisp, but I lied. Sort of. Scheme is an applicative-order language with the same list-is-everything syntax as all other Lisps (see [The Daily PL - 10/15/2021](https://uc.instructure.com/courses/1476336/pages/the-daily-pl-10-slash-15-slash-2021)). In Scheme, you would define an if function named `myif` like this:
+
+```lisp
+(define (myif c t f) (cond (c t) (else f)))
+```
+
+c is a boolean and myif returns t when c is true and f when c is false. No surprises.
+
+We can define a name a and set its value to 5:
+
+```lisp
+(define a 5)
+```
+
+Now, let's call myif:
+
+```lisp
+(myif (= a 0) 1 (/ 1 a))
+```
+
+If a is equal to 0, then the call returns 1. Perfect. If a is not zero, the call returns the reciprocal of a. Given the value of a, the result is 1/7.
+
+Let's define the name b and set its value to 0:
+
+```lisp
+(define b 0)
+```
+
+Now, let's call myif:
+
+```lisp
+(myif (= b 0) 1 (/ 1 b))
+```
+
+If b is equal to 0, then the call returns 1. If b is not zero, the call returns the reciprocal of b. Given the value of b, the result is 1:
+
+```nil
+/: division by zero
+  context...:
+   "/home/hawkinsw/code/uc/cs3003/scheme/applicative/applicative.rkt": [running body]
+   temp37_0
+   for-loop
+   run-module-instance!125
+   perform-require!78
+```
+
+That looks exactly like 1. What happened?
+
+Remember we said that the language is applicative order. No matter what the value of b, both of the arguments are going to be evaluated before myif starts. Therefore, Scheme attempts to evaluate 1 / b which is 1 / 0 which is division by zero.
+
+Thanks to situations like this, the Scheme programming language is forced into defining special semantics for certain functions, like the built-in if expression. As a result, function invocation is not orthogonal in Scheme -- the general rules of function evaluation in Scheme must make an exception for applying functions like the built-in if expression. Remember that the orthogonality decreases as exceptions in a language's specification increase.
+Sidebar: Solving the problem in Scheme
+
+Feel free to skip this section if you are not interested in details of the Scheme programming language. That said, the concepts in this section are applicable to other languages.
+
+In Scheme, you can specify that the evaluation of an expression be delayed until it is forced.
+
+```lisp
+(define d (delay (/ 1 7)))
+```
+
+defines d to be the eventual result of the evaluation of the division of 1 by 7. If we ask Scheme to print out d, we see
+
+```nil
+#<promise:d>
+```
+
+To bring the future tense into the present tense, we force a delayed evaluation:
+
+```lisp
+(force d)
+```
+
+If we ask Scheme to print the result of that expression, we see:
+
+```nil
+1/7
+```
+
+Exactly what we expect! With this newfound knowledge, we can rewrite the myif function:
+
+```lisp
+(define (myif c t f) (cond (c (force t)) (else (force f))))
+```
+
+Now myif can accept ts and fs that are delayed and we can use myif safely:
+
+```lisp
+(define b 0)
+(myif (= b 0) (delay 1) (delay (/ 1 b)))
+#+end_src lisp
+
+and we see the reasonable result:
+#+begin_src
+1
+```
+
+Kotlin, a modern language, has a concept similar to delay called [lazy](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/lazy.html) . Ocaml, an object-oriented functional programming language, [contains](https://ocaml.org/manual/coreexamples.html#s:lazy-expr) the same concept . Swift has some sense of [laziness](https://docs.swift.org/swift-book/LanguageGuide/Properties.html) , too!
+
+
+### Well, We Are Back to Normal Order {#well-we-are-back-to-normal-order}
+
+I guess that we are stuck with the inefficiency inherent in the normal order function application. Going back to the dbl/average example, we will just have to live with invoking average twice.
+
+Or will we?
+
+Real-world functional programming languages that are normal order use an interesting optimization to avoid these recalculations! When an expression is passed around and it is unevaluated, Haskell and languages like it represent it as a thunk (Links to an external site.). The thunk data structure is generated in such a way that it can calculate the value of its associated expression some time in the future when the value is needed. Additionally, the thunk then caches (or memoizes) the value so that future evaluations of the associated expression do not need to be repeated.
+
+As a result, in the dbl/average example,
+
+1.  a thunk is created for (average 3 4 5),
+2.  that thunk is passed to dbl, where it is duplicated during the reduction of dbl,
+3.  (average 3 4 5) is (eventually) calculated for the first time using the thunk,
+4.  4 is stored (cached, memoized) in the thunk, and
+5.  the cached/memoized value is retrieved from the thunk instead of evaluating (average 3 4 5) for a second time.
+
+A thunk, then, is the mechanism that allows the programmer to have the efficiency of applicative order function invocation with the semantics of the normal order function invocation!
+
+
+## 10/27/2021 {#10-27-2021}
+
+
+### The Tail That Wags the Dog {#the-tail-that-wags-the-dog}
+
+There are no loops in functional programming languages. We've learned that, instead, functional programming languages are characterised by the fact that they use recursion for control flow. As we discussed earlier in the class (much earlier, in fact), when running code on a von Neumann machine, iterative algorithms typically perform faster than recursive algorithms because of the way that the former leverages the properties of the hardware (e.g., [spatial and temporal locality of code](https://en.wikipedia.org/wiki/Locality%5Fof%5Freference) ). In addition, recursive algorithms typically use much more memory than iterative algorithms.
+
+Why? To answer that question, we will need to recall what we learned about stack frames. For every function invocation, an activation record (aka stack frame) is allocated on the run-time stack (aka call stack). The function's parameters, local variables, and return value are all stored in its activation record. The activation record for a function invocation remains on the stack until it has completed execution. In other words, if a function f invokes a function g, then function f's activation record remains on the stack until (at least) g has completed execution.
+
+Consider some algorithm A. Let's assume that an iterative implementation of A requires n executions of a loop and l local integer variables. If that implementation is contained in a function, an invocation of that function would consume approximately l\*sizeof(integer variable) + activation record overhead space on the runtime stack. Let's further assume that a function implementing the recursive version of A also uses l local integer variables and also requires n executions of itself. Each invocation of the implementing function, then, needs l\*sizeof(integer variable) + activation record overhead space on the runtime stack. Multiply that by n, the number of recursive calls, and you can see that, at it's peak, executing the recursive version of algorithm A requires n \* (l \* sizeof(integer variable) + activation record overhead) space on the run-time stack. In other words, the recursive version requires n times more memory!
+That escalated quickly
+.
+
+That's all very abstract. Let's look at the implications with a real-world example, which we will write in Haskell syntax:
+
+```haskell
+myLen [] = 0
+myLen (x:xs) = 1 + (myLen xs)
+```
+
+myLen is a function that recursively calculates the length of a list. Let's see what the stack would look like when we call myLen [1,2,3]:
+
+{{< figure src="/ox-hugo/Non Tail Recursion.png" >}}
+
+When the recursive implementation of myLen reaches the base case, there are four activation records on the run-time stack.
+
+Allocating space on the stack takes time. Therefore, the more activation records placed on the stack, the more time the program will take to execute. But, if we are willing to live with a slower program, then there's nothing else to worry about.
+
+Right?
+
+Wrong. Modern hardware is fast. Modern computers have lots of memory. Unfortunately, they don't have an infinite amount of memory. A program only has a finite amount of stack space. Given a long enough list, myLen could cause so many activation records to be placed on the stack that the amount of stack space is exhausted and the program crashes. In other words, it's not just that a recursive algorithm might execute slower, a recursive algorithm might fail to calculate the correct result entirely!
+
+
+### Tail Recursion - Hope {#tail-recursion-hope}
+
+The activation records of functions that recursively call themselves remain on the stack because, presumably, they need the result of the recursive invocation to complete their work. For example, in our myLen function, an invocation of myLen cannot completely calculate the length of the list given as a parameter until the recursive call completes.
+
+What if there was some way to rewrite a recursive function in a way that it did not need to wait on a future recursive invocation to completely calculate its result? If that could happen, then the stack frame of the current invocation of the function could be replaced by the stack frame of the recursive invocation. Why? Because the information contained in the current invocation of the function has no bearing on its overall result -- the only information needed to completely calculate the result of the function is the result of the future recursive invocation! The implementation of a recursive function that matches this specification is known as a tail-recursive function. The book says "A function is tail recursive if its recursive call is the last operation in the function."
+
+With a tail-recursive function, we get the expressiveness of a recursive definition of the algorithm along with the efficiency of an iterative solution! Ron Popeil, that's a deal!
+
+
+### Rewriting {#rewriting}
+
+The rub is that we need to figure out a way to rewrite those non-tail recursive functions into tail-recursive versions. I am not aware of any general purpose algorithms for such a conversion. However, there is one technique that is widely applicable: accumulators. It is sometimes possible to add a parameter to a non-tail recursive function and use that parameter to define a tail-recursive version. Seeing an accumulator in action is the easiest way to define the technique. Let's rewrite myLen in a tail-recursive manner using an accumulator:
+
+```haskell
+myLen list = myLenImpl 0 list
+myLenImpl acc [] = acc
+myLenImpl acc (x:xs) = myLenImpl (1 + acc) xs
+```
+
+First, notice how we are turning myLen into a function that simply invokes a worker function whose job is to do the actual calculation! The first parameter to myLenImpl is used to hold a running tally of the length of the list so far. The first invocation of myLenImpl from the implementation of myLen, then, passes 0 as the argument to the accumulator because the running tally of the length so far is, well, 0. The implementation of myLenImpl adds 1 to that accumulator variable for every list item that is stripped from the front of the list. The result is that the result of an invocation of myLenImpl does not rely on the completion of a recursive execution. Therefore, myLenImpl qualifies as a tail-recursive function! Woah.
+
+Let's look at the difference in the contents of the run-time stack when we use the tail-recursive version of myLen to calculate the length of the list [1,2,3]:
+
+{{< figure src="/ox-hugo/Tail Recursion.png" >}}
+
+A constant amount of stack space is being used -- amazing!
+
+
+## 10/29/2021 {#10-29-2021}
+
+
+### No one Puts Locals In a Corner {#no-one-puts-locals-in-a-corner}
+
+One of the really cool things about functional programming languages is their first-class support for functions. In functional programming languages, the programmer can pass functions as parameters to other functions and return functions from functions. Let's take a closer look at functions that "generate" other functions. JavaScript has the capability to return functions from functions so we'll use that language to explore:
+
+```javascript
+function urlGenerator(prefix) {
+  function return_function(url) {
+    return prefix + "://" + url;
+  }
+  return return_function;
+}
+```
+
+The urlGenerator function takes a single parameter -- prefix. The caller of urlGenerator passes the protocol prefix as the argument (probably either "http" or "https"). The return value of urlGenerator is itself a function that takes a single parameter, a url, and returns url prepended with the prefix specified by the call to urlGenerator. An example might help:
+
+```javascript
+const httpsUrlGenerator = urlGenerator("https");
+const httpUrlGenerator = urlGenerator("http");
+
+console.log(httpsUrlGenerator("google.com"));
+console.log(httpUrlGenerator("google.com"));
+```
+
+generates
+
+```nil
+"https://google.com"
+"http://google.com"
+```
+
+In other words, the definition of httpsUrlGenerator is (conceptually)
+
+```javascript
+  function httpsUrlGenerator(url) {
+    return "https" + "://" + url;
+  }
+```
+
+and the definition of httpUrlGenerator is (conceptually)
+
+```javascript
+  function httpUrlGenerator(url) {
+    return "http" + "://" + url;
+  }
+```
+
+But that's only a conceptual definition! The real definition continues to contain prefix:
+
+```javascript
+    return prefix + "://" + url;
+```
+
+But, prefix is locally scoped to the urlGenerator function. So, how can httpUrlGenerator and httpsUrlGenerator continue to use its value after leaving the scope of urlGenerator?
+
+
+### The Walls Are Closing In {#the-walls-are-closing-in}
+
+JavaScript, and other languages like it, have the concept of closures. A closure is a context that travels with a function returned by another function. Inside the closure are values for the free variables (remember that definition?) of the returned function. In urlGenerator, the returned function (return\_function) uses the free variable prefix. Therefore, the closure associated with return\_function contains the value of prefix at the time the closure is created!
+
+In the example above, there are two different copies of return\_function generated -- one when urlGenerator is called with the argument "http" and one when urlGenerator is called with the parameter "https". Visually, the situation is
+
+{{< figure src="/ox-hugo/Closures.png" >}}
+
+
+### Connections with Other Material {#connections-with-other-material}
+
+Think about the connection between closures and the format of the urlGenerator/return\_function functions and other concepts we've explored previously like partial application and currying.
+
+
+## 11/1/2021 {#11-1-2021}
+
+
+### Your Total Is ... {#your-total-is-dot-dot-dot}
+
+In today's class, we started with writing a simple function to sum the numbers in a list and ended up with the definition of a fundamental operation of functional programming: the fold. Let's start by writing the simple, recursive definition of a sum function in Haskell:
+
+```haskell
+simpleSum [] = 0
+simpleSum (first:rest) = first + (simpleSum rest)
+```
+
+When invoked with the list [1,2,3,4], the result is 10:
+
+```nil
+*Summit> simpleSum [1,2,3,4]
+10
+```
+
+Exactly what we expected. Let's think about our job security: The boss tells us that they want a function does "products" all the elements in the list. Okay, that's easy:
+
+```haskell
+simpleProduct [] = 1
+simpleProduct (first:rest) = first * (simpleProduct rest)
+```
+
+When invoked with the list [1,2,3,4], the result is 24:
+
+```nil
+*Summit> simpleProduct [1,2,3,4]
+24
+```
+
+Notice that there are only minor differences between the two functions: the value returned in the base case (0 or 1) and the operation being performed on head and the result of the recursive invocation.
+
+I hear some of your shouting at me already: This isn't tail recursive; you told us that tail recursive functions are important. Fine! Let's rewrite the two functions so that they are tail recursive. We will do so using an accumulator and a helper function:
+
+```haskell
+trSimpleSum list = trSimpleSumImpl 0 list
+trSimpleSumImpl runningTotal [] = runningTotal
+trSimpleSumImpl runningTotal (x:xs) = trSimpleSumImpl (runningTotal + x) xs
+```
+
+When invoked with the list [1,2,3,4], the result is 10:
+
+```nil
+*Summit> trSimpleSum [1,2,3,4]
+10
+```
+
+And, we'll do the same for the function that calculates the product of all the elements in the list:
+
+```haskell
+trSimpleProduct list = trSimpleProductImpl 1 list
+trSimpleProductImpl runningTotal [] = runningTotal
+trSimpleProductImpl runningTotal (x:xs) = trSimpleProductImpl (runningTotal * x) xs
+```
+
+When invoked with the list [1,2,3,4], the result is 24:
+
+```nil
+*Summit> trSimpleProduct [1,2,3,4]
+24
+```
+
+
+### One of These Things is Just Like The Other {#one-of-these-things-is-just-like-the-other}
+
+Notice the similarities between trSimpleSumImpl and trSimpleProductImpl. Besides the names, the only difference is really the operation that is performed on the runningTotal and the head element of the list. Because we're using a functional programming language, what if we wanted to let the user specify that operation in terms of a function parameter? Such a function would need have to accept two arguments (the up-to-date running total and the head element) and return a new running total. For summing, we might write a sumOperation function:
+
+```haskell
+sumOperation runningTotal headElement = runningTotal + headElement
+```
+
+Next, instead of defining trSimpleSumImpl and trSimpleProductImpl with fixed definitions of their operation, let's define a trSimpleOpImpl that could use sumOperation:
+
+```haskell
+trSimpleOpImpl runningTotal operation [] = runningTotal
+trSimpleOpImpl runningTotal operation (x:xs) = trSimpleOpImpl (operation runningTotal x) operation xs
+```
+
+Fancy! Now, let's use trSimpleOpImpl and sumOperation to recreate trSimpleSum from above:
+
+```nil
+trSimpleSum list = trSimpleOpImpl 0 sumOperation list
+```
+
+Let's check to make sure that we get the same results: When invoked with the list [1,2,3,4], the result is 10:
+
+```nil
+*Summit> trSimpleSum [1,2,3,4]
+10
+```
+
+To confirm our understanding of what's going on here, let's visualize the invocations of sumOperation necessary to complete the calculation of trSimpleSum:
+
+```haskell
+sumOperation 0 1
+sumOperation 1 2
+sumOperation 3 3
+sumOperation 6 4
+```
+
+Let's do a similar thing for trSimpleProduct:
+
+```haskell
+productOperation runningTotal headElement = runningTotal * headElement
+trSimpleProduct list = trSimpleOpImpl 0 productOperation list
+```
+
+Let's check to make sure that we get the same results: When invoked with the list [1,2,3,4], the result is 24:
+
+```nil
+*Summit> trSimpleProduct [1,2,3,4]
+24
+```
+
+
+### Think About the Types: {#think-about-the-types}
+
+We've stumbled on a pretty useful pattern! Let's look at its components:
+
+1.  A "driver" function (called trSimpleOpImpl) that takes three parameters: an initial value (of a particular type, T), an operation function (see below) and a list of inputs, each of which is of type T.
+2.  An operation function that takes two parameters -- a running total, of some type R; an element to "accumulate" on to the running total of type T -- and returns a new running total of type R.
+3.  A list of inputs, each of which is of type T.
+
+Here are the types of those functions in Haskell:
+
+operation function: R -> T -> R
+
+list of inputs: [T]
+
+driver function: T -> (R -> T -> R) -> R
+
+Let's play around and see what we can write using this pattern. How about a concatenation of a list of strings in to a single string?
+
+```haskell
+concatenateOperation concatenatedString newString = concatenatedString ++ newString
+concatenateStrings list = trSimpleOpImpl "" concatenateOperation list
+```
+
+(the ++ just concatenates two strings together). When we run this on ["Hello", ",", "World"] the result is "Hello, World":
+
+```haskell
+*Summit> concatenateStrings ["Hello", ",", "World"]
+"Hello,World"
+```
+
+So far our Ts and Rs have been the same -- integers and strings. But, the signatures indicate that they could be different types! Let's take advantage of that! Let's use trSimplOpImpl to write a function that returns True if every element in the list is equal to the number 1 and False otherwise. Let's call the operation function continuesToBeAllOnes and define it like this:
+
+```haskell
+continuesToBeAllOnes equalToOneSoFar maybeOne = equalToOneSoFar && (maybeOne == 1)
+```
+
+This function will return True if the list (to this point) has contained all ones (equalToOneSoFar) and the current element (maybeOne) is equal to one. In this case, the R is a boolean and the T is an integer. Let's implement a function named isListAllOnes using continuesToBeAllOnes and trSimplOpImpl:
+
+```haskell
+isListAllOnes list = trSimpleOpImpl True continuesToBeAllOnes list
+```
+
+Does it work? When invoked with the list [1,1,1,1], the result is True:
+
+```haskell
+*Summit> isListAllOnes [1,1,1,1]
+True
+```
+
+When invoked with the list [1,2,1,1], the result is False:
+
+```haskell
+*Summit> isListAllOnes [1,2,1,1]
+False
+```
+
+Naming those "operation" functions every time is getting annoying, don't you think? I bet that we could be lazier!! Let's rewrite isListAllOnes without specifically defining the continuesToBeAllOnes function:
+
+```haskell
+isListAllOnes list = trSimpleOpImpl True (\equalToOneSoFar maybeOne -> equalToOneSoFar && (maybeOne == 1)) list
+```
+
+Now we are really getting functional!
+
+I am greedy. I want to write a function that returns True if any element of the list is a one:
+
+```haskell
+isAnyElementOne list = trSimpleOpImpl False (\anyOneSoFar maybeOne -> anyOneSoFar || (maybeOne == 1)) list
+```
+
+This is just way too much fun!
+
+
+### Fold the Laundry {#fold-the-laundry}
+
+This type of function is so much fun that it is included in the standard implementation of Haskell! It's called fold! And, in true Haskell fashion, there are two different versions to maximize flexibility and confusion: the fold-left and fold-right operation. The signatures for the functions are the same in both cases:
+
+fold[l,r] :: operation function -> initial value -> list -> result
+
+In all fairness, these two versions are necessary. Why? Because certain operation functions are not associative! It doesn't matter the order in which you add or multiply a series of numbers -- the result of (5 \* (4 \* (3 \*2))) is the same as (((5 \* 4) \* 3) \* 2). The problem is, that's not the case of an operation like division!
+
+A fold-left operation (foldl) works by starting the operation (essentially) from the first element of the list and the fold-right operation (foldr) works by starting the operation (essentially) from the last element of the list. Furthermore, the choice of foldl vs foldr affects the order of the parameters to the operation function: in a foldl, the running value (which is known as the accumulator in mainstream documentation for fold functions) is the left parameter; in a foldr, the accumulator is the right parameter.
+
+This will make more sense visually, I swear:
+
+```haskell
+*Summit> foldl (\x y -> x /y ) 1 [3,2,1]
+0.16666666666666666
+```
+
+{{< figure src="/ox-hugo/Division (foldl)(1).png" >}}
+
+```haskell
+*Summit> foldr (\x y -> x / y ) 1 [3,2,1]
+1.5
+```
+
+{{< figure src="/ox-hugo/Division (foldr).png" >}}
+
+Let's use our newfound fold power, to recreate our work from above:
+
+```haskell
+isAnyElementOne list = foldl (\anyOneSoFar maybeOne -> anyOneSoFar || (maybeOne == 1)) False list
+isListAllOnes list = foldl (\equalToOneSoFar maybeOne -> equalToOneSoFar && (maybeOne == 1)) True list
+concatenateStrings list = foldl (\concatenatedString newString -> concatenatedString ++ newString) "" list
+```
+
+
+## 11/3/2021 {#11-3-2021}
+
+It's the 3rd day of November and we are about to switch to non-daylight savings time. What better way to celebrate the [worst day of the year](https://www.timeanddate.com/time/change/usa)  than switching our attention to a new topic!
+
+
+### I Do Declare {#i-do-declare}
+
+In this module we are going to focus on logic (also known as declarative) programming languages. Users of a declarative programming language declare the outcome they wish to achieve and let the compiler do the work of achieving it. This is in marked contrast to users of an imperative programming language who have to tell the compiler not only the outcome they wish to achieve but also how to achieve it. A declarative programming language does not have program control flow constructs, per se. Instead, a declarative programming language gives the programmer the power to control execution by means of recursion (again?? I know, sorry!) and backtracking. Backtracking is a concept that we will return to later. A declarative program is all about defining facts (either as axioms or as ways to build new facts from axioms) and asking questions about those facts. From the programming language's perspective, those facts have no inherent meaning. We, the programmers, have to impugn meaning on to the facts. Finally, declarative programming languages do have variables, but they are nothing the variables that we know and love in imperative programming languages.
+
+As we have worked through the different programming paradigms, we have discussed the theoretical underpinning of each. For imperative programming languages, the theoretical model is the Turing Machine. For the functional programming languages, the theoretical model is the Lambda Calculus. The declarative programming paradigm has a theoretical underpinning, too: first-order predicate calculus. We will talk more about that in class soon!
+
+
+### In the Beginning {#in-the-beginning}
+
+Unlike imperative, object-oriented and functional programming languages, there is really only one extant declarative/logic programming language: Prolog.[Prolog was developed by Alain Colmeraurer, Phillipe Roussel, and Robert Kowalski](https://uc.instructure.com/courses/1476336/files/149577847?wrap=1) in order to do research in artificial intelligence and natural language processing
+
+. Its official birthday is 1972.
+
+{{< figure src="/ox-hugo/Programming Language What_How Continuum - With Examples.png" >}}
+
+Prolog programs are made up of exactly three components:
+
+1.  Facts
+2.  Rules
+3.  Queries
+
+The syntax of Prolog defines the rules for writing facts, rules and queries. Syntactic elements in Prolog belong to one of three categories:
+
+1.  Atoms: The most fundamental unit of a Prolog program. They are simply symbols. Usually they are simply sequences of characters that begin with a lowercase letter. However, atoms can contain spaces (in which case they are enclosed in 's) and they can start with uppercase letters (in which case they are wrapped with 's).
+2.  Variables: Like atoms, but variables always start with uppercase letters.
+3.  Functors: Like atoms, but functors define relationships/facts.
+
+If Prolog is a logic programming language, there must be some means for specifying logical operations. There is! In the context of specifying a rule, the and operation is written using a ,. In the context of specifying a rule, the or operation is written using a ;. Obviously!
+
+The best way to learn Prolog is to start writing some programs. We'll come back to the theory later!
+
+
+### Just The Facts {#just-the-facts}
+
+At its most basic, a Prolog program is a set of facts:
+
+```prolog
+takes(jane, cs4999).
+takes(alicia, cs2020).
+takes(alice, cs4000).
+takes(mary, cs1021).
+takes(bob, cs1021).
+takes(kristi, cs4000).
+takes(sam, cs1021).
+takes(will, cs2080).
+takes(alicia, cs3050).
+```
+
+{{< figure src="/ox-hugo/Basic Fact in Prolog-1.png" >}}
+
+In relation to the first-order predicate logic that Prolog models, takes is a logical predicate. We'll refer to them as facts or predicates, depending on what's convenient. Formally, they predicates and facts are written as <principle functor>/<arity>. Two (or more) facts/predicates with the same functor but different arities are not the same. For instance, takes/1 and takes/2 are completely different.
+
+Let's read one of these facts in English:
+
+```prolog
+takes(jane, cs4999).
+```
+
+could be read as "Jane takes CS4999.". As programmers, we know what that means: the student named Jane is enrolled in the class CS4999. However, Prolog does not share our sense of meaning! Prolog simply thinks that we are defining one element of the takes relationship where jane is somehow related to cs4999. As a Prolog programmer, we could just has easily have written
+
+```prolog
+tennis_shoes(jane, cs4999).
+tennis_shoes(alicia, cs2020).
+tennis_shoes(alice, cs4000).
+tennis_shoes(mary, cs1021).
+tennis_shoes(bob, cs1021).
+tennis_shoes(kristi, cs4000).
+tennis_shoes(sam, cs1021).
+tennis_shoes(will, cs2080).
+tennis_shoes(alicia, cs3050).
+```
+
+and gotten the same result! But, we programmers want to define something that is meaningful, so we choose to use atoms that reflect their semantic meaning. With nothing more than the facts that we have defined above, we can write queries. In order to interact with queries in real time, we can use the Prolog REPL. Once we have started the Prolog REPL, we will see a prompt like this:
+
+```prolog
+?-
+```
+
+The world awaits ...
+
+To load a Prolog file in to the REPL, we will use the consult predicate:
+
+```prolog
+?- consult('intro.pl').
+true.
+```
+
+The Prolog facts, rules and queries in the intro.pl file are now available to us. Assume that intro.pl contains the takes facts from above. Let's make some queries:
+
+```prolog
+?- takes(bob, cs1021).
+true.
+
+?- takes(will, cs2080).
+true.
+
+?- takes(ali, cs4999).
+false.
+```
+
+These are simple yes/no queries and Prolog obliges us with terse answers. But, even with the simple facts shown above, Prolog can be used to make some powerful inferences. Prolog can tell us the names of all the people it knows who are taking a particular class:
+
+```prolog
+?- takes(Students, cs1021).
+Students = mary ;
+Students = bob ;
+Students = sam.
+```
+
+Wow! Here Prolog is telling us that there are three different values of the Students variable that will make the query true: mary, bob and sam. In the lingo, Prolog is unifying Students with the values that will make our query true. Let's go the other way around:
+
+```prolog
+?- takes(alicia, Classes).
+Classes = cs2020 ;
+Classes = cs3050.
+```
+
+Here Prolog is telling us that there are two different classes that Alicia is taking. Nice.
+
+That's great, but pretty limited: it's kind of terrible if we had to write out each fact explicitly! The good news is that we don't have to do that! We can use a Prolog rule to define facts based on the existence of other facts. Let's define a rule which will tell us the students who are CS majors. To be a CS major, you must be taking (exactly) two classes:
+
+```prolog
+cs_major(X) :- takes(X, Y), takes(X, Z), Y @< Z.
+```
+
+That's lots to take in at first glance. Start by looking at the general format of a rule:
+
+{{< figure src="/ox-hugo/Basic Rule in Prolog-1.png" >}}
+
+Okay, so now back to our particular rule that defines what it means to be a CS Major. (For the purposes of this discussion, assume that the @< operator is "not equal"). Building on what we know (e.g., , is and, :- is implication, etc), we can read the rule like: "X is a CS Major if X takes class Y and X takes class Z and class Y and Z are not the same class." Pretty succinct definition.
+
+To make the next few examples a little more meaningful, let's update our list of facts before moving on:
+
+```prolog
+takes(jane, cs4999).
+takes(alicia, cs2020).
+takes(alice, cs4000).
+takes(mary, cs1021).
+takes(bob, cs1021).
+takes(bob, cs8000).
+takes(kristi, cs4000).
+takes(sam, cs1021).
+takes(will, cs2080).
+takes(alicia, cs3050).
+```
+
+With that, let's find out if our rule works as intended!
+
+```prolog
+?- cs_major(alicia).
+true ;
+false.
+```
+
+Wow! Pretty cool! Prolog used the rule that we wrote, combined it with the facts that it knows, and inferred that Alicia is a CS major! (For now, disregard the second False -- we'll come back to that!). Like we could use Prolog to generate the list of classes that a particular student is taking, can we ask Prolog to generate a list of all the CS majors that it knows?
+
+```prolog
+?- cs_major(X).
+X = alicia ;
+X = bob ;
+false.
+```
+
+Boom!
+
+
+## 11/5/2021 {#11-5-2021}
+
+\*The retreat to move forward.
+
+
+### Backtracking {#backtracking}
+
+In today's lecture, we discussed the concepts of backtracking and choice points in order to learn how Prolog can determine the meaning of our programs.
+
+There is a formal definition of choice points and backtracking from the Prolog glossary:
+
+backtracking: Search process used by Prolog. If a predicate offers multiple clauses to solve a goal, they are tried one-by-one until one succeeds. If a subsequent part of the proof is not satisfied with the resulting variable binding, it may ask for an alternative solution, causing Prolog to reject the previously chosen clause and try the next one.
+
+There are lots of undefined words in that definition! Let's dig a little deeper.
+
+A predicate is like a boolean function. A predicate takes one or more arguments and yields true/false. As we said at the outset of our discussion about declarative programming languages, the reason that a predicate may yield true or false depends on the semantics imposed upon it from the outside. A predicate is a term borrowed from first-order logic, a topic that we will return to in later lectures.
+
+Remember our takes example from previous lectures? takes is a predicate! takes has two arguments and returns a boolean.
+
+In Prolog, rules and facts are written to define predicates. A rule defines the conditions under which a predicate is true using a body -- a list of other predicates, logical conjunctives, implications, etc. See The Daily PL - 11/3/2021 for additional information about rules. A fact is a rule without a body and unconditionally defines that a certain relationship is true for a predicate.
+
+```prolog
+related(will, bill).
+related(ali, bill).
+related(bill, william).
+```
+
+related(X, Y) :- related(X, Z), related(Z, Y).
+
+In the example above, related is a predicate defined by facts and rules. The facts and rules above are the clauses of the predicate.
+
+choicepoint: A choice point represents a choice in the search for a solution. Choice points are created if multiple clauses match a query or using disjunction (;/2). On backtracking, the execution state of the most recent choice point is restored and search continues with the next alternative (i.e., next clause or second branch of ;/2).
+
+That's a mouthful! I think that the best way to understand this is to look at backtracking in action and see where choice points exist.
+
+
+### Give and Take {#give-and-take}
+
+Remember the takes predicate that we defined in the last class:
+
+```prolog
+takes(jane, cs4999).
+takes(alicia, cs2020).
+takes(alice, cs4000).
+takes(mary, cs1021).
+takes(bob, cs1021).
+takes(bob, cs8000).
+takes(kristi, cs4000).
+takes(sam, cs1021).
+takes(will, cs2080).
+takes(alicia, cs3050).
+```
+
+We subsequently defined a cs\_major predicate:
+
+```prolog
+cs_major(X) :- takes(X, Y), takes(X, Z), Y @< Z.
+```
+
+The cs\_major predicate says that a student who takes two CS classes is a CS major. Let's walk through how Prolog would respond to the following query:
+
+```prolog
+cs_major(X).
+```
+
+To start, Prolog realizes that in order to satisfy our query, it has to at least satisfy the query
+
+```prolog
+takes(X, Y).
+```
+
+So, Prolog starts there. In order to satisfy that query, it searches its knowledge base (its list of facts/rules that define predicates) from top to bottom. X and Y are variables and the first appropriate fact that it finds is
+
+```prolog
+takes(jane, cs4999).
+```
+
+So, it unifies X with jane and Y with cs4999. Having satisfied that query, Prolog realizes that it must also satisfy the query:
+
+```prolog
+takes(X, Z).
+```
+
+However, Prolog has already provisionally unified X with jane. So, Prolog really attempts to satisfy the query:
+
+```prolog
+takes(jane, Z).
+```
+
+Great. For Prolog, attempting to satisfy this query is completely distinct from its attempt to satisfy the query takes(X, Y) which means that Prolog starts searching its knowledge base anew (again, from top to bottom!). The first appropriate fact that it finds that satisfies this query is
+
+takes(jane, cs4999).
+
+So, it unifies Z with cs4999. Having satisfied that query too, Prolog moves on to the third query:
+
+```prolog
+Y @< Z.
+```
+
+Unfortunately, because X and Y are both unified to cs4999, Prolog fails to satisfy that query. In other words, Prolog realizes that its provisional unification of X with jane, Y with cs4999 and Z with cs4999 is not a way to satisfy our original query (cs\_major(X)).
+
+Does Prolog just give up? Absolutely not! It's persistent. It backtracks! To where?
+
+Well, according to the definition above, it backtracks to the most-recent choicepoint! In this case, the most recent choicepoint was its provisional unification of Z with cs4999. So, Prolog forgets about that attempt, and restarts the search of its knowledge base.
+
+Where does it restart that search, though? This is important: It restarts its search where it left off. In other words, it starts at the first fact at takes(jane, cs4999). Because there are no other facts about classes that Jane takes, Prolog fails again, this time attempting to satisfy the query takes(jane, Z).
+
+I ask again, does Prolog just give up? No, it backtracks again! This time it backtracks to its most-recent choicepoint. Now, that most recently choicepoint was its provisional unification of X with jane. Prolog forgets that attempt, and restarts the search of its knowledge base! Again, because this is the continuation of a previous search, Prolog begins where it left off in its top-to-bottom search of its knowledge base. The next fact that it see is
+
+```prolog
+takes(alicia, cs2020)
+```
+
+So, Prolog provisionally unifies X with alicia and Y with cs2020. Having satisfied that query (for a second time!), Prolog realizes that it must also satisfy the query:
+
+```prolog
+takes(X, Z).
+```
+
+However, Prolog has provisionally unified X with alicia. So, Prolog really attempts to satisfy the query:
+
+```prolog
+takes(alicia, Z).
+```
+
+Great. For Prolog, attempting to satisfy this query is completely distinct from its attempt to satisfy the query takes(X, Y) and its previous attempt to satisfy the query takes(jane, Z). Therefore, Prolog starts searching its knowledge base anew (again, from top to bottom!). The first appropriate fact that it finds that satisfies this query is
+
+```prolog
+takes(alicia, cs2020).
+```
+
+So, it unifies Z with cs2020. Having satisfied that query too, Prolog moves on to the third query:
+
+```prolog
+Y @< Z.
+```
+
+Unfortunately, because Z and Y are both unified to cs2020, Prolog fails to satisfy that query. In other words, Prolog realizes that its provisional unification of X with alicia, Y with cs2020 and Z with cs2020 is not a way to satisfy our original query (cs\_major(X)). Again, Prolog does not give up and it backtracks to its most recent choicepoint. The good news is that Prolog can satisfy the query
+
+```prolog
+takes(alicia, Z)
+```
+
+a second way by unifying Z with cs3050. Prolog proceeds to the final part of the rule
+
+```prolog
+X @< Y
+```
+
+which can be satisfied this time because cs3050 and cs2020 are different!
+
+Victory!
+
+Prolog was able to satisfy the original query when it unified X with alicia, Y with cs2020 and Z with cs3050.
+
+Below is a visualization of the description given above:
+
+{{< figure src="/ox-hugo/Unification and Backtracking.png" >}}
+
+A Prolog user at the REPL (or a Prolog program using this rule) could ask for all the ways that this query is satisfied. And, if the user/program does, then Prolog will backtrack as if it did not find a satisfactory unification for Z, Y or X (in that order!).\* 11/5/2021
+
+
+## 11/8/2021 {#11-8-2021}
+
+In the true spirit of a [picture being worth a thousand words](https://en.wikipedia.org/wiki/A%5Fpicture%5Fis%5Fworth%5Fa%5Fthousand%5Fwords) , think of this Daily PL as a graphic novel.
+
+
+### Going Over Backtracking Again (see what I did there?) {#going-over-backtracking-again--see-what-i-did-there}
+
+In today's lecture, we went deeper into the discussion of backtracking and saw its utility. In particular, we discussed the following Prolog program for generating all the integers.
+
+```prolog
+generate_integer(0).
+generate_integer(X) :- generate_integer(Y), X is Y + 1.
+```
+
+This is an incredibly succinct way to declare what it means to be an integer. This generator function is attributable to Programming in Prolog by Mellish and Clocksin (Links to an external site.). In other words, we know that it's a reasonable definition.
+
+As discussed in the description of Assignment 3, the best way to learn Prolog, I think, is to play with it! So, let's see what this can do!
+
+```prolog
+?- generate_integer(5).
+true ;
+```
+
+In other words, it can be used to determine whether a given number is an integer. Awesome.
+
+```prolog
+?- generate_integer(X).
+X = 0 ;
+X = 1 ;
+X = 2 ;
+X = 3 ;
+X = 4 ;
+X = 5 ;
+X = 6
+```
+
+Woah, look at that ... generate\_integer/1 can do double duty and generate all the integers, too. Pretty cool!
+
+The generation of the numbers using this definition is possible thanks to the power of backtracking. If you need a refresher on backtracking and/or choice points, I recommend previous [Daily PLs](https://uc.instructure.com/courses/1476336/pages/the-daily-pl-11-slash-5-slash-2021).
+
+The (im)possibility of using words to describe the backtracking involved in generate\_integer/1, led me to create the following diagram that attempts to illustrate the process. I encourage you to look at the diagram, run generate\_integer/1 in swipl with trace enabled and ask any questions that you have! Again, this is not a simple concept, but once you understand what is going on, Prolog will begin to make more sense!
+
+{{< figure src="/ox-hugo/Backtracking Generate Integers.png" >}}
+
+It may be necessary to use a high-resolution version of the diagram if you are curious about the details. Such a version is available in SVG format here.
+
+
+### Chasing Our Tails {#chasing-our-tails}
+
+Yes, I can hear you! I know, generate\_integer/1 is not tail recursive. We learned that tail recursion is a useful optimization in functional programming languages (and even imperative programming languages). Does that mean that it's an important optimization in Prolog?
+
+To find out, I timed how long it took Prolog to answer the query
+
+```prolog
+?- generate_integer(50000).
+```
+
+The answer? On my desktop computer, it took 1 minute and 48 seconds.
+
+If we want something for comparison, we'll have to come up with a tail-recursive version of generate\_integer/1. Let's call it generate\_integer\_tr/1 (creative, I know), and define it like:
+
+```prolog
+generate_integer_tr(X) :- next_integer(0,X).
+
+next_integer(J, J).
+next_integer(J, L) :- K is J + 1, next_integer(K, L).
+```
+
+The fact next\_integer(J, J) is a "trick" to define a base case for our definition in the same way that generate\_integer(0) was a base case in the definition of generate\_integer/1. To get a sense for the need for next\_integer(J, J) think about what happens when the first query of next\_integer(0,X) is performed in order to satisfy the query generate\_integer\_tr(50000). In this case, the next\_integer(J, J) fact matches (convince yourself why! Hint: there are no restrictions on J). As a result, J unifies with the 0, and the X unifies with the J. That's great, but (X = ) 0 does not equal 50000. So, Prolog does what?
+
+In unison: BACKTRACKS.
+
+The choice point is Prolog's selection of next\_integer(J, J), so Prolog tries again at the next possible fact/rule: next\_integer(J, L) :- K is J + 1, next\_integer(K, L). J is unified with 0, K is unified with 1 (J + 1) and Prolog must now satisfy a new goal: next\_integer(1, L). Because this query for next\_integer/1 is completely different than the one it is currently attempting to satisfy, Prolog starts the search anew at the top of the list of facts. The first fact to match? next\_integer(J, J). Therefore, J unifies with 1, L unifies with J (making L 1), and X (from the initial query) unifies with L. Unfortunately, the result again does not satisfy our query. But, Prolog persists and backtracks but only as far as the second attempt to satisfy next\_integer (using next\_integer(J,J)). In much the same way that generate\_integer/1 worked, Prolog continues to progress, then backtrack, then progress, then backtrack ... while solving the generate\_integer\_tr(50000) query.
+
+The difference between the two functions is that in next\_integer/2, the recursive act is the last thing that is done. In other words, generate\_integer\_tr/1 is tail recursive.
+
+Does this impact performance? Absolutely! On my desktop. Prolog can answer the query generate\_integer\_tr(50000). in 0.029 seconds. Yeow!
+
+
+## 11/10/2021 {#11-10-2021}
+
+In today's class we learned about a workhorse rule in logic programming: append/3. append/3 can be used to implement many other different rules, including a rule that will generate all the permutations of a list!
+
+
+### Pin the Tail on the List {#pin-the-tail-on-the-list}
+
+The goal (pun intended) of append is to determine whether two lists, X and Y, are the same as a third list, Z, when appended together. We could use the append query like this:
+
+```prolog
+?- append([1,2,3], [a,b,c], [1,2,3,a,b,c]).
+true.
+```
+
+or
+
+```prolog
+?- append([1,2,3], [a,b], [1,2,3,a,b,c]).
+false.
+```
+
+What we will find is that append/3 has a hidden superpower besides its ability to simply answer yes/no queries like the ones above.
+
+The definition of append/3 will follow the pattern of other recursively defined rules that we have seen so far. Let's start with the base case. The result of appending an empty list with some list Y, is just list Y. Let's write that down:
+
+```prolog
+append([], Y, Y).
+```
+
+And now for the recursive case: appending list X to list Y yields some list Z where Z is the first element of the list X following by the result of appending the tail of X with Y. The natural language version of the definition is complicated but I think that the Prolog definition makes it more clear:
+
+```prolog
+append([H|T], Y, [H|AppendedList]) :- append(T, Y, AppendedList).
+```
+
+Let's see how Prolog attempts to answer the query append([1,2], [a,b], [1,2,a,b]).
+
+{{< figure src="/ox-hugo/Append Query Success.png" >}}
+
+And now let's look at it's operation for the query append([1,2], [a,b], [1,a,b]).
+
+{{< figure src="/ox-hugo/Append Query Failure.png" >}}
+
+It's also natural to look at append/3 as a tool to "assign" a variable to be the result of appending two lists:
+
+```prolog
+?- append([1,2,3], [a,b,c], Z).
+Z = [1, 2, 3, a, b, c].
+```
+
+Here we are asking Prolog to assign variable Z to be a list that holds the appended contents of the lists in the first two arguments.
+
+
+### Look at Append From a Different Angle {#look-at-append-from-a-different-angle}
+
+We've seen append/3 in action so far in a procedural way -- answering whether two lists are equal to one another and "assigning" a variable to a list that holds the contents of another two lists appended to one another. But earlier I said that append/3 has some magical powers.
+
+If we look at append/3 from a different angle, the declarative angle, we can see how it can be used to generate all the different combinations of two lists that, when appended together, yield a third list! For example,
+
+```prolog
+?- append(X, Y, [1,2,3]).
+X = [],
+Y = [1, 2, 3] ;
+X = [1],
+Y = [2, 3] ;
+X = [1, 2],
+Y = [3] ;
+X = [1, 2, 3],
+Y = [] ;
+```
+
+Wow. That's pretty cool! Prolog is telling us that it can figure out three different combinations of lists that, when appended together, will equal the list [1,2,3]. I mean, if that doesn't make your blood boil, I don't know what will.
+
+
+### Let's Ride the Thoroughbred {#let-s-ride-the-thoroughbred}
+
+The power of append/3 makes it useful in so many different ways. When I started learning Prolog, the resource I was using (Learn Prolog Now (Links to an external site.)) spent an inordinate amount of time discussing append/3 and it's utility. It took me a long time to really understand the author's point. A long time.
+
+
+#### Prefix and Suffix {#prefix-and-suffix}
+
+Let's take a quick look at how to define a rule prefix/2. prefix/2 takes two arguments -- a possible prefix, PP,  and a list, L -- and determines whether PP is a prefix of L. We've gotten so used to writing recursive definitions, it seems obvious that we would define prefix/2 using that pattern. In the base case, an empty list is a prefix of any list:
+
+```prolog
+prefix([], _).
+```
+
+(Remember that \_ is "I don't care."). With that out of the way, we can say that PP is a prefix of L if
+
+the head element of PP is the same as the head element of L, and
+the tail of PP is a prefix of the tail of L:
+
+```prolog
+prefix([H|Xs], [H|Ys]) :- prefix(Xs, Ys).
+```
+
+Fantastic. That's a pretty easy definition and it works in all the ways that we would expect:
+
+```prolog
+?- prefix([1,2], [1,2,3]).
+true.
+
+?- prefix([1,2], [2,3]).
+false.
+
+?- prefix(X, [1,2,3]).
+X = [] ;
+X = [1] ;
+X = [1, 2] ;
+X = [1, 2, 3] ;
+```
+
+But, what if there was a way that we could write the definition of prefix/2 more succinctly! Remember, programmers are lazy -- the fewer keystrokes the better!
+
+Think about this alternate definition of prefix: PP is a prefix of L, when there is a (possibly empty) list, W (short for "whatever"), such that PP appended with W is equal to L. Did you see the magic word? Appended! We have append/3, so let's use it:
+
+```prolog
+prefix(PP, L) :- append(PP, _, L).
+```
+
+(Note that we have replaced W from a natural-language definition with \_ because we don't care about it's value!)
+
+We could go through the same process of defining suffix/2 recursively, or we could cut to the chase and define it in terms of append/3. Let's save ourselves some time: SS is a suffix of L, when there is a (possibly empty) list, W (short for "whatever"), such that W appended with SS is equal to L. Let's codify that:
+
+```prolog
+suffix(SS, L) :- append(_, SS, L).
+```
+
+But, does it work?
+
+```prolog
+?- suffix_append([3,4], [1,2,3,4]).
+true.
+
+?- suffix_append([3,5], [1,2,3,4]).
+false.
+
+?- suffix_append(X, [1,2,3,4]).
+X = [1, 2, 3, 4] ;
+X = [2, 3, 4] ;
+X = [3, 4] ;
+X = [4] ;
+X = [] ;
+```
+
+
+### Permutations {#permutations}
+
+We're all friends here, aren't we? Good. I have no problem admitting that I am terrible at thinking about permutations of a set. I have tried and tried and tried to understand the section in Volume 4 of Knuth's TAOCP (Links to an external site.) about generating permutations (Links to an external site.) but it's just too hard for me. Instead, I just play around with them until I grok it. To help me play, I want Prolog's help. I want Prolog to generate for me all the permutations of a given list. We will call this permute/2. Procedurally, permute/2 will say whether its second argument is a permutation of its first argument. Declaratively, permute/2 will generate a list of permutations of elements in the list in its first argument. Let's work back from the end: We'll see how it should work before actually defining it:
+
+```prolog
+?- permutation([1,2,3], [3,1,2]).
+true .
+
+?- permutation([1,2,3], L).
+L = [1, 2, 3] ;
+L = [1, 3, 2] ;
+L = [2, 1, 3] ;
+L = [2, 3, 1] ;
+L = [3, 1, 2] ;
+L = [3, 2, 1] ;
+false.
+```
+
+Cool. If I run permute/2 enough times I might start to understand them!
+
+Now that we know the results of invoking permute/2, how are we going to define it? Again, let's take the easy way out and see the definition and then walk through it piece-by-piece in order to understand its meaning:
+
+```prolog
+permute([], []).
+permute(List, [X|Xs]) :- append(W, [X|U], List), append(W, U, ListWithoutX), permute(ListWithoutX, Xs).
+```
+
+Well, the first rule is simple -- the permutation of an empty list is just the empty list!
+
+The second rule, well, not so much! There are three conditions that must be satisfied for a list defined as [X|Xs] to be a permutation of List.
+
+Think of the first condition in a declarative sense: "Prolog, make me two lists that, when appended together, equal List. Name the first one W. And, while you're at it, make sure that the first element in the second list is X and call the tail of the second list U. Thanks."
+
+Think of the second condition in a procedural sense: "Prolog, append W and U to create a new list named ListWithoutX." The name ListWithoutX is pretty evocative because, well, it is a list that contains every element of List but X.
+
+Finally, think of the third condition in a declarative sense: "I want Xs to be all the possible permutations of ListWithoutX -- Prolog, make it so!"
+
+Let's try to put all this together into a succinct natural-language definition: A list whose first element is X and whose tail is Xs is a permutation of List if:
+
+1.  X is one of the elements of List, and
+2.  Xs is a permutation of the list List without element X.
+
+Below is a visualization of the process Prolog takes to generate the first two permutations of [1,2,3]:
+
+{{< figure src="/ox-hugo/Generate 1st Two Solutions for Permute.png" >}}
+
+
+## 11/12/2021 {#11-12-2021}
+
+If the append/3 predicate that we wrote on [Wednesday](https://uc.instructure.com/courses/1476336/pages/the-daily-pl-11-slash-10-slash-2021) is a horse that we can ride to accomplish many different tasks, then Prolog is like a wild stallion that tends to run in a direction of its choosing. We can use cuts to tame our mustang and make it go where we want it to go!
+
+
+### The Possibilities Are Endless {#the-possibilities-are-endless}
+
+Let's start the discussion by writing a merge/3 predicate. The first two arguments are sorted lists. The final argument should unify to the in-order version of the first two arguments merged. Before starting to write some Prolog, let's think about how we could do this.
+
+Let's deal with the base cases first: When either of the first two lists are empty, the merged list is the non-empty list. We'll write that like
+
+```prolog
+merge(Xs, [], Xs).
+merge([], Ys, Ys).
+```
+
+And now, for the recursive cases: We will call the first argument Left, the second argument Right, and the third argument Sorted. The first element of Left can be called HeadLeft and the rest of Left can be called TailLeft. The first element of Right can be called HeadRight and the rest of Right can be called TailRight. In order to merge, there are three cases to consider:
+
+1.  HeadLeft is less than HeadRight
+2.  HeadLeft is equal to HeadRight
+3.  HeadRight is less than HeadLeft
+
+For case (1), the head of the merged result is HeadLeft and the tail of the merged result is the result of merging TailLeft with Right. For case (2), the head of the merged result is HeadLeft and the tail of the merged result is the result of merging TailLeft with TailRight. For case (3), the head of the merged result is HeadRight and the tail of the merged result is the result of merging Left with TailRight.
+
+It's far easier to write this in Prolog than English:
+
+```prolog
+merge([X|Xs], [Y|Ys], [X|Zs]) :- X<Y, merge(Xs, [Y|Ys], Zs).
+merge([X|Xs], [Y|Ys], [X|Zs]) :- X=:=Y, merge(Xs, Ys, Zs).
+merge([X|Xs], [Y|Ys], [Y|Zs]) :- Y<X, merge([X|Xs], Ys, Zs).
+```
+
+(Note: `:` is the "equal to" boolean operator in Prolog. See =:=/2 (Links to an external site.) for more information.
+
+For merge/3, let's write the base cases after our recursive cases. With that switcheroo, we have the following complete definition of merge/3:
+
+```prolog
+merge([X|Xs], [Y|Ys], [X|Zs]) :- X<Y, merge(Xs, [Y|Ys], Zs).
+merge([X|Xs], [Y|Ys], [X|Zs]) :- X=:=Y, merge(Xs, Ys, Zs).
+merge([X|Xs], [Y|Ys], [Y|Zs]) :- Y<X, merge([X|Xs], Ys, Zs).
+merge(Xs, [], Xs).
+merge([], Ys, Ys).
+```
+
+Let's follow Prolog as it attempts to use our predicate to answer the query
+
+```prolog
+merge([1, 3, 5], [2,4,6], M).
+```
+
+As we know, Prolog will search top to bottom when looking for ways to unify and the first rule that Prolog sees is applicable:
+
+```prolog
+merge([X|Xs], [Y|Ys], [X|Zs]) :- X<Y, merge(Xs, [Y|Ys], Zs).
+```
+
+Why? Because Prolog sees X as 1 and Y as 2 and 1 < 2. Therefore, Prolog will complete its unification for this query by replacing it with another query:
+
+```prolog
+merge([3,5], [2,4,6], Zs).
+```
+
+{{< figure src="/ox-hugo/Merge No Cut(1).png" >}}
+
+Once Prolog has completed that query, the response comes back:
+
+```prolog
+M = [1,2,3,4,5,6]
+```
+
+Unfortunately, that's not the whole story. While Prolog is off attempting to satisfy the subquery merge([3,5], [2,4,6], Zs)., it believes that there are still several other viable alternatives for satisfying our original query:
+
+```prolog
+merge([X|Xs], [Y|Ys], [X|Zs]) :- X=:=Y, merge(Xs, Ys, Zs).
+merge([X|Xs], [Y|Ys], [Y|Zs]) :- Y<X, merge([X|Xs], Ys, Zs).
+merge(Xs, [], Xs).
+merge([], Ys, Ys).
+```
+
+The result is that Prolog will have to use memory to remember those alternatives. As the lists that we ask Prolog to merge get longer and longer, that memory will have an impact on the system's performance. However, we know that those other alternatives will never match and keeping them around is a waste. How do we know that? Well, if X < Y then it cannot be equal to Y and it certainly cannot be greater than Y. Moreover, the lists in the first two arguments cannot be empty. Overall, each of the possible rules for merge/3 are mutually exclusive. You can only choose one.
+
+If there were a way to tell Prolog that those other possibilities are impossible after it encounters a matching rule that would save Prolog from having to keep them around. The good news is that there is!
+
+We can use the cut (Links to an external site.) operator to tell Prolog that once it has "descended" down a particular path, there is no sense backtracking beyond that point to look for alternate solutions. The technical definition of a cut is
+
+> Discard all choice points created since entering the predicate in which the cut appears. In other words, commit to the clause in which the cut appears and discard choice points that have been created by goals to the left of the cut in the current clause.
+
+Let's rewrite our merge/3 predicate to take advantage of cuts and save some overhead:
+
+```prolog
+merge([X|Xs], [Y|Ys], [X|Zs]) :- X<Y, !, merge(Xs, [Y|Ys], Zs).
+merge([X|Xs], [Y|Ys], [X|Zs]) :- X=:=Y, !, merge(Xs, Ys, Zs).
+merge([X|Xs], [Y|Ys], [Y|Zs]) :- Y<X, !, merge([X|Xs], Ys, Zs).
+merge(Xs, [], Xs) :- !.
+merge([], Ys, Ys) :- !.
+```
+
+Returning to the definition of cut, in the first rule we are telling Prolog (through our use of the cut) to disregard all choice points created to the left of the !. In particular, we are telling Prolog to forget about the choice it made that X < Y. The result is that Prolog is no longer under the impression that there are other rules that are applicable. Visually, the situation resembles
+
+[Merge Cut.png](https://uc.instructure.com/courses/1476336/pages/the-daily-pl-11-slash-10-slash-2021)
+
+
+### Dr. Cutyll and Mr. Unify {#dr-dot-cutyll-and-mr-dot-unify}
+
+Cuts are not always so beneficial. In fact, their use in Prolog is somewhat controversial. A cut necessarily limits Prolog's ability to backtrack. If the Prolog programmer uses a cut in a rule that is meant to be used declaratively (in order to generate values) and procedurally, then the cut may change the results.
+
+There are two types of cuts. A green cut is a cut that does not change the meaning of a predicate. The cut that we added in the merge/3 predicate above is a green cut. A red cut is, technically speaking, a cut that is not a green cut. I know that's a satisfying definition. Sorry. The implication, however, is that a red cut is a cut that changes the meaning of predicate.
+
+
+## 11/15/2021 {#11-15-2021}
+
+
+### Red Alert {#red-alert}
+
+At the end of lecture on Friday, we discussed the two different types of cuts -- red and green. A green cut is one that does not alter the behavior of a Prolog program. A red cut does alter the behavior of a Prolog program. The implication was that red cuts are bad and green cuts are good. But, is this always the case?
+
+To frame our discussion, let's look at a Prolog program that performs a Bubble Sort on a list of numbers. The predicate, bsort/2, is defined like this:
+
+```prolog
+bsort(Unsorted, Sorted):-
+  append(Left, [A, B | Right], Unsorted),
+  B<A,
+  append(Left, [B, A | Right], MoreSorted),
+  bsort(MoreSorted, Sorted).
+bsort(Sorted, Sorted).
+```
+
+The first rule handles the recursive case (when there is at least one list item out of order) and the second rule handles the base case (when the list is sorted). According to this definition, how does Prolog handle the query
+
+```prolog
+bsort([2,1,3,5], M).
+```
+
+Prolog (as we are well aware) searches its rule top to bottom. The first rule that it sees is the recursive case and Prolog immediately opts for it. Opting for this case is not without consequences -- a choice point is created. Why? Because Prolog made the choice to attempt to satisfy the query according to the first rule and not the (just as applicable) second rule! Let's call this choice point A.
+
+Next, Prolog attempts to unify the subquery append(Left, [A, B | Right], Unsorted). The first (of many) unifications that append/3 generates is Left = [], A = 2, B = 1, Right = [3, 5]. By continuing with this particular unification, Prolog creates another choice point. For what reason? Well, Prolog knows that append/3 could generate other potential unifications and it will need to check those to see if they, too, satisfy the original query! Let's call this choice point B. Next, Prolog checks whether A is less than B -- it is. Prolog continues in a like manner to satisfy the final two subgoals of the rule.
+
+When Prolog does satisfy those, it has generated a sorted version of [2,1,3,5]. It reports that result to the querier. Great! There's only one problem. There are still choice points that Prolog wants to explore. In particular, there are choice points A and B. In this case, we can forget about choice point B because there are no other unifications of append/3 that meet the criteria for A<B in Unsorted. In other words, visually the situation looks like this:
+
+{{< figure src="/ox-hugo/bsort no cut.png" >}}
+
+If the querier is using bsort/2 declaratively, this scenario is a problem: Prolog will backtrack to choice point A and then consider the base case rule for bsort/2. In other words, Prolog will also generate
+
+```prolog
+[2,1,3,5]
+```
+
+as a unification! This is clearly not right. What's more, the Prolog programmer could query for
+
+```prolog
+bsort([3,2,1,4,5], Sorted).
+```
+
+in which choice point B will have consequences. Run this query for yourself (using trace), examine the results, and make sure you understand why the results are generated.
+
+So, what are we to do? cut/0 (Links to an external site.) to the rescue! Logically speaking, once our bsort/3 rule finds a single element out of order and we adjust that element, the recursive call to itself will handle ordering any other unordered elements. In other words, we can forget any earlier choice points! This is exactly what the cut is intended for!
+
+Let's rewrite bsort/3 using cuts and see if our problem is sorted (see what I did there?):
+
+```prolog
+bsort(Unsorted, Sorted):-
+  append(Left, [A, B | Right], Unsorted),
+  B<A, !,
+  append(Left, [B, A | Right], MoreSorted),
+  bsort(MoreSorted, Sorted).
+bsort(Sorted, Sorted).
+```
+
+And now let's see how our earlier troublesome queries perform:
+
+```prolog
+?- bsort([2,1,3,5], Sorted).
+Sorted = [1, 2, 3, 5].
+
+?- bsort([3,2,1,4,5], Sorted).
+Sorted = [1, 2, 3, 4, 5].
+```
+
+Amazing!
+
+Here's the rub: The version of our Prolog program with the cut gave different results than the version without. Is this cut a green or a red cut? That's right, it's a red cut. I guess there are such things as good red cuts after all!
+
+
+### The Fundamentals {#the-fundamentals}
+
+As we have said in the past, there is a theoretical underpinning for each of the programming paradigms that we have studied this semester. Logic programming is no different. The theory behind logic programming is first-order predicate logic. Predicate logic is an extension of propositional logic. Propositional logic is based on the evaluation of propositions.
+
+A proposition is simply any statement that can be true or false. For example,
+
+-   Will is a programmer.
+-   Alicia is a programmer.
+-   Sam is a programmer.
+
+Those statements can be true or false. In propositional logic we can build more complicated propositions from existing propositions using logical connectives like and, or, not, and implication (if ... then). Each of these has an associated truth table to determine the truth of two combined propositions.
+
+Look closely at the example propositions above and you will notice an underlying theme: they all do with someone (let's call them x) being a programmer. In propositional logic, our ability to reason using that underlying theme is impossible. We can only work with the truth of the statement as a whole.
+
+If we add to propositional logic variables, constants, and quantifiers then we get predicate logic and we are able to reason more subtly. Although you might argue that propositional logic has variables, everyone can agree that they are limited -- they can only have two values, true and false. In first-order predicate logic, variables can have domains other than just {T, F}. That's already a huge step!
+
+Quantifiers "define" variables and "constrain" their possible values. There are two quantifiers in first-order predicate logic -- the universal and the existential. The universal is the "for all" (aka "every") quantifier. We can use the universal quantifier to write statements (in logic) like "Every person is a Bearcats fan." Symbolically, we write the universal quantifier with the \\(\forall\\). We can write our obvious statement from above in logic like
+
+<style>.org-center { margin-left: auto; margin-right: auto; text-align: center; }</style>
+
+<div class="org-center">
+  <div></div>
+
+\\(\forall x(person(x) \Longrightarrow fan(x, bearcats))\\)
+
+</div>
+
+Now we are talking! As for the existential quantifier, it allows us to write statements (in logic) like "There is some person on earth that speaks Russian." Symbolically, we write the existential quantifier with the \\(\exists\\). We can write the statement about our Russian-speaking person as
+
+<style>.org-center { margin-left: auto; margin-right: auto; text-align: center; }</style>
+
+<div class="org-center">
+  <div></div>
+
+\\(\exists x(person(x) \land speaks(x, russion))\\)
+
+</div>
+
+How are quantifiers embedded in Prolog? Variables in Prolog queries are existentially qualified -- "Does there exist …?"​ Variables in Prolog rules are universally quantified -- "For all …."
+
+In first-order predicate logic, there are such things as Boolean-valued functions. This is familiar territory for us programmers. A Boolean-valued function is a function that has 0 or more parameters and returns true or false.
+
+With these definitions, we can now define predicates: A predicate is a proposition in which some Boolean variables are replaced by Boolean-valued functions and quantified expressions. Let's look at an example.
+
+<style>.org-center { margin-left: auto; margin-right: auto; text-align: center; }</style>
+
+<div class="org-center">
+  <div></div>
+
+\\(p \Longrightarrow q\\)
+
+</div>
+
+is a proposition where p and q are boolean variables. Replace p with the Boolean-valued function \\(is\\\_teacher(x)\\) and q with the quantified expression \\(\exists y(student(x) \land teaches(x, russion))\\)
+and we have the predicate
+
+<style>.org-center { margin-left: auto; margin-right: auto; text-align: center; }</style>
+
+<div class="org-center">
+  <div></div>
+
+\\(is\\\_teacher(x) \Longrightarrow \exists y(student(x) \land teaches(x,y))\\)
+
+</div>
+
+There is only one remaining question: Why is it called first-order predicate logic and not, say, higher-order predicate logic? "First-order" here indicates that the predicates in this logic cannot manipulate or reason about predicates themselves. Does this sound familiar? Imperative languages can define functions but they cannot reason about functions themselves while functional languages can!
+
+
+## 11/17/2021 {#11-17-2021}
+
+So far in this course we have covered lots of material. We've learned lots of definitions, explored lots of concepts and programmed in languages that we've never seen before. In all that time, though, we never really got to the bottom of one thing: What exactly is a language? In the final module of this course, we are going to cover exactly that!
+
+
+### Back to Basics {#back-to-basics}
+
+Let's think way back to [August 23](https://uc.instructure.com/courses/1476336/pages/the-daily-pl-8-slash-23-slash-2021) and recall two very important definitions: syntax and semantics. On that day we defined semantics as the effect of each statement's execution on the program's operation. We defined syntax as the rules for constructing structurally valid (note: valid, not correct) computer programs in a particular language. There's that word again -- language.
+
+Before starting to define language, let me offer you two alternate definitions for syntax and semantics that draw out the distinction between the two:
+
+-   The syntax of a programming language specifies the form of its expressions, statements and program units.
+-   The semantics of a programming language specifies the meaning of its expressions, statements and program units.
+
+It is interesting to see those two definitions side-by-side and realize that they are basically identical with the exception of a single word! One final note about the connection between syntax and semantics before moving forward: Remember how a well-designed programming language has a syntax that is evocative of meaning. In other words, a [well-designed language](https://stackoverflow.com/questions/1345843/what-does-the-question-mark-at-the-end-of-a-method-name-mean-in-ruby)  might allow variables to contain a symbol like ? which would allow the programmer to indicate that it holds a Boolean.
+
+Before we can specify a syntax for a programming language, we need to specify the language itself. In order to do that, we need to start by defining the language's alphabet -- finite set of characters that can be used to write sentences in that language. We usually denote the alphabet of a language with the \\(\sum\\). It is sometimes helpful to denote the set of all the possible sentences that can be written using the characters in the alphabet. We usually denote that with \\(\sum\\). For example, say that  \\(sum = \\{a, b\\}\\), then \\(\sum = \\{a, b, aa, ab, ba, aaa, aab, aba, abb, ...\\}\\). Notice that even though \\(|\sum|\\) is finite (that is, the number of elements in is finite),
+\\(|\sum| = \infty\\).
+
+The alphabet of the C++ programming language is large, but it's not infinite. However, the set of sentences that can be written using that alphabet is. But, as we all learn early in our programming career, just because you can write out a program using the valid symbols in the C++ alphabet does not mean the program is syntactically valid. The very job of the compiler is to distinguish between valid and invalid programs, right?
+
+Let's call the language that we are defining
+and say that it's alphabet is . can be thought of as the set of all valid sentences in the language. Therefore, every sentence that is in is in --
+
+.
+
+L is a subset of E .png
+
+Look closely at the relationship between
+and . While never includes a sentence that is not included in
+
+, they can be identical! Think of some languages where any combination of characters from its alphabet are valid sentences! Can you come up with one?
+The Really Bad Programmer
+
+So, how can we determine whether a sentence made up of characters from the alphabet is in the language or not? We have to be able to answer this question -- one of the fundamental jobs of the compiler, after all, is to do exactly that. Why not just write down every single valid sentence in a giant chart and compare the program with that list? If the program is in the list, then it's a valid program! That's easy.
+
+Not so fast. Aren't there an infinite number of valid C++ programs?
+
+int main() {
+  if (true) {
+    if (true) {
+      if (true) {
+        ...
+          std::cout << "Hello, World.";
+      }
+    }
+  }
+}
+
+Well, dang. There goes that idea.
+
+I guess we need a concise way to specify how to describe sentences that are in the language and those that are not. Before we start to think about ways to do that, let's think back to Prolog. One of the really neat things about Prolog was the ability to specify something that had, at the same time, an ability to recognize and generate valid solutions to a set of constraints. Even in our simplest Prolog example, we could write down a set of facts and the language could determine whether a student took a particular class (giving us a yes/no answer) or generate a list of the people who were taking a particular class!
+
+It would be great to have a tool that does the same thing for languages -- a common description that allows us to create something that recognizes and generates valid sentences in the language. We will do exactly that!
+Language Classes
+
+The famous linguist Noam Chomsky was the first to recognize how there is a hierarchy of languages. The hierarchy is founded upon the concept of how easy/hard it is to write a concise definition for the language's valid sentences.
+
+Chomsky Hierarchy.png
+
+Each level of Chomsky's Hierarchy, as it is called, contains the levels that come before it. Which languages belong to which level of the hierarchy is something that you will cover more in CS4040. (Note: The languages that belong to the Regular level can be specified by regular expressions (Links to an external site.). Something I know some of you have written before!)
+
+For our purposes, we are going to be concerned with those languages that belong to the Context-Free level of the hierarchy.
+Context-Free Grammars
+
+The tool that we can use to concisely specify a Context-Free language is called a Context-Free Grammar. Precisely, a Context-Free Grammar,
+, is a set of productions , a set of terminal symbols, , a set of non-terminal symbols, , one of which is named
+
+and is known as the start symbol.
+
+That's a ton to take in. The fact of the matter, however, is that the vocabulary is intuitive once you see and use a grammar. So, let's do that. We will define a grammar for listing/recognizing all the positive integers:
+
+Integer Grammar Terminology Labeled.png
+
+Now that we see an example of a grammar and its parts and pieces, let's "read" it to help us understand what it means. Every valid integer in the language can be derived by writing down the start symbol and iteratively replacing every non-terminal according to a production until there are only terminals remaining! Again, that sounds complicated, but it's really not. Let's look at the derivation for the integer 142:
+
+Integer Grammar Derivation.png
+
+We start with the start symbol Integer and use the first production to replace it with one of the two options in the production. We choose to use the second part of the production and replace Integer with Integer Digit. Next, we use a production to replace Integer with Integer Digit again. At this point we have Integer Digit Digit. Next, we use one of the productions to replace Integer with Digit and we are left with Digit Digit Digit. Our next move is to replace the left-most Digit non-terminal with a terminal -- the 1. We are left with 1 Digit Digit. Pressing forward, we replace the left-most Digit with 4 and we come to 14Digit. Almost there. Let's replace Digit with 2 and we get 142. Because 142 contains only terminals, we have completed the derivation. Because we can derive 142 from the grammar, we can confidently say that 142 is in the language described by the grammar.
