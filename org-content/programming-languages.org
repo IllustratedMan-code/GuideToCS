@@ -2575,7 +2575,7 @@ In this module we are going to focus on logic (also known as declarative) progra
 As we have worked through the different programming paradigms, we have discussed the theoretical underpinning of each. For imperative programming languages, the theoretical model is the Turing Machine. For the functional programming languages, the theoretical model is the Lambda Calculus. The declarative programming paradigm has a theoretical underpinning, too: first-order predicate calculus. We will talk more about that in class soon!
 *** In the Beginning
 
- Unlike imperative, object-oriented and functional programming languages, there is really only one extant declarative/logic programming language: Prolog. [[Prolog was developed by Alain Colmeraurer, Phillipe Roussel, and Robert Kowalski]] in order to do research in artificial intelligence and natural language processing
+ Unlike imperative, object-oriented and functional programming languages, there is really only one extant declarative/logic programming language: Prolog. Prolog was developed by Alain Colmeraurer, Phillipe Roussel, and Robert Kowalski in order to do research in artificial intelligence and natural language processing
 
 . Its official birthday is 1972.
 
@@ -3371,6 +3371,10 @@ and we have the predicate
 
 There is only one remaining question: Why is it called first-order predicate logic and not, say, higher-order predicate logic? "First-order" here indicates that the predicates in this logic cannot manipulate or reason about predicates themselves. Does this sound familiar? Imperative languages can define functions but they cannot reason about functions themselves while functional languages can!
 ** 11/17/2021
+:PROPERTIES:
+:EXPORT_HUGO_SECTION*: 11-17-2021
+:EXPORT_FILE_NAME: _index
+:END:
 So far in this course we have covered lots of material. We've learned lots of definitions, explored lots of concepts and programmed in languages that we've never seen before. In all that time, though, we never really got to the bottom of one thing: What exactly is a language? In the final module of this course, we are going to cover exactly that!
 *** Back to Basics
 
@@ -3388,23 +3392,17 @@ Before we can specify a syntax for a programming language, we need to specify th
 
 The alphabet of the C++ programming language is large, but it's not infinite. However, the set of sentences that can be written using that alphabet is. But, as we all learn early in our programming career, just because you can write out a program using the valid symbols in the C++ alphabet does not mean the program is syntactically valid. The very job of the compiler is to distinguish between valid and invalid programs, right?
 
-Let's call the language that we are defining
-and say that it's alphabet is . can be thought of as the set of all valid sentences in the language. Therefore, every sentence that is in is in --
+Let's call the language that we are defining \(L\) and say that it's alphabet is \(\sum\). \(L\) can be thought of as the set of all valid sentences in the language. Therefore, every sentence that is in \(L\) is in \(\sum\) -- \(L \subseteq \sum\).
 
-.
+[[file:images/pl/L is a subset of E .png]]
 
-L is a subset of E .png
-
-Look closely at the relationship between
-and . While never includes a sentence that is not included in
-
-, they can be identical! Think of some languages where any combination of characters from its alphabet are valid sentences! Can you come up with one?
-The Really Bad Programmer
+Look closely at the relationship between \(\sum\) and \(L\). While \(L\) never includes a sentence that is not included in \(\sum\), they can be identical! Think of some languages where any combination of characters from its alphabet are valid sentences! Can you come up with one?
+*** The Really Bad Programmer
 
 So, how can we determine whether a sentence made up of characters from the alphabet is in the language or not? We have to be able to answer this question -- one of the fundamental jobs of the compiler, after all, is to do exactly that. Why not just write down every single valid sentence in a giant chart and compare the program with that list? If the program is in the list, then it's a valid program! That's easy.
 
 Not so fast. Aren't there an infinite number of valid C++ programs?
-
+#+begin_src c++
 int main() {
   if (true) {
     if (true) {
@@ -3415,22 +3413,23 @@ int main() {
     }
   }
 }
+#+end_src
 
 Well, dang. There goes that idea.
 
 I guess we need a concise way to specify how to describe sentences that are in the language and those that are not. Before we start to think about ways to do that, let's think back to Prolog. One of the really neat things about Prolog was the ability to specify something that had, at the same time, an ability to recognize and generate valid solutions to a set of constraints. Even in our simplest Prolog example, we could write down a set of facts and the language could determine whether a student took a particular class (giving us a yes/no answer) or generate a list of the people who were taking a particular class!
 
 It would be great to have a tool that does the same thing for languages -- a common description that allows us to create something that recognizes and generates valid sentences in the language. We will do exactly that!
-Language Classes
+*** Language Classes
 
 The famous linguist Noam Chomsky was the first to recognize how there is a hierarchy of languages. The hierarchy is founded upon the concept of how easy/hard it is to write a concise definition for the language's valid sentences.
 
-Chomsky Hierarchy.png
+[[file:images/pl/Chomsky Hierarchy.png]]
 
 Each level of Chomsky's Hierarchy, as it is called, contains the levels that come before it. Which languages belong to which level of the hierarchy is something that you will cover more in CS4040. (Note: The languages that belong to the Regular level can be specified by regular expressions (Links to an external site.). Something I know some of you have written before!)
 
 For our purposes, we are going to be concerned with those languages that belong to the Context-Free level of the hierarchy.
-Context-Free Grammars
+*** Context-Free Grammars
 
 The tool that we can use to concisely specify a Context-Free language is called a Context-Free Grammar. Precisely, a Context-Free Grammar,
 , is a set of productions , a set of terminal symbols, , a set of non-terminal symbols, , one of which is named
@@ -3439,10 +3438,408 @@ and is known as the start symbol.
 
 That's a ton to take in. The fact of the matter, however, is that the vocabulary is intuitive once you see and use a grammar. So, let's do that. We will define a grammar for listing/recognizing all the positive integers:
 
-Integer Grammar Terminology Labeled.png
+[[file:images/pl/Integer Grammar Terminology Labeled.png]]
 
 Now that we see an example of a grammar and its parts and pieces, let's "read" it to help us understand what it means. Every valid integer in the language can be derived by writing down the start symbol and iteratively replacing every non-terminal according to a production until there are only terminals remaining! Again, that sounds complicated, but it's really not. Let's look at the derivation for the integer 142:
 
-Integer Grammar Derivation.png
+[[file:images/pl/Integer Grammar Derivation.png]]
 
 We start with the start symbol Integer and use the first production to replace it with one of the two options in the production. We choose to use the second part of the production and replace Integer with Integer Digit. Next, we use a production to replace Integer with Integer Digit again. At this point we have Integer Digit Digit. Next, we use one of the productions to replace Integer with Digit and we are left with Digit Digit Digit. Our next move is to replace the left-most Digit non-terminal with a terminal -- the 1. We are left with 1 Digit Digit. Pressing forward, we replace the left-most Digit with 4 and we come to 14Digit. Almost there. Let's replace Digit with 2 and we get 142. Because 142 contains only terminals, we have completed the derivation. Because we can derive 142 from the grammar, we can confidently say that 142 is in the language described by the grammar.
+** 11/19/2021
+:PROPERTIES:
+:EXPORT_HUGO_SECTION*: 11-19-2021
+:EXPORT_FILE_NAME: _index
+:END:
+(Context-free) Grammars (CFG) are a mathematical description of a language-generation mechanism. Every grammar defines a language. The strings in that language are those that can be derived from the grammar's start symbol. Put another way, a CFG describes a process by which all the sentences in a language can be enumerated, or generated.
+
+Defining a way to generate all the sentences in a grammar is one way to specify a language. Another way to define a language is to build a tool that separates sentences that are in the language from sentences that are not in the language. This tool is known as a recognizer. There is a relationship between recognizers and generators and we will explore that in future lectures.
+*** Grammatical Errors
+
+On Wednesday we worked with a grammar that purported to describe all the strings that looked like integers:
+
+[[file:images/pl/Integer Grammar Terminology Labeled.png]]
+
+We performed a derivation using its productions to prove (by construction) that 142 is in the language. But, let's consider this derivation:
+
+[[file:images/pl/Screenshot from 2021-11-21 22-03-50.png]]
+
+We have just proven (again, by construction) that 012 is an integer. This seems funny. A number that starts with 0 (that is not just a 0) should not be deemed an integer. Let's see how we can fix this problem.
+
+In order to guarantee that we cannot derive a number that starts with a 0 and deem it an integer, we will need to add a few more productions. First, let's reconsider the production for the start symbol Integer. At the very highest level, we know that 0 is an integer. So, our start symbol's production should handle that case.
+
+With the base case accounted for, we next consider that an integer cannot start with a zero, but it can start with any other digit between 1 and 9. It seems handy to have a production for a non-terminal that expands to the terminals 1 through 9. We will call that non-terminal Nzd for non-zero digits. After the initial non-zero digit, an integer can contain zero or more digits between 0 and 9 (we can call this the rest of the integer). For brevity, we probably want a production that will expand to all the digits between 0 and 9. Let's call that non-terminal Zd for zero digits. We'll define it either as a 0 or anything in Nzd. If we put all of this together, we get the following grammar:
+
+[[file:images/pl/Screenshot from 2021-11-27 00-09-15.png]]
+
+Let's look at a few derivations to see if this gets the job done. Is 0 an integer?
+
+[[file:images/pl/Screenshot from 2021-11-27 00-10-22.png]]
+
+And a single-digit integer?
+
+[[file:images/pl/Screenshot from 2021-11-27 00-10-45-1.png]]
+
+How about an integer between 10 and 100, inclusive?
+
+[[file:images/pl/Screenshot from 2021-11-27 00-11-14.png]]
+
+We are really cooking. Let's try one more. Is a number greater than 100 derivable?
+
+[[file:images/pl/Screenshot from 2021-11-27 00-11-32.png]]
+
+Think about this grammar and see if you can see any problems with it. Are there integers that cannot be derived? Are there sentences that can be derived that are not integers?
+*** Trees or Derivations
+
+Let's take a look at a grammar that will generate sentences that are simple mathematical expressions using the + and * operators and the numbers 0 through 9:
+
+[[file:images/pl/AmbiguousExprGrammar.png]]
+
+Until now we have used proof-by-construction through derivations to show that a particular string is in the language described by a particular grammar. What's really cool is that any derivation can also be written in the form of a tree. The two representations contain the same information -- a proof that a particular sentence is in a language. Let's look at the derivation of the expression 1 + 5 * 2:
+
+[[file:images/pl/Ambiguous Parse Tree for Ambiguous Expression Grammar (Left).png]]
+
+There's only one problem with this derivation: Our choice of which production to apply to expand the start symbol was arbitrary. We could have just as easily used the second production and derived the expression 1 + 5 * 2:
+
+[[file:images/pl/Ambiguous Parse Trees for Ambiguous Expression Grammar (Right).png]]
+
+This is clearly not a good thing. We do not want our choice of productions to be arbitrary. Why? When the choice of the production to expand is arbitrary, we cannot "encode" in the grammar any semantic meaning. (We will learn how to encode that semantic meaning below). A grammar that produces two or more valid parse trees for a particular sentence is known as an ambiguous grammar.
+*** Let Me Be Clear
+
+The good news is that we can rewrite the ambiguous grammar for mathematical expressions from above and get an unambiguous grammar. Like the way that we rewrote the grammar for integers, rewriting this grammar will involve adding additional productions:
+
+[[file:images/pl/UnambiguousExprGrammar.png]]
+
+Using this grammar we have the following parse tree for the expression 1 + 5 * 2:
+
+[[file:images/pl/Parse Tree for Unambiguous Expression Grammar.png]]
+
+Before we think about how to encode semantic meaning in to a parse tree, let's talk about the properties of a parse tree. The root node of the parse tree is always the start symbol of the grammar. The internal nodes of a parse tree are always non-terminals. The leaves of a parse tree are always terminals.
+*** Making Meaning
+
+If we adopt a convention that reading a parse tree occurs through a depth-first in-order traversal, we can add meaning to these beasts and their associated grammars. First, we can see how associativity is encoded: By writing all the productions so that "recursion" happens on the left side of any terminals (a so-called left-recursive production), we will arrive at a grammar that is left-associative. The converse is true -- the productions whose recursion happens on the right side of any terminals (a right-recursive production) specifies right associativity. Second, we can see how precedence is encoded: The further away a production is from the start symbol, the higher the precedence. In other words, the precedence is inversely related to the distance from the start symbol. All alternate options for the same production have equal precedence.
+
+Let's look back at our grammar for Expr. A Term and an addition operation have the same precedence. A Factor and a multiplication operation have the same precedence. The production for an addition operation is left-recursive and, therefore, the grammar specifies that addition is left associative. The same is true for the multiplication operation.
+** 11/22/2021
+:PROPERTIES:
+:EXPORT_HUGO_SECTION*: 11-22-2021
+:EXPORT_FILE_NAME: _index
+:END:
+Before reading this Daily PL, please re-read the one from Friday, 11/19/2021. The content has been updated since it was originally published to reflect certain errors with the "better" Integer grammar we developed in class. Thanks, especially, to Jeroen for making sure that I got the grammar correct!
+*** Making Meaning
+
+In an earlier part of the class we talked about how to describe the dynamic semantics of a program. We worked closely with operational semantics but saw other examples, too (axiomatic and denotational). Although we said that what we are studying in this module is the syntax of a language and not its semantics, a language may have static semantics that the compiler can check during syntax analysis. Syntax analysis is done using a tool known as the parser.
+
+Remember that syntax and syntax analysis is only concerned with valid programs. If the program, considered as a string of letters of the language's alphabet, can be derived from the language grammar's start symbol, then the program is valid. We all agreed that was the limit of what a syntax analyzer could determine.
+
+One form of output of a parser is a parse tree. It is possible to apply "decoration" to the parse tree in order to verify certain extra-syntactic properties of a program at the time that it is being parsed. These properties are known as a language's static semantics. More formally, Sebesta defines static semantics as the rules for a valid program in a particular language that are difficult (or impossible!) to encode in a grammar. Checking static semantics early in the compilation process is incredibly helpful for programmers as they write their code and allows the stages of the compilation process after syntax analysis to make more sophisticated assumptions about a program's validity.
+
+One example of static semantics of a programming language has to do with its type system. Checking a program for type safety is possible at the time of syntax analysis using an attribute grammar. An attribute grammar is an extension of a CFG that adds (semantic) information to its terminals and nonterminals.​ This information is known as attributes. Attached to each production are attribute calculation functions. At the time the program is parsed, the attribute calculation functions are evaluated every time that the associated production is used in a derivation and the results of that invocation are stored in the nodes of the parse tree that represent terminals and nonterminals. Additionally, in an attribute grammar, each production can have a set of predicates. Predicates are simply Boolean-valued functions. When a parser attempts to use a production during parsing, it's not just the attribute calculation functions that are invoked -- the production's predicates are too. If any of those predicates returns false, then the derivation fails.
+An Assignment Grammar
+
+To start class, we looked at a snippet of an industrial-strength grammar -- the one for the C programming language. The snippet we saw concerned the assignment expression:
+[[file:images/pl/CGrammar.6.5.2.png]]
+[[file:images/pl/CGrammar.6.5.16.png]]
+[[file:images/pl/CGrammar.6.5.1.png]]
+[[file:images/pl/CGrammar.6.5.3.png]]
+
+There are lots of details in the grammar for an assignment statement in C and not all of them pertain to our discussion. So, instead of using that grammar of assignment statements, we'll use a simpler one:
+
+[[file:images/pl/Screenshot from 2021-11-27 00-46-04.png]]
+
+Assume that this is part of a larger grammar for a complete, statically typed programming language. In the subset of the grammar that we are going to work with, there are three terminals: A, B and C. These are variable names available for the programmer in our language. As a program in this language is parsed, the compiler builds a mapping between variables and their types (known as the symbol table), adding an entry for each new variable declaration it encounters. The compiler can "lookup" the type of a variable using its name thanks to the lookup function.
+
+Our hypothetical language contains only two numerical types: int and real. A variable can only be assigned the result of an expression if that expression has the same type as the variable. In order to determine the type of an expression, our language adheres to the following rules:
+
+[[file:images/pl/Screenshot from 2021-11-27 00-55-27.png]]
+
+Let's assume that we are looking at the following program written in our hypothetical language:
+
+#+begin_src c
+int A;
+real B;
+A = A + B;
+#+end_src
+
+The declarations of the variables A and B are handled by parts of the grammar that we are not showing in our example. Again, when those declarations are parsed, an entry is made in the symbol table so that variable names can be mapped to types. Let's derive A = A + B; using the snippet of the grammar shown above:
+
+[[file:images/pl/Screenshot from 2021-11-27 00-59-32.png]]
+
+Great! The program passes the syntactic analysis so it's valid!
+
+[[file:images/pl/mDLrlBy1ZCjrbu81Q9oHnxBcboJ9a4Bld1Td.png]]
+
+Right?
+*** This Grammar Goes To 11
+
+Wrong. According to the language's type rules, we can only assign to variables that have the same type as the expression being assigned. The rules say that A + B is a real (a.ii). A is declared as an int. So, even though the program parses, it is invalid!
+
+We can solve this using attribute grammars and that's exactly what we are going to do! For our Assign grammar, we will add the following attributes to each of the terminals and nonterminals:
+
+    expected_type: The type that is expected for the expression.
+    actual_type: The actual type of the expression.
+
+The values for the attributes are set according to functions. An attribute whose calculation function uses attribute values from only its children and peer nodes in the parse tree is known as a synthesized attribute. An attribute whose calculation function uses only attribute values from its parent nodes in the parse tree is known as an inherited attribute.
+
+[[file:images/pl/Attribute Grammar Terminology.png]]
+
+Let's define the attribute calculation functions for the expected_type and actual_type attributes of the Assign grammar:
+
+[[file:images/pl/Screenshot from 2021-11-28 00-35-38.png]]
+
+For this production, we can see that the expression's expected_type attribute is defined according to the variable's actual_type which means that it is an inherited attribute.
+
+[[file:images/pl/Screenshot from 2021-11-28 00-38-26.png]]
+
+For this production, we can see that the expression's actual_type attribute is defined according to the variable's actual_type which means that it is a synthesized attribute.
+
+And now for the most complicated (but not complex) attribute calculation function definition:
+
+[[file:images/pl/Screenshot from 2021-11-28 00-54-28.png]]
+
+Again, we can see that the expression's actual_type attribute is defined according to its children nodes -- the actual_type of the two variables being added together -- which means that it is a synthesized attribute.
+
+If you are thinking that the attribute calculation functions are recursive, you are exactly right! And, you can probably see a problem straight ahead. So far the attribute calculation functions have relied on attributes of peer, children and parent nodes in the parse tree to already have values. Where is our base case?
+
+Great question. There's a third type of attribute known as an intrinsic attribute. An intrinsic attribute is one whose value is calculated according to some information outside the parse tree. In our case, the actual_type attribute of a variable is calculated according to the mapping stored in the symbol table and accessible by the lookup function that we defined above.
+
+[[file:images/pl/Screenshot from 2021-11-28 00-42-38.png]]
+
+That's all for the definition of the attribute calculation functions and is all well and good. Unfortunately, we still have not used our attributes to inform the parser when a derivation has gone off the rails by violating the type rules. We'll define these guardrails predicate functions and show the complete attribute grammar at the same time:
+
+[[file:images/pl/Screenshot from 2021-11-28 00-57-20.png]]
+
+The equalities after the checkmarks are the predicates. We can read them as "If the actual type of the expression is the same as the expected type of the predicate, then the derivation (parse) can continue. Otherwise, it must fail because the assignment statement being parsed violates the type rules."
+Put The Icing On The Cookie
+
+The process of calculating the attributes of a production during parsing is known as decorating the parse tree. Let's look at the parse tree from the assignment statement A = A + B; and see how it is decorated:
+
+[[file:images/pl/Tree for Attribute Grammar Example(1).png]]
+** 11/29/2021
+:PROPERTIES:
+:EXPORT_HUGO_SECTION*: 11-29-2021
+:EXPORT_FILE_NAME: _index
+:END:
+*** Recognizing vs Generating
+
+We have talked at length about how, depending on your vantage point, you can look at predicates in Prolog as either declarative or procedural. Viewed from a declarative perspective, the predicates will generate all the values of a variable that will make the predicate true. Viewed from the other direction, predicates look more like traditional boolean-valued functions in a procedural (or OOP) programming language. The dichotomy between the declarative and procedural view has parallels in syntax and grammars. From one end of the PL football stadium, grammars are generators; from the other endzone they are recognizers.
+
+We have seen the power of the derivation and the parse tree to generate strings that are in a language L defined by a grammar G. We can create a valid sentence in language L by repeated application of the productions in G to the sentential forms derived from G's start symbol. Applying all the productions in all possible combinations will eventually enumerate all valid strings in the language L (don't hold your breath for that process to finish!).
+
+The only problem is that ([[https://copilot.github.com/][with one modern exception]] ), our compilers don't actually generate source code for us! It is the programmer -- us! -- who writes the source code and the compiler that checks whether it is a valid program. There are obviously myriad ways in which a programmer can write an invalid program in a particular programming language and the compiler can detect all of them. However, the easiest invalid programs for the compiler to detect are the ones that are not syntactically correct.
+
+To reiterate, (most) programming languages specify their syntax using a (context-free) grammar (CFG) -- the theoretical language L that we've talked about as being defined by a grammar G can actually be a programming language! Therefore, the source code for a program is technically just a particular sequence of terminals from L's alphabet. For that sequence of terminals to be a valid program, it must be the final sentential form in some derivation following the productions of G.
+
+In other words, the compiler is not a generator but rather a recognizer.
+*** Parsers
+
+Recall from Chapter 2 of Sebesta (or earlier programming courses), the stages of compilation. The stage/tool that recognizes whether a particular sequence of terminals from a language's alphabet is a valid program or not (the recognizer) is called parsing/a parser. Besides recognizing whether a program is valid, parsers convert the source code for a program written in a particular programming language defined according to a specific grammar into a parse tree.
+
+[[file:images/pl/First Part of Compilation Process -- Lexing and Parsing.png]]
+
+What's sneaky is that the parsing process is really two processes: lexical analysis and syntax analysis. Lexical analysis turns the bytes on the disk into a sequence of tokens (and associated lexemes). Syntax analysis turns the tokens into a parse tree.
+
+We've seen several examples of languages defined by grammars and those grammars contain productions, terminals and nonterminals. We haven't seen any tokens, though, have we? Well, tokens are an abstract way to represent groups of bytes in a file of source code in an abstract manner. The actual bytes that are in a group that are bundled together stay associated with the token and are known as lexemes. Tokenizing the input makes the syntax analysis process easier. Note: Read Sebesta's discussion about the reason for separating lexical analysis from syntax analysis in Section 4.1 on (approximately pg. 143).
+Turtles All The Way Down
+
+Remember the [[https://uc.instructure.com/courses/1476336/pages/the-daily-pl-11-slash-17-slash-2021?module_item_id=65718765][Chomsky Hierarchy]] of languages? Context-free languages can be described by CFGs. Slightly less complex languages are known as regular languages. Regular languages can be recognized by a logical apparatus known as a finite automata (FA). If you have ever written a regular expression then you have actually written a stylized FA. Cool, right?? You will learn more about FAs in CS4040, but for now it's important to know the broad outlines of the definition of an FA because of the central role they play in lexical analysis. An FA is
+
+    1. A (finite) set of states, S;
+    2. A (finite) alphabet, A;
+    3. A transition function, \(f : S, A \rightarrow S\), that takes two parameters (the current state [an element in S] and an element from the alphabet) and returns a new state;
+    4. A start state (one of the states in S); and
+    5. A set of accepting states (a subset of the states in S).
+
+Why does this matter? Because we can describe how to group the bytes on disk into tokens (and lexemes) using regular languages. You probably have a good idea about what is going on, but let's dig in to an example -- that'll help!
+*** Lexical Analysis of Mathematical Expressions
+
+For the remainder of this edition, let's go back to the (unambiguous) grammar of mathematical expressions:
+
+[[file:images/pl/UnambiguousExprGrammar.png]]
+
+Here's a syntactically correct expression with labeled tokens and lexemes:
+
+[[file:images/pl/Lexeme and Token Example.png]]
+
+What do you notice? Well, the first thing that I notice is that in most cases, the lexeme value is actually, completely, utterly useless. For instance, what other logical grouping of bytes other than the one that represents the ) will be converted in to the CLOSE_PAREN token?
+
+There is, however, one token whose lexeme is very important: the Id token. Why? Because that token can be any number! The actual lexeme of that Id makes a big difference when it comes time to actually evaluate the mathematical expression that we are parsing (if that is, indeed, the goal of the operation!).
+*** Certitude and Finitude
+
+Let's take a stab at defining the FA that we can use to convert a stream of bytes on disk in to a stream of tokens (and associated lexemes). Let yourself slip in to a world where you are nothing more than a robot with a simple memory: you can be in one of two states. Depending on the state that you are in, you are able to perform some specific actions depending on the next character that you see. The two states are BEGIN and NUMBER. When you are in the BEGIN state and you see a ), +, *, or ( then you simply emit the appropriate token and stay in the BEGIN state. If you are in the BEGIN state and you see a digit, you simply store that digit and then change your state to NUMBER. When you are in the NUMBER state, if you see a digit, you store that digit after all the digits you've previously seen and stay in the same state. However, when you are in the NUMBER state and you see a ), +, *, or (, you must perform three actions:
+
+    1. Convert the string of digits that you are remembering into a number and emit a Id token with the converted value as the lexeme;
+    2. Emit the token appropriate to the value you just saw; and
+    3. Reset your state to BEGIN.
+
+For as long as there are bytes in the input file, you continue to perform those operations robotically. The operations that I just described are the FA's state transition function! See how each operation depends on the current state and an input? Those are the parameters to the state transition function! And see how we specified the state we will be in after considering the input? That's the function's output! Woah!
+
+What's amazing about all those words that I just wrote is that they can be turned into a picture that is far easier to understand:
+
+[[file:images/pl/Two State DFA for Expression Tokenizing(1).png]]
+
+Make the connection between the different aspects of the written and graphical description above and the formal components of an FA, especially the state transition function. In the image above, the state transition function is depicted with the gray arrows!
+*** The Last Step...
+
+There's just one more step ... we want to convert this high-level description of a tokenizer into actual code. And, we can! What's more, we can use a technique we learned earlier this semester in order to do it! Consider that the tokenizer will work hand-in-hand with the syntax analyzer. As the syntax analyzer goes about its business of creating a parse tree, it will occasionally turn to the lexical analyzer and say, "Give me the next token!". In between answers, it would be helpful if the tokenizer could maintain its state.
+
+If that doesn't sound like a coroutine, then I don't know what does! Because a coroutine is dormant and not dead between invocations, we can easily program the tokenizer as a coroutine so that it remembers its state (either BEGIN or NUMBER) and other information (like the current digits that it is has seen [if it is in the NUMBER state] and the progress it has made reading the input file). Kismet!
+
+To see such an implementation in Python, check here (Links to an external site.).
+** 12/1/2021
+:PROPERTIES:
+:EXPORT_HUGO_SECTION*: 12-1-2021
+:EXPORT_FILE_NAME: _index
+:END:
+*** Peanut Butter and Jelly
+
+To reiterate, the goal of a parser is to convert the source code for a program written in a particular programming language defined according to a specific grammar into a parse tree. Parsing occurs in two parts: lexical analysis and syntax analysis. The lexical analyzer (what we studied in the previous lecture) converts the program's source code (in the form of bytes on disk) into a sequence of tokens. The syntax analyzer, the subject of this lecture, turns the sequence of tokens in to a parse tree. The lexical analyzer and the syntax analyzer go hand-in-hand: As the syntax analyzer goes about its business of creating a parse tree, it will periodically turn to the lexical analyzer and say, "Give me the next token!".
+
+We saw algorithms for building a lexical analyzer directly from the language's CFG. It would be great if we had something similar for the syntax analyzer. In today's lecture we are going to explore just one of the many techniques for converting a CFG into code that will build an actual parse tree. There are many such techniques, some more general and versatile than others. Sebesta talks about several of these. If you take a course in compiler construction you will see those general techniques defined in detail. In this class we only have time to cover one particular technique for translating a CFG into code that constructs parse trees and it only works for a subset of all grammars.
+
+With those caveats in mind, let's dig in to the details!
+*** Descent Into Madness
+
+A recursive-descent parser is a type of parser that can be written directly from the structure of a CFG -- as long as that CFG meets certain constraints. In a recursive descent parser built from a CFG G, there is a subprogram for every nonterminal in G. Most of these subprograms are recursive. A recursive-descent parser builds a parse tree from the top down, meaning that it begins with G's start symbol and attempts to build a parse tree that represents a valid derivation whose final sentential form matches the program's tokens. There are other parsers that work bottom up, meaning that they start by analyzing a sentential form made up entirely of the program's tokens and attempt to build a parse tree that that "reduces" to the grammar's start symbol. That the subprograms are recursive and that the parse tree is built top down, the recursive-descrent parser is aptly named.
+
+We mentioned before that there are limitations on the types of languages that a recursive-descent parser can recognize. In particular, recursive-descent parsers can only recognize LL grammars. Those are grammars whose parse trees represent a leftmost derivation and can be built from a single left-to-right scan of the input tokens. To be precise, the first L represents the left-to-right scan of the input and the second L indicates that the parser generates a leftmost derivation. There is usually another restriction -- how many lookahead tokens are available. A lookahead token is the next token that the lexical analyzer will return as it scans through the input. Limiting the number of lookahead tokens reduces the memory requirements of the syntax analyzer but restricts the types of languages that those syntax analyzers can recognize. The number of lookahead tokens is written after LL and in parenthesis. LL(1) indicates 1 token of lookahead. We will see the practical impact of this restriction later in this edition.
+
+All of these words probably seem very arbitrary, but I think that an example will make things clear!
+*** Old Faithful
+
+Let's return to the grammar for mathematical expressions that we have been examining throughout this module:
+
+[[file:images/pl/UnambiguousExprGrammar.png]]
+
+We will assume that there are appropriately named tokens for each of the terminals (e.g, the ) token is CLOSE_PAREN) and that any numbers are tokenized as ID with the lexeme set appropriately.
+
+According to the definition of a recursive-descent parser, we want to write a (possibly recursive) subprogram for each of the nonterminals in the grammar. The job of each of these subprograms is to parse the the upcoming tokens into a parse tree that matches the nonterminal. For example, the (possibly recursive) subprogram for Expr, Expr, parses the upcoming tokens into a parse tree for an expression and returns that parse tree. To facilitate recursive calls among these subprograms, each subprogram returns the root of the parse tree that it builds. The parser begins by invoking the subprogram for the grammar's start symbol. The return value of that function call will be the root node of the parse tree for the entire input expression. Any recursive calls to other subprograms from within the subprogram for the start symbol will return parts of that overall parse tree.
+
+I am sure that you see why each of the subprograms usually contains some recursive function calls -- the nonterminals themselves are defined recursively.
+
+How would we write such a (possibly recursive) subprogram to build a parse tree rooted at a Factor from a sequence of tokens?
+
+There are two productions for a Factor so the first thing that the Factor subprogram does is determine whether it is parsing, for example, (5+2) -- a parenthesized expression -- or 918 -- a simple ID. In order to differentiate, the function simply consults the lookahead token. If that token is an open parenthesis then it knows that it is going to be evaluating the production Factor \(\rightarrow ( Expr )\). On the other hand, if that token is an ID, then it knows that it is going to be evaluating the production Factor \(\rightarrow\) id. Finally, if the current token is neither an open parenthesis nor an ID, then that's an error!
+
+Let's assume that the current token is an open parenthesis. Therefore, Factor knows that it should be parsing the production Factor \(\rightarrow ( Expr )\). Remember how we said that in a recursive-descent parser, each nonterminal is represented by a (possibly recursive) subprogram? Well, that means that we can assume there is a subprogram for parsing an Expr (though we haven't yet defined it!). Let's call that mythical subprogram Expr. As a result, the Factor subprogram can invoke Expr which will return a parse tree rooted at that expression. Pretty cool! Before continuing to parse, Factor will check Expr's return value -- if it is an error node, then parsing stops and Factor simply returns that error.
+
+Otherwise, after successfully parsing an expression (by invoking Expr) the parser expects the next token to be a close parenthesis. So, Factor checks that fact. If everything looks good, then Factor simply returns the node generated by Expr -- there's no need to generate another node that just indicates an expression is wrapped in parenthesis. If the token after parsing the expression is not a close parenthesis, then Factor returns an error node.
+
+Now, what happens if the lookahead token is an ID? That's simple -- Factor will just generate a node for that ID and return it!
+
+Finally, if neither of those is true, Factor simply returns an error node.
+
+Let's make this a little more concrete by writing that in pseudocode. We will assume the following are defined:
+
+    1. Node(T, X, Y, Z ...): A polymorphic function that generates an appropriately typed node (according to T) in the parse tree that "wraps" the tokens X, Y, Z, etc. We will play fast and loose with this notation.
+    2. Error(X): A function that generates an error node because token X was unexpected -- an error node in the final parse tree will generate a diagnostic message.
+    3. tokenizer(): A function that returns and consumes the next token from the lexical analyzer.
+    4. lookahead(): A function that returns the lookahead token.
+#+begin_src python
+def Factor:
+  if lookhead() == OPEN_PAREN:
+    # Parsing a ( Expr )
+    #
+    # Eat the lookahead and move forward.
+    curTok = nextToken()
+    # Build a parse tree rooted at an expression,
+    # if possible.
+    nestedExpr = Expr()
+    # There was an error parsing that expression;
+    # we will return an error!
+    if type(nestedExpr) == Error:
+      return nestedExpr
+    # Expression parsing went well. We expect a )
+    # now.
+    if lookahead() == CLOSE_PAREN:
+      # Eat that close parenthesis.
+      nextToken()
+      # Return the root of the parse tree of the
+      # nested expression.
+      return nestedExpr
+    else:
+      # We expected a ) and did not get it.
+      return Error(lookahead())
+  else if lookahead() == ID:
+    # Parsing a ID
+    #
+    curTok = nextToken()
+    return Node(curTok)
+  else:
+    # Parsing error!
+    return Error(lookahead())
+#+end_src
+Writing a function to parse a Factor is relatively straightforward. To get a sense for what it would be like to parse an expression, let's write a part of the Expr subprogram:
+#+begin_src python
+def Expr:
+  ...
+    leftHandExpr = Expr()
+    if type(leftHandExpr) == Error:
+      return leftHandExpr
+    if lookahead() != PLUS:
+      curTok = nextToken()
+      return Error(curTok)
+    rightHandTerm = Term()
+    if type(rightHandTerm) == Error:
+      return rightHandTerm
+    return Node(Expr, leftHandExpr, rightHandTerm)
+  ...
+#+end_src
+What stands out is an emerging pattern that each of the subprograms will follow. Each subprogram is slowly matching the items from the grammar with the actual tokens that it sees. The subprogram associated with each nonterminal parses the nonterminals used in the production, "eats" the terminals in those same productions and converts it all into nodes in a parse tree. The subprogram that calls subprograms recursively melds together their return values into a new node that will become part of the overall parse tree, one level up.
+*** We Are Homefree
+
+I don't know about you, but I think that's pretty cool -- you can build a series of collaborating subprograms named after the nonterminals in a grammar that call each other and, bang!, through the power of recursion, a parse tree is built! I think we're done here.
+
+Or are we?
+
+Look carefully at the definition of Expr given in the pseudocode above. What is the name of the first subprogram that is invoked? That's right, Expr. When we invoke Expr again, what is the first subprogram that is invoked? That's right, Expr again. There's no base case -- this spiral will continue until there is no more space available on the stack!
+
+It seems like we may have run head-on into a fundamental limitation of recursive-descent parsing: The grammars that it parses cannot contain productions that are left recursive. A production A \(\rightarrow \ldots\) is (indirect) left recursive "when A derives itself as its leftmost symbol using one or more derivations." In other words, \(A \rightarrow^{+} A \ldots \) is indirectly recursive where \(\rightarrow^{+} \)indicates one or more productions. For example, the production for A in grammar
+
+[[file:images/pl/Screenshot from 2021-12-07 18-35-50.png]]
+
+is indirect left recursive because A \rightarrow B \rightarrow A \mathtt{b}.
+
+A production A \(\rightarrow \ldots \)is direct left recursive when A derives itself as its leftmost symbol using one derivation (e.g., \(A \rightarrow A \ldots\). The production for Expr in our working example is direct left recursive.
+
+What are we to do?
+
+Note: The definitions of left recursion are taken from:
+
+Allen B Tucker and Robert Noonan. 2006. Programming Languages (2nd. ed.). McGraw-Hill, Inc., USA.
+*** Formalism To The Rescue
+
+Stand back, we are about to deploy math!
+
+[[file:images/pl/stand-back-i-m-trying-math.png]]
+
+There is an algorithm for converting productions that are direct-left recursive into productions that generate the same languages and are not direct-left recursive. In other words, there is hope for recursive-descent parsers yet! The procedure is slightly wordy, but after you see an example it will make perfect sense. Here's the overall process:
+
+    For the rule that is direct-left recursive, A, rewrite all productions of A as \(A \rightarrow A\alpha_1 | A\alpha_2 | \ldots | A\alpha_n | \beta_1 | \ldots | \beta_n \) where all (non)terminals \beta_1 \ldots \beta_n are not direct-left recursive.
+    Rewrite the production as
+
+\(A \rightarrow \beta_{1}A' | \beta_{2}A' | \ldots | \beta_{n}A' \\ A' \rightarrow \alpha_{1}A' | \alpha_{2}A' | \ldots | \alpha_{n}A' | \varepsilon\)
+
+where \(\varepsilon\) is the erasure rule and matches an empty token.
+
+I know, that's hard to parse (pun intended). An example will definitely make things easier to grok:
+
+In
+
+\(Expr \rightarrow Expr + Term | Term\)
+
+A is Expr, \(\alpha_1is + Term, \beta_1 is Term\). Therefore,
+
+A \(\rightarrow \beta_{1}A' \\ A' \rightarrow \alpha_{1}A' | \varepsilon \)
+
+becomes
+
+\(Expr \rightarrow Term Expr' \\ Expr' \rightarrow +TermExpr' | \varepsilon\)
+
+No sweat! It's just moving pieces around on a chessboard!
+*** The Final Countdown
+
+We can make those same manipulations for each of the productions in the grammar in our working example and we arrive here:
+
+\(\mathit{Expr} \rightarrow \mathit{Term}\mathit{Expr'} \\ \mathit{Expr'} \rightarrow + \mathit{Term}\mathit{Expr'} | \epsilon \\ \mathit{Term} \rightarrow \mathit{Factor}\mathit{Term'} \\ \mathit{Term'} \rightarrow * \mathit{Factor}\mathit{Term'} | \epsilon \\ \mathit{Factor} \rightarrow ( \mathit{Expr} ) | \mathit{id}\)
+
+Now that we have a non direct-left recursive grammar we can easily write a recursive-descent parser for the entire grammar. [[https://github.com/hawkinsw/cs3003/tree/main/recursive_descent][The source code is available online]]  and I encourage you to download and play with it!
