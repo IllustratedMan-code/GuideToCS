@@ -8,6 +8,8 @@
 :EXPORT_FILE_NAME: _index
 :END:
 Programming Languages as taught by William Hawkins III
+
+pdf version is [[file:pdfs/daily_pls.pdf][here]]
 ** 8/23/2021
 :PROPERTIES:
 :EXPORT_HUGO_SECTION*: 8-23-2021

@@ -6,6 +6,8 @@ draft = false
 
 Programming Languages as taught by William Hawkins III
 
+pdf version is [here](/ox-hugo/daily_pls.pdf)
+
 
 ## 8/23/2021 {#8-23-2021}
 
