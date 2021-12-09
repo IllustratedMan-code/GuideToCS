@@ -1,0 +1,1233 @@
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+	11/22/2021 :: David&#39;s Guide to CS
+</title>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="revised" content="2021-12-09T17:06:47 UTC">
+<meta name="description" content="">
+
+
+
+<title>11/22/2021 :: David&#39;s Guide to CS</title>
+
+<link rel="shortcut icon" href='https://illustratedman-code.github.io/GuideToCS/images/favicon.png' type="image/x-icon" />
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.css">
+
+<script src='https://code.jquery.com/jquery-3.5.1.min.js'></script>
+
+<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel="stylesheet">
+
+
+
+<link rel="stylesheet" type="text/css" href='https://illustratedman-code.github.io/GuideToCS/sass/layout.css'>
+<link rel="stylesheet" type="text/css" href='https://illustratedman-code.github.io/GuideToCS/css/style.main.css'>
+<link rel="stylesheet" type="text/css" href='https://illustratedman-code.github.io/GuideToCS/css/style.menu.css'>
+<link rel="stylesheet" type="text/css" href='https://illustratedman-code.github.io/GuideToCS/sass/shortcodes/notice.css'>
+<link rel="stylesheet" type="text/css" href='https://illustratedman-code.github.io/GuideToCS/sass/shortcodes/tabs.css'>
+<link rel="stylesheet" type="text/css" href='https://illustratedman-code.github.io/GuideToCS/sass/shortcodes/panel.css'>
+<link rel="stylesheet" type="text/css" href='https://illustratedman-code.github.io/GuideToCS/sass/shortcodes/columns.css'>
+<link rel="stylesheet" type="text/css" href='https://illustratedman-code.github.io/GuideToCS/sass/shortcodes/children.css'>
+<link rel="stylesheet" type="text/css" href='https://illustratedman-code.github.io/GuideToCS/sass/shortcodes/attachments.css'>
+<link rel="stylesheet" type="text/css" href='https://illustratedman-code.github.io/GuideToCS/sass/shortcodes/alert.css'>
+<link rel="stylesheet" type="text/css" href='https://illustratedman-code.github.io/GuideToCS/css/docport.css'>
+
+<script src='https://illustratedman-code.github.io/GuideToCS/js/docport.js'></script>
+<script type="text/javascript">
+      var baseurl = "https:\/\/illustratedman-code.github.io\/GuideToCS";
+</script>
+
+
+<script src="https://illustratedman-code.github.io/GuideToCS/js/mathjax-config.js"></script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+
+
+    
+  </head>
+
+  <body data-url="https://illustratedman-code.github.io/GuideToCS/programming-languages/11-22-2021/"
+
+  class="">
+
+<style type="text/css">
+  #debug{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    line-height: 3.5rem;
+    margin-bottom: .35rem;
+    padding: 0 2rem;
+    position: fixed;
+    left: 0;      right: 0;     top: 0;
+   
+    top:0px;
+    
+    min-height: 150px;
+
+    background-color: white;
+    border: 3px solid red;
+    z-index: 10000 ;
+    word-wrap: all;
+    overflow: auto;
+  }
+</style>
+ 
+
+
+    
+    
+    <header style="">
+        <div>
+    
+    <div class="burger ">
+        <a href="javascript:void(0);" style="font-size:15px;" onclick="$('article > aside').toggleClass('responsive')">&#9776;</a>
+    </div>
+    
+
+    <div>
+
+		
+	
+			
+		
+	    	<a class='baselink' href='https://illustratedman-code.github.io/GuideToCS'>David's Guide to CS</a>
+	  	
+	</div>
+    <nav class="shortcuts">
+            <li class="" role="">
+                <a href="https://github.com/IllustratedMan-code/GuideToCS"  rel="noopener">
+                  Github
+                </a>
+            </li>
+    </nav>
+
+</div>
+    </header>
+    
+
+    <article>
+      
+      <aside class="">
+        
+<div class="search">
+	<div class="searchbox">
+	  <input data-search-input id="search-by" type="text" placeholder="Type to search...">
+	</div>
+	<script type="text/javascript" src="https://illustratedman-code.github.io/GuideToCS/vendor/lunr/lunr.min.js"></script>
+	<script type="text/javascript" src="https://illustratedman-code.github.io/GuideToCS/vendor/auto-complete/auto-complete.js"></script>
+	<link href="https://illustratedman-code.github.io/GuideToCS/vendor/auto-complete/auto-complete.css" rel="stylesheet">
+	<script type="text/javascript">
+	  
+	      var baseurl = "https:\/\/illustratedman-code.github.io\/GuideToCS";
+	  
+	</script>
+	<script type="text/javascript" src="https://illustratedman-code.github.io/GuideToCS/js/search.js"></script>
+</div>
+
+		
+	
+			
+		
+	    	
+	  	
+	<div id="close_menu">
+  <a href="javascript:void(0);" style="font-size:15px;" onclick="$('article > aside').toggleClass('responsive')">
+      <i class="fa fa-lg fa-times"></i>
+  </a>
+</div>
+
+<ul class="menu">
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/" class="dd-item haschildren
+        item_level_$level
+        ">
+
+      
+      
+      
+      <i class="fas fa-chevron-right ddexp"></i>
+        
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/">Discrete Structures</a>
+      
+        <ul>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/exam-1-review/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/exam-1-review/">Exam 1 review</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/exam-2-review/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/exam-2-review/">Exam 2 review</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/logic/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/logic/">Logic</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/modular-arithmetic/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/modular-arithmetic/">Modular arithmetic</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/normal-forms/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/normal-forms/">Normal forms</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/set-relations/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/set-relations/">Set relations</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/set-theory/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/set-theory/">Standard Proof techniques</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/discrete-structures/trees/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/discrete-structures/trees/">Trees</a>
+      
+        
+      
+    </li>
+        </ul>
+    </li>
+    
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/ecology/" class="dd-item haschildren
+        item_level_$level
+        ">
+
+      
+      
+      
+      <i class="fas fa-chevron-right ddexp"></i>
+        
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/ecology/">Ecology and Evolution</a>
+      
+        <ul>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/ecology/ch1/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/ecology/ch1/">Chapter 1</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/ecology/ch-2/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/ecology/ch-2/">Chapter 2</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/ecology/ch-3/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/ecology/ch-3/">Chapter 3</a>
+      
+        
+      
+    </li>
+        </ul>
+    </li>
+    
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/" class="dd-item haschildren
+        item_level_$level
+        ">
+
+      
+      
+      
+      <i class="fas fa-chevron-right ddexp"></i>
+        
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/">Intro To Comp Systems</a>
+      
+        <ul>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/hard-vs-micro/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/hard-vs-micro/">HardWiredVsMicroProgrammed;</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/how-to-write-a-micro-instruction/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/how-to-write-a-micro-instruction/">How to write a micro-instruction</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/mock-exam-questions/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/mock-exam-questions/">Mock Exam Questions</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/formulas-and-references/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/intro-to-comp-systems/formulas-and-references/">Useful formulas and references</a>
+      
+        
+      
+    </li>
+        </ul>
+    </li>
+    
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/phys2001/" class="dd-item haschildren
+        item_level_$level
+        ">
+
+      
+      
+      
+      <i class="fas fa-chevron-right ddexp"></i>
+        
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/phys2001/">PHYS2001</a>
+      
+        <ul>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/phys2001/test/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/phys2001/test/">Test</a>
+      
+        
+      
+    </li>
+        </ul>
+    </li>
+    
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/" class="dd-item parent haschildren
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <i class="fas fa-chevron-down ddexp"></i>
+        
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/">Programming Languages</a>
+      
+        <ul>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-1-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-1-2021/">10/1/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-15-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-15-2021/">10/15/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-18-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-18-2021/">10/18/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-22-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-22-2021/">10/22/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-27-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-27-2021/">10/27/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-29-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-29-2021/">10/29/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-4-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-4-2021/">10/4/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-6-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/10-6-2021/">10/6/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/11-1-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/11-1-2021/">11/1/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/11-10-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/11-10-2021/">11/10/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/11-12-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/11-12-2021/">11/12/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/11-15-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/11-15-2021/">11/15/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/11-17-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/11-17-2021/">11/17/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/11-19-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/11-19-2021/">11/19/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/11-22-2021/" class="dd-item parent active
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/11-22-2021/">11/22/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/11-29-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/11-29-2021/">11/29/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/11-3-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/11-3-2021/">11/3/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/11-5-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/11-5-2021/">11/5/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/11-8-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/11-8-2021/">11/8/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/12-1-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/12-1-2021/">12/1/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/8-23-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/8-23-2021/">8/23/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/8-25-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/8-25-2021/">8/25/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/8-27-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/8-27-2021/">8/27/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/8-30-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/8-30-2021/">8/30/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-1-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-1-2021/">9/1/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-10-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-10-2021/">9/10/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-13-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-13-2021/">9/13/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-20-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-20-2021/">9/20/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-22-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-22-2021/">9/22/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-24-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-24-2021/">9/24/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-27-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-27-2021/">9/27/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-3-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-3-2021/">9/3/2021</a>
+      
+        
+      
+    </li>
+              
+
+    <li data-nav-id="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-8-2021/" class="dd-item
+        item_level_$level
+        ">
+
+      
+      
+      
+      
+          <a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/9-8-2021/">9/8/2021</a>
+      
+        
+      
+    </li>
+        </ul>
+    </li>
+    
+
+
+
+</ul>
+
+		
+	
+			
+		
+	    	
+	  	
+	
+      </aside>
+      
+
+      <section class="page ">
+      
+	
+		
+    
+    
+    <nav id="ariane" aria-label="breadcrumb">
+      <ol class="ariane">
+        
+  
+  	
+		
+  
+  	
+	<li >
+      <a class="text-link" href="https://illustratedman-code.github.io/GuideToCS">
+        Home
+      </a>
+    </li>
+	
+  
+    <li class="">
+      <a class="text-link" href="https://illustratedman-code.github.io/GuideToCS/programming-languages/">
+        Programming Languages
+      </a>
+    </li>
+	
+  	
+  
+    <li class="active">
+      
+        11/22/2021
+      
+    </li>
+
+      </ol>
+    </nav>
+    
+    
+
+    
+		
+        
+		
+		
+		
+		
+		
+		
+		
+
+		
+			<h1>11/22/2021</h1>
+        
+
+		
+										
+		
+
+		
+	
+
+	
+	
+	<div class="jump-to-section">
+		<span onclick="$h = $(this);$h.next('nav').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('nav').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+  			<span class="fas fa-align-right"></span>
+  			Jump to Section
+  			<i style=";" class="fas fa-chevron-right"></i>
+		</span>
+		<nav id="TableOfContents">
+  <ul>
+    <li><a href="#making-meaning">Making Meaning</a></li>
+    <li><a href="#this-grammar-goes-to-11">This Grammar Goes To 11</a></li>
+  </ul>
+</nav>
+	</div>
+	
+	
+
+
+
+
+
+
+	<div class="content">
+	    <p>Before reading this Daily PL, please re-read the one from Friday, 11/19/2021. The content has been updated since it was originally published to reflect certain errors with the &ldquo;better&rdquo; Integer grammar we developed in class. Thanks, especially, to Jeroen for making sure that I got the grammar correct!</p>
+<h2 ref="making-meaning" >Making Meaning</h2><a class="anchor" id="making-meaning"></a>
+<p>In an earlier part of the class we talked about how to describe the dynamic semantics of a program. We worked closely with operational semantics but saw other examples, too (axiomatic and denotational). Although we said that what we are studying in this module is the syntax of a language and not its semantics, a language may have static semantics that the compiler can check during syntax analysis. Syntax analysis is done using a tool known as the parser.</p>
+<p>Remember that syntax and syntax analysis is only concerned with valid programs. If the program, considered as a string of letters of the language&rsquo;s alphabet, can be derived from the language grammar&rsquo;s start symbol, then the program is valid. We all agreed that was the limit of what a syntax analyzer could determine.</p>
+<p>One form of output of a parser is a parse tree. It is possible to apply &ldquo;decoration&rdquo; to the parse tree in order to verify certain extra-syntactic properties of a program at the time that it is being parsed. These properties are known as a language&rsquo;s static semantics. More formally, Sebesta defines static semantics as the rules for a valid program in a particular language that are difficult (or impossible!) to encode in a grammar. Checking static semantics early in the compilation process is incredibly helpful for programmers as they write their code and allows the stages of the compilation process after syntax analysis to make more sophisticated assumptions about a program&rsquo;s validity.</p>
+<p>One example of static semantics of a programming language has to do with its type system. Checking a program for type safety is possible at the time of syntax analysis using an attribute grammar. An attribute grammar is an extension of a CFG that adds (semantic) information to its terminals and nonterminals.​ This information is known as attributes. Attached to each production are attribute calculation functions. At the time the program is parsed, the attribute calculation functions are evaluated every time that the associated production is used in a derivation and the results of that invocation are stored in the nodes of the parse tree that represent terminals and nonterminals. Additionally, in an attribute grammar, each production can have a set of predicates. Predicates are simply Boolean-valued functions. When a parser attempts to use a production during parsing, it&rsquo;s not just the attribute calculation functions that are invoked &ndash; the production&rsquo;s predicates are too. If any of those predicates returns false, then the derivation fails.
+An Assignment Grammar</p>
+<p>To start class, we looked at a snippet of an industrial-strength grammar &ndash; the one for the C programming language. The snippet we saw concerned the assignment expression:
+<img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/CGrammar.6.5.2.png" alt="">
+<img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/CGrammar.6.5.16.png" alt="">
+<img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/CGrammar.6.5.1.png" alt="">
+<img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/CGrammar.6.5.3.png" alt=""></p>
+<p>There are lots of details in the grammar for an assignment statement in C and not all of them pertain to our discussion. So, instead of using that grammar of assignment statements, we&rsquo;ll use a simpler one:</p>
+<figure><img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/Screenshot%20from%202021-11-27%2000-46-04.png"/>
+</figure>
+
+<p>Assume that this is part of a larger grammar for a complete, statically typed programming language. In the subset of the grammar that we are going to work with, there are three terminals: A, B and C. These are variable names available for the programmer in our language. As a program in this language is parsed, the compiler builds a mapping between variables and their types (known as the symbol table), adding an entry for each new variable declaration it encounters. The compiler can &ldquo;lookup&rdquo; the type of a variable using its name thanks to the lookup function.</p>
+<p>Our hypothetical language contains only two numerical types: int and real. A variable can only be assigned the result of an expression if that expression has the same type as the variable. In order to determine the type of an expression, our language adheres to the following rules:</p>
+<figure><img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/Screenshot%20from%202021-11-27%2000-55-27.png"/>
+</figure>
+
+<p>Let&rsquo;s assume that we are looking at the following program written in our hypothetical language:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-c" data-lang="c"><span style="color:#66d9ef">int</span> A;
+real B;
+A <span style="color:#f92672">=</span> A <span style="color:#f92672">+</span> B;
+</code></pre></div><p>The declarations of the variables A and B are handled by parts of the grammar that we are not showing in our example. Again, when those declarations are parsed, an entry is made in the symbol table so that variable names can be mapped to types. Let&rsquo;s derive A = A + B; using the snippet of the grammar shown above:</p>
+<figure><img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/Screenshot%20from%202021-11-27%2000-59-32.png"/>
+</figure>
+
+<p>Great! The program passes the syntactic analysis so it&rsquo;s valid!</p>
+<figure><img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/mDLrlBy1ZCjrbu81Q9oHnxBcboJ9a4Bld1Td.png"/>
+</figure>
+
+<p>Right?</p>
+<h2 ref="this-grammar-goes-to-11" >This Grammar Goes To 11</h2><a class="anchor" id="this-grammar-goes-to-11"></a>
+<p>Wrong. According to the language&rsquo;s type rules, we can only assign to variables that have the same type as the expression being assigned. The rules say that A + B is a real (a.ii). A is declared as an int. So, even though the program parses, it is invalid!</p>
+<p>We can solve this using attribute grammars and that&rsquo;s exactly what we are going to do! For our Assign grammar, we will add the following attributes to each of the terminals and nonterminals:</p>
+<p>expected_type: The type that is expected for the expression.
+actual_type: The actual type of the expression.</p>
+<p>The values for the attributes are set according to functions. An attribute whose calculation function uses attribute values from only its children and peer nodes in the parse tree is known as a synthesized attribute. An attribute whose calculation function uses only attribute values from its parent nodes in the parse tree is known as an inherited attribute.</p>
+<figure><img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/Attribute%20Grammar%20Terminology.png"/>
+</figure>
+
+<p>Let&rsquo;s define the attribute calculation functions for the expected_type and actual_type attributes of the Assign grammar:</p>
+<figure><img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/Screenshot%20from%202021-11-28%2000-35-38.png"/>
+</figure>
+
+<p>For this production, we can see that the expression&rsquo;s expected_type attribute is defined according to the variable&rsquo;s actual_type which means that it is an inherited attribute.</p>
+<figure><img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/Screenshot%20from%202021-11-28%2000-38-26.png"/>
+</figure>
+
+<p>For this production, we can see that the expression&rsquo;s actual_type attribute is defined according to the variable&rsquo;s actual_type which means that it is a synthesized attribute.</p>
+<p>And now for the most complicated (but not complex) attribute calculation function definition:</p>
+<figure><img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/Screenshot%20from%202021-11-28%2000-54-28.png"/>
+</figure>
+
+<p>Again, we can see that the expression&rsquo;s actual_type attribute is defined according to its children nodes &ndash; the actual_type of the two variables being added together &ndash; which means that it is a synthesized attribute.</p>
+<p>If you are thinking that the attribute calculation functions are recursive, you are exactly right! And, you can probably see a problem straight ahead. So far the attribute calculation functions have relied on attributes of peer, children and parent nodes in the parse tree to already have values. Where is our base case?</p>
+<p>Great question. There&rsquo;s a third type of attribute known as an intrinsic attribute. An intrinsic attribute is one whose value is calculated according to some information outside the parse tree. In our case, the actual_type attribute of a variable is calculated according to the mapping stored in the symbol table and accessible by the lookup function that we defined above.</p>
+<figure><img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/Screenshot%20from%202021-11-28%2000-42-38.png"/>
+</figure>
+
+<p>That&rsquo;s all for the definition of the attribute calculation functions and is all well and good. Unfortunately, we still have not used our attributes to inform the parser when a derivation has gone off the rails by violating the type rules. We&rsquo;ll define these guardrails predicate functions and show the complete attribute grammar at the same time:</p>
+<figure><img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/Screenshot%20from%202021-11-28%2000-57-20.png"/>
+</figure>
+
+<p>The equalities after the checkmarks are the predicates. We can read them as &ldquo;If the actual type of the expression is the same as the expected type of the predicate, then the derivation (parse) can continue. Otherwise, it must fail because the assignment statement being parsed violates the type rules.&rdquo;
+Put The Icing On The Cookie</p>
+<p>The process of calculating the attributes of a production during parsing is known as decorating the parse tree. Let&rsquo;s look at the parse tree from the assignment statement A = A + B; and see how it is decorated:</p>
+<figure><img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/Tree%20for%20Attribute%20Grammar%20Example%281%29.png"/>
+</figure>
+
+
+		</div>
+
+
+
+
+
+
+	 
+	<div class="chevrons">
+		<a class="next" href="https://illustratedman-code.github.io/GuideToCS/programming-languages/11-29-2021/" title="11/29/2021" style="margin-right: 0px;">
+            <div>
+                <p>Next page</p>
+                <label>11/29/2021</label>
+            </div>
+            <i class="fas fa-arrow-right" style="font-size: 1.7em"></i></a>
+	</div>
+	
+	
+
+      </section>
+
+      
+      
+      <section class="right-menu ">
+      
+	
+
+		
+	
+			
+		
+	    	
+	  	
+	<div class="TableOfContents">
+    <label><i class="fas fa-align-right"></i>&nbsp;&nbsp;What&#39;s on this page</label>
+    <nav>
+        <ul >
+            <li><a href="https://illustratedman-code.github.io/GuideToCS/programming-languages/11-22-2021/">11/22/2021</a></li>
+        </ul>
+    </nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#making-meaning">Making Meaning</a></li>
+    <li><a href="#this-grammar-goes-to-11">This Grammar Goes To 11</a></li>
+  </ul>
+</nav>
+</div>
+
+		
+	
+			
+		
+	    	
+	  	
+	<div class="Actions">
+	<nav>
+		<ul>
+				
+		    
+		    
+			
+		    
+
+    	</ul>
+	</nav>
+    
+</div>
+
+      </section>
+      
+    </article>
+    
+    
+    <footer>
+      
+
+		
+	
+			
+		
+	    	Create a content/_layout/footer/_index.md file to customize the footer content !
+	  	
+	
+    </footer>
+    
+
+
+
+  </body>
+</html>
