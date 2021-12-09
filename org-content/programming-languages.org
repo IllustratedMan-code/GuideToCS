@@ -10,6 +10,9 @@
 Programming Languages as taught by William Hawkins III
 
 pdf version is [[file:pdfs/daily_pls.pdf][here]]
+
+conversion didn't go as well as I hoped, but the jupyter notebook version is [[file:programming-languages.ipynb][here]]. Need to look into more pandoc stuff.
+
 ** 8/23/2021
 :PROPERTIES:
 :EXPORT_HUGO_SECTION*: 8-23-2021
