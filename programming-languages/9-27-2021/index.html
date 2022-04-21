@@ -8,7 +8,7 @@
 </title>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2022-01-10T15:09:15 UTC">
+<meta name="revised" content="2022-04-21T20:15:09 UTC">
 <meta name="description" content="">
 
 
@@ -1075,176 +1075,176 @@
 <p>Hierarchies are composed of pairs of classes &ndash; one is the superclass and the other is the subclass. A superclass could conceivably be itself a subclass. A subclass could itself be a superclass. In terms of a family tree, we could say that the subclass is a descendant of the superclass (Note: remember that the terms superclass and subclass are not always the ones used by the languages themselves; C++ refers to them as base and derived classes, respectively).</p>
 <p>A subclass inherits both the data and methods from its superclass(es). However, as Sebesta says, &ldquo;&hellip; the features and capabilities of the [superclass] are not quite right for the new use.&rdquo; Overriding methods allows the programmer to keep most of the functionality of the baseclass and customize the parts that are &ldquo;not quite right.&rdquo;</p>
 <p>An overridden method is defined in a subclass and replaces the method with the same name (and usually protocol) in the parent.</p>
-<p>The official documentation and tutorials for Java describe overriding in the language this way:<a href="https://docs.oracle.com/javase/tutorial/java/IandI/override.html">&ldquo;An instance method in a subclass with the same signature (name, plus the number and the type of its parameters) and return type as an instance method in the superclass overrides the superclass&rsquo;s method.&quot;</a>  The exact rules for overriding methods in Java are <a href="https://docs.oracle.com/javase/specs/jls/se7/html/jls-8.html#jls-8.4.8.1">online at the language specification</a> .</p>
+<p>The official documentation and tutorials for Java describe overriding in the language this way:<a href="https://docs.oracle.com/javase/tutorial/java/IandI/override.html">&ldquo;An instance method in a subclass with the same signature (name, plus the number and the type of its parameters) and return type as an instance method in the superclass overrides the superclass&rsquo;s method.&rdquo;</a>  The exact rules for overriding methods in Java are <a href="https://docs.oracle.com/javase/specs/jls/se7/html/jls-8.html#jls-8.4.8.1">online at the language specification</a> .</p>
 <p>Let&rsquo;s make it concrete with an example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-java" data-lang="java">
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Car</span> <span style="color:#f92672">{</span>
-  <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">boolean</span> electric <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
-  <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">int</span> wheels <span style="color:#f92672">=</span> 4<span style="color:#f92672">;</span>
-
-  Car<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-  <span style="color:#f92672">}</span>
-
-  <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">ignite</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-      System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Igniting a generic car&#39;s engine!&#34;</span><span style="color:#f92672">);</span>
-      <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
-  <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Tesla</span> <span style="color:#66d9ef">extends</span> Car <span style="color:#f92672">{</span>
-  Tesla<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">super</span><span style="color:#f92672">();</span>
-    electric <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
-  <span style="color:#f92672">}</span>
-
-  <span style="color:#a6e22e">@Override</span>
-  <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">ignite</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Igniting a Tesla&#39;s engine!&#34;</span><span style="color:#f92672">);</span>
-    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
-  <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Chevrolet</span> <span style="color:#66d9ef">extends</span> Car <span style="color:#f92672">{</span>
-  Chevrolet<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">super</span><span style="color:#f92672">();</span>
-  <span style="color:#f92672">}</span>
-
-  <span style="color:#a6e22e">@Override</span>
-  <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">ignite</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Igniting a Chevrolet&#39;s engine!&#34;</span><span style="color:#f92672">);</span>
-    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
-  <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><p>In this example, Car is the superclass of Tesla and Chevrolet. The Car class defines a method named ignite. That method will ignite the engine of the car &ndash; an action whose mechanics differ based on the car&rsquo;s type. In other words, this is a perfect candidate for overriding. Both Tesla and Chevrolet implement a method with the same name, return value and parameters, thereby meeting Java&rsquo;s requirements for overriding. In Java, the <code>@Override</code> is known as an annotation. Annotations are <a href="https://docs.oracle.com/javase/tutorial/java/annotations/">&ldquo;a form of metadata [that] provide data about a program that is not part of the program itself.&quot;</a>  Annotations in Java are attached to particular syntactic units. In this case, the @Override annotation is attached to a method and it tells the compiler that the method is overriding a method from its superclass. If the compiler does not find a method in the superclass(es) that is capable of being overridden by the method, an error is generated. This is a good check for the programmer. (Note: C++ offers similar functionality through the override specifier (Links to an external site.).)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Car</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">boolean</span> electric <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">int</span> wheels <span style="color:#f92672">=</span> 4<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  Car<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">ignite</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>      System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Igniting a generic car&#39;s engine!&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Tesla</span> <span style="color:#66d9ef">extends</span> Car <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  Tesla<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">super</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    electric <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">ignite</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Igniting a Tesla&#39;s engine!&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Chevrolet</span> <span style="color:#66d9ef">extends</span> Car <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  Chevrolet<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">super</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">ignite</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Igniting a Chevrolet&#39;s engine!&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>In this example, Car is the superclass of Tesla and Chevrolet. The Car class defines a method named ignite. That method will ignite the engine of the car &ndash; an action whose mechanics differ based on the car&rsquo;s type. In other words, this is a perfect candidate for overriding. Both Tesla and Chevrolet implement a method with the same name, return value and parameters, thereby meeting Java&rsquo;s requirements for overriding. In Java, the <code>@Override</code> is known as an annotation. Annotations are <a href="https://docs.oracle.com/javase/tutorial/java/annotations/">&ldquo;a form of metadata [that] provide data about a program that is not part of the program itself.&rdquo;</a>  Annotations in Java are attached to particular syntactic units. In this case, the @Override annotation is attached to a method and it tells the compiler that the method is overriding a method from its superclass. If the compiler does not find a method in the superclass(es) that is capable of being overridden by the method, an error is generated. This is a good check for the programmer. (Note: C++ offers similar functionality through the override specifier (Links to an external site.).)</p>
 <p>Let&rsquo;s say that the programmer actually implemented the Tesla class like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-java" data-lang="java">
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Tesla</span> <span style="color:#66d9ef">extends</span> Car <span style="color:#f92672">{</span>
-  Tesla<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">super</span><span style="color:#f92672">();</span>
-    electric <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
-  <span style="color:#f92672">}</span>
-
-  <span style="color:#a6e22e">@Override</span>
-  <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">ignite</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> testing<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">super</span><span style="color:#f92672">.</span><span style="color:#a6e22e">ignite</span><span style="color:#f92672">();</span>
-    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Igniting a Tesla&#39;s engine!&#34;</span><span style="color:#f92672">);</span>
-    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
-  <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><p>The ignite method implemented in Tesla does not override the ignite method from Car because it has a different set of parameters. The <code>@Override</code> annotation tells the compiler that the programmer thought they were overriding something. An error is generated and the programmer can make the appropriate fix. Without the <code>@Override</code> annotation, the code will compile but produce incorrect output when executed.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Tesla</span> <span style="color:#66d9ef">extends</span> Car <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  Tesla<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">super</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    electric <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">ignite</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> testing<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">super</span><span style="color:#f92672">.</span><span style="color:#a6e22e">ignite</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Igniting a Tesla&#39;s engine!&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>The ignite method implemented in Tesla does not override the ignite method from Car because it has a different set of parameters. The <code>@Override</code> annotation tells the compiler that the programmer thought they were overriding something. An error is generated and the programmer can make the appropriate fix. Without the <code>@Override</code> annotation, the code will compile but produce incorrect output when executed.</p>
 <p>Assume that the following program exists:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-java" data-lang="java">
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CarDemo</span> <span style="color:#f92672">{</span>
-  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String args<span style="color:#f92672">[])</span> <span style="color:#f92672">{</span>
-    Car c <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Car<span style="color:#f92672">();</span>
-    Car t <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Tesla<span style="color:#f92672">();</span>
-    Car v <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Chevrolet<span style="color:#f92672">();</span>
-
-    c<span style="color:#f92672">.</span><span style="color:#a6e22e">ignite</span><span style="color:#f92672">();</span>
-    t<span style="color:#f92672">.</span><span style="color:#a6e22e">ignite</span><span style="color:#f92672">();</span>
-    v<span style="color:#f92672">.</span><span style="color:#a6e22e">ignite</span><span style="color:#f92672">();</span>
-  <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><p>This code instantiates three different cars &ndash; the first is a generic Car, the second is a Tesla and the third is a Chevrolet. Look carefully and note that the type of each of the three is actually stored in a variable whose type is Car and not a more-specific type (ie, Tesla or Chevy). This is not a problem because of dynamic dispatch. At runtime, the JVM will find the proper ignite function and invoke it according to the variable&rsquo;s actual type and not its static type. Because ignite is overridden by Chevy and Tesla, the output of the program above is:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-text" data-lang="text">Igniting a generic car&#39;s engine!
-Igniting a Tesla&#39;s engine!
-Igniting a Chevrolet&#39;s engine!
-</code></pre></div><p>Most OOP languages provide the programmer the option to invoke the method they are overriding from the superclass. Java is no different. If an overriding method implementation wants to invoke the functionality of the method that it is overriding, it can do so using the super keyword.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-java" data-lang="java">
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Tesla</span> <span style="color:#66d9ef">extends</span> Car <span style="color:#f92672">{</span>
-  Tesla<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">super</span><span style="color:#f92672">();</span>
-    electric <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
-  <span style="color:#f92672">}</span>
-
-  <span style="color:#a6e22e">@Override</span>
-  <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">ignite</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">super</span><span style="color:#f92672">.</span><span style="color:#a6e22e">ignite</span><span style="color:#f92672">();</span>
-    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Igniting a Tesla&#39;s engine!&#34;</span><span style="color:#f92672">);</span>
-    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
-  <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Chevrolet</span> <span style="color:#66d9ef">extends</span> Car <span style="color:#f92672">{</span>
-  Chevrolet<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">super</span><span style="color:#f92672">();</span>
-  <span style="color:#f92672">}</span>
-
-  <span style="color:#a6e22e">@Override</span>
-  <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">ignite</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">super</span><span style="color:#f92672">.</span><span style="color:#a6e22e">ignite</span><span style="color:#f92672">();</span>
-    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Igniting a Chevrolet&#39;s engine!&#34;</span><span style="color:#f92672">);</span>
-    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
-  <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><p>With these changes, the program now outputs:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-text" data-lang="text">Igniting a generic car&#39;s engine!
-Igniting a generic car&#39;s engine!
-Igniting a Tesla&#39;s engine!
-Igniting a generic car&#39;s engine!
-Igniting a Chevrolet&#39;s engine!
-</code></pre></div><p><strong>New material alert:</strong> What if the programmer does not want a subclass to be able to customize the behavior of a certain method? For example, no matter how you subclass Dog, it&rsquo;s noise method is always going to bark &ndash; no inheriting class should change that. Java provides the <code>final</code> keyword to guarantee that the implementation of a method cannot be overridden by a subclass. Let&rsquo;s change the code for the classes from above to look like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-java" data-lang="java">
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Car</span> <span style="color:#f92672">{</span>
-  <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">boolean</span> electric <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
-  <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">int</span> wheels <span style="color:#f92672">=</span> 4<span style="color:#f92672">;</span>
-
-  Car<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-  <span style="color:#f92672">}</span>
-
-  <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">start</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Starting a car ...&#34;</span><span style="color:#f92672">);</span>
-    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">ignite</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
-      System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Ignited the engine!&#34;</span><span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
-      System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Did NOT ignite the engine!&#34;</span><span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span>
-  <span style="color:#f92672">}</span>
-
-  <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">ignite</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-      System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Igniting a generic car&#39;s engine!&#34;</span><span style="color:#f92672">);</span>
-      <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
-  <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Tesla</span> <span style="color:#66d9ef">extends</span> Car <span style="color:#f92672">{</span>
-  Tesla<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">super</span><span style="color:#f92672">();</span>
-    electric <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
-  <span style="color:#f92672">}</span>
-
-  <span style="color:#a6e22e">@Override</span>
-  <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">ignite</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">super</span><span style="color:#f92672">.</span><span style="color:#a6e22e">ignite</span><span style="color:#f92672">();</span>
-    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Igniting a Tesla&#39;s engine!&#34;</span><span style="color:#f92672">);</span>
-    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
-  <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Chevrolet</span> <span style="color:#66d9ef">extends</span> Car <span style="color:#f92672">{</span>
-  Chevrolet<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">super</span><span style="color:#f92672">();</span>
-  <span style="color:#f92672">}</span>
-
-  <span style="color:#a6e22e">@Override</span>
-  <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">ignite</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">super</span><span style="color:#f92672">.</span><span style="color:#a6e22e">ignite</span><span style="color:#f92672">();</span>
-    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Igniting a Chevrolet&#39;s engine!&#34;</span><span style="color:#f92672">);</span>
-    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
-  <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><p>Notice that <code>ignite</code> in the Car class has a <code>final</code> before the return type. This makes <code>ignite</code> a <a href="https://docs.oracle.com/javase/specs/jls/se7/html/jls-8.html#jls-8.4.3.3">final method</a> : &ldquo;A method can be declared final to prevent subclasses from overriding or hiding it&rdquo;. (C++ has something similar &ndash; <a href="https://en.cppreference.com/w/cpp/language/final">the final specifier</a> .) Attempting to compile the code above produces this output:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-text" data-lang="text">
-CarDemo.java:30: error: ignite() in Tesla cannot override ignite() in Car
-  boolean ignite() {
-          ^
-  overridden method is final
-CarDemo.java:43: error: ignite() in Chevrolet cannot override ignite() in Car
-  boolean ignite() {
-          ^
-  overridden method is final
-2 errors
-</code></pre></div><h2 ref="subclass-vs-subtype" >Subclass vs Subtype</h2><a class="anchor" id="subclass-vs-subtype"></a>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CarDemo</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String args<span style="color:#f92672">[])</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    Car c <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Car<span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    Car t <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Tesla<span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    Car v <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Chevrolet<span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    c<span style="color:#f92672">.</span><span style="color:#a6e22e">ignite</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    t<span style="color:#f92672">.</span><span style="color:#a6e22e">ignite</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    v<span style="color:#f92672">.</span><span style="color:#a6e22e">ignite</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>This code instantiates three different cars &ndash; the first is a generic Car, the second is a Tesla and the third is a Chevrolet. Look carefully and note that the type of each of the three is actually stored in a variable whose type is Car and not a more-specific type (ie, Tesla or Chevy). This is not a problem because of dynamic dispatch. At runtime, the JVM will find the proper ignite function and invoke it according to the variable&rsquo;s actual type and not its static type. Because ignite is overridden by Chevy and Tesla, the output of the program above is:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Igniting a generic car&#39;s engine!
+</span></span><span style="display:flex;"><span>Igniting a Tesla&#39;s engine!
+</span></span><span style="display:flex;"><span>Igniting a Chevrolet&#39;s engine!
+</span></span></code></pre></div><p>Most OOP languages provide the programmer the option to invoke the method they are overriding from the superclass. Java is no different. If an overriding method implementation wants to invoke the functionality of the method that it is overriding, it can do so using the super keyword.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Tesla</span> <span style="color:#66d9ef">extends</span> Car <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  Tesla<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">super</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    electric <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">ignite</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">super</span><span style="color:#f92672">.</span><span style="color:#a6e22e">ignite</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Igniting a Tesla&#39;s engine!&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Chevrolet</span> <span style="color:#66d9ef">extends</span> Car <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  Chevrolet<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">super</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">ignite</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">super</span><span style="color:#f92672">.</span><span style="color:#a6e22e">ignite</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Igniting a Chevrolet&#39;s engine!&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>With these changes, the program now outputs:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Igniting a generic car&#39;s engine!
+</span></span><span style="display:flex;"><span>Igniting a generic car&#39;s engine!
+</span></span><span style="display:flex;"><span>Igniting a Tesla&#39;s engine!
+</span></span><span style="display:flex;"><span>Igniting a generic car&#39;s engine!
+</span></span><span style="display:flex;"><span>Igniting a Chevrolet&#39;s engine!
+</span></span></code></pre></div><p><strong>New material alert:</strong> What if the programmer does not want a subclass to be able to customize the behavior of a certain method? For example, no matter how you subclass Dog, it&rsquo;s noise method is always going to bark &ndash; no inheriting class should change that. Java provides the <code>final</code> keyword to guarantee that the implementation of a method cannot be overridden by a subclass. Let&rsquo;s change the code for the classes from above to look like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Car</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">boolean</span> electric <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">int</span> wheels <span style="color:#f92672">=</span> 4<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  Car<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">start</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Starting a car ...&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">ignite</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>      System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Ignited the engine!&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>      System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Did NOT ignite the engine!&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">ignite</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>      System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Igniting a generic car&#39;s engine!&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Tesla</span> <span style="color:#66d9ef">extends</span> Car <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  Tesla<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">super</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    electric <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">ignite</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">super</span><span style="color:#f92672">.</span><span style="color:#a6e22e">ignite</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Igniting a Tesla&#39;s engine!&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Chevrolet</span> <span style="color:#66d9ef">extends</span> Car <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  Chevrolet<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">super</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">ignite</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">super</span><span style="color:#f92672">.</span><span style="color:#a6e22e">ignite</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Igniting a Chevrolet&#39;s engine!&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>Notice that <code>ignite</code> in the Car class has a <code>final</code> before the return type. This makes <code>ignite</code> a <a href="https://docs.oracle.com/javase/specs/jls/se7/html/jls-8.html#jls-8.4.3.3">final method</a> : &ldquo;A method can be declared final to prevent subclasses from overriding or hiding it&rdquo;. (C++ has something similar &ndash; <a href="https://en.cppreference.com/w/cpp/language/final">the final specifier</a> .) Attempting to compile the code above produces this output:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>CarDemo.java:30: error: ignite() in Tesla cannot override ignite() in Car
+</span></span><span style="display:flex;"><span>  boolean ignite() {
+</span></span><span style="display:flex;"><span>          ^
+</span></span><span style="display:flex;"><span>  overridden method is final
+</span></span><span style="display:flex;"><span>CarDemo.java:43: error: ignite() in Chevrolet cannot override ignite() in Car
+</span></span><span style="display:flex;"><span>  boolean ignite() {
+</span></span><span style="display:flex;"><span>          ^
+</span></span><span style="display:flex;"><span>  overridden method is final
+</span></span><span style="display:flex;"><span>2 errors
+</span></span></code></pre></div><h2 ref="subclass-vs-subtype" >Subclass vs Subtype</h2><a class="anchor" id="subclass-vs-subtype"></a>
 <p>In OOP there is fascinating distinction between subclasses and subtypes. All those classes that inherit from other classes are considered subclasses. However, they are not all subtypes. For a type/class S to be a subtype of type/class T, the following must hold</p>
 <p>Assume that ϕ(t)
 is some provable property that is true of t, an object of type T. Then ϕ(s)</p>
@@ -1253,76 +1253,76 @@ is some provable property that is true of t, an object of type T. Then ϕ(s)</p>
 <p>Barbara Liskov who pioneered the definition and study of subtypes put it this way (Links to an external site.): &ldquo;If for each object o1 of type S there is an object o2 of type T such that for all programs P defined in terms of T, the behavior of P is unchanged when o1 is substituted for o2, then S is a subtype of T.&rdquo;</p>
 <h2 ref="open-recursion" >Open Recursion</h2><a class="anchor" id="open-recursion"></a>
 <p>Open recursion in an OO PL is a fancy term for the combination of a) functionality that gives the programmer the ability to refer to the current object from within a method (usually through a variable named this or self) and b) dynamic dispatch. . Thanks to open recursion, some method A of class C can call some method B of the same class. But wait, there&rsquo;s more! (Links to an external site.) Continuing our example, in open recursion, if method B is overriden in class D (a subclass of C), then the overriden version of the method is invoked when called from method A on an object of type D even though method A is only implemented by class C. Wild! It is far easier to see this work in real life than talk about it abstractly. So, consider our cars again:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Car</span> <span style="color:#f92672">{</span>
-  <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">boolean</span> electric <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
-  <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">int</span> wheels <span style="color:#f92672">=</span> 4<span style="color:#f92672">;</span>
-
-  Car<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-  <span style="color:#f92672">}</span>
-
-  <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">start</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Starting a car ...&#34;</span><span style="color:#f92672">);</span>
-    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">ignite</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
-      System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Ignited the engine!&#34;</span><span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
-      System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Did NOT ignite the engine!&#34;</span><span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span>
-  <span style="color:#f92672">}</span>
-
-  <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">ignite</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-      System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Igniting a generic car&#39;s engine!&#34;</span><span style="color:#f92672">);</span>
-      <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
-  <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Tesla</span> <span style="color:#66d9ef">extends</span> Car <span style="color:#f92672">{</span>
-  Tesla<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">super</span><span style="color:#f92672">();</span>
-    electric <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
-  <span style="color:#f92672">}</span>
-
-  <span style="color:#a6e22e">@Override</span>
-  <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">ignite</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Igniting a Tesla&#39;s engine!&#34;</span><span style="color:#f92672">);</span>
-    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
-  <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Chevrolet</span> <span style="color:#66d9ef">extends</span> Car <span style="color:#f92672">{</span>
-  Chevrolet<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">super</span><span style="color:#f92672">();</span>
-  <span style="color:#f92672">}</span>
-
-  <span style="color:#a6e22e">@Override</span>
-  <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">ignite</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Igniting a Chevrolet&#39;s engine!&#34;</span><span style="color:#f92672">);</span>
-    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
-  <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><p>The start method is only implemented in the Car class. At the time that it is compiled, the Car class has no awareness of any subclasses (ie, Tesla and Chevrolet). Let&rsquo;s run this code and see what happens:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-java" data-lang="java">
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CarDemo</span> <span style="color:#f92672">{</span>
-  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String args<span style="color:#f92672">[])</span> <span style="color:#f92672">{</span>
-    Car c <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Car<span style="color:#f92672">();</span>
-    Car t <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Tesla<span style="color:#f92672">();</span>
-    Car v <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Chevrolet<span style="color:#f92672">();</span>
-
-    c<span style="color:#f92672">.</span><span style="color:#a6e22e">start</span><span style="color:#f92672">();</span>
-    t<span style="color:#f92672">.</span><span style="color:#a6e22e">start</span><span style="color:#f92672">();</span>
-    v<span style="color:#f92672">.</span><span style="color:#a6e22e">start</span><span style="color:#f92672">();</span>
-  <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><p>Here&rsquo;s the output:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-text" data-lang="text">Starting a car ...
-Igniting a generic car&#39;s engine!
-Ignited the engine!
-Starting a car ...
-Igniting a Tesla&#39;s engine!
-Ignited the engine!
-Starting a car ...
-Igniting a Chevrolet&#39;s engine!
-Did NOT ignite the engine!
-</code></pre></div><p>Wow! Even though the implementation of start is entirely within the Car class and the Car class knows nothing about the Tesla or Chevrolet subclasses, when the start method is invoked on object&rsquo;s of those types, the call to this&rsquo;s ignite method triggers the execution of code specific to the type of car!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Car</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">boolean</span> electric <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">int</span> wheels <span style="color:#f92672">=</span> 4<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  Car<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">start</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Starting a car ...&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">ignite</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>      System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Ignited the engine!&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>      System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Did NOT ignite the engine!&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">ignite</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>      System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Igniting a generic car&#39;s engine!&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Tesla</span> <span style="color:#66d9ef">extends</span> Car <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  Tesla<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">super</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    electric <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">ignite</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Igniting a Tesla&#39;s engine!&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Chevrolet</span> <span style="color:#66d9ef">extends</span> Car <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  Chevrolet<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">super</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">ignite</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Igniting a Chevrolet&#39;s engine!&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>The start method is only implemented in the Car class. At the time that it is compiled, the Car class has no awareness of any subclasses (ie, Tesla and Chevrolet). Let&rsquo;s run this code and see what happens:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CarDemo</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String args<span style="color:#f92672">[])</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    Car c <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Car<span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    Car t <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Tesla<span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    Car v <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Chevrolet<span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    c<span style="color:#f92672">.</span><span style="color:#a6e22e">start</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    t<span style="color:#f92672">.</span><span style="color:#a6e22e">start</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    v<span style="color:#f92672">.</span><span style="color:#a6e22e">start</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>Here&rsquo;s the output:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Starting a car ...
+</span></span><span style="display:flex;"><span>Igniting a generic car&#39;s engine!
+</span></span><span style="display:flex;"><span>Ignited the engine!
+</span></span><span style="display:flex;"><span>Starting a car ...
+</span></span><span style="display:flex;"><span>Igniting a Tesla&#39;s engine!
+</span></span><span style="display:flex;"><span>Ignited the engine!
+</span></span><span style="display:flex;"><span>Starting a car ...
+</span></span><span style="display:flex;"><span>Igniting a Chevrolet&#39;s engine!
+</span></span><span style="display:flex;"><span>Did NOT ignite the engine!
+</span></span></code></pre></div><p>Wow! Even though the implementation of start is entirely within the Car class and the Car class knows nothing about the Tesla or Chevrolet subclasses, when the start method is invoked on object&rsquo;s of those types, the call to this&rsquo;s ignite method triggers the execution of code specific to the type of car!</p>
 <p>How cool is that?</p>
 
 		</div>

@@ -8,7 +8,7 @@
 </title>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2022-01-10T15:09:15 UTC">
+<meta name="revised" content="2022-04-21T20:15:09 UTC">
 <meta name="description" content="">
 
 
@@ -1137,12 +1137,12 @@ For instance, if you know that recursion and looping are equally performant and 
 </li>
 </ul>
 <!--listend-->
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">100</span>; i<span style="color:#f92672">++</span>) {
-  statement1;
-  statement2;
-  statement3;
-}
-</code></pre></div><p>statement1, statement2 and statement3 are all stored one after the other in memory.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">100</span>; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>  statement1;
+</span></span><span style="display:flex;"><span>  statement2;
+</span></span><span style="display:flex;"><span>  statement3;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>statement1, statement2 and statement3 are all stored one after the other in memory.</p>
 <ul>
 <li>Modern implementations of the Model make fetching nearby data fast.</li>
 <li>Therefore, implementing repeated instructions with loops is faster than implementing repeated loops with recursion.</li>

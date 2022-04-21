@@ -8,7 +8,7 @@
 </title>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2022-01-10T15:09:15 UTC">
+<meta name="revised" content="2022-04-21T20:15:09 UTC">
 <meta name="description" content="">
 
 
@@ -1093,7 +1093,7 @@
 <p>\begin{equation*}
 \frac{premises}{conclusion}
 \end{equation*}</p>
-<p>The conclusion is generally written like &lt;e, σ&gt; ⟶ (v, τ, σ) which means that when the premises hold, the expression e evaluated in state σ evaluates to a value (v), type (τ) and (possibly modified) state (σ') after a single step of execution.</p>
+<p>The conclusion is generally written like &lt;e, σ&gt; ⟶ (v, τ, σ) which means that when the premises hold, the expression e evaluated in state σ evaluates to a value (v), type (τ) and (possibly modified) state (σ&rsquo;) after a single step of execution.</p>
 <h3 ref="defining-the-semantics-of-the-addition-expression" >Defining the Semantics of the Addition Expression</h3><a class="anchor" id="defining-the-semantics-of-the-addition-expression"></a>
 <p>In STIMPL, the expression to &ldquo;add&rdquo; two values n1 and n2 is written like Add(n1, n2). By the rules of the STIMPL language, for an addition to be possible, n1 and n2 must</p>
 <ol>
@@ -1112,42 +1112,42 @@
 <p>\begin{equation*}
 &lt;e_1,\sigma&gt;⟶(v1,Integer,\sigma \prime)
 \end{equation*}</p>
-<p>which means that, when evaluated in state σ, expression e1 has the value v1 and type Integer and may modify the state (to σ'). Notice that we are not using τ for the resulting type of the evaluation? Why? Because using τ indicates that this rule applies when the evaluation of e1 in state σ evaluates to any type (which we &ldquo;assign&rdquo; to τ in case we want to use it again in a later premise). Instead, we are explicitly writing Integer which indicates that this rule only defines the operational semantics for Add(e1, e2) in state σ when the expression e1 evaluates to a value of type Integer in state σ</p>
+<p>which means that, when evaluated in state σ, expression e1 has the value v1 and type Integer and may modify the state (to σ&rsquo;). Notice that we are not using τ for the resulting type of the evaluation? Why? Because using τ indicates that this rule applies when the evaluation of e1 in state σ evaluates to any type (which we &ldquo;assign&rdquo; to τ in case we want to use it again in a later premise). Instead, we are explicitly writing Integer which indicates that this rule only defines the operational semantics for Add(e1, e2) in state σ when the expression e1 evaluates to a value of type Integer in state σ</p>
 <p>.</p>
 <p>As for the second premise</p>
 <p>\begin{equation*}
 &lt;e_2,\sigma \prime&gt;⟶(v_2,Integer,\sigma\prime \prime)
 \end{equation*}</p>
-<p>we see something very similar. Again, our premise prescribes that, when evaluated in state σ' (note the ' there), e2&rsquo;s type is an Integer. It is for this reason that we can be satisfied that this rule only applies when the types of the Add&rsquo;s operands match and are integers! We &ldquo;thread through&rdquo; the (possibly) modified σ' when evaluating e2 to enforce the STIMPL language&rsquo;s definition that operands are evaluated strictly left-to-right.</p>
+<p>we see something very similar. Again, our premise prescribes that, when evaluated in state σ&rsquo; (note the &rsquo; there), e2&rsquo;s type is an Integer. It is for this reason that we can be satisfied that this rule only applies when the types of the Add&rsquo;s operands match and are integers! We &ldquo;thread through&rdquo; the (possibly) modified σ&rsquo; when evaluating e2 to enforce the STIMPL language&rsquo;s definition that operands are evaluated strictly left-to-right.</p>
 <p>As for the conclusion,</p>
 <p>\begin{equation*}
 (v_1+v_2,Integer,\sigma \prime \prime)
 \end{equation*}</p>
-<p>shows the value of this expression. We will assume here that + works as expected for two integers. Because the operands are integers, we can definitively write that the type of the addition will be an integer, too. We use σ'' as the resulting state because it&rsquo;s possible that evaluation of the expressions of both e1 and e2 caused side effects.</p>
+<p>shows the value of this expression. We will assume here that + works as expected for two integers. Because the operands are integers, we can definitively write that the type of the addition will be an integer, too. We use σ&rsquo;&rsquo; as the resulting state because it&rsquo;s possible that evaluation of the expressions of both e1 and e2 caused side effects.</p>
 <p>The rule that we defined covers only the operational semantics for addition of two integers. The other cases (for floating-point and string types) are almost copy/paste.</p>
 <p>Now, how does that translate to an actual implementation?</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-python" data-lang="python">
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">evaluate</span>(expression, state):
-  match expression:
-  <span style="color:#f92672">...</span>
-
-  case Add(left<span style="color:#f92672">=</span>left, right<span style="color:#f92672">=</span>right):
-      result <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-      left_result, left_type, new_state <span style="color:#f92672">=</span> evaluate(left, state)
-      right_result, right_type, new_state <span style="color:#f92672">=</span> evaluate(right, new_state)
-
-      <span style="color:#66d9ef">if</span> left_type <span style="color:#f92672">!=</span> right_type:
-        <span style="color:#66d9ef">raise</span> InterpTypeError(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;&#34;&#34;Mismatched types for Add:
-</span><span style="color:#e6db74">            Cannot add </span><span style="color:#e6db74">{</span>left_type<span style="color:#e6db74">}</span><span style="color:#e6db74"> to </span><span style="color:#e6db74">{</span>right_type<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;&#34;&#34;</span>)
-
-      match left_type:
-        case Integer() <span style="color:#f92672">|</span> String() <span style="color:#f92672">|</span> FloatingPoint():
-          result <span style="color:#f92672">=</span> left_result <span style="color:#f92672">+</span> right_result
-        case _:
-          <span style="color:#66d9ef">raise</span> InterpTypeError(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;&#34;&#34;Cannot add </span><span style="color:#e6db74">{</span>left_type<span style="color:#e6db74">}</span><span style="color:#e6db74">s&#34;&#34;&#34;</span>)
-
-      <span style="color:#66d9ef">return</span> (result, left_type, new_state)
-</code></pre></div><p>In this snippet, the local variables left and right are the equivalent of e1 and e2, respectively, in the operational semantics. After initializing a variable to store the result, the evaluation of the premises is accomplished. new_state matches σ'' after being assigned and reassigned in those two evaluations. Next, the code checks to make sure that the types of the operands matches. Finally, if the types of the operands is an integer, then the result is just a traditional addition (+ in Python).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">evaluate</span>(expression, state):
+</span></span><span style="display:flex;"><span>  match expression:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  case Add(left<span style="color:#f92672">=</span>left, right<span style="color:#f92672">=</span>right):
+</span></span><span style="display:flex;"><span>      result <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>      left_result, left_type, new_state <span style="color:#f92672">=</span> evaluate(left, state)
+</span></span><span style="display:flex;"><span>      right_result, right_type, new_state <span style="color:#f92672">=</span> evaluate(right, new_state)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> left_type <span style="color:#f92672">!=</span> right_type:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">raise</span> InterpTypeError(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;&#34;&#34;Mismatched types for Add:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            Cannot add </span><span style="color:#e6db74">{</span>left_type<span style="color:#e6db74">}</span><span style="color:#e6db74"> to </span><span style="color:#e6db74">{</span>right_type<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      match left_type:
+</span></span><span style="display:flex;"><span>        case Integer() <span style="color:#f92672">|</span> String() <span style="color:#f92672">|</span> FloatingPoint():
+</span></span><span style="display:flex;"><span>          result <span style="color:#f92672">=</span> left_result <span style="color:#f92672">+</span> right_result
+</span></span><span style="display:flex;"><span>        case _:
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">raise</span> InterpTypeError(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;&#34;&#34;Cannot add </span><span style="color:#e6db74">{</span>left_type<span style="color:#e6db74">}</span><span style="color:#e6db74">s&#34;&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> (result, left_type, new_state)
+</span></span></code></pre></div><p>In this snippet, the local variables left and right are the equivalent of e1 and e2, respectively, in the operational semantics. After initializing a variable to store the result, the evaluation of the premises is accomplished. new_state matches σ&rsquo;&rsquo; after being assigned and reassigned in those two evaluations. Next, the code checks to make sure that the types of the operands matches. Finally, if the types of the operands is an integer, then the result is just a traditional addition (+ in Python).</p>
 <p>You can see the implementation for the other types mixed in this code as well. Convince yourself that the code above handles all the different cases where an Add is valid in STIMPL.</p>
 <h3 ref="defining-the-semantics-of-the-if-then-else-expression" >Defining the Semantics of the If/Then/Else Expression</h3><a class="anchor" id="defining-the-semantics-of-the-if-then-else-expression"></a>
 <p>In STIMPL, we write an If/Then/Else expression like If(c, t, f) where c is any boolean-typed expression, t is the expression to evaluate if the value of c is true and f is the expression to evaluate if the value of c is false. The value/type/updated state of the entire expression is the value/type/updated state that results from evaluating t when c is true and the value/type/updated state that results from evaluating f when c is false. This means that we are required to write two different rules to completely define the operational semantics of the If/Then/Else expression: one for the case where c is true and the other for the case when c is false. Sounds like the template that we used for the Add expression, doesn&rsquo;t it? Because the two cases are almost the same, we will only go through writing the rule for when the condition is true:</p>
@@ -1163,32 +1163,32 @@
 &lt;t,\sigma\prime&gt;⟶(v,\tau,\sigma \prime \prime)
 \end{equation*}</p>
 <p>to &ldquo;get&rdquo; some values that we will use in the conclusion. v and τ
-are the value and the type, respectively, of t when it is evaluated in state σ'. Note that we evaluate t in state σ' because the evaluation of the condition statement may have modified state σ and we want to thread that through. Evaluation of t in state σ' may modify σ', generating σ''. The combination of these premises are combined to define that the entire expression evaluates to</p>
+are the value and the type, respectively, of t when it is evaluated in state σ&rsquo;. Note that we evaluate t in state σ&rsquo; because the evaluation of the condition statement may have modified state σ and we want to thread that through. Evaluation of t in state σ&rsquo; may modify σ&rsquo;, generating σ&rsquo;&rsquo;. The combination of these premises are combined to define that the entire expression evaluates to</p>
 <p>\begin{equation*}
 (v,\tau,\sigma\prime \prime)
 \end{equation*}</p>
 <p>Again, the pattern is the same for writing the operational semantics when the condition is false.</p>
 <p>Let&rsquo;s look at how this translates into actual working code:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">evaluate</span>(expression, state):
-  match expression:
-  <span style="color:#f92672">...</span>
-
-    case If(condition<span style="color:#f92672">=</span>condition, true<span style="color:#f92672">=</span>true, false<span style="color:#f92672">=</span>false):
-      condition_value, condition_type, new_state <span style="color:#f92672">=</span> evaluate(condition, state)
-
-      <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> isinstance(condition_type, Boolean):
-        <span style="color:#66d9ef">raise</span> InterpTypeError(<span style="color:#e6db74">&#34;Cannot branch on non-boolean value!&#34;</span>)
-
-      result_value <span style="color:#f92672">=</span> <span style="color:#66d9ef">None</span>
-      result_type <span style="color:#f92672">=</span> <span style="color:#66d9ef">None</span>
-
-      <span style="color:#66d9ef">if</span> condition_value:
-        result_value, result_type, new_state <span style="color:#f92672">=</span> evaluate(true, new_state)
-      <span style="color:#66d9ef">else</span>:
-        result_value, result_type, new_state <span style="color:#f92672">=</span> evaluate(false, new_state)
-
-      <span style="color:#66d9ef">return</span> (result_value, result_type, new_state)
-</code></pre></div><p>The local variables <code>condition</code>, <code>true</code> and <code>false</code> match c, t and f, respectively from the rule in the operational semantics. The first step in the implementation is to determine the value/type/updated state when c is evaluated in state σ. Immediately after doing that, the code checks to make sure that the condition statement has boolean type. Remember how our rule only applies when this is the case? Next, depending on whether the condition evaluated to true or false, the appropriate next expression is evaluated in the σ' state (<code>new_state</code>). It is the result of that evaluation that is the ultimate value of the expression and what is returned.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">evaluate</span>(expression, state):
+</span></span><span style="display:flex;"><span>  match expression:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    case If(condition<span style="color:#f92672">=</span>condition, true<span style="color:#f92672">=</span>true, false<span style="color:#f92672">=</span>false):
+</span></span><span style="display:flex;"><span>      condition_value, condition_type, new_state <span style="color:#f92672">=</span> evaluate(condition, state)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> isinstance(condition_type, Boolean):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">raise</span> InterpTypeError(<span style="color:#e6db74">&#34;Cannot branch on non-boolean value!&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      result_value <span style="color:#f92672">=</span> <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>      result_type <span style="color:#f92672">=</span> <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> condition_value:
+</span></span><span style="display:flex;"><span>        result_value, result_type, new_state <span style="color:#f92672">=</span> evaluate(true, new_state)
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>        result_value, result_type, new_state <span style="color:#f92672">=</span> evaluate(false, new_state)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> (result_value, result_type, new_state)
+</span></span></code></pre></div><p>The local variables <code>condition</code>, <code>true</code> and <code>false</code> match c, t and f, respectively from the rule in the operational semantics. The first step in the implementation is to determine the value/type/updated state when c is evaluated in state σ. Immediately after doing that, the code checks to make sure that the condition statement has boolean type. Remember how our rule only applies when this is the case? Next, depending on whether the condition evaluated to true or false, the appropriate next expression is evaluated in the σ&rsquo; state (<code>new_state</code>). It is the result of that evaluation that is the ultimate value of the expression and what is returned.</p>
 
 		</div>
 

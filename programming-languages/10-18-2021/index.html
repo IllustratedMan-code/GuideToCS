@@ -8,7 +8,7 @@
 </title>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2022-01-10T15:09:15 UTC">
+<meta name="revised" content="2022-04-21T20:15:09 UTC">
 <meta name="description" content="">
 
 
@@ -1121,37 +1121,37 @@ The \(\lfloor x/a \rfloor a\) means &ldquo;replace all instances of a with x in 
 <p>Voila!</p>
 <h2 ref="currying-functions" >Currying Functions</h2><a class="anchor" id="currying-functions"></a>
 <p>Currying is the process of turning a function that takes multiple parameters into a sequence of functions that each take a single parameter. Currying is only possible in languages that support high-order functions: functions that a) take functions as parameters, b) return functions or c) both. Python is such a language. Let&rsquo;s look at how you would write a function that calculates the sum of three numbers in Python:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sum3</span>(a, b, c):
-  <span style="color:#66d9ef">return</span> a <span style="color:#f92672">+</span> b <span style="color:#f92672">+</span> c
-</code></pre></div><p>That makes perfect sense!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sum3</span>(a, b, c):
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> a <span style="color:#f92672">+</span> b <span style="color:#f92672">+</span> c
+</span></span></code></pre></div><p>That makes perfect sense!</p>
 <p>Let&rsquo;s see if we can Curry that function. Because a Curried function can only take one parameter and we are Currying a function with three parameters, it stands to reason that we are going to have to generate three different functions. Let&rsquo;s start with the first:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sum1</span>(a):
-  <span style="color:#75715e"># Something?</span>
-</code></pre></div><p>What something are we going to do? Well, we are going to declare another function inside sum1, call it sum2, that takes a parameter and then use that as the return value of sum1! It looks something like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sum1</span>(a):
-  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sum2</span>(b):
-    <span style="color:#66d9ef">pass</span>
-  <span style="color:#66d9ef">return</span> sum2
-</code></pre></div><p>That means, if we call sum1 with a single parameter, the result is another function, one that takes a single parameter! So, we&rsquo;ve knocked off two of the three parameters, now we need one more. So, let&rsquo;s write something like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sum1</span>(a):
-  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sum2</span>(b):
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sum3</span>(c):
-      <span style="color:#66d9ef">pass</span>
-    <span style="color:#66d9ef">return</span> sum3
-  <span style="color:#66d9ef">return</span> sum2
-</code></pre></div><p>This means that if we call sum1 with a single parameter and call the result of that with a single parameter, the result is another function, one that also takes a single parameter! What do we want that innermost function to do? That&rsquo;s right: the summation! So, here&rsquo;s our final code:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sum1</span>(a):
-  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sum2</span>(b):
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sum3</span>(c):
-      <span style="color:#66d9ef">return</span> a <span style="color:#f92672">+</span> b <span style="color:#f92672">+</span> c
-    <span style="color:#66d9ef">return</span> sum3
-  <span style="color:#66d9ef">return</span> sum2
-</code></pre></div><p>We&rsquo;ve successfully Curried a three-parameter summation function! There&rsquo;s just one issue left to address? How can we possibly use a and b in the innermost function? Will, I thought you told us that Python was statically scoped! In order for this to work correctly, wouldn&rsquo;t Python have to have something magical and dynamic-scope-like? Well, yes! And, it does. It has closures.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sum1</span>(a):
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Something?</span>
+</span></span></code></pre></div><p>What something are we going to do? Well, we are going to declare another function inside sum1, call it sum2, that takes a parameter and then use that as the return value of sum1! It looks something like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sum1</span>(a):
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sum2</span>(b):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">pass</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> sum2
+</span></span></code></pre></div><p>That means, if we call sum1 with a single parameter, the result is another function, one that takes a single parameter! So, we&rsquo;ve knocked off two of the three parameters, now we need one more. So, let&rsquo;s write something like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sum1</span>(a):
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sum2</span>(b):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sum3</span>(c):
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">pass</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> sum3
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> sum2
+</span></span></code></pre></div><p>This means that if we call sum1 with a single parameter and call the result of that with a single parameter, the result is another function, one that also takes a single parameter! What do we want that innermost function to do? That&rsquo;s right: the summation! So, here&rsquo;s our final code:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sum1</span>(a):
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sum2</span>(b):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sum3</span>(c):
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> a <span style="color:#f92672">+</span> b <span style="color:#f92672">+</span> c
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> sum3
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> sum2
+</span></span></code></pre></div><p>We&rsquo;ve successfully Curried a three-parameter summation function! There&rsquo;s just one issue left to address? How can we possibly use a and b in the innermost function? Will, I thought you told us that Python was statically scoped! In order for this to work correctly, wouldn&rsquo;t Python have to have something magical and dynamic-scope-like? Well, yes! And, it does. It has closures.</p>
 <p>When you return sum2 from the body of sum1, Python closes around the variables that are needed by any code in the implementation of the returned function. Because a is needed in the implementation of sum2 (the function returned by sum1), Python creates a closure around that function which includes the value of a at the time sum2 was returned. It is important to remember that every time sum2 is defined pursuant to an invocation of sum1, a new version of sum2 is returned with a new closure. This closure-creation process repeats when we return sum3 pursuant to an invocation of sum2 (which itself was generated as a result of an invocation of sum1)! Whew.</p>
 <p>Because we Curried the sum3 function as sum1, we have to call them slightly differently:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-python" data-lang="python">  sum3(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>)
-  sum1(<span style="color:#ae81ff">1</span>)(<span style="color:#ae81ff">2</span>)(<span style="color:#ae81ff">3</span>)
-</code></pre></div><p>As we learn more about functional programming in Haskell, you will see this pattern more and more and it will become second nature.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>  sum3(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>  sum1(<span style="color:#ae81ff">1</span>)(<span style="color:#ae81ff">2</span>)(<span style="color:#ae81ff">3</span>)
+</span></span></code></pre></div><p>As we learn more about functional programming in Haskell, you will see this pattern more and more and it will become second nature.</p>
 <p>The &ldquo;good&rdquo; news, if you can call it that, is that functions in the Lambda Calculus always exist in their Curried form. Prove it to yourself by looking back at the way we formally defined the Lambda Calculus.</p>
 <p>But, because it is laborious to write all those \(\lambda\)s over and over, we will introduce a shorthand for functions in the Lambda Calculus that take more than one parameter:</p>
 <p>\(\lambda p_1p_2 &hellip; p_n.expression\)</p>

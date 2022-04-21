@@ -8,7 +8,7 @@
 </title>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2022-01-10T15:09:15 UTC">
+<meta name="revised" content="2022-04-21T20:15:09 UTC">
 <meta name="description" content="">
 
 
@@ -1071,22 +1071,22 @@
 	    <p>In the true spirit of a <a href="https://en.wikipedia.org/wiki/A%5Fpicture%5Fis%5Fworth%5Fa%5Fthousand%5Fwords">picture being worth a thousand words</a> , think of this Daily PL as a graphic novel.</p>
 <h2 ref="going-over-backtracking-again--see-what-i-did-there" >Going Over Backtracking Again (see what I did there?)</h2><a class="anchor" id="going-over-backtracking-again--see-what-i-did-there"></a>
 <p>In today&rsquo;s lecture, we went deeper into the discussion of backtracking and saw its utility. In particular, we discussed the following Prolog program for generating all the integers.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#a6e22e">generate_integer</span>(<span style="color:#ae81ff">0</span>).
-<span style="color:#a6e22e">generate_integer</span>(X) :- <span style="color:#a6e22e">generate_integer</span>(Y), X <span style="color:#f92672">is</span> Y <span style="color:#f92672">+</span> <span style="color:#ae81ff">1.</span>
-</code></pre></div><p>This is an incredibly succinct way to declare what it means to be an integer. This generator function is attributable to Programming in Prolog by Mellish and Clocksin (Links to an external site.). In other words, we know that it&rsquo;s a reasonable definition.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-prolog" data-lang="prolog"><span style="display:flex;"><span><span style="color:#a6e22e">generate_integer</span>(<span style="color:#ae81ff">0</span>).
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">generate_integer</span>(X) :- <span style="color:#a6e22e">generate_integer</span>(Y), X <span style="color:#f92672">is</span> Y <span style="color:#f92672">+</span> <span style="color:#ae81ff">1.</span>
+</span></span></code></pre></div><p>This is an incredibly succinct way to declare what it means to be an integer. This generator function is attributable to Programming in Prolog by Mellish and Clocksin (Links to an external site.). In other words, we know that it&rsquo;s a reasonable definition.</p>
 <p>As discussed in the description of Assignment 3, the best way to learn Prolog, I think, is to play with it! So, let&rsquo;s see what this can do!</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#e6db74">?-</span> <span style="color:#a6e22e">generate_integer</span>(<span style="color:#ae81ff">5</span>).
-<span style="color:#e6db74">true</span> ;
-</code></pre></div><p>In other words, it can be used to determine whether a given number is an integer. Awesome.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#e6db74">?-</span> <span style="color:#a6e22e">generate_integer</span>(X).
-X <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> ;
-X <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> ;
-X <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span> ;
-X <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span> ;
-X <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span> ;
-X <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span> ;
-X <span style="color:#f92672">=</span> <span style="color:#ae81ff">6</span>
-</code></pre></div><p>Woah, look at that &hellip; generate_integer/1 can do double duty and generate all the integers, too. Pretty cool!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-prolog" data-lang="prolog"><span style="display:flex;"><span><span style="color:#e6db74">?-</span> <span style="color:#a6e22e">generate_integer</span>(<span style="color:#ae81ff">5</span>).
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">true</span> ;
+</span></span></code></pre></div><p>In other words, it can be used to determine whether a given number is an integer. Awesome.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-prolog" data-lang="prolog"><span style="display:flex;"><span><span style="color:#e6db74">?-</span> <span style="color:#a6e22e">generate_integer</span>(X).
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> ;
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> ;
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span> ;
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span> ;
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span> ;
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span> ;
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> <span style="color:#ae81ff">6</span>
+</span></span></code></pre></div><p>Woah, look at that &hellip; generate_integer/1 can do double duty and generate all the integers, too. Pretty cool!</p>
 <p>The generation of the numbers using this definition is possible thanks to the power of backtracking. If you need a refresher on backtracking and/or choice points, I recommend previous <a href="https://uc.instructure.com/courses/1476336/pages/the-daily-pl-11-slash-5-slash-2021">Daily PLs</a>.</p>
 <p>The (im)possibility of using words to describe the backtracking involved in generate_integer/1, led me to create the following diagram that attempts to illustrate the process. I encourage you to look at the diagram, run generate_integer/1 in swipl with trace enabled and ask any questions that you have! Again, this is not a simple concept, but once you understand what is going on, Prolog will begin to make more sense!</p>
 <figure><img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/Backtracking%20Generate%20Integers.png"/>
@@ -1096,14 +1096,14 @@ X <span style="color:#f92672">=</span> <span style="color:#ae81ff">6</span>
 <h2 ref="chasing-our-tails" >Chasing Our Tails</h2><a class="anchor" id="chasing-our-tails"></a>
 <p>Yes, I can hear you! I know, generate_integer/1 is not tail recursive. We learned that tail recursion is a useful optimization in functional programming languages (and even imperative programming languages). Does that mean that it&rsquo;s an important optimization in Prolog?</p>
 <p>To find out, I timed how long it took Prolog to answer the query</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#e6db74">?-</span> <span style="color:#a6e22e">generate_integer</span>(<span style="color:#ae81ff">50000</span>).
-</code></pre></div><p>The answer? On my desktop computer, it took 1 minute and 48 seconds.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-prolog" data-lang="prolog"><span style="display:flex;"><span><span style="color:#e6db74">?-</span> <span style="color:#a6e22e">generate_integer</span>(<span style="color:#ae81ff">50000</span>).
+</span></span></code></pre></div><p>The answer? On my desktop computer, it took 1 minute and 48 seconds.</p>
 <p>If we want something for comparison, we&rsquo;ll have to come up with a tail-recursive version of generate_integer/1. Let&rsquo;s call it generate_integer_tr/1 (creative, I know), and define it like:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#a6e22e">generate_integer_tr</span>(X) :- <span style="color:#a6e22e">next_integer</span>(<span style="color:#ae81ff">0</span>,X).
-
-<span style="color:#a6e22e">next_integer</span>(J, J).
-<span style="color:#a6e22e">next_integer</span>(J, L) :- K <span style="color:#f92672">is</span> J <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">next_integer</span>(K, L).
-</code></pre></div><p>The fact next_integer(J, J) is a &ldquo;trick&rdquo; to define a base case for our definition in the same way that generate_integer(0) was a base case in the definition of generate_integer/1. To get a sense for the need for next_integer(J, J) think about what happens when the first query of next_integer(0,X) is performed in order to satisfy the query generate_integer_tr(50000). In this case, the next_integer(J, J) fact matches (convince yourself why! Hint: there are no restrictions on J). As a result, J unifies with the 0, and the X unifies with the J. That&rsquo;s great, but (X = ) 0 does not equal 50000. So, Prolog does what?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-prolog" data-lang="prolog"><span style="display:flex;"><span><span style="color:#a6e22e">generate_integer_tr</span>(X) :- <span style="color:#a6e22e">next_integer</span>(<span style="color:#ae81ff">0</span>,X).
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">next_integer</span>(J, J).
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">next_integer</span>(J, L) :- K <span style="color:#f92672">is</span> J <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">next_integer</span>(K, L).
+</span></span></code></pre></div><p>The fact next_integer(J, J) is a &ldquo;trick&rdquo; to define a base case for our definition in the same way that generate_integer(0) was a base case in the definition of generate_integer/1. To get a sense for the need for next_integer(J, J) think about what happens when the first query of next_integer(0,X) is performed in order to satisfy the query generate_integer_tr(50000). In this case, the next_integer(J, J) fact matches (convince yourself why! Hint: there are no restrictions on J). As a result, J unifies with the 0, and the X unifies with the J. That&rsquo;s great, but (X = ) 0 does not equal 50000. So, Prolog does what?</p>
 <p>In unison: BACKTRACKS.</p>
 <p>The choice point is Prolog&rsquo;s selection of next_integer(J, J), so Prolog tries again at the next possible fact/rule: next_integer(J, L) :- K is J + 1, next_integer(K, L). J is unified with 0, K is unified with 1 (J + 1) and Prolog must now satisfy a new goal: next_integer(1, L). Because this query for next_integer/1 is completely different than the one it is currently attempting to satisfy, Prolog starts the search anew at the top of the list of facts. The first fact to match? next_integer(J, J). Therefore, J unifies with 1, L unifies with J (making L 1), and X (from the initial query) unifies with L. Unfortunately, the result again does not satisfy our query. But, Prolog persists and backtracks but only as far as the second attempt to satisfy next_integer (using next_integer(J,J)). In much the same way that generate_integer/1 worked, Prolog continues to progress, then backtrack, then progress, then backtrack &hellip; while solving the generate_integer_tr(50000) query.</p>
 <p>The difference between the two functions is that in next_integer/2, the recursive act is the last thing that is done. In other words, generate_integer_tr/1 is tail recursive.</p>

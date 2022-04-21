@@ -8,7 +8,7 @@
 </title>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2022-01-10T15:09:14 UTC">
+<meta name="revised" content="2022-04-21T20:15:09 UTC">
 <meta name="description" content="">
 
 
@@ -1131,49 +1131,49 @@
 </ul>
 <h2 ref="q3" >Q3</h2><a class="anchor" id="q3"></a>
 <p>Assuming, W, X, Y and Z as memory addresses. Write a program using any machine sequence that will carry out the following: Z ← W + (Z-X).</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-fallback" data-lang="fallback">    .globl main
-    .text
-
-main:
-    lw $t1, Z #load z into temporary register 1
-    lw $t2, X #load x into temporary register 2
-    sub $s1, $t1, $t2 #s1 &lt;- t1-t2
-    lw $t1, W #load w into temporary register 1
-    add $s1, $t1, $s1 #s1 &lt;- t1
-    sw $s1, Z # stores s1 into Z
-
-    li $v0, 1 #prints z
-    lw $a0, Z
-    syscall
-
-    li $v0, 10 #exits
-    syscall
-
-
-.data
-Z: .word  12 #arbitrary value
-X: .word 10 #arbitrary value
-W: .word 5 #arbitrary value
-</code></pre></div><p><a href="code-examples/Q3.asm">Downloadable solution</a> prints 7</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>    .globl main
+</span></span><span style="display:flex;"><span>    .text
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>main:
+</span></span><span style="display:flex;"><span>    lw $t1, Z #load z into temporary register 1
+</span></span><span style="display:flex;"><span>    lw $t2, X #load x into temporary register 2
+</span></span><span style="display:flex;"><span>    sub $s1, $t1, $t2 #s1 &lt;- t1-t2
+</span></span><span style="display:flex;"><span>    lw $t1, W #load w into temporary register 1
+</span></span><span style="display:flex;"><span>    add $s1, $t1, $s1 #s1 &lt;- t1
+</span></span><span style="display:flex;"><span>    sw $s1, Z # stores s1 into Z
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    li $v0, 1 #prints z
+</span></span><span style="display:flex;"><span>    lw $a0, Z
+</span></span><span style="display:flex;"><span>    syscall
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    li $v0, 10 #exits
+</span></span><span style="display:flex;"><span>    syscall
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>.data
+</span></span><span style="display:flex;"><span>Z: .word  12 #arbitrary value
+</span></span><span style="display:flex;"><span>X: .word 10 #arbitrary value
+</span></span><span style="display:flex;"><span>W: .word 5 #arbitrary value
+</span></span></code></pre></div><p><a href="code-examples/Q3.asm">Downloadable solution</a> prints 7</p>
 <h2 ref="q4" >Q4</h2><a class="anchor" id="q4"></a>
 <p>Assume that the code below is run on a machine with a 2 GHz clock that requires the following number of cycles for each instruction: add, addi, sll, sra take 4cc each,  lw takes 5cc,   bne, beq  take 3cc each. How many seconds will it take to execute this code. The values of registers are $4=0x20, $5= 0x20, $6= 0x30, $7= 0x10.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-fallback" data-lang="fallback">    .globl  main
-    .text
-
-main:
-    sra $6, $6, 2   # changes original value of 0x30 / 2^2  = 0xC
-    sll $7, $7, 2 # original value = 0x10, 0x10 * 2^2 = 0x40
-    add $8, $0, $0 # sets register 8 to 0
-L2: add $12, $4, $8 #marks L2, $12 &lt;- 0x20 + $8, $8 is iterator
-    lw  $12, 0($12) # $12 = memory at address of ($12) on stack
-    add $9, $0, $0 # $9 = 0;
-L1: add $11, $5, $9 #marks L1, $11 = 0x20 + $9, $9 is iterator
-    lw  $11, 0($11) #$11 = memory at address of ($11) on stack
-    addi $9, $9, 4 #$9 = $9 + 4
-    bne $9, $7, L1 # goes to L1 if $9 != $7  0x0 + 0x4 * 0x10 = 0x40 = $9 loop executes 0x10 times
-    addi $8, $8, 4 # $8 = $8 + 4
-    beq $8, $6, L2 # goes to L2 if $8 == $6 exits before  $8 can equal $6
-</code></pre></div><h3 ref="instruction-definitions" >Instruction definitions</h3><a class="anchor" id="instruction-definitions"></a>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>    .globl  main
+</span></span><span style="display:flex;"><span>    .text
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>main:
+</span></span><span style="display:flex;"><span>    sra $6, $6, 2   # changes original value of 0x30 / 2^2  = 0xC
+</span></span><span style="display:flex;"><span>    sll $7, $7, 2 # original value = 0x10, 0x10 * 2^2 = 0x40
+</span></span><span style="display:flex;"><span>    add $8, $0, $0 # sets register 8 to 0
+</span></span><span style="display:flex;"><span>L2: add $12, $4, $8 #marks L2, $12 &lt;- 0x20 + $8, $8 is iterator
+</span></span><span style="display:flex;"><span>    lw  $12, 0($12) # $12 = memory at address of ($12) on stack
+</span></span><span style="display:flex;"><span>    add $9, $0, $0 # $9 = 0;
+</span></span><span style="display:flex;"><span>L1: add $11, $5, $9 #marks L1, $11 = 0x20 + $9, $9 is iterator
+</span></span><span style="display:flex;"><span>    lw  $11, 0($11) #$11 = memory at address of ($11) on stack
+</span></span><span style="display:flex;"><span>    addi $9, $9, 4 #$9 = $9 + 4
+</span></span><span style="display:flex;"><span>    bne $9, $7, L1 # goes to L1 if $9 != $7  0x0 + 0x4 * 0x10 = 0x40 = $9 loop executes 0x10 times
+</span></span><span style="display:flex;"><span>    addi $8, $8, 4 # $8 = $8 + 4
+</span></span><span style="display:flex;"><span>    beq $8, $6, L2 # goes to L2 if $8 == $6 exits before  $8 can equal $6
+</span></span></code></pre></div><h3 ref="instruction-definitions" >Instruction definitions</h3><a class="anchor" id="instruction-definitions"></a>
 <ul>
 <li>sra (shift right arithmetic) (sra <code>destination</code>, <code>origin</code>, <code>shift(in bits)</code>) rounds down</li>
 <li>sll (shift left logical) (sll <code>destination</code>, <code>origin</code>, <code>shift</code>)</li>
@@ -1220,27 +1220,27 @@ L1: add $11, $5, $9 #marks L1, $11 = 0x20 + $9, $9 is iterator
 <li>i value in register $5</li>
 </ul>
 <p><a href="code-examples/Q5.asm">Q5 Solution download</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-fallback" data-lang="fallback">.globl main
-.text
-
-main:
-    sll     $s4, $5, 2          # multiplies i * 4 to conform to address form
-    add     $t2, $2, $s4        # gets address of B[i] offsets address of B by i
-    lw      $t3, ($t2)          # sets t3 to value at address t3 = B[i]
-
-    sll     $t1, $t3, 2         # sets t1 to t3 * 4 to conform to address form
-    add     $t2, $1, $t1        # offsets addres value in $1 by $t1 A[B[i]]
-    lw      $s1, ($t2)          # sets t3 to value at address $t2 t3 = A[B[i]]
-
-    addi    $t1, $5, 4          # offsets i by 4  = i+4
-    sll     $t1, $5, 2          # multiplies i*4 to conform to address form
-    add     $t2, $3, $t1        # offsets C address by i+4
-    lw      $s2, ($t2)          # s2 = C[i+4]
-
-    add     $t1, $s1, $s2       # adds A[B[i]] + C[i+4]
-    add     $s3, $4, $s4        # offsets address of X by i
-    sw      $t1, ($s3)          # stores $t1 to address of ($s3)
-</code></pre></div><h2 ref="q6" >Q6</h2><a class="anchor" id="q6"></a>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>.globl main
+</span></span><span style="display:flex;"><span>.text
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>main:
+</span></span><span style="display:flex;"><span>    sll     $s4, $5, 2          # multiplies i * 4 to conform to address form
+</span></span><span style="display:flex;"><span>    add     $t2, $2, $s4        # gets address of B[i] offsets address of B by i
+</span></span><span style="display:flex;"><span>    lw      $t3, ($t2)          # sets t3 to value at address t3 = B[i]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    sll     $t1, $t3, 2         # sets t1 to t3 * 4 to conform to address form
+</span></span><span style="display:flex;"><span>    add     $t2, $1, $t1        # offsets addres value in $1 by $t1 A[B[i]]
+</span></span><span style="display:flex;"><span>    lw      $s1, ($t2)          # sets t3 to value at address $t2 t3 = A[B[i]]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    addi    $t1, $5, 4          # offsets i by 4  = i+4
+</span></span><span style="display:flex;"><span>    sll     $t1, $5, 2          # multiplies i*4 to conform to address form
+</span></span><span style="display:flex;"><span>    add     $t2, $3, $t1        # offsets C address by i+4
+</span></span><span style="display:flex;"><span>    lw      $s2, ($t2)          # s2 = C[i+4]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    add     $t1, $s1, $s2       # adds A[B[i]] + C[i+4]
+</span></span><span style="display:flex;"><span>    add     $s3, $4, $s4        # offsets address of X by i
+</span></span><span style="display:flex;"><span>    sw      $t1, ($s3)          # stores $t1 to address of ($s3)
+</span></span></code></pre></div><h2 ref="q6" >Q6</h2><a class="anchor" id="q6"></a>
 <p>The memory units that follow are specified by the number of words times the number of bits per word. How many address lines and input/output data lines are needed in each case? (a) 8K X 16 (b) 2G X 8 (c) 16M X 32 (d) 256K X 64</p>
 <h3 ref="part-a" >Part A</h3><a class="anchor" id="part-a"></a>
 <ul>

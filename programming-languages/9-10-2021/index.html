@@ -8,7 +8,7 @@
 </title>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2022-01-10T15:09:15 UTC">
+<meta name="revised" content="2022-04-21T20:15:09 UTC">
 <meta name="description" content="">
 
 
@@ -1081,15 +1081,15 @@
 <li>Assuming <code>f</code> is a variable, <code>f</code> is an expression (the value is the value of the variable)</li>
 </ul>
 <p>Certain languages allow more exotic statements to be expressions. For example, in C/C++, the <code>=</code> operator yields a value (the value of the expression on the right operand). It is this choice by the language designer that allows a C/C++ programmer to write</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">int</span> a, b, c, d;
-a <span style="color:#f92672">=</span> b <span style="color:#f92672">=</span> c <span style="color:#f92672">=</span> d <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>;
-</code></pre></div><p>to initialize all four variables to 5.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> a, b, c, d;
+</span></span><span style="display:flex;"><span>a <span style="color:#f92672">=</span> b <span style="color:#f92672">=</span> c <span style="color:#f92672">=</span> d <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>;
+</span></span></code></pre></div><p>to initialize all four variables to 5.</p>
 <p>When we discuss functional programming languages, we will see how many more things are expressions that programmers typically think are simply statements.</p>
 <h2 ref="order-of-evaluation" >Order of Evaluation</h2><a class="anchor" id="order-of-evaluation"></a>
 <p>Programmers learn the associativity and precedence of operations in their languages. That knowledge enables them to mentally calculate the value of statements like 5 + 4 * 3 / 2.</p>
 <p>What programmers often forget to learn about their language, is the order of evaluation of operands. Take several of those constants from the previous expression and replace them with variables and function calls:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-c++" data-lang="c++"><span style="color:#ae81ff">5</span> <span style="color:#f92672">+</span> a() <span style="color:#f92672">*</span> c <span style="color:#f92672">/</span> b()
-</code></pre></div><p>The questions abound:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#ae81ff">5</span> <span style="color:#f92672">+</span> a() <span style="color:#f92672">*</span> c <span style="color:#f92672">/</span> b()
+</span></span></code></pre></div><p>The questions abound:</p>
 <ul>
 <li>Is a() executed before the value of variable c is retrieved?</li>
 <li>Is b() executed before c()?</li>
@@ -1106,14 +1106,14 @@ a <span style="color:#f92672">=</span> b <span style="color:#f92672">=</span> c 
 <h2 ref="short-circuit-evaluation" >Short-circuit Evaluation</h2><a class="anchor" id="short-circuit-evaluation"></a>
 <p>Languages with <em>short-circuit evaluation</em> take these potential optimizations one step further. For a boolean expression, the compiler will stop evaluating the expression as soon as the result is fixed. For instance, in <code>a() &amp;&amp; b()</code>, if <code>a()</code> is <code>false</code>, then the entire statement will always be false, no matter the value of <code>b()</code>. In this case, the compiler/interpreter will simply not execute <code>b()</code>. On the other hand, in <code>a() || b()</code> if <code>a()</code> is true, then the entire statement will always be true, no matter the value of <code>b()</code>. In this case, the compiler/interpreter will simply not execute <code>b()</code>.</p>
 <p>A programmer&rsquo;s reliance on this type of behavior in a programming language is very common. For instance, this is a common idiom in C/C++:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">int</span> <span style="color:#f92672">*</span>variable <span style="color:#f92672">=</span> <span style="color:#66d9ef">nullptr</span>;
-
-...
-
-<span style="color:#66d9ef">if</span> (variable <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nullptr</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">*</span>variable <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">5</span>) {
-  ...
-}
-</code></pre></div><p>In this code, the programmer is checking to see whether there is memory allocated to variable before they attempt to read that memory. This is defensive programming thanks to short-circuit evaluation.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#f92672">*</span>variable <span style="color:#f92672">=</span> <span style="color:#66d9ef">nullptr</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (variable <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nullptr</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">*</span>variable <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">5</span>) {
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>In this code, the programmer is checking to see whether there is memory allocated to variable before they attempt to read that memory. This is defensive programming thanks to short-circuit evaluation.</p>
 <h2 ref="referential-transparency" >Referential Transparency</h2><a class="anchor" id="referential-transparency"></a>
 <p>Most of these issues would not be a problem if programmer&rsquo;s wrote functions that did not have side effects (remember that those are called pure functions). There are languages that will not allow side effects and those languages support referential transparency: A function has referential transparency if its value (its output) depends only on the value of its parameter(s). In other words, if given the same inputs, a referentially transparent function always gives the same output.</p>
 <h2 ref="put-it-all-together" >Put It All Together</h2><a class="anchor" id="put-it-all-together"></a>

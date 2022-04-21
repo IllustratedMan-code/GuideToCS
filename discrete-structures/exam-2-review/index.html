@@ -8,7 +8,7 @@
 </title>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2022-01-10T15:09:14 UTC">
+<meta name="revised" content="2022-04-21T20:15:09 UTC">
 <meta name="description" content="">
 
 
@@ -1096,14 +1096,14 @@
 </ul>
 <h4 ref="r-implementation-of-gcd" >R implementation of GCD</h4><a class="anchor" id="r-implementation-of-gcd"></a>
 <p>This is an implementation of Eculid&rsquo;s recursive GCD algorithm. Should be easy to convert to python.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-R" data-lang="R">euclid <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">function</span>(a, b) {
-  <span style="color:#a6e22e">print</span>(<span style="color:#a6e22e">c</span>(a, b))
-  <span style="color:#a6e22e">if </span>(b <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) {
-    <span style="color:#a6e22e">return</span>(a)
-  }
-  <span style="color:#a6e22e">euclid</span>(b, a <span style="color:#f92672">%%</span> b)
-}
-</code></pre></div><h2 ref="intro-to-graph-theory-euler-s-degree-formula" >Intro to Graph Theory, Euler&rsquo;s Degree Formula</h2><a class="anchor" id="intro-to-graph-theory-euler-s-degree-formula"></a>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-R" data-lang="R"><span style="display:flex;"><span>euclid <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">function</span>(a, b) {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">print</span>(<span style="color:#a6e22e">c</span>(a, b))
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">if </span>(b <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">return</span>(a)
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">euclid</span>(b, a <span style="color:#f92672">%%</span> b)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 ref="intro-to-graph-theory-euler-s-degree-formula" >Intro to Graph Theory, Euler&rsquo;s Degree Formula</h2><a class="anchor" id="intro-to-graph-theory-euler-s-degree-formula"></a>
 <ul>
 <li>A Graph is a series of vertices (nodes) that are connected by edges</li>
 <li>Degree (in this class) is equal to the number of edges that a node is connected to</li>

@@ -8,7 +8,7 @@
 </title>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2022-01-10T15:09:15 UTC">
+<meta name="revised" content="2022-04-21T20:15:09 UTC">
 <meta name="description" content="">
 
 
@@ -1090,17 +1090,17 @@
 <h2 ref="the-really-bad-programmer" >The Really Bad Programmer</h2><a class="anchor" id="the-really-bad-programmer"></a>
 <p>So, how can we determine whether a sentence made up of characters from the alphabet is in the language or not? We have to be able to answer this question &ndash; one of the fundamental jobs of the compiler, after all, is to do exactly that. Why not just write down every single valid sentence in a giant chart and compare the program with that list? If the program is in the list, then it&rsquo;s a valid program! That&rsquo;s easy.</p>
 <p>Not so fast. Aren&rsquo;t there an infinite number of valid C++ programs?</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
-  <span style="color:#66d9ef">if</span> (true) {
-    <span style="color:#66d9ef">if</span> (true) {
-      <span style="color:#66d9ef">if</span> (true) {
-        ...
-          std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Hello, World.&#34;</span>;
-      }
-    }
-  }
-}
-</code></pre></div><p>Well, dang. There goes that idea.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (true) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (true) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (true) {
+</span></span><span style="display:flex;"><span>        ...
+</span></span><span style="display:flex;"><span>          std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Hello, World.&#34;</span>;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Well, dang. There goes that idea.</p>
 <p>I guess we need a concise way to specify how to describe sentences that are in the language and those that are not. Before we start to think about ways to do that, let&rsquo;s think back to Prolog. One of the really neat things about Prolog was the ability to specify something that had, at the same time, an ability to recognize and generate valid solutions to a set of constraints. Even in our simplest Prolog example, we could write down a set of facts and the language could determine whether a student took a particular class (giving us a yes/no answer) or generate a list of the people who were taking a particular class!</p>
 <p>It would be great to have a tool that does the same thing for languages &ndash; a common description that allows us to create something that recognizes and generates valid sentences in the language. We will do exactly that!</p>
 <h2 ref="language-classes" >Language Classes</h2><a class="anchor" id="language-classes"></a>

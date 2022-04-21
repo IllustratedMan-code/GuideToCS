@@ -8,7 +8,7 @@
 </title>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2022-01-10T15:09:15 UTC">
+<meta name="revised" content="2022-04-21T20:15:09 UTC">
 <meta name="description" content="">
 
 
@@ -1072,9 +1072,9 @@
 <h2 ref="the-possibilities-are-endless" >The Possibilities Are Endless</h2><a class="anchor" id="the-possibilities-are-endless"></a>
 <p>Let&rsquo;s start the discussion by writing a merge/3 predicate. The first two arguments are sorted lists. The final argument should unify to the in-order version of the first two arguments merged. Before starting to write some Prolog, let&rsquo;s think about how we could do this.</p>
 <p>Let&rsquo;s deal with the base cases first: When either of the first two lists are empty, the merged list is the non-empty list. We&rsquo;ll write that like</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#a6e22e">merge</span>(Xs, [], Xs).
-<span style="color:#a6e22e">merge</span>([], Ys, Ys).
-</code></pre></div><p>And now, for the recursive cases: We will call the first argument Left, the second argument Right, and the third argument Sorted. The first element of Left can be called HeadLeft and the rest of Left can be called TailLeft. The first element of Right can be called HeadRight and the rest of Right can be called TailRight. In order to merge, there are three cases to consider:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-prolog" data-lang="prolog"><span style="display:flex;"><span><span style="color:#a6e22e">merge</span>(Xs, [], Xs).
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">merge</span>([], Ys, Ys).
+</span></span></code></pre></div><p>And now, for the recursive cases: We will call the first argument Left, the second argument Right, and the third argument Sorted. The first element of Left can be called HeadLeft and the rest of Left can be called TailLeft. The first element of Right can be called HeadRight and the rest of Right can be called TailRight. In order to merge, there are three cases to consider:</p>
 <ol>
 <li>HeadLeft is less than HeadRight</li>
 <li>HeadLeft is equal to HeadRight</li>
@@ -1082,45 +1082,45 @@
 </ol>
 <p>For case (1), the head of the merged result is HeadLeft and the tail of the merged result is the result of merging TailLeft with Right. For case (2), the head of the merged result is HeadLeft and the tail of the merged result is the result of merging TailLeft with TailRight. For case (3), the head of the merged result is HeadRight and the tail of the merged result is the result of merging Left with TailRight.</p>
 <p>It&rsquo;s far easier to write this in Prolog than English:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#a6e22e">merge</span>([X|Xs], [Y|Ys], [X|Zs]) :- X<span style="color:#f92672">&lt;</span>Y, <span style="color:#a6e22e">merge</span>(Xs, [Y|Ys], Zs).
-<span style="color:#a6e22e">merge</span>([X|Xs], [Y|Ys], [X|Zs]) :- X<span style="color:#f92672">=:=</span>Y, <span style="color:#a6e22e">merge</span>(Xs, Ys, Zs).
-<span style="color:#a6e22e">merge</span>([X|Xs], [Y|Ys], [Y|Zs]) :- Y<span style="color:#f92672">&lt;</span>X, <span style="color:#a6e22e">merge</span>([X|Xs], Ys, Zs).
-</code></pre></div><p>(Note: <code>:</code> is the &ldquo;equal to&rdquo; boolean operator in Prolog. See =:=/2 (Links to an external site.) for more information.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-prolog" data-lang="prolog"><span style="display:flex;"><span><span style="color:#a6e22e">merge</span>([X|Xs], [Y|Ys], [X|Zs]) :- X<span style="color:#f92672">&lt;</span>Y, <span style="color:#a6e22e">merge</span>(Xs, [Y|Ys], Zs).
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">merge</span>([X|Xs], [Y|Ys], [X|Zs]) :- X<span style="color:#f92672">=:=</span>Y, <span style="color:#a6e22e">merge</span>(Xs, Ys, Zs).
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">merge</span>([X|Xs], [Y|Ys], [Y|Zs]) :- Y<span style="color:#f92672">&lt;</span>X, <span style="color:#a6e22e">merge</span>([X|Xs], Ys, Zs).
+</span></span></code></pre></div><p>(Note: <code>:</code> is the &ldquo;equal to&rdquo; boolean operator in Prolog. See =:=/2 (Links to an external site.) for more information.</p>
 <p>For merge/3, let&rsquo;s write the base cases after our recursive cases. With that switcheroo, we have the following complete definition of merge/3:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#a6e22e">merge</span>([X|Xs], [Y|Ys], [X|Zs]) :- X<span style="color:#f92672">&lt;</span>Y, <span style="color:#a6e22e">merge</span>(Xs, [Y|Ys], Zs).
-<span style="color:#a6e22e">merge</span>([X|Xs], [Y|Ys], [X|Zs]) :- X<span style="color:#f92672">=:=</span>Y, <span style="color:#a6e22e">merge</span>(Xs, Ys, Zs).
-<span style="color:#a6e22e">merge</span>([X|Xs], [Y|Ys], [Y|Zs]) :- Y<span style="color:#f92672">&lt;</span>X, <span style="color:#a6e22e">merge</span>([X|Xs], Ys, Zs).
-<span style="color:#a6e22e">merge</span>(Xs, [], Xs).
-<span style="color:#a6e22e">merge</span>([], Ys, Ys).
-</code></pre></div><p>Let&rsquo;s follow Prolog as it attempts to use our predicate to answer the query</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#a6e22e">merge</span>([<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">5</span>], [<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">6</span>], M).
-</code></pre></div><p>As we know, Prolog will search top to bottom when looking for ways to unify and the first rule that Prolog sees is applicable:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#a6e22e">merge</span>([X|Xs], [Y|Ys], [X|Zs]) :- X<span style="color:#f92672">&lt;</span>Y, <span style="color:#a6e22e">merge</span>(Xs, [Y|Ys], Zs).
-</code></pre></div><p>Why? Because Prolog sees X as 1 and Y as 2 and 1 &lt; 2. Therefore, Prolog will complete its unification for this query by replacing it with another query:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#a6e22e">merge</span>([<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">5</span>], [<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">6</span>], Zs).
-</code></pre></div><figure><img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/Merge%20No%20Cut%281%29.png"/>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-prolog" data-lang="prolog"><span style="display:flex;"><span><span style="color:#a6e22e">merge</span>([X|Xs], [Y|Ys], [X|Zs]) :- X<span style="color:#f92672">&lt;</span>Y, <span style="color:#a6e22e">merge</span>(Xs, [Y|Ys], Zs).
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">merge</span>([X|Xs], [Y|Ys], [X|Zs]) :- X<span style="color:#f92672">=:=</span>Y, <span style="color:#a6e22e">merge</span>(Xs, Ys, Zs).
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">merge</span>([X|Xs], [Y|Ys], [Y|Zs]) :- Y<span style="color:#f92672">&lt;</span>X, <span style="color:#a6e22e">merge</span>([X|Xs], Ys, Zs).
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">merge</span>(Xs, [], Xs).
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">merge</span>([], Ys, Ys).
+</span></span></code></pre></div><p>Let&rsquo;s follow Prolog as it attempts to use our predicate to answer the query</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-prolog" data-lang="prolog"><span style="display:flex;"><span><span style="color:#a6e22e">merge</span>([<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">5</span>], [<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">6</span>], M).
+</span></span></code></pre></div><p>As we know, Prolog will search top to bottom when looking for ways to unify and the first rule that Prolog sees is applicable:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-prolog" data-lang="prolog"><span style="display:flex;"><span><span style="color:#a6e22e">merge</span>([X|Xs], [Y|Ys], [X|Zs]) :- X<span style="color:#f92672">&lt;</span>Y, <span style="color:#a6e22e">merge</span>(Xs, [Y|Ys], Zs).
+</span></span></code></pre></div><p>Why? Because Prolog sees X as 1 and Y as 2 and 1 &lt; 2. Therefore, Prolog will complete its unification for this query by replacing it with another query:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-prolog" data-lang="prolog"><span style="display:flex;"><span><span style="color:#a6e22e">merge</span>([<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">5</span>], [<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">6</span>], Zs).
+</span></span></code></pre></div><figure><img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/Merge%20No%20Cut%281%29.png"/>
 </figure>
 
 <p>Once Prolog has completed that query, the response comes back:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog">M <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">6</span>]
-</code></pre></div><p>Unfortunately, that&rsquo;s not the whole story. While Prolog is off attempting to satisfy the subquery merge([3,5], [2,4,6], Zs)., it believes that there are still several other viable alternatives for satisfying our original query:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#a6e22e">merge</span>([X|Xs], [Y|Ys], [X|Zs]) :- X<span style="color:#f92672">=:=</span>Y, <span style="color:#a6e22e">merge</span>(Xs, Ys, Zs).
-<span style="color:#a6e22e">merge</span>([X|Xs], [Y|Ys], [Y|Zs]) :- Y<span style="color:#f92672">&lt;</span>X, <span style="color:#a6e22e">merge</span>([X|Xs], Ys, Zs).
-<span style="color:#a6e22e">merge</span>(Xs, [], Xs).
-<span style="color:#a6e22e">merge</span>([], Ys, Ys).
-</code></pre></div><p>The result is that Prolog will have to use memory to remember those alternatives. As the lists that we ask Prolog to merge get longer and longer, that memory will have an impact on the system&rsquo;s performance. However, we know that those other alternatives will never match and keeping them around is a waste. How do we know that? Well, if X &lt; Y then it cannot be equal to Y and it certainly cannot be greater than Y. Moreover, the lists in the first two arguments cannot be empty. Overall, each of the possible rules for merge/3 are mutually exclusive. You can only choose one.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-prolog" data-lang="prolog"><span style="display:flex;"><span>M <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">6</span>]
+</span></span></code></pre></div><p>Unfortunately, that&rsquo;s not the whole story. While Prolog is off attempting to satisfy the subquery merge([3,5], [2,4,6], Zs)., it believes that there are still several other viable alternatives for satisfying our original query:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-prolog" data-lang="prolog"><span style="display:flex;"><span><span style="color:#a6e22e">merge</span>([X|Xs], [Y|Ys], [X|Zs]) :- X<span style="color:#f92672">=:=</span>Y, <span style="color:#a6e22e">merge</span>(Xs, Ys, Zs).
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">merge</span>([X|Xs], [Y|Ys], [Y|Zs]) :- Y<span style="color:#f92672">&lt;</span>X, <span style="color:#a6e22e">merge</span>([X|Xs], Ys, Zs).
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">merge</span>(Xs, [], Xs).
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">merge</span>([], Ys, Ys).
+</span></span></code></pre></div><p>The result is that Prolog will have to use memory to remember those alternatives. As the lists that we ask Prolog to merge get longer and longer, that memory will have an impact on the system&rsquo;s performance. However, we know that those other alternatives will never match and keeping them around is a waste. How do we know that? Well, if X &lt; Y then it cannot be equal to Y and it certainly cannot be greater than Y. Moreover, the lists in the first two arguments cannot be empty. Overall, each of the possible rules for merge/3 are mutually exclusive. You can only choose one.</p>
 <p>If there were a way to tell Prolog that those other possibilities are impossible after it encounters a matching rule that would save Prolog from having to keep them around. The good news is that there is!</p>
 <p>We can use the cut (Links to an external site.) operator to tell Prolog that once it has &ldquo;descended&rdquo; down a particular path, there is no sense backtracking beyond that point to look for alternate solutions. The technical definition of a cut is</p>
 <blockquote>
 <p>Discard all choice points created since entering the predicate in which the cut appears. In other words, commit to the clause in which the cut appears and discard choice points that have been created by goals to the left of the cut in the current clause.</p>
 </blockquote>
 <p>Let&rsquo;s rewrite our merge/3 predicate to take advantage of cuts and save some overhead:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#a6e22e">merge</span>([X|Xs], [Y|Ys], [X|Zs]) :- X<span style="color:#f92672">&lt;</span>Y, !, <span style="color:#a6e22e">merge</span>(Xs, [Y|Ys], Zs).
-<span style="color:#a6e22e">merge</span>([X|Xs], [Y|Ys], [X|Zs]) :- X<span style="color:#f92672">=:=</span>Y, !, <span style="color:#a6e22e">merge</span>(Xs, Ys, Zs).
-<span style="color:#a6e22e">merge</span>([X|Xs], [Y|Ys], [Y|Zs]) :- Y<span style="color:#f92672">&lt;</span>X, !, <span style="color:#a6e22e">merge</span>([X|Xs], Ys, Zs).
-<span style="color:#a6e22e">merge</span>(Xs, [], Xs) :- !.
-<span style="color:#a6e22e">merge</span>([], Ys, Ys) :- !.
-</code></pre></div><p>Returning to the definition of cut, in the first rule we are telling Prolog (through our use of the cut) to disregard all choice points created to the left of the !. In particular, we are telling Prolog to forget about the choice it made that X &lt; Y. The result is that Prolog is no longer under the impression that there are other rules that are applicable. Visually, the situation resembles</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-prolog" data-lang="prolog"><span style="display:flex;"><span><span style="color:#a6e22e">merge</span>([X|Xs], [Y|Ys], [X|Zs]) :- X<span style="color:#f92672">&lt;</span>Y, !, <span style="color:#a6e22e">merge</span>(Xs, [Y|Ys], Zs).
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">merge</span>([X|Xs], [Y|Ys], [X|Zs]) :- X<span style="color:#f92672">=:=</span>Y, !, <span style="color:#a6e22e">merge</span>(Xs, Ys, Zs).
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">merge</span>([X|Xs], [Y|Ys], [Y|Zs]) :- Y<span style="color:#f92672">&lt;</span>X, !, <span style="color:#a6e22e">merge</span>([X|Xs], Ys, Zs).
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">merge</span>(Xs, [], Xs) :- !.
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">merge</span>([], Ys, Ys) :- !.
+</span></span></code></pre></div><p>Returning to the definition of cut, in the first rule we are telling Prolog (through our use of the cut) to disregard all choice points created to the left of the !. In particular, we are telling Prolog to forget about the choice it made that X &lt; Y. The result is that Prolog is no longer under the impression that there are other rules that are applicable. Visually, the situation resembles</p>
 <p><a href="https://uc.instructure.com/courses/1476336/pages/the-daily-pl-11-slash-10-slash-2021">Merge Cut.png</a></p>
 <h2 ref="dr-dot-cutyll-and-mr-dot-unify" >Dr. Cutyll and Mr. Unify</h2><a class="anchor" id="dr-dot-cutyll-and-mr-dot-unify"></a>
 <p>Cuts are not always so beneficial. In fact, their use in Prolog is somewhat controversial. A cut necessarily limits Prolog&rsquo;s ability to backtrack. If the Prolog programmer uses a cut in a rule that is meant to be used declaratively (in order to generate values) and procedurally, then the cut may change the results.</p>

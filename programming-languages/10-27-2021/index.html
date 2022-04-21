@@ -8,7 +8,7 @@
 </title>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2022-01-10T15:09:15 UTC">
+<meta name="revised" content="2022-04-21T20:15:09 UTC">
 <meta name="description" content="">
 
 
@@ -1076,9 +1076,9 @@
 That escalated quickly
 .</p>
 <p>That&rsquo;s all very abstract. Let&rsquo;s look at the implications with a real-world example, which we will write in Haskell syntax:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-haskell" data-lang="haskell"><span style="color:#a6e22e">myLen</span> <span style="color:#66d9ef">[]</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-<span style="color:#a6e22e">myLen</span> (x<span style="color:#66d9ef">:</span>xs) <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> (myLen xs)
-</code></pre></div><p>myLen is a function that recursively calculates the length of a list. Let&rsquo;s see what the stack would look like when we call myLen [1,2,3]:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#a6e22e">myLen</span> <span style="color:#66d9ef">[]</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">myLen</span> (x<span style="color:#66d9ef">:</span>xs) <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> (myLen xs)
+</span></span></code></pre></div><p>myLen is a function that recursively calculates the length of a list. Let&rsquo;s see what the stack would look like when we call myLen [1,2,3]:</p>
 <figure><img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/Non%20Tail%20Recursion.png"/>
 </figure>
 
@@ -1092,10 +1092,10 @@ That escalated quickly
 <p>With a tail-recursive function, we get the expressiveness of a recursive definition of the algorithm along with the efficiency of an iterative solution! Ron Popeil, that&rsquo;s a deal!</p>
 <h2 ref="rewriting" >Rewriting</h2><a class="anchor" id="rewriting"></a>
 <p>The rub is that we need to figure out a way to rewrite those non-tail recursive functions into tail-recursive versions. I am not aware of any general purpose algorithms for such a conversion. However, there is one technique that is widely applicable: accumulators. It is sometimes possible to add a parameter to a non-tail recursive function and use that parameter to define a tail-recursive version. Seeing an accumulator in action is the easiest way to define the technique. Let&rsquo;s rewrite myLen in a tail-recursive manner using an accumulator:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-haskell" data-lang="haskell"><span style="color:#a6e22e">myLen</span> list <span style="color:#f92672">=</span> myLenImpl <span style="color:#ae81ff">0</span> list
-<span style="color:#a6e22e">myLenImpl</span> acc <span style="color:#66d9ef">[]</span> <span style="color:#f92672">=</span> acc
-<span style="color:#a6e22e">myLenImpl</span> acc (x<span style="color:#66d9ef">:</span>xs) <span style="color:#f92672">=</span> myLenImpl (<span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> acc) xs
-</code></pre></div><p>First, notice how we are turning myLen into a function that simply invokes a worker function whose job is to do the actual calculation! The first parameter to myLenImpl is used to hold a running tally of the length of the list so far. The first invocation of myLenImpl from the implementation of myLen, then, passes 0 as the argument to the accumulator because the running tally of the length so far is, well, 0. The implementation of myLenImpl adds 1 to that accumulator variable for every list item that is stripped from the front of the list. The result is that the result of an invocation of myLenImpl does not rely on the completion of a recursive execution. Therefore, myLenImpl qualifies as a tail-recursive function! Woah.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-haskell" data-lang="haskell"><span style="display:flex;"><span><span style="color:#a6e22e">myLen</span> list <span style="color:#f92672">=</span> myLenImpl <span style="color:#ae81ff">0</span> list
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">myLenImpl</span> acc <span style="color:#66d9ef">[]</span> <span style="color:#f92672">=</span> acc
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">myLenImpl</span> acc (x<span style="color:#66d9ef">:</span>xs) <span style="color:#f92672">=</span> myLenImpl (<span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> acc) xs
+</span></span></code></pre></div><p>First, notice how we are turning myLen into a function that simply invokes a worker function whose job is to do the actual calculation! The first parameter to myLenImpl is used to hold a running tally of the length of the list so far. The first invocation of myLenImpl from the implementation of myLen, then, passes 0 as the argument to the accumulator because the running tally of the length so far is, well, 0. The implementation of myLenImpl adds 1 to that accumulator variable for every list item that is stripped from the front of the list. The result is that the result of an invocation of myLenImpl does not rely on the completion of a recursive execution. Therefore, myLenImpl qualifies as a tail-recursive function! Woah.</p>
 <p>Let&rsquo;s look at the difference in the contents of the run-time stack when we use the tail-recursive version of myLen to calculate the length of the list [1,2,3]:</p>
 <figure><img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/Tail%20Recursion.png"/>
 </figure>

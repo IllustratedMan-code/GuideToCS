@@ -8,7 +8,7 @@
 </title>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2022-01-10T15:09:15 UTC">
+<meta name="revised" content="2022-04-21T20:15:09 UTC">
 <meta name="description" content="">
 
 
@@ -1114,13 +1114,13 @@
 <p>We will not study Lisp in this course. However, there are a few aspects of Lisp that you should know because they pervade the general field of computer science.</p>
 <p>First, you should know CAR, CDR and CONS &ndash; pronounced car, could-er, and cahns, respectively. CAR is a function that takes a list as a parameter and returns the first element of the list. CDR is a function that takes a list as a parameter and returns the tail, everything but the head, of the list. CONS takes two parameters &ndash; a single element and a list &ndash; and returns a new list with the first argument appended to the front of the second argument.</p>
 <p>For instance,</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-elisp" data-lang="elisp">(<span style="color:#a6e22e">car</span> (<span style="color:#ae81ff">1</span> <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">3</span>))
-</code></pre></div><p>is <code>1</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-elisp" data-lang="elisp">(<span style="color:#a6e22e">cdr</span> (<span style="color:#ae81ff">1</span> <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">3</span>))
-</code></pre></div><p>is <code>(2 3)</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-elisp" data-lang="elisp"><span style="display:flex;"><span>(<span style="color:#a6e22e">car</span> (<span style="color:#ae81ff">1</span> <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">3</span>))
+</span></span></code></pre></div><p>is <code>1</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-elisp" data-lang="elisp"><span style="display:flex;"><span>(<span style="color:#a6e22e">cdr</span> (<span style="color:#ae81ff">1</span> <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">3</span>))
+</span></span></code></pre></div><p>is <code>(2 3)</code>.</p>
 <p>Second, you should know that, in Lisp, all data are lists <em>and</em> programs are lists.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-elisp" data-lang="elisp">(a b c)
-</code></pre></div><p>is a list in Lisp. In Lisp, (a b c) could be interpreted as a list of atoms a, b and c or an invocation of function a with parameters b and c.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-elisp" data-lang="elisp"><span style="display:flex;"><span>(a b c)
+</span></span></code></pre></div><p>is a list in Lisp. In Lisp, (a b c) could be interpreted as a list of atoms a, b and c or an invocation of function a with parameters b and c.</p>
 <h2 ref="lambda-calculus" >Lambda Calculus</h2><a class="anchor" id="lambda-calculus"></a>
 <p>Lambda Calculus is the theoretical basis of functional programming languages in the same way that the Turing Machine is the theoretical basis of the imperative programming languages. The Lambda Calculus is nothing like &ldquo;calculus&rdquo; &ndash; the word calculus is used here in its strict sense: <a href="https://en.wikipedia.org/wiki/Calculus%5F(disambiguation)">a method or system of calculation</a> . It is better to think of Lambda Calculus as a programming language rather than a branch of mathematics.</p>
 <p>Lambda Calculus is a model of computation defined entirely by function application. The Lambda Calculus is as powerful as a Turning Machine which means that anything computable can be computed in the Lambda Calculus. For a language as simple as the Lambda Calculus, that&rsquo;s remarkable!</p>

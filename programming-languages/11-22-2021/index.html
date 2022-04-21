@@ -8,7 +8,7 @@
 </title>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2022-01-10T15:09:15 UTC">
+<meta name="revised" content="2022-04-21T20:15:09 UTC">
 <meta name="description" content="">
 
 
@@ -1090,10 +1090,10 @@ An Assignment Grammar</p>
 </figure>
 
 <p>Let&rsquo;s assume that we are looking at the following program written in our hypothetical language:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-c" data-lang="c"><span style="color:#66d9ef">int</span> A;
-real B;
-A <span style="color:#f92672">=</span> A <span style="color:#f92672">+</span> B;
-</code></pre></div><p>The declarations of the variables A and B are handled by parts of the grammar that we are not showing in our example. Again, when those declarations are parsed, an entry is made in the symbol table so that variable names can be mapped to types. Let&rsquo;s derive A = A + B; using the snippet of the grammar shown above:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> A;
+</span></span><span style="display:flex;"><span>real B;
+</span></span><span style="display:flex;"><span>A <span style="color:#f92672">=</span> A <span style="color:#f92672">+</span> B;
+</span></span></code></pre></div><p>The declarations of the variables A and B are handled by parts of the grammar that we are not showing in our example. Again, when those declarations are parsed, an entry is made in the symbol table so that variable names can be mapped to types. Let&rsquo;s derive A = A + B; using the snippet of the grammar shown above:</p>
 <figure><img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/Screenshot%20from%202021-11-27%2000-59-32.png"/>
 </figure>
 

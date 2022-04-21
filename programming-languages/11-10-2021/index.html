@@ -8,7 +8,7 @@
 </title>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2022-01-10T15:09:15 UTC">
+<meta name="revised" content="2022-04-21T20:15:09 UTC">
 <meta name="description" content="">
 
 
@@ -1077,17 +1077,17 @@
 	    <p>In today&rsquo;s class we learned about a workhorse rule in logic programming: append/3. append/3 can be used to implement many other different rules, including a rule that will generate all the permutations of a list!</p>
 <h2 ref="pin-the-tail-on-the-list" >Pin the Tail on the List</h2><a class="anchor" id="pin-the-tail-on-the-list"></a>
 <p>The goal (pun intended) of append is to determine whether two lists, X and Y, are the same as a third list, Z, when appended together. We could use the append query like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#e6db74">?-</span> <span style="color:#a6e22e">append</span>([<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>], [<span style="color:#e6db74">a</span>,<span style="color:#e6db74">b</span>,<span style="color:#e6db74">c</span>], [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#e6db74">a</span>,<span style="color:#e6db74">b</span>,<span style="color:#e6db74">c</span>]).
-<span style="color:#e6db74">true</span>.
-</code></pre></div><p>or</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#e6db74">?-</span> <span style="color:#a6e22e">append</span>([<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>], [<span style="color:#e6db74">a</span>,<span style="color:#e6db74">b</span>], [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#e6db74">a</span>,<span style="color:#e6db74">b</span>,<span style="color:#e6db74">c</span>]).
-<span style="color:#e6db74">false</span>.
-</code></pre></div><p>What we will find is that append/3 has a hidden superpower besides its ability to simply answer yes/no queries like the ones above.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-prolog" data-lang="prolog"><span style="display:flex;"><span><span style="color:#e6db74">?-</span> <span style="color:#a6e22e">append</span>([<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>], [<span style="color:#e6db74">a</span>,<span style="color:#e6db74">b</span>,<span style="color:#e6db74">c</span>], [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#e6db74">a</span>,<span style="color:#e6db74">b</span>,<span style="color:#e6db74">c</span>]).
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">true</span>.
+</span></span></code></pre></div><p>or</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-prolog" data-lang="prolog"><span style="display:flex;"><span><span style="color:#e6db74">?-</span> <span style="color:#a6e22e">append</span>([<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>], [<span style="color:#e6db74">a</span>,<span style="color:#e6db74">b</span>], [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#e6db74">a</span>,<span style="color:#e6db74">b</span>,<span style="color:#e6db74">c</span>]).
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">false</span>.
+</span></span></code></pre></div><p>What we will find is that append/3 has a hidden superpower besides its ability to simply answer yes/no queries like the ones above.</p>
 <p>The definition of append/3 will follow the pattern of other recursively defined rules that we have seen so far. Let&rsquo;s start with the base case. The result of appending an empty list with some list Y, is just list Y. Let&rsquo;s write that down:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#a6e22e">append</span>([], Y, Y).
-</code></pre></div><p>And now for the recursive case: appending list X to list Y yields some list Z where Z is the first element of the list X following by the result of appending the tail of X with Y. The natural language version of the definition is complicated but I think that the Prolog definition makes it more clear:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#a6e22e">append</span>([H|T], Y, [H|AppendedList]) :- <span style="color:#a6e22e">append</span>(T, Y, AppendedList).
-</code></pre></div><p>Let&rsquo;s see how Prolog attempts to answer the query append([1,2], [a,b], [1,2,a,b]).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-prolog" data-lang="prolog"><span style="display:flex;"><span><span style="color:#a6e22e">append</span>([], Y, Y).
+</span></span></code></pre></div><p>And now for the recursive case: appending list X to list Y yields some list Z where Z is the first element of the list X following by the result of appending the tail of X with Y. The natural language version of the definition is complicated but I think that the Prolog definition makes it more clear:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-prolog" data-lang="prolog"><span style="display:flex;"><span><span style="color:#a6e22e">append</span>([H|T], Y, [H|AppendedList]) :- <span style="color:#a6e22e">append</span>(T, Y, AppendedList).
+</span></span></code></pre></div><p>Let&rsquo;s see how Prolog attempts to answer the query append([1,2], [a,b], [1,2,a,b]).</p>
 <figure><img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/Append%20Query%20Success.png"/>
 </figure>
 
@@ -1096,80 +1096,80 @@
 </figure>
 
 <p>It&rsquo;s also natural to look at append/3 as a tool to &ldquo;assign&rdquo; a variable to be the result of appending two lists:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#e6db74">?-</span> <span style="color:#a6e22e">append</span>([<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>], [<span style="color:#e6db74">a</span>,<span style="color:#e6db74">b</span>,<span style="color:#e6db74">c</span>], Z).
-Z <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#e6db74">a</span>, <span style="color:#e6db74">b</span>, <span style="color:#e6db74">c</span>].
-</code></pre></div><p>Here we are asking Prolog to assign variable Z to be a list that holds the appended contents of the lists in the first two arguments.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-prolog" data-lang="prolog"><span style="display:flex;"><span><span style="color:#e6db74">?-</span> <span style="color:#a6e22e">append</span>([<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>], [<span style="color:#e6db74">a</span>,<span style="color:#e6db74">b</span>,<span style="color:#e6db74">c</span>], Z).
+</span></span><span style="display:flex;"><span>Z <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#e6db74">a</span>, <span style="color:#e6db74">b</span>, <span style="color:#e6db74">c</span>].
+</span></span></code></pre></div><p>Here we are asking Prolog to assign variable Z to be a list that holds the appended contents of the lists in the first two arguments.</p>
 <h2 ref="look-at-append-from-a-different-angle" >Look at Append From a Different Angle</h2><a class="anchor" id="look-at-append-from-a-different-angle"></a>
 <p>We&rsquo;ve seen append/3 in action so far in a procedural way &ndash; answering whether two lists are equal to one another and &ldquo;assigning&rdquo; a variable to a list that holds the contents of another two lists appended to one another. But earlier I said that append/3 has some magical powers.</p>
 <p>If we look at append/3 from a different angle, the declarative angle, we can see how it can be used to generate all the different combinations of two lists that, when appended together, yield a third list! For example,</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#e6db74">?-</span> <span style="color:#a6e22e">append</span>(X, Y, [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>]).
-X <span style="color:#f92672">=</span> [],
-Y <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>] ;
-X <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>],
-Y <span style="color:#f92672">=</span> [<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>] ;
-X <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>],
-Y <span style="color:#f92672">=</span> [<span style="color:#ae81ff">3</span>] ;
-X <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>],
-Y <span style="color:#f92672">=</span> [] ;
-</code></pre></div><p>Wow. That&rsquo;s pretty cool! Prolog is telling us that it can figure out three different combinations of lists that, when appended together, will equal the list [1,2,3]. I mean, if that doesn&rsquo;t make your blood boil, I don&rsquo;t know what will.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-prolog" data-lang="prolog"><span style="display:flex;"><span><span style="color:#e6db74">?-</span> <span style="color:#a6e22e">append</span>(X, Y, [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>]).
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> [],
+</span></span><span style="display:flex;"><span>Y <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>] ;
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>],
+</span></span><span style="display:flex;"><span>Y <span style="color:#f92672">=</span> [<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>] ;
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>],
+</span></span><span style="display:flex;"><span>Y <span style="color:#f92672">=</span> [<span style="color:#ae81ff">3</span>] ;
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>],
+</span></span><span style="display:flex;"><span>Y <span style="color:#f92672">=</span> [] ;
+</span></span></code></pre></div><p>Wow. That&rsquo;s pretty cool! Prolog is telling us that it can figure out three different combinations of lists that, when appended together, will equal the list [1,2,3]. I mean, if that doesn&rsquo;t make your blood boil, I don&rsquo;t know what will.</p>
 <h2 ref="let-s-ride-the-thoroughbred" >Let&rsquo;s Ride the Thoroughbred</h2><a class="anchor" id="let-s-ride-the-thoroughbred"></a>
 <p>The power of append/3 makes it useful in so many different ways. When I started learning Prolog, the resource I was using (Learn Prolog Now (Links to an external site.)) spent an inordinate amount of time discussing append/3 and it&rsquo;s utility. It took me a long time to really understand the author&rsquo;s point. A long time.</p>
 <h3 ref="prefix-and-suffix" >Prefix and Suffix</h3><a class="anchor" id="prefix-and-suffix"></a>
 <p>Let&rsquo;s take a quick look at how to define a rule prefix/2. prefix/2 takes two arguments &ndash; a possible prefix, PP,  and a list, L &ndash; and determines whether PP is a prefix of L. We&rsquo;ve gotten so used to writing recursive definitions, it seems obvious that we would define prefix/2 using that pattern. In the base case, an empty list is a prefix of any list:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#a6e22e">prefix</span>([], <span style="color:#66d9ef">_</span>).
-</code></pre></div><p>(Remember that _ is &ldquo;I don&rsquo;t care.&quot;). With that out of the way, we can say that PP is a prefix of L if</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-prolog" data-lang="prolog"><span style="display:flex;"><span><span style="color:#a6e22e">prefix</span>([], <span style="color:#66d9ef">_</span>).
+</span></span></code></pre></div><p>(Remember that _ is &ldquo;I don&rsquo;t care.&rdquo;). With that out of the way, we can say that PP is a prefix of L if</p>
 <p>the head element of PP is the same as the head element of L, and
 the tail of PP is a prefix of the tail of L:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#a6e22e">prefix</span>([H|Xs], [H|Ys]) :- <span style="color:#a6e22e">prefix</span>(Xs, Ys).
-</code></pre></div><p>Fantastic. That&rsquo;s a pretty easy definition and it works in all the ways that we would expect:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#e6db74">?-</span> <span style="color:#a6e22e">prefix</span>([<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>], [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>]).
-<span style="color:#e6db74">true</span>.
-
-<span style="color:#e6db74">?-</span> <span style="color:#a6e22e">prefix</span>([<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>], [<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>]).
-<span style="color:#e6db74">false</span>.
-
-<span style="color:#e6db74">?-</span> <span style="color:#a6e22e">prefix</span>(X, [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>]).
-X <span style="color:#f92672">=</span> [] ;
-X <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>] ;
-X <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>] ;
-X <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>] ;
-</code></pre></div><p>But, what if there was a way that we could write the definition of prefix/2 more succinctly! Remember, programmers are lazy &ndash; the fewer keystrokes the better!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-prolog" data-lang="prolog"><span style="display:flex;"><span><span style="color:#a6e22e">prefix</span>([H|Xs], [H|Ys]) :- <span style="color:#a6e22e">prefix</span>(Xs, Ys).
+</span></span></code></pre></div><p>Fantastic. That&rsquo;s a pretty easy definition and it works in all the ways that we would expect:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-prolog" data-lang="prolog"><span style="display:flex;"><span><span style="color:#e6db74">?-</span> <span style="color:#a6e22e">prefix</span>([<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>], [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>]).
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">true</span>.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">?-</span> <span style="color:#a6e22e">prefix</span>([<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>], [<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>]).
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">false</span>.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">?-</span> <span style="color:#a6e22e">prefix</span>(X, [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>]).
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> [] ;
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>] ;
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>] ;
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>] ;
+</span></span></code></pre></div><p>But, what if there was a way that we could write the definition of prefix/2 more succinctly! Remember, programmers are lazy &ndash; the fewer keystrokes the better!</p>
 <p>Think about this alternate definition of prefix: PP is a prefix of L, when there is a (possibly empty) list, W (short for &ldquo;whatever&rdquo;), such that PP appended with W is equal to L. Did you see the magic word? Appended! We have append/3, so let&rsquo;s use it:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#a6e22e">prefix</span>(PP, L) :- <span style="color:#a6e22e">append</span>(PP, <span style="color:#66d9ef">_</span>, L).
-</code></pre></div><p>(Note that we have replaced W from a natural-language definition with _ because we don&rsquo;t care about it&rsquo;s value!)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-prolog" data-lang="prolog"><span style="display:flex;"><span><span style="color:#a6e22e">prefix</span>(PP, L) :- <span style="color:#a6e22e">append</span>(PP, <span style="color:#66d9ef">_</span>, L).
+</span></span></code></pre></div><p>(Note that we have replaced W from a natural-language definition with _ because we don&rsquo;t care about it&rsquo;s value!)</p>
 <p>We could go through the same process of defining suffix/2 recursively, or we could cut to the chase and define it in terms of append/3. Let&rsquo;s save ourselves some time: SS is a suffix of L, when there is a (possibly empty) list, W (short for &ldquo;whatever&rdquo;), such that W appended with SS is equal to L. Let&rsquo;s codify that:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#a6e22e">suffix</span>(SS, L) :- <span style="color:#a6e22e">append</span>(<span style="color:#66d9ef">_</span>, SS, L).
-</code></pre></div><p>But, does it work?</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#e6db74">?-</span> <span style="color:#a6e22e">suffix_append</span>([<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>], [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>]).
-<span style="color:#e6db74">true</span>.
-
-<span style="color:#e6db74">?-</span> <span style="color:#a6e22e">suffix_append</span>([<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">5</span>], [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>]).
-<span style="color:#e6db74">false</span>.
-
-<span style="color:#e6db74">?-</span> <span style="color:#a6e22e">suffix_append</span>(X, [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>]).
-X <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>] ;
-X <span style="color:#f92672">=</span> [<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>] ;
-X <span style="color:#f92672">=</span> [<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>] ;
-X <span style="color:#f92672">=</span> [<span style="color:#ae81ff">4</span>] ;
-X <span style="color:#f92672">=</span> [] ;
-</code></pre></div><h2 ref="permutations" >Permutations</h2><a class="anchor" id="permutations"></a>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-prolog" data-lang="prolog"><span style="display:flex;"><span><span style="color:#a6e22e">suffix</span>(SS, L) :- <span style="color:#a6e22e">append</span>(<span style="color:#66d9ef">_</span>, SS, L).
+</span></span></code></pre></div><p>But, does it work?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-prolog" data-lang="prolog"><span style="display:flex;"><span><span style="color:#e6db74">?-</span> <span style="color:#a6e22e">suffix_append</span>([<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>], [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>]).
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">true</span>.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">?-</span> <span style="color:#a6e22e">suffix_append</span>([<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">5</span>], [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>]).
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">false</span>.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">?-</span> <span style="color:#a6e22e">suffix_append</span>(X, [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>]).
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>] ;
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> [<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>] ;
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> [<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>] ;
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> [<span style="color:#ae81ff">4</span>] ;
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> [] ;
+</span></span></code></pre></div><h2 ref="permutations" >Permutations</h2><a class="anchor" id="permutations"></a>
 <p>We&rsquo;re all friends here, aren&rsquo;t we? Good. I have no problem admitting that I am terrible at thinking about permutations of a set. I have tried and tried and tried to understand the section in Volume 4 of Knuth&rsquo;s TAOCP (Links to an external site.) about generating permutations (Links to an external site.) but it&rsquo;s just too hard for me. Instead, I just play around with them until I grok it. To help me play, I want Prolog&rsquo;s help. I want Prolog to generate for me all the permutations of a given list. We will call this permute/2. Procedurally, permute/2 will say whether its second argument is a permutation of its first argument. Declaratively, permute/2 will generate a list of permutations of elements in the list in its first argument. Let&rsquo;s work back from the end: We&rsquo;ll see how it should work before actually defining it:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#e6db74">?-</span> <span style="color:#a6e22e">permutation</span>([<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>], [<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>]).
-<span style="color:#e6db74">true</span> .
-
-<span style="color:#e6db74">?-</span> <span style="color:#a6e22e">permutation</span>([<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>], L).
-L <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>] ;
-L <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">2</span>] ;
-L <span style="color:#f92672">=</span> [<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">3</span>] ;
-L <span style="color:#f92672">=</span> [<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">1</span>] ;
-L <span style="color:#f92672">=</span> [<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>] ;
-L <span style="color:#f92672">=</span> [<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">1</span>] ;
-<span style="color:#e6db74">false</span>.
-</code></pre></div><p>Cool. If I run permute/2 enough times I might start to understand them!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-prolog" data-lang="prolog"><span style="display:flex;"><span><span style="color:#e6db74">?-</span> <span style="color:#a6e22e">permutation</span>([<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>], [<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>]).
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">true</span> .
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">?-</span> <span style="color:#a6e22e">permutation</span>([<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>], L).
+</span></span><span style="display:flex;"><span>L <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>] ;
+</span></span><span style="display:flex;"><span>L <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">2</span>] ;
+</span></span><span style="display:flex;"><span>L <span style="color:#f92672">=</span> [<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">3</span>] ;
+</span></span><span style="display:flex;"><span>L <span style="color:#f92672">=</span> [<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">1</span>] ;
+</span></span><span style="display:flex;"><span>L <span style="color:#f92672">=</span> [<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>] ;
+</span></span><span style="display:flex;"><span>L <span style="color:#f92672">=</span> [<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">1</span>] ;
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">false</span>.
+</span></span></code></pre></div><p>Cool. If I run permute/2 enough times I might start to understand them!</p>
 <p>Now that we know the results of invoking permute/2, how are we going to define it? Again, let&rsquo;s take the easy way out and see the definition and then walk through it piece-by-piece in order to understand its meaning:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#a6e22e">permute</span>([], []).
-<span style="color:#a6e22e">permute</span>(List, [X|Xs]) :- <span style="color:#a6e22e">append</span>(W, [X|U], List), <span style="color:#a6e22e">append</span>(W, U, ListWithoutX), <span style="color:#a6e22e">permute</span>(ListWithoutX, Xs).
-</code></pre></div><p>Well, the first rule is simple &ndash; the permutation of an empty list is just the empty list!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-prolog" data-lang="prolog"><span style="display:flex;"><span><span style="color:#a6e22e">permute</span>([], []).
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">permute</span>(List, [X|Xs]) :- <span style="color:#a6e22e">append</span>(W, [X|U], List), <span style="color:#a6e22e">append</span>(W, U, ListWithoutX), <span style="color:#a6e22e">permute</span>(ListWithoutX, Xs).
+</span></span></code></pre></div><p>Well, the first rule is simple &ndash; the permutation of an empty list is just the empty list!</p>
 <p>The second rule, well, not so much! There are three conditions that must be satisfied for a list defined as [X|Xs] to be a permutation of List.</p>
 <p>Think of the first condition in a declarative sense: &ldquo;Prolog, make me two lists that, when appended together, equal List. Name the first one W. And, while you&rsquo;re at it, make sure that the first element in the second list is X and call the tail of the second list U. Thanks.&rdquo;</p>
 <p>Think of the second condition in a procedural sense: &ldquo;Prolog, append W and U to create a new list named ListWithoutX.&rdquo; The name ListWithoutX is pretty evocative because, well, it is a list that contains every element of List but X.</p>

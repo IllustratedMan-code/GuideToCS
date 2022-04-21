@@ -8,7 +8,7 @@
 </title>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2022-01-10T15:09:15 UTC">
+<meta name="revised" content="2022-04-21T20:15:09 UTC">
 <meta name="description" content="">
 
 
@@ -1102,7 +1102,7 @@
 <p>If you are interested, you can find the <a href="https://isocpp.org/std/the-standard">C++ language standard</a> , <a href="https://docs.oracle.com/javase/specs/">the Java language standard</a> , the <a href="http://www.open-std.org/jtc1/sc22/wg14/">C language standard</a> , <a href="https://golang.org/ref/spec">the Go language standard</a> and <a href="https://docs.python.org/3/reference/">the Python language standard</a>  all online.</p>
 <h2 ref="testing-vs-proving" >Testing vs Proving</h2><a class="anchor" id="testing-vs-proving"></a>
 <p>There is absolutely a benefit to testing software. No doubt about it. However, testing that a piece of software behaves a certain way does not prove that it operates a certain way.</p>
-<p><em>&ldquo;Program testing can be used to show the presence of bugs, but never to show their absence!&quot;</em> - <a href="https://en.wikipedia.org/wiki/Edsger%5FW.%5FDijkstra">Edsger Dijkstra</a></p>
+<p><em>&ldquo;Program testing can be used to show the presence of bugs, but never to show their absence!&rdquo;</em> - <a href="https://en.wikipedia.org/wiki/Edsger%5FW.%5FDijkstra">Edsger Dijkstra</a></p>
 <p>There is an entire field of computer science known as formal methods whose goal is to understand how to write software that is provably correct. There are systems available for writing programs about which things can be proven. There is <a href="https://pvs.csl.sri.com/">PVS</a>, <a href="https://coq.inria.fr/">Coq</a> ,<a href="https://isabelle.in.tum.de/doc/tutorial.pdf">Isabelle</a> , and <a href="https://lamport.azurewebsites.net/tla/tla.html">TLA+</a> , to name a few. PVS is used by NASA to write its mission-critical software and even it makes an appearance in the movie <a href="https://shemesh.larc.nasa.gov/fm/pvs/TheMartian/">The Martian</a> .</p>
 <h2 ref="three-types-of-formal-semantics" >Three Types of Formal Semantics</h2><a class="anchor" id="three-types-of-formal-semantics"></a>
 <p>There are three common types of formal semantics. It is important that you know the names of these systems, but we will only focus on one in this course!</p>
@@ -1134,9 +1134,9 @@
 <p>\begin{equation*}
 \frac{premises}{conclusion}
 \end{equation*}</p>
-<p>The conclusion is generally written like &lt;e, σ&gt; ⟶ (v, τ, σ). This statement means that, when the premises hold, the rule evaluates to a value (v), type (τ) and (possibly modified) state (σ') after a single step of execution of a program in configuration &lt;e, σ&gt;. Note that rules do not yield configurations. All this will make sense when we see an example.</p>
+<p>The conclusion is generally written like &lt;e, σ&gt; ⟶ (v, τ, σ). This statement means that, when the premises hold, the rule evaluates to a value (v), type (τ) and (possibly modified) state (σ&rsquo;) after a single step of execution of a program in configuration &lt;e, σ&gt;. Note that rules do not yield configurations. All this will make sense when we see an example.</p>
 <h2 ref="example-1-defining-the-semantics-of-variable-access-dot" >Example 1: Defining the semantics of variable access.</h2><a class="anchor" id="example-1-defining-the-semantics-of-variable-access-dot"></a>
-<p>In STIMPL, the expression to access a variable, say i, is written like Variable(&ldquo;i&rdquo;). Our operational semantic rule for evaluating such an access should &ldquo;read&rdquo; something like: When the program is about to execute an expression to access variable i in a state σ, the value of the expression will be the triple of i&rsquo;s value, i&rsquo;s type and the unchanged state σ.&rdquo; In other words, the evaluation of the next step of a program that is about to access a value is the value and type of the variable being accessed and the program&rsquo;s state is unchanged.</p>
+<p>In STIMPL, the expression to access a variable, say i, is written like Variable(&ldquo;i&rdquo;). Our operational semantic rule for evaluating such an access should &ldquo;read&rdquo; something like: When the program is about to execute an expression to access variable i in a state σ, the value of the expression will be the triple of i&rsquo;s value, i&rsquo;s type and the unchanged state σ.&quot; In other words, the evaluation of the next step of a program that is about to access a value is the value and type of the variable being accessed and the program&rsquo;s state is unchanged.</p>
 <p>Let&rsquo;s write that formally!</p>
 <p>\begin{equation*}
 \(\frac{\sigma(x) \rightarrow (v, \tau)} {&lt;\text{Variable}(x), \sigma &gt; \rightarrow (v, \tau, \sigma)}\)
@@ -1153,10 +1153,10 @@
 <p>.</p>
 <h2 ref="example-2-defining-the-semantics-of-variable-assignment--for-a-variable-that-already-exists--dot" >Example 2: Defining the semantics of variable assignment (for a variable that already exists).</h2><a class="anchor" id="example-2-defining-the-semantics-of-variable-assignment--for-a-variable-that-already-exists--dot"></a>
 <p>In STIMPL, the expression to overwrite the value of an existing variable, say i, with, say, an integer literal 5 is written like <code>Assign(Variable(&quot;i&quot;), IntLiteral(5))</code>. Our operational semantic rule for evaluating such an assignment should &ldquo;read&rdquo; something like: When the program is about to execute an expression to assign variable i to the integer literal 5 in a state σ
-and the type of the variable i in state σ is Integer, the value of the expression will be the triple of 5, Integer and the changed state σ' which is exactly the same as state σ</p>
+and the type of the variable i in state σ is Integer, the value of the expression will be the triple of 5, Integer and the changed state σ&rsquo; which is exactly the same as state σ</p>
 <p>except where (5, Integer) replaced i&rsquo;s earlier contents.&quot; That&rsquo;s such a mouthful! But, I think we got it. Let&rsquo;s replace some of those literals with symbols for abstraction purposes and then write it down!</p>
 <p>\begin{equation*}
-\frac{&lt;e, \sigma&gt; \longrightarrow (v, \tau, \sigma'), \sigma(x) \longrightarrow (*,, \tau)} {&lt;\text{Assign(Variable)}(x, e), \sigma &gt; \longrightarrow (v, \tau, \sigma' [(v, \tau)/x])}
+\frac{&lt;e, \sigma&gt; \longrightarrow (v, \tau, \sigma&rsquo;), \sigma(x) \longrightarrow (*,, \tau)} {&lt;\text{Assign(Variable)}(x, e), \sigma &gt; \longrightarrow (v, \tau, \sigma&rsquo; [(v, \tau)/x])}
 \end{equation*}</p>
 <p>Let&rsquo;s look at it step-by-step:</p>
 <p>\begin{equation*}
@@ -1183,53 +1183,53 @@ is v, and τ. Moreover, the premise tells us that the state may have changed dur
 \(\frac{\sigma(x) \rightarrow (v, \tau)} {&lt;\text{Variable}(x), \sigma &gt; \rightarrow (v, \tau, \sigma)}\)
 \end{equation*}</p>
 <p>Compare that with the code for it&rsquo;s implementation in the STIMPL skeleton that you are provided for Assignment 1:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">evaluate</span>(expression, state):
-<span style="color:#f92672">...</span>
-
-    case Variable(variable_name<span style="color:#f92672">=</span>variable_name):
-      value <span style="color:#f92672">=</span> state<span style="color:#f92672">.</span>get_value(variable_name)
-      <span style="color:#66d9ef">if</span> value <span style="color:#f92672">==</span> <span style="color:#66d9ef">None</span>:
-        <span style="color:#66d9ef">raise</span> InterpSyntaxError(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Cannot read from </span><span style="color:#e6db74">{</span>variable_name<span style="color:#e6db74">}</span><span style="color:#e6db74"> before assignment.&#34;</span>)
-      <span style="color:#66d9ef">return</span> (<span style="color:#f92672">*</span>value, state)
-</code></pre></div><p>At this point in the code we are in a function named evaluate whose first parameter is the next expression to evaluate and whose second parameter is a state. Does that sound familiar? That&rsquo;s because it&rsquo;s the same as a <em>configuration</em>! We use <em>pattern matching</em> to select the code to execute. The pattern is based on the structure of <code>expression</code> and we match in the code above when <code>expression</code> is a variable access. Refer to Pattern Matching in Python for the exact form of the syntax. The <em>state</em> variable is an instance of the <code>State</code> object that provides a method called <code>get_value</code> (see Assignment 1: Implementing STIMPL for more information about that function) that returns a tuple of (v, τ) In other words, get_value works the same as σ. So,</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-python" data-lang="python">value <span style="color:#f92672">=</span> state<span style="color:#f92672">.</span>get_value(variable_name)
-</code></pre></div><p>is a means of implementing the premise of the operational semantics.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-python" data-lang="python">      <span style="color:#66d9ef">return</span> (<span style="color:#f92672">*</span>value, state)
-</code></pre></div><p>yields the final result! Pretty cool, right?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">evaluate</span>(expression, state):
+</span></span><span style="display:flex;"><span><span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    case Variable(variable_name<span style="color:#f92672">=</span>variable_name):
+</span></span><span style="display:flex;"><span>      value <span style="color:#f92672">=</span> state<span style="color:#f92672">.</span>get_value(variable_name)
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> value <span style="color:#f92672">==</span> <span style="color:#66d9ef">None</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">raise</span> InterpSyntaxError(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Cannot read from </span><span style="color:#e6db74">{</span>variable_name<span style="color:#e6db74">}</span><span style="color:#e6db74"> before assignment.&#34;</span>)
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> (<span style="color:#f92672">*</span>value, state)
+</span></span></code></pre></div><p>At this point in the code we are in a function named evaluate whose first parameter is the next expression to evaluate and whose second parameter is a state. Does that sound familiar? That&rsquo;s because it&rsquo;s the same as a <em>configuration</em>! We use <em>pattern matching</em> to select the code to execute. The pattern is based on the structure of <code>expression</code> and we match in the code above when <code>expression</code> is a variable access. Refer to Pattern Matching in Python for the exact form of the syntax. The <em>state</em> variable is an instance of the <code>State</code> object that provides a method called <code>get_value</code> (see Assignment 1: Implementing STIMPL for more information about that function) that returns a tuple of (v, τ) In other words, get_value works the same as σ. So,</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>value <span style="color:#f92672">=</span> state<span style="color:#f92672">.</span>get_value(variable_name)
+</span></span></code></pre></div><p>is a means of implementing the premise of the operational semantics.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> (<span style="color:#f92672">*</span>value, state)
+</span></span></code></pre></div><p>yields the final result! Pretty cool, right?</p>
 <p>Let&rsquo;s do the same analysis for assignment:</p>
 <p>\(\frac{&lt;e,\sigma&gt;\longrightarrow(v,\tau,\sigma′),\sigma′(x)\longrightarrow(*,\tau)}{&lt;Assign(Variable(x),e),σ&gt;\longrightarrow(v,\tau,σ′[(v,\tau)/x])}\)</p>
 <p>And here&rsquo;s the implementation:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">evaluate</span>(expression, state):
-<span style="color:#f92672">...</span>
-
-   case Assign(variable<span style="color:#f92672">=</span>variable, value<span style="color:#f92672">=</span>value):
-
-      value_result, value_type, new_state <span style="color:#f92672">=</span> evaluate(value, state)
-
-      variable_from_state <span style="color:#f92672">=</span> new_state<span style="color:#f92672">.</span>get_value(variable<span style="color:#f92672">.</span>variable_name)
-      _, variable_type <span style="color:#f92672">=</span> variable_from_state <span style="color:#66d9ef">if</span> variable_from_state <span style="color:#66d9ef">else</span> (<span style="color:#66d9ef">None</span>, <span style="color:#66d9ef">None</span>)
-
-      <span style="color:#66d9ef">if</span> value_type <span style="color:#f92672">!=</span> variable_type <span style="color:#f92672">and</span> variable_type <span style="color:#f92672">!=</span> <span style="color:#66d9ef">None</span>:
-        <span style="color:#66d9ef">raise</span> InterpTypeError(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;&#34;&#34;Mismatched types for Assignment:
-</span><span style="color:#e6db74">            Cannot assign </span><span style="color:#e6db74">{</span>value_type<span style="color:#e6db74">}</span><span style="color:#e6db74"> to </span><span style="color:#e6db74">{</span>variable_type<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;&#34;&#34;</span>)
-
-      new_state <span style="color:#f92672">=</span> new_state<span style="color:#f92672">.</span>set_value(variable<span style="color:#f92672">.</span>variable_name, value_result, value_type)
-      <span style="color:#66d9ef">return</span> (value_result, value_type, new_state)
-</code></pre></div><p>First, look at</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-python" data-lang="python">      value_result, value_type, new_state <span style="color:#f92672">=</span> evaluate(value, state)
-</code></pre></div><p>which is how we are able to find the values needed to satisfy the left-hand premise. value_result is v, value_type is τ
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">evaluate</span>(expression, state):
+</span></span><span style="display:flex;"><span><span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   case Assign(variable<span style="color:#f92672">=</span>variable, value<span style="color:#f92672">=</span>value):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      value_result, value_type, new_state <span style="color:#f92672">=</span> evaluate(value, state)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      variable_from_state <span style="color:#f92672">=</span> new_state<span style="color:#f92672">.</span>get_value(variable<span style="color:#f92672">.</span>variable_name)
+</span></span><span style="display:flex;"><span>      _, variable_type <span style="color:#f92672">=</span> variable_from_state <span style="color:#66d9ef">if</span> variable_from_state <span style="color:#66d9ef">else</span> (<span style="color:#66d9ef">None</span>, <span style="color:#66d9ef">None</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> value_type <span style="color:#f92672">!=</span> variable_type <span style="color:#f92672">and</span> variable_type <span style="color:#f92672">!=</span> <span style="color:#66d9ef">None</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">raise</span> InterpTypeError(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;&#34;&#34;Mismatched types for Assignment:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            Cannot assign </span><span style="color:#e6db74">{</span>value_type<span style="color:#e6db74">}</span><span style="color:#e6db74"> to </span><span style="color:#e6db74">{</span>variable_type<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      new_state <span style="color:#f92672">=</span> new_state<span style="color:#f92672">.</span>set_value(variable<span style="color:#f92672">.</span>variable_name, value_result, value_type)
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> (value_result, value_type, new_state)
+</span></span></code></pre></div><p>First, look at</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>      value_result, value_type, new_state <span style="color:#f92672">=</span> evaluate(value, state)
+</span></span></code></pre></div><p>which is how we are able to find the values needed to satisfy the left-hand premise. value_result is v, value_type is τ
 and new_state is σ&rsquo;.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-python" data-lang="python">      variable_from_state <span style="color:#f92672">=</span> new_state<span style="color:#f92672">.</span>get_value(variable<span style="color:#f92672">.</span>variable_name)
-</code></pre></div><p>is how we are able to find the values needed to satisfy the right-hand premise. Notice that we are using new_state (σ') to get variable.variable_name (x). There is some trickiness in_, variable_type = variable_from_state if variable_from_state else (None, None) to set things up in case we are doing the first assignment to the variable (which sets its type), so ignore that for now! Remember that in our premises we guaranteed that the type of the variable in state σ' matches the type of the expression:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-python" data-lang="python">      <span style="color:#66d9ef">if</span> value_type <span style="color:#f92672">!=</span> variable_type <span style="color:#f92672">and</span> variable_type <span style="color:#f92672">!=</span> <span style="color:#66d9ef">None</span>:
-        <span style="color:#66d9ef">raise</span> InterpTypeError(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;&#34;&#34;Mismatched types for Assignment:
-</span><span style="color:#e6db74">            Cannot assign </span><span style="color:#e6db74">{</span>value_type<span style="color:#e6db74">}</span><span style="color:#e6db74"> to </span><span style="color:#e6db74">{</span>variable_type<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;&#34;&#34;</span>)
-</code></pre></div><p>performs that check!</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-python" data-lang="python">      new_state <span style="color:#f92672">=</span> new_state<span style="color:#f92672">.</span>set_value(variable<span style="color:#f92672">.</span>variable_name, value_result, value_type)
-</code></pre></div><p>generates a new, new state (σ′[(v,τ)/x]) and</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-python" data-lang="python">
-      <span style="color:#66d9ef">return</span> (value_result, value_type, new_state)
-</code></pre></div><p>yields the final result!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>      variable_from_state <span style="color:#f92672">=</span> new_state<span style="color:#f92672">.</span>get_value(variable<span style="color:#f92672">.</span>variable_name)
+</span></span></code></pre></div><p>is how we are able to find the values needed to satisfy the right-hand premise. Notice that we are using new_state (σ&rsquo;) to get variable.variable_name (x). There is some trickiness in_, variable_type = variable_from_state if variable_from_state else (None, None) to set things up in case we are doing the first assignment to the variable (which sets its type), so ignore that for now! Remember that in our premises we guaranteed that the type of the variable in state σ&rsquo; matches the type of the expression:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> value_type <span style="color:#f92672">!=</span> variable_type <span style="color:#f92672">and</span> variable_type <span style="color:#f92672">!=</span> <span style="color:#66d9ef">None</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">raise</span> InterpTypeError(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;&#34;&#34;Mismatched types for Assignment:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            Cannot assign </span><span style="color:#e6db74">{</span>value_type<span style="color:#e6db74">}</span><span style="color:#e6db74"> to </span><span style="color:#e6db74">{</span>variable_type<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;&#34;&#34;</span>)
+</span></span></code></pre></div><p>performs that check!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>      new_state <span style="color:#f92672">=</span> new_state<span style="color:#f92672">.</span>set_value(variable<span style="color:#f92672">.</span>variable_name, value_result, value_type)
+</span></span></code></pre></div><p>generates a new, new state (σ′[(v,τ)/x]) and</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> (value_result, value_type, new_state)
+</span></span></code></pre></div><p>yields the final result!</p>
 
 		</div>
 

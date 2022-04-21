@@ -8,7 +8,7 @@
 </title>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2022-01-10T15:09:15 UTC">
+<meta name="revised" content="2022-04-21T20:15:09 UTC">
 <meta name="description" content="">
 
 
@@ -1102,53 +1102,53 @@
 <li>lookahead(): A function that returns the lookahead token.</li>
 </ol>
 <!--listend-->
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">Factor</span>:
-  <span style="color:#66d9ef">if</span> lookhead() <span style="color:#f92672">==</span> OPEN_PAREN:
-    <span style="color:#75715e"># Parsing a ( Expr )</span>
-    <span style="color:#75715e">#</span>
-    <span style="color:#75715e"># Eat the lookahead and move forward.</span>
-    curTok <span style="color:#f92672">=</span> nextToken()
-    <span style="color:#75715e"># Build a parse tree rooted at an expression,</span>
-    <span style="color:#75715e"># if possible.</span>
-    nestedExpr <span style="color:#f92672">=</span> Expr()
-    <span style="color:#75715e"># There was an error parsing that expression;</span>
-    <span style="color:#75715e"># we will return an error!</span>
-    <span style="color:#66d9ef">if</span> type(nestedExpr) <span style="color:#f92672">==</span> Error:
-      <span style="color:#66d9ef">return</span> nestedExpr
-    <span style="color:#75715e"># Expression parsing went well. We expect a )</span>
-    <span style="color:#75715e"># now.</span>
-    <span style="color:#66d9ef">if</span> lookahead() <span style="color:#f92672">==</span> CLOSE_PAREN:
-      <span style="color:#75715e"># Eat that close parenthesis.</span>
-      nextToken()
-      <span style="color:#75715e"># Return the root of the parse tree of the</span>
-      <span style="color:#75715e"># nested expression.</span>
-      <span style="color:#66d9ef">return</span> nestedExpr
-    <span style="color:#66d9ef">else</span>:
-      <span style="color:#75715e"># We expected a ) and did not get it.</span>
-      <span style="color:#66d9ef">return</span> Error(lookahead())
-  <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> lookahead() <span style="color:#f92672">==</span> ID:
-    <span style="color:#75715e"># Parsing a ID</span>
-    <span style="color:#75715e">#</span>
-    curTok <span style="color:#f92672">=</span> nextToken()
-    <span style="color:#66d9ef">return</span> Node(curTok)
-  <span style="color:#66d9ef">else</span>:
-    <span style="color:#75715e"># Parsing error!</span>
-    <span style="color:#66d9ef">return</span> Error(lookahead())
-</code></pre></div><p>Writing a function to parse a Factor is relatively straightforward. To get a sense for what it would be like to parse an expression, let&rsquo;s write a part of the Expr subprogram:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">Expr</span>:
-  <span style="color:#f92672">...</span>
-    leftHandExpr <span style="color:#f92672">=</span> Expr()
-    <span style="color:#66d9ef">if</span> type(leftHandExpr) <span style="color:#f92672">==</span> Error:
-      <span style="color:#66d9ef">return</span> leftHandExpr
-    <span style="color:#66d9ef">if</span> lookahead() <span style="color:#f92672">!=</span> PLUS:
-      curTok <span style="color:#f92672">=</span> nextToken()
-      <span style="color:#66d9ef">return</span> Error(curTok)
-    rightHandTerm <span style="color:#f92672">=</span> Term()
-    <span style="color:#66d9ef">if</span> type(rightHandTerm) <span style="color:#f92672">==</span> Error:
-      <span style="color:#66d9ef">return</span> rightHandTerm
-    <span style="color:#66d9ef">return</span> Node(Expr, leftHandExpr, rightHandTerm)
-  <span style="color:#f92672">...</span>
-</code></pre></div><p>What stands out is an emerging pattern that each of the subprograms will follow. Each subprogram is slowly matching the items from the grammar with the actual tokens that it sees. The subprogram associated with each nonterminal parses the nonterminals used in the production, &ldquo;eats&rdquo; the terminals in those same productions and converts it all into nodes in a parse tree. The subprogram that calls subprograms recursively melds together their return values into a new node that will become part of the overall parse tree, one level up.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">Factor</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> lookhead() <span style="color:#f92672">==</span> OPEN_PAREN:
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Parsing a ( Expr )</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Eat the lookahead and move forward.</span>
+</span></span><span style="display:flex;"><span>    curTok <span style="color:#f92672">=</span> nextToken()
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Build a parse tree rooted at an expression,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># if possible.</span>
+</span></span><span style="display:flex;"><span>    nestedExpr <span style="color:#f92672">=</span> Expr()
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># There was an error parsing that expression;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># we will return an error!</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> type(nestedExpr) <span style="color:#f92672">==</span> Error:
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> nestedExpr
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Expression parsing went well. We expect a )</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># now.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> lookahead() <span style="color:#f92672">==</span> CLOSE_PAREN:
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># Eat that close parenthesis.</span>
+</span></span><span style="display:flex;"><span>      nextToken()
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># Return the root of the parse tree of the</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># nested expression.</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> nestedExpr
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># We expected a ) and did not get it.</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> Error(lookahead())
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> lookahead() <span style="color:#f92672">==</span> ID:
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Parsing a ID</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span>    curTok <span style="color:#f92672">=</span> nextToken()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> Node(curTok)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Parsing error!</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> Error(lookahead())
+</span></span></code></pre></div><p>Writing a function to parse a Factor is relatively straightforward. To get a sense for what it would be like to parse an expression, let&rsquo;s write a part of the Expr subprogram:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">Expr</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>    leftHandExpr <span style="color:#f92672">=</span> Expr()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> type(leftHandExpr) <span style="color:#f92672">==</span> Error:
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> leftHandExpr
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> lookahead() <span style="color:#f92672">!=</span> PLUS:
+</span></span><span style="display:flex;"><span>      curTok <span style="color:#f92672">=</span> nextToken()
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> Error(curTok)
+</span></span><span style="display:flex;"><span>    rightHandTerm <span style="color:#f92672">=</span> Term()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> type(rightHandTerm) <span style="color:#f92672">==</span> Error:
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> rightHandTerm
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> Node(Expr, leftHandExpr, rightHandTerm)
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">...</span>
+</span></span></code></pre></div><p>What stands out is an emerging pattern that each of the subprograms will follow. Each subprogram is slowly matching the items from the grammar with the actual tokens that it sees. The subprogram associated with each nonterminal parses the nonterminals used in the production, &ldquo;eats&rdquo; the terminals in those same productions and converts it all into nodes in a parse tree. The subprogram that calls subprograms recursively melds together their return values into a new node that will become part of the overall parse tree, one level up.</p>
 <h2 ref="we-are-homefree" >We Are Homefree</h2><a class="anchor" id="we-are-homefree"></a>
 <p>I don&rsquo;t know about you, but I think that&rsquo;s pretty cool &ndash; you can build a series of collaborating subprograms named after the nonterminals in a grammar that call each other and, bang!, through the power of recursion, a parse tree is built! I think we&rsquo;re done here.</p>
 <p>Or are we?</p>
@@ -1170,19 +1170,19 @@
 <p>There is an algorithm for converting productions that are direct-left recursive into productions that generate the same languages and are not direct-left recursive. In other words, there is hope for recursive-descent parsers yet! The procedure is slightly wordy, but after you see an example it will make perfect sense. Here&rsquo;s the overall process:</p>
 <p>For the rule that is direct-left recursive, A, rewrite all productions of A as \(A \rightarrow A\alpha_1 | A\alpha_2 | \ldots | A\alpha_n | \beta_1 | \ldots | \beta_n \) where all (non)terminals β_1 \ldots β_n are not direct-left recursive.
 Rewrite the production as</p>
-<p>\(A \rightarrow \beta_{1}A' | \beta_{2}A' | \ldots | \beta_{n}A' \\ A' \rightarrow \alpha_{1}A' | \alpha_{2}A' | \ldots | \alpha_{n}A' | \varepsilon\)</p>
+<p>\(A \rightarrow \beta_{1}A&rsquo; | \beta_{2}A&rsquo; | \ldots | \beta_{n}A&rsquo; \\ A&rsquo; \rightarrow \alpha_{1}A&rsquo; | \alpha_{2}A&rsquo; | \ldots | \alpha_{n}A&rsquo; | \varepsilon\)</p>
 <p>where \(\varepsilon\) is the erasure rule and matches an empty token.</p>
 <p>I know, that&rsquo;s hard to parse (pun intended). An example will definitely make things easier to grok:</p>
 <p>In</p>
 <p>\(Expr \rightarrow Expr + Term | Term\)</p>
 <p>A is Expr, \(\alpha_1is + Term, \beta_1 is Term\). Therefore,</p>
-<p>A \(\rightarrow \beta_{1}A' \\ A' \rightarrow \alpha_{1}A' | \varepsilon \)</p>
+<p>A \(\rightarrow \beta_{1}A&rsquo; \\ A&rsquo; \rightarrow \alpha_{1}A&rsquo; | \varepsilon \)</p>
 <p>becomes</p>
-<p>\(Expr \rightarrow Term Expr' \\ Expr' \rightarrow +TermExpr' | \varepsilon\)</p>
+<p>\(Expr \rightarrow Term Expr&rsquo; \\ Expr&rsquo; \rightarrow +TermExpr&rsquo; | \varepsilon\)</p>
 <p>No sweat! It&rsquo;s just moving pieces around on a chessboard!</p>
 <h2 ref="the-final-countdown" >The Final Countdown</h2><a class="anchor" id="the-final-countdown"></a>
 <p>We can make those same manipulations for each of the productions in the grammar in our working example and we arrive here:</p>
-<p>\(\mathit{Expr} \rightarrow \mathit{Term}\mathit{Expr'} \\ \mathit{Expr'} \rightarrow + \mathit{Term}\mathit{Expr'} | \epsilon \\ \mathit{Term} \rightarrow \mathit{Factor}\mathit{Term'} \\ \mathit{Term'} \rightarrow * \mathit{Factor}\mathit{Term'} | \epsilon \\ \mathit{Factor} \rightarrow ( \mathit{Expr} ) | \mathit{id}\)</p>
+<p>\(\mathit{Expr} \rightarrow \mathit{Term}\mathit{Expr&rsquo;} \\ \mathit{Expr&rsquo;} \rightarrow + \mathit{Term}\mathit{Expr&rsquo;} | \epsilon \\ \mathit{Term} \rightarrow \mathit{Factor}\mathit{Term&rsquo;} \\ \mathit{Term&rsquo;} \rightarrow * \mathit{Factor}\mathit{Term&rsquo;} | \epsilon \\ \mathit{Factor} \rightarrow ( \mathit{Expr} ) | \mathit{id}\)</p>
 <p>Now that we have a non direct-left recursive grammar we can easily write a recursive-descent parser for the entire grammar. <a href="https://github.com/hawkinsw/cs3003/tree/main/recursive%5Fdescent">The source code is available online</a>  and I encourage you to download and play with it!</p>
 
 		</div>

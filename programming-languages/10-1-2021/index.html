@@ -8,7 +8,7 @@
 </title>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2022-01-10T15:09:15 UTC">
+<meta name="revised" content="2022-04-21T20:15:09 UTC">
 <meta name="description" content="">
 
 
@@ -1074,65 +1074,65 @@
 <p>We made it into October!! Spooky, spooky!</p>
 <h2 ref="corrections" >Corrections</h2><a class="anchor" id="corrections"></a>
 <p>Like in real newspapers (Links to an external site.), we are going to start including Corrections in each edition! We want to make sure that our reporters adhere to the highest standards:</p>
-<p><strong>The JVM will</strong> insert an implicit call to the to-be-instantiated class' default constructor (i.e., the one with no parameters) if the the to-be-constructed (sub)class does not do so explicitly. We&rsquo;ll make this clear with an example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-java" data-lang="java">
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Parent</span> <span style="color:#f92672">{</span>
-  Parent<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;I am in the Parent constructor.&#34;</span><span style="color:#f92672">);</span>
-  <span style="color:#f92672">}</span>
-
-  Parent<span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> parameter<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;This version of the constructor is not called.&#34;</span><span style="color:#f92672">);</span>
-  <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Child</span> <span style="color:#66d9ef">extends</span> Parent <span style="color:#f92672">{</span>
-  Child<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-    <span style="color:#75715e">/*
-</span><span style="color:#75715e">     * No explicit call to super -- one is automatically
-</span><span style="color:#75715e">     * injected to the parent constructor with no parameters.
-</span><span style="color:#75715e">     */</span>
-    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;I am in the Child constructor.&#34;</span><span style="color:#f92672">);</span>
-  <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DefaultConstructor</span> <span style="color:#f92672">{</span>
-  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String args<span style="color:#f92672">[])</span> <span style="color:#f92672">{</span>
-    Child c <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Child<span style="color:#f92672">();</span>
-  <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><p>When this program is executed, it will print</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-text" data-lang="text">I am in the Parent constructor.
-I am in the Child constructor.
-</code></pre></div><p>The main function is instantiating an object of the type Child. We can visually inspect that there is no explicit call the super() from within the Child class' constructor. Therefore, the JVM will insert an implicit call to super() which actually invokes Parent().</p>
+<p><strong>The JVM will</strong> insert an implicit call to the to-be-instantiated class&rsquo; default constructor (i.e., the one with no parameters) if the the to-be-constructed (sub)class does not do so explicitly. We&rsquo;ll make this clear with an example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Parent</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  Parent<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;I am in the Parent constructor.&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  Parent<span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> parameter<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;This version of the constructor is not called.&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Child</span> <span style="color:#66d9ef">extends</span> Parent <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  Child<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     * No explicit call to super -- one is automatically
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     * injected to the parent constructor with no parameters.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     */</span>
+</span></span><span style="display:flex;"><span>    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;I am in the Child constructor.&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DefaultConstructor</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String args<span style="color:#f92672">[])</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    Child c <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Child<span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>When this program is executed, it will print</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>I am in the Parent constructor.
+</span></span><span style="display:flex;"><span>I am in the Child constructor.
+</span></span></code></pre></div><p>The main function is instantiating an object of the type Child. We can visually inspect that there is no explicit call the super() from within the Child class&rsquo; constructor. Therefore, the JVM will insert an implicit call to super() which actually invokes Parent().</p>
 <p>However, if we make the following change:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Parent</span> <span style="color:#f92672">{</span>
-  Parent<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;I am in the Parent constructor.&#34;</span><span style="color:#f92672">);</span>
-  <span style="color:#f92672">}</span>
-
-  Parent<span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> parameter<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;This version of the constructor is not called.&#34;</span><span style="color:#f92672">);</span>
-  <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Child</span> <span style="color:#66d9ef">extends</span> Parent <span style="color:#f92672">{</span>
-  Child<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-    <span style="color:#75715e">/*
-</span><span style="color:#75715e">     * No explicit call to super -- one is automatically
-</span><span style="color:#75715e">     * injected to the parent constructor with no parameters.
-</span><span style="color:#75715e">     */</span>
-    <span style="color:#66d9ef">super</span><span style="color:#f92672">(</span>1<span style="color:#f92672">);</span>
-    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;I am in the Child constructor.&#34;</span><span style="color:#f92672">);</span>
-  <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DefaultConstructor</span> <span style="color:#f92672">{</span>
-  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String args<span style="color:#f92672">[])</span> <span style="color:#f92672">{</span>
-    Child c <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Child<span style="color:#f92672">();</span>
-  <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><p>Something different happens. We see that there is a call to Child&rsquo;s superclass' constructor (the one that takes a single int-typed parameter). That means that the JVM will not insert an implicit call to super() and we will get the following output:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Parent</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  Parent<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;I am in the Parent constructor.&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  Parent<span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> parameter<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;This version of the constructor is not called.&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Child</span> <span style="color:#66d9ef">extends</span> Parent <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  Child<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     * No explicit call to super -- one is automatically
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     * injected to the parent constructor with no parameters.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">super</span><span style="color:#f92672">(</span>1<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;I am in the Child constructor.&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DefaultConstructor</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String args<span style="color:#f92672">[])</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    Child c <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Child<span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>Something different happens. We see that there is a call to Child&rsquo;s superclass&rsquo; constructor (the one that takes a single int-typed parameter). That means that the JVM will not insert an implicit call to super() and we will get the following output:</p>
 <p>This version of the constructor is not called.
 I am in the Child constructor.</p>
 <p>The C++ standard sanctions a main function without a return statement. The standard says: &ldquo;if control reaches the end of main without encountering a return statement, the effect is that of executing return 0;.&rdquo;</p>
@@ -1166,30 +1166,30 @@ I am in the Child constructor.</p>
 <p>Newer languages (e.g., Go, Rust, (new versions of) Java) are experimenting with new features that support one of the &ldquo;killer apps&rdquo; of OOP: The ability to define a function that takes a parameter of type A but that works just the same as long as it is called with an argument whose type is a subtype of A. The function doesn&rsquo;t have care whether it is called with an argument whose type is A or some subtype of A because the language&rsquo;s OOP semantics guarantee that anything the programmer can do with an object of type A, the programmer can do with and object of subtype of A.</p>
 <p>Unfortunately, using OOP to accomplish such a feat may be like killing a fly with a bazooka (or a laptop, like Alex killed that wasp today).</p>
 <p>Instead, modern languages are using a slimmer mechanism known as an interface or a trait. An interface just defines a list of methods that an implementer of that interface must support. Let&rsquo;s see some real Go code that does this &ndash; it&rsquo;ll clear things up:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-java" data-lang="java">
-type Readable <span style="color:#66d9ef">interface</span> <span style="color:#960050;background-color:#1e0010">{</span>
-  Read<span style="color:#f92672">()</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><p>This snippet defines an interface with one function (Read) that takes no parameters and returns no value. That interface is named Readable. Simple.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-java" data-lang="java">
-type Book struct <span style="color:#f92672">{</span>
-  title string
-<span style="color:#f92672">}</span>
-</code></pre></div><p>This snippet defines a data structure called a Book &ndash; such structs are the closest that Go has to classes.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-java" data-lang="java">
-func <span style="color:#f92672">(</span>book Book<span style="color:#f92672">)</span> Read<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-  fmt<span style="color:#f92672">.</span><span style="color:#a6e22e">Printf</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Reading the book %v\n&#34;</span><span style="color:#f92672">,</span> book<span style="color:#f92672">.</span><span style="color:#a6e22e">title</span><span style="color:#f92672">)</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><p>This snippet simply says that if variable b is of type Book then the programmer can call b.Read(). Now, for the payoff:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-java" data-lang="java">
-func <span style="color:#a6e22e">WhatAreYouReading</span><span style="color:#f92672">(</span>r Readable<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-  r<span style="color:#f92672">.</span><span style="color:#a6e22e">Read</span><span style="color:#f92672">()</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><p>This function only accepts arguments that implement (i.e., meet the criteria specified in the definition of) the Readable interface. In other words, with this definition, the code in the body of the function can safely assume that it can can call Read on r. And, for the encore:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-java" data-lang="java">
-  book <span style="color:#f92672">:=</span> Book<span style="color:#f92672">{</span>title<span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Infinite Jest&#34;</span><span style="color:#f92672">}</span>
-  WhatAreYouReading<span style="color:#f92672">(</span>book<span style="color:#f92672">)</span>
-</code></pre></div><p>This code works exactly like you&rsquo;d expect. book is a valid argument to WhatAreYouReading because it implements the Read method which, implicitly, means that it implements the Readable interface. But, what&rsquo;s really cool is that the programmer never had to say explicitly that Book implements the Readable interface! The compiler checks automatically. This gives the programmer the ability to generate a list of only the methods absolutely necessary for its parameters to implement to achieve the necessary ends &ndash; and nothing unnecessary. Further, it decouples the person implementing a function from the person using the function &ndash; those two parties do not have to coordinate requirements beforehand. Finally, this functionality means that a structure can implement as few or as many interfaces as its designer wants.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>type Readable <span style="color:#66d9ef">interface</span> <span style="color:#960050;background-color:#1e0010">{</span>
+</span></span><span style="display:flex;"><span>  Read<span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>This snippet defines an interface with one function (Read) that takes no parameters and returns no value. That interface is named Readable. Simple.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>type Book struct <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  title string
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>This snippet defines a data structure called a Book &ndash; such structs are the closest that Go has to classes.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>func <span style="color:#f92672">(</span>book Book<span style="color:#f92672">)</span> Read<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  fmt<span style="color:#f92672">.</span><span style="color:#a6e22e">Printf</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Reading the book %v\n&#34;</span><span style="color:#f92672">,</span> book<span style="color:#f92672">.</span><span style="color:#a6e22e">title</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>This snippet simply says that if variable b is of type Book then the programmer can call b.Read(). Now, for the payoff:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>func <span style="color:#a6e22e">WhatAreYouReading</span><span style="color:#f92672">(</span>r Readable<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  r<span style="color:#f92672">.</span><span style="color:#a6e22e">Read</span><span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>This function only accepts arguments that implement (i.e., meet the criteria specified in the definition of) the Readable interface. In other words, with this definition, the code in the body of the function can safely assume that it can can call Read on r. And, for the encore:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  book <span style="color:#f92672">:=</span> Book<span style="color:#f92672">{</span>title<span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Infinite Jest&#34;</span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  WhatAreYouReading<span style="color:#f92672">(</span>book<span style="color:#f92672">)</span>
+</span></span></code></pre></div><p>This code works exactly like you&rsquo;d expect. book is a valid argument to WhatAreYouReading because it implements the Read method which, implicitly, means that it implements the Readable interface. But, what&rsquo;s really cool is that the programmer never had to say explicitly that Book implements the Readable interface! The compiler checks automatically. This gives the programmer the ability to generate a list of only the methods absolutely necessary for its parameters to implement to achieve the necessary ends &ndash; and nothing unnecessary. Further, it decouples the person implementing a function from the person using the function &ndash; those two parties do not have to coordinate requirements beforehand. Finally, this functionality means that a structure can implement as few or as many interfaces as its designer wants.</p>
 <h2 ref="dip-our-toe-into-the-pool-of-pointers" >Dip Our Toe Into the Pool of Pointers</h2><a class="anchor" id="dip-our-toe-into-the-pool-of-pointers"></a>
 <p>We only had a few minutes to start pointers, but we did make some headway. There will be more on this in the next lecture!</p>
 <p>It is important to remember that pointers are like any other type &ndash; they have a range of valid values and a set of valid operations that you can perform on those values. What are the range of valid values for a pointer? All valid memory addresses. And what are the valid operations? Addition, subtraction, dereference and assignment.</p>

@@ -8,7 +8,7 @@
 </title>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2022-01-10T15:09:15 UTC">
+<meta name="revised" content="2022-04-21T20:15:09 UTC">
 <meta name="description" content="">
 
 
@@ -1095,84 +1095,84 @@
 <p>The best way to learn Prolog is to start writing some programs. We&rsquo;ll come back to the theory later!</p>
 <h2 ref="just-the-facts" >Just The Facts</h2><a class="anchor" id="just-the-facts"></a>
 <p>At its most basic, a Prolog program is a set of facts:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">jane</span>, <span style="color:#e6db74">cs4999</span>).
-<span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">alicia</span>, <span style="color:#e6db74">cs2020</span>).
-<span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">alice</span>, <span style="color:#e6db74">cs4000</span>).
-<span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">mary</span>, <span style="color:#e6db74">cs1021</span>).
-<span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">bob</span>, <span style="color:#e6db74">cs1021</span>).
-<span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">kristi</span>, <span style="color:#e6db74">cs4000</span>).
-<span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">sam</span>, <span style="color:#e6db74">cs1021</span>).
-<span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">will</span>, <span style="color:#e6db74">cs2080</span>).
-<span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">alicia</span>, <span style="color:#e6db74">cs3050</span>).
-</code></pre></div><figure><img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/Basic%20Fact%20in%20Prolog-1.png"/>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-prolog" data-lang="prolog"><span style="display:flex;"><span><span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">jane</span>, <span style="color:#e6db74">cs4999</span>).
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">alicia</span>, <span style="color:#e6db74">cs2020</span>).
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">alice</span>, <span style="color:#e6db74">cs4000</span>).
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">mary</span>, <span style="color:#e6db74">cs1021</span>).
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">bob</span>, <span style="color:#e6db74">cs1021</span>).
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">kristi</span>, <span style="color:#e6db74">cs4000</span>).
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">sam</span>, <span style="color:#e6db74">cs1021</span>).
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">will</span>, <span style="color:#e6db74">cs2080</span>).
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">alicia</span>, <span style="color:#e6db74">cs3050</span>).
+</span></span></code></pre></div><figure><img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/Basic%20Fact%20in%20Prolog-1.png"/>
 </figure>
 
 <p>In relation to the first-order predicate logic that Prolog models, takes is a logical predicate. We&rsquo;ll refer to them as facts or predicates, depending on what&rsquo;s convenient. Formally, they predicates and facts are written as <principle functor>/<arity>. Two (or more) facts/predicates with the same functor but different arities are not the same. For instance, takes/1 and takes/2 are completely different.</p>
 <p>Let&rsquo;s read one of these facts in English:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">jane</span>, <span style="color:#e6db74">cs4999</span>).
-</code></pre></div><p>could be read as &ldquo;Jane takes CS4999.&rdquo;. As programmers, we know what that means: the student named Jane is enrolled in the class CS4999. However, Prolog does not share our sense of meaning! Prolog simply thinks that we are defining one element of the takes relationship where jane is somehow related to cs4999. As a Prolog programmer, we could just has easily have written</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#a6e22e">tennis_shoes</span>(<span style="color:#e6db74">jane</span>, <span style="color:#e6db74">cs4999</span>).
-<span style="color:#a6e22e">tennis_shoes</span>(<span style="color:#e6db74">alicia</span>, <span style="color:#e6db74">cs2020</span>).
-<span style="color:#a6e22e">tennis_shoes</span>(<span style="color:#e6db74">alice</span>, <span style="color:#e6db74">cs4000</span>).
-<span style="color:#a6e22e">tennis_shoes</span>(<span style="color:#e6db74">mary</span>, <span style="color:#e6db74">cs1021</span>).
-<span style="color:#a6e22e">tennis_shoes</span>(<span style="color:#e6db74">bob</span>, <span style="color:#e6db74">cs1021</span>).
-<span style="color:#a6e22e">tennis_shoes</span>(<span style="color:#e6db74">kristi</span>, <span style="color:#e6db74">cs4000</span>).
-<span style="color:#a6e22e">tennis_shoes</span>(<span style="color:#e6db74">sam</span>, <span style="color:#e6db74">cs1021</span>).
-<span style="color:#a6e22e">tennis_shoes</span>(<span style="color:#e6db74">will</span>, <span style="color:#e6db74">cs2080</span>).
-<span style="color:#a6e22e">tennis_shoes</span>(<span style="color:#e6db74">alicia</span>, <span style="color:#e6db74">cs3050</span>).
-</code></pre></div><p>and gotten the same result! But, we programmers want to define something that is meaningful, so we choose to use atoms that reflect their semantic meaning. With nothing more than the facts that we have defined above, we can write queries. In order to interact with queries in real time, we can use the Prolog REPL. Once we have started the Prolog REPL, we will see a prompt like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#e6db74">?-</span>
-</code></pre></div><p>The world awaits &hellip;</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-prolog" data-lang="prolog"><span style="display:flex;"><span><span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">jane</span>, <span style="color:#e6db74">cs4999</span>).
+</span></span></code></pre></div><p>could be read as &ldquo;Jane takes CS4999.&rdquo;. As programmers, we know what that means: the student named Jane is enrolled in the class CS4999. However, Prolog does not share our sense of meaning! Prolog simply thinks that we are defining one element of the takes relationship where jane is somehow related to cs4999. As a Prolog programmer, we could just has easily have written</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-prolog" data-lang="prolog"><span style="display:flex;"><span><span style="color:#a6e22e">tennis_shoes</span>(<span style="color:#e6db74">jane</span>, <span style="color:#e6db74">cs4999</span>).
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">tennis_shoes</span>(<span style="color:#e6db74">alicia</span>, <span style="color:#e6db74">cs2020</span>).
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">tennis_shoes</span>(<span style="color:#e6db74">alice</span>, <span style="color:#e6db74">cs4000</span>).
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">tennis_shoes</span>(<span style="color:#e6db74">mary</span>, <span style="color:#e6db74">cs1021</span>).
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">tennis_shoes</span>(<span style="color:#e6db74">bob</span>, <span style="color:#e6db74">cs1021</span>).
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">tennis_shoes</span>(<span style="color:#e6db74">kristi</span>, <span style="color:#e6db74">cs4000</span>).
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">tennis_shoes</span>(<span style="color:#e6db74">sam</span>, <span style="color:#e6db74">cs1021</span>).
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">tennis_shoes</span>(<span style="color:#e6db74">will</span>, <span style="color:#e6db74">cs2080</span>).
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">tennis_shoes</span>(<span style="color:#e6db74">alicia</span>, <span style="color:#e6db74">cs3050</span>).
+</span></span></code></pre></div><p>and gotten the same result! But, we programmers want to define something that is meaningful, so we choose to use atoms that reflect their semantic meaning. With nothing more than the facts that we have defined above, we can write queries. In order to interact with queries in real time, we can use the Prolog REPL. Once we have started the Prolog REPL, we will see a prompt like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-prolog" data-lang="prolog"><span style="display:flex;"><span><span style="color:#e6db74">?-</span>
+</span></span></code></pre></div><p>The world awaits &hellip;</p>
 <p>To load a Prolog file in to the REPL, we will use the consult predicate:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#e6db74">?-</span> <span style="color:#a6e22e">consult</span>(<span style="color:#e6db74">&#39;intro.pl&#39;</span>).
-<span style="color:#e6db74">true</span>.
-</code></pre></div><p>The Prolog facts, rules and queries in the intro.pl file are now available to us. Assume that intro.pl contains the takes facts from above. Let&rsquo;s make some queries:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#e6db74">?-</span> <span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">bob</span>, <span style="color:#e6db74">cs1021</span>).
-<span style="color:#e6db74">true</span>.
-
-<span style="color:#e6db74">?-</span> <span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">will</span>, <span style="color:#e6db74">cs2080</span>).
-<span style="color:#e6db74">true</span>.
-
-<span style="color:#e6db74">?-</span> <span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">ali</span>, <span style="color:#e6db74">cs4999</span>).
-<span style="color:#e6db74">false</span>.
-</code></pre></div><p>These are simple yes/no queries and Prolog obliges us with terse answers. But, even with the simple facts shown above, Prolog can be used to make some powerful inferences. Prolog can tell us the names of all the people it knows who are taking a particular class:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#e6db74">?-</span> <span style="color:#a6e22e">takes</span>(Students, <span style="color:#e6db74">cs1021</span>).
-Students <span style="color:#f92672">=</span> <span style="color:#e6db74">mary</span> ;
-Students <span style="color:#f92672">=</span> <span style="color:#e6db74">bob</span> ;
-Students <span style="color:#f92672">=</span> <span style="color:#e6db74">sam</span>.
-</code></pre></div><p>Wow! Here Prolog is telling us that there are three different values of the Students variable that will make the query true: mary, bob and sam. In the lingo, Prolog is unifying Students with the values that will make our query true. Let&rsquo;s go the other way around:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#e6db74">?-</span> <span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">alicia</span>, Classes).
-Classes <span style="color:#f92672">=</span> <span style="color:#e6db74">cs2020</span> ;
-Classes <span style="color:#f92672">=</span> <span style="color:#e6db74">cs3050</span>.
-</code></pre></div><p>Here Prolog is telling us that there are two different classes that Alicia is taking. Nice.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-prolog" data-lang="prolog"><span style="display:flex;"><span><span style="color:#e6db74">?-</span> <span style="color:#a6e22e">consult</span>(<span style="color:#e6db74">&#39;intro.pl&#39;</span>).
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">true</span>.
+</span></span></code></pre></div><p>The Prolog facts, rules and queries in the intro.pl file are now available to us. Assume that intro.pl contains the takes facts from above. Let&rsquo;s make some queries:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-prolog" data-lang="prolog"><span style="display:flex;"><span><span style="color:#e6db74">?-</span> <span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">bob</span>, <span style="color:#e6db74">cs1021</span>).
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">true</span>.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">?-</span> <span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">will</span>, <span style="color:#e6db74">cs2080</span>).
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">true</span>.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">?-</span> <span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">ali</span>, <span style="color:#e6db74">cs4999</span>).
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">false</span>.
+</span></span></code></pre></div><p>These are simple yes/no queries and Prolog obliges us with terse answers. But, even with the simple facts shown above, Prolog can be used to make some powerful inferences. Prolog can tell us the names of all the people it knows who are taking a particular class:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-prolog" data-lang="prolog"><span style="display:flex;"><span><span style="color:#e6db74">?-</span> <span style="color:#a6e22e">takes</span>(Students, <span style="color:#e6db74">cs1021</span>).
+</span></span><span style="display:flex;"><span>Students <span style="color:#f92672">=</span> <span style="color:#e6db74">mary</span> ;
+</span></span><span style="display:flex;"><span>Students <span style="color:#f92672">=</span> <span style="color:#e6db74">bob</span> ;
+</span></span><span style="display:flex;"><span>Students <span style="color:#f92672">=</span> <span style="color:#e6db74">sam</span>.
+</span></span></code></pre></div><p>Wow! Here Prolog is telling us that there are three different values of the Students variable that will make the query true: mary, bob and sam. In the lingo, Prolog is unifying Students with the values that will make our query true. Let&rsquo;s go the other way around:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-prolog" data-lang="prolog"><span style="display:flex;"><span><span style="color:#e6db74">?-</span> <span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">alicia</span>, Classes).
+</span></span><span style="display:flex;"><span>Classes <span style="color:#f92672">=</span> <span style="color:#e6db74">cs2020</span> ;
+</span></span><span style="display:flex;"><span>Classes <span style="color:#f92672">=</span> <span style="color:#e6db74">cs3050</span>.
+</span></span></code></pre></div><p>Here Prolog is telling us that there are two different classes that Alicia is taking. Nice.</p>
 <p>That&rsquo;s great, but pretty limited: it&rsquo;s kind of terrible if we had to write out each fact explicitly! The good news is that we don&rsquo;t have to do that! We can use a Prolog rule to define facts based on the existence of other facts. Let&rsquo;s define a rule which will tell us the students who are CS majors. To be a CS major, you must be taking (exactly) two classes:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#a6e22e">cs_major</span>(X) :- <span style="color:#a6e22e">takes</span>(X, Y), <span style="color:#a6e22e">takes</span>(X, Z), Y <span style="color:#e6db74">@&lt;</span> Z.
-</code></pre></div><p>That&rsquo;s lots to take in at first glance. Start by looking at the general format of a rule:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-prolog" data-lang="prolog"><span style="display:flex;"><span><span style="color:#a6e22e">cs_major</span>(X) :- <span style="color:#a6e22e">takes</span>(X, Y), <span style="color:#a6e22e">takes</span>(X, Z), Y <span style="color:#e6db74">@&lt;</span> Z.
+</span></span></code></pre></div><p>That&rsquo;s lots to take in at first glance. Start by looking at the general format of a rule:</p>
 <figure><img src="https://illustratedman-code.github.io/GuideToCS/ox-hugo/Basic%20Rule%20in%20Prolog-1.png"/>
 </figure>
 
 <p>Okay, so now back to our particular rule that defines what it means to be a CS Major. (For the purposes of this discussion, assume that the @&lt; operator is &ldquo;not equal&rdquo;). Building on what we know (e.g., , is and, :- is implication, etc), we can read the rule like: &ldquo;X is a CS Major if X takes class Y and X takes class Z and class Y and Z are not the same class.&rdquo; Pretty succinct definition.</p>
 <p>To make the next few examples a little more meaningful, let&rsquo;s update our list of facts before moving on:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">jane</span>, <span style="color:#e6db74">cs4999</span>).
-<span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">alicia</span>, <span style="color:#e6db74">cs2020</span>).
-<span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">alice</span>, <span style="color:#e6db74">cs4000</span>).
-<span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">mary</span>, <span style="color:#e6db74">cs1021</span>).
-<span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">bob</span>, <span style="color:#e6db74">cs1021</span>).
-<span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">bob</span>, <span style="color:#e6db74">cs8000</span>).
-<span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">kristi</span>, <span style="color:#e6db74">cs4000</span>).
-<span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">sam</span>, <span style="color:#e6db74">cs1021</span>).
-<span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">will</span>, <span style="color:#e6db74">cs2080</span>).
-<span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">alicia</span>, <span style="color:#e6db74">cs3050</span>).
-</code></pre></div><p>With that, let&rsquo;s find out if our rule works as intended!</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#e6db74">?-</span> <span style="color:#a6e22e">cs_major</span>(<span style="color:#e6db74">alicia</span>).
-<span style="color:#e6db74">true</span> ;
-<span style="color:#e6db74">false</span>.
-</code></pre></div><p>Wow! Pretty cool! Prolog used the rule that we wrote, combined it with the facts that it knows, and inferred that Alicia is a CS major! (For now, disregard the second False &ndash; we&rsquo;ll come back to that!). Like we could use Prolog to generate the list of classes that a particular student is taking, can we ask Prolog to generate a list of all the CS majors that it knows?</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-prolog" data-lang="prolog"><span style="color:#e6db74">?-</span> <span style="color:#a6e22e">cs_major</span>(X).
-X <span style="color:#f92672">=</span> <span style="color:#e6db74">alicia</span> ;
-X <span style="color:#f92672">=</span> <span style="color:#e6db74">bob</span> ;
-<span style="color:#e6db74">false</span>.
-</code></pre></div><p>Boom!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-prolog" data-lang="prolog"><span style="display:flex;"><span><span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">jane</span>, <span style="color:#e6db74">cs4999</span>).
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">alicia</span>, <span style="color:#e6db74">cs2020</span>).
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">alice</span>, <span style="color:#e6db74">cs4000</span>).
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">mary</span>, <span style="color:#e6db74">cs1021</span>).
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">bob</span>, <span style="color:#e6db74">cs1021</span>).
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">bob</span>, <span style="color:#e6db74">cs8000</span>).
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">kristi</span>, <span style="color:#e6db74">cs4000</span>).
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">sam</span>, <span style="color:#e6db74">cs1021</span>).
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">will</span>, <span style="color:#e6db74">cs2080</span>).
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">takes</span>(<span style="color:#e6db74">alicia</span>, <span style="color:#e6db74">cs3050</span>).
+</span></span></code></pre></div><p>With that, let&rsquo;s find out if our rule works as intended!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-prolog" data-lang="prolog"><span style="display:flex;"><span><span style="color:#e6db74">?-</span> <span style="color:#a6e22e">cs_major</span>(<span style="color:#e6db74">alicia</span>).
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">true</span> ;
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">false</span>.
+</span></span></code></pre></div><p>Wow! Pretty cool! Prolog used the rule that we wrote, combined it with the facts that it knows, and inferred that Alicia is a CS major! (For now, disregard the second False &ndash; we&rsquo;ll come back to that!). Like we could use Prolog to generate the list of classes that a particular student is taking, can we ask Prolog to generate a list of all the CS majors that it knows?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-prolog" data-lang="prolog"><span style="display:flex;"><span><span style="color:#e6db74">?-</span> <span style="color:#a6e22e">cs_major</span>(X).
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> <span style="color:#e6db74">alicia</span> ;
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> <span style="color:#e6db74">bob</span> ;
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">false</span>.
+</span></span></code></pre></div><p>Boom!</p>
 
 		</div>
 

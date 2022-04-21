@@ -8,7 +8,7 @@
 </title>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2022-01-10T15:09:15 UTC">
+<meta name="revised" content="2022-04-21T20:15:09 UTC">
 <meta name="description" content="">
 
 
@@ -1055,8 +1055,8 @@
 		<nav id="TableOfContents">
   <ul>
     <li><a href="#binding-example">Binding Example</a></li>
-    <li><a href="#variables-storage-bindings">Variables' Storage Bindings</a></li>
-    <li><a href="#variables-name-bindings">Variables' Name Bindings</a>
+    <li><a href="#variables-storage-bindings">Variables&rsquo; Storage Bindings</a></li>
+    <li><a href="#variables-name-bindings">Variables&rsquo; Name Bindings</a>
       <ul>
         <li><a href="#static-scoping">Static Scoping</a></li>
         <li><a href="#dynamic-scoping">Dynamic Scoping</a></li>
@@ -1077,15 +1077,15 @@
 	    <p>Welcome to the Daily PL for September 1st, 2021! As we turn the page from August to September, we started the month discussing variable lifetime and scope. Lifetime is related to the storage binding and scope is related to the name binding. Before we learned that new material, however, we went over an example of the different bindings and their times in an assignment statement.</p>
 <h2 ref="binding-example" >Binding Example</h2><a class="anchor" id="binding-example"></a>
 <p>Consider a Python statement like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-python" data-lang="python">vrb <span style="color:#f92672">=</span> arb <span style="color:#f92672">+</span> <span style="color:#ae81ff">5</span>
-</code></pre></div><p>Recall that a binding is an association between an attribute and an entity. What are some of the possible bindings (and their times) in the statement above?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>vrb <span style="color:#f92672">=</span> arb <span style="color:#f92672">+</span> <span style="color:#ae81ff">5</span>
+</span></span></code></pre></div><p>Recall that a binding is an association between an attribute and an entity. What are some of the possible bindings (and their times) in the statement above?</p>
 <ol>
 <li>The symbol + (entity) must be bound to an operation (attribute). In a language like Python, that binding can only be done at runtime. In order to determine whether the operation is a mathematical addition, a string concatenation or some other behavior, the interpreter needs to know the type of arb which is only possible at runtime.</li>
 <li>The numerical literal 5 (entity) must be bound to some in-memory representation (attribute). For Python, it appears that the interpreter chooses the format for representing numbers in memory (<a href="https://docs.python.org/3/library/sys.html#sys.int%5Finfo">https://docs.python.org/3/library/sys.html#sys.int%5Finfo</a> (Links to an external site.), <a href="https://docs.python.org/3/library/sys.html#sys.float%5Finfo">https://docs.python.org/3/library/sys.html#sys.float%5Finfo</a> (Links to an external site.)) which means that this binding is done at the time of language implementation.</li>
 <li>The value (attribute) of the variables <code>vrb</code> and <code>arb</code> (entities) are bound at runtime. Remember that the value of a variable is just another binding.</li>
 </ol>
 <p>This is not an exhaustive list of the bindings that are active for this statement. In particular, the variables <code>vrb</code> and <code>arb</code> must be bound to some address, lifetime and scope. Discussing those bindings requires more information about the statement&rsquo;s place in the source code.</p>
-<h2 ref="variables-storage-bindings" >Variables' Storage Bindings</h2><a class="anchor" id="variables-storage-bindings"></a>
+<h2 ref="variables-storage-bindings" >Variables&rsquo; Storage Bindings</h2><a class="anchor" id="variables-storage-bindings"></a>
 <p>The storage binding is related to the variable&rsquo;s lifetime (the time during which a variable is bound to memory). There are four common lifetimes:</p>
 <ol>
 <li>
@@ -1125,7 +1125,7 @@
 </ol>
 </li>
 </ol>
-<h2 ref="variables-name-bindings" >Variables' Name Bindings</h2><a class="anchor" id="variables-name-bindings"></a>
+<h2 ref="variables-name-bindings" >Variables&rsquo; Name Bindings</h2><a class="anchor" id="variables-name-bindings"></a>
 <p>See the Pl for the <a href="https://uc.instructure.com/courses/1476336/pages/the-daily-pl-9-slash-1-slash-2021?module%5Fitem%5Fid=65306283">Video</a>.</p>
 <p>This new material is presented above as Episode 1 of PL After Dark. Below you will find a written recap!</p>
 <p>Scope is the range of statements in which a variable is visible (either referencable or assignable). Using the vocabulary of bindings, scope can also be defined as the collection of statements which can access a name binding. In other words, scope determines the binding of a name to a variable.</p>
@@ -1134,10 +1134,10 @@
 <li>local: A variable is locally scoped to a unit or block of a program if it is declared there. In Python, a variable that is the subject of an assignment is local to the immediate enclosing function definition. For instance, in</li>
 </ul>
 <!--listend-->
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">add</span>(a, b):
-    total <span style="color:#f92672">=</span> a <span style="color:#f92672">+</span> b
-    <span style="color:#66d9ef">return</span> total
-</code></pre></div><p><code>total</code> is a local variable.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">add</span>(a, b):
+</span></span><span style="display:flex;"><span>    total <span style="color:#f92672">=</span> a <span style="color:#f92672">+</span> b
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> total
+</span></span></code></pre></div><p><code>total</code> is a local variable.</p>
 <ul>
 <li>global: A variable is globally scoped when it is not in any local scope (terribly unhelpful, isn&rsquo;t it?) Using global variables breaks the principles of encapsulation and data hiding.</li>
 </ul>
@@ -1190,8 +1190,8 @@
     <nav id="TableOfContents">
   <ul>
     <li><a href="#binding-example">Binding Example</a></li>
-    <li><a href="#variables-storage-bindings">Variables' Storage Bindings</a></li>
-    <li><a href="#variables-name-bindings">Variables' Name Bindings</a>
+    <li><a href="#variables-storage-bindings">Variables&rsquo; Storage Bindings</a></li>
+    <li><a href="#variables-name-bindings">Variables&rsquo; Name Bindings</a>
       <ul>
         <li><a href="#static-scoping">Static Scoping</a></li>
         <li><a href="#dynamic-scoping">Dynamic Scoping</a></li>
